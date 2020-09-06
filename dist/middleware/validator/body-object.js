@@ -16,12 +16,12 @@
     const not_empty_2 = require("@dikac/t-object/validatable/string/not-empty");
     const invalid_1 = require("@dikac/t-array/message/message/list/invalid");
     const and_1 = require("@dikac/t-array/validatable/and");
-    function BodyObject() {
+    function BodyObject(messages = invalid_1.default, type = object_2.default, empty = not_empty_2.default) {
         let validators = [
-            new object_1.default(object_2.default),
-            new not_empty_1.default(not_empty_2.default),
+            new object_1.default(type),
+            new not_empty_1.default(empty),
         ];
-        let validator = value_all_1.default(validators, and_1.default, invalid_1.default);
+        let validator = value_all_1.default(validators, and_1.default, messages);
         return validator;
     }
     exports.default = BodyObject;
