@@ -1,4 +1,4 @@
-import Context from "./context/context";
+import Context from "../../middleware/context/context";
 import {Next} from "koa";
 import Code from "@dikac/t-code/boolean/code";
 import Number from "@dikac/t-number/boolean/number";

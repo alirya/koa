@@ -11,8 +11,6 @@
     Object.defineProperty(exports, "__esModule", { value: true });
     function Error(context, next) {
         if (context.response.body instanceof globalThis.Error) {
-            console.log('Error');
-            console.log(context.response.body);
             context.response.status = 500;
             context.response.body = context.response.body.message;
         }
