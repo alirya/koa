@@ -3,13 +3,14 @@ import GenericBodyFilter from "../../middleware/property-filter";
 import {Response} from "koa";
 
 export default function PropertyFilter<
+    RequestType extends Response,
     Body = unknown,
-    Property extends keyof Response = keyof Response,
-    Return extends Response[Property] = Response[Property],
+    Property extends keyof RequestType = keyof RequestType,
+    Return extends RequestType[Property] = RequestType[Property],
 >(
-    filter : (body : Response[Property]) => Return,
+    filter : (body : RequestType[Property]) => Return,
     property : Property
 ) : Middleware {
 
-    return GenericBodyFilter('response', filter, property);
+    return GenericBodyFilter('response', filter, <keyof Response>property);
 }

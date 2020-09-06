@@ -2,14 +2,15 @@ import {Middleware} from "@koa/router";
 import GenericBodyFilter from "../../middleware/property-filter";
 import {Request} from "koa";
 
-export default function BodyFilter<
+export default function PropertyFilter<
+    RequestType extends Request,
     Body = unknown,
-    Property extends keyof Request = keyof Request,
-    Return extends Request[Property] = Request[Property],
+    Property extends keyof RequestType = keyof RequestType,
+    Return extends RequestType[Property] = RequestType[Property],
 >(
-    filter : (body : Request[Property]) => Return,
+    filter : (body : RequestType[Property]) => Return,
     property : Property
 ) : Middleware {
 
-    return GenericBodyFilter('request', filter, property);
+    return GenericBodyFilter('request', filter, <keyof Request>property);
 }
