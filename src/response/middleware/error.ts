@@ -1,5 +1,6 @@
 import Context from "../../middleware/context/context";
 import {Next} from "koa";
+import {Middleware} from "@koa/router";
 
 /**
  * if body in instanceof {@see Error}, set status code to 500, and
@@ -7,20 +8,26 @@ import {Next} from "koa";
  *
  * @WARNING this will leak error message to public
  *
- * @param context
- * @param next
+ * @param message {@default false}
+ * set {@see Error.message} to response body or not
+ * @WARNING enable this might leak sensitive error info to public
  */
-export default function Error(context : Context, next : Next) {
+export default function Error(message : boolean = false) : Middleware {
 
-    if(context.response.body instanceof globalThis.Error) {
+    return function (context : Context, next : Next) {
 
-        context.response.status = 500;
-        context.response.body = context.response.body.message;
+        if(context.response.body instanceof globalThis.Error) {
 
-    } else {
+            context.response.status = 500;
 
-        return next();
+            if(message) {
+
+                context.response.body = context.response.body.message;
+            }
+
+        } else {
+
+            return next();
+        }
     }
-
-
 }

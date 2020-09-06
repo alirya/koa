@@ -18,22 +18,27 @@
      *
      * optionally if body also is {@see Value}, value will be used as response body
      *
-     * @param context
-     * @param next
+     * @param message {@default false}
+     * set {@see Error.message} to status message or not
+     * @WARNING enable this might leak sensitive error info to public
      */
-    function ErrorCode(context, next) {
-        const body = context.response.body;
-        if (!(body instanceof globalThis.Error)) {
-            return next();
-        }
-        if (!code_1.default(body) || !number_1.default(body.code)) {
-            return next();
-        }
-        context.response.status = body.code;
-        context.response.message = body.message;
-        if (value_1.default(body)) {
-            context.response.body = body.value;
-        }
+    function ErrorCode(message = false) {
+        return function (context, next) {
+            const body = context.response.body;
+            if (!(body instanceof globalThis.Error)) {
+                return next();
+            }
+            if (!code_1.default(body) || !number_1.default(body.code)) {
+                return next();
+            }
+            context.response.status = body.code;
+            if (message) {
+                context.response.message = body.message;
+            }
+            if (value_1.default(body)) {
+                context.response.body = body.value;
+            }
+        };
     }
     exports.default = ErrorCode;
 });

@@ -15,17 +15,22 @@
      *
      * @WARNING this will leak error message to public
      *
-     * @param context
-     * @param next
+     * @param message {@default false}
+     * set {@see Error.message} to response body or not
+     * @WARNING enable this might leak sensitive error info to public
      */
-    function Error(context, next) {
-        if (context.response.body instanceof globalThis.Error) {
-            context.response.status = 500;
-            context.response.body = context.response.body.message;
-        }
-        else {
-            return next();
-        }
+    function Error(message = false) {
+        return function (context, next) {
+            if (context.response.body instanceof globalThis.Error) {
+                context.response.status = 500;
+                if (message) {
+                    context.response.body = context.response.body.message;
+                }
+            }
+            else {
+                return next();
+            }
+        };
     }
     exports.default = Error;
 });

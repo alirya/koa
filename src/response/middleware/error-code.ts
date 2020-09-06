@@ -3,6 +3,7 @@ import {Next} from "koa";
 import IsCode from "@dikac/t-code/boolean/code";
 import Number from "@dikac/t-number/boolean/number";
 import IsValue from "@dikac/t-value/boolean/value";
+import {Middleware} from "@koa/router";
 
 /**
  * if body in instanceof {@see Error}, and {@see Code<number>} use code value for status code
@@ -10,28 +11,36 @@ import IsValue from "@dikac/t-value/boolean/value";
  *
  * optionally if body also is {@see Value}, value will be used as response body
  *
- * @param context
- * @param next
+ * @param message {@default false}
+ * set {@see Error.message} to status message or not
+ * @WARNING enable this might leak sensitive error info to public
  */
-export default function ErrorCode(context : Context, next : Next) {
+export default function ErrorCode(message : boolean = false) : Middleware {
 
-    const body = context.response.body;
+    return function (context : Context, next : Next) {
 
-    if(!(body instanceof globalThis.Error)) {
+        const body = context.response.body;
 
-        return next();
-    }
+        if(!(body instanceof globalThis.Error)) {
 
-    if(!IsCode(body) || !Number(body.code)) {
+            return next();
+        }
 
-        return next();
-    }
+        if(!IsCode(body) || !Number(body.code)) {
 
-    context.response.status = body.code;
-    context.response.message = body.message;
+            return next();
+        }
 
-    if(IsValue(body)) {
+        context.response.status = body.code;
 
-        context.response.body = body.value;
+        if(message) {
+
+            context.response.message = body.message;
+        }
+
+        if(IsValue(body)) {
+
+            context.response.body = body.value;
+        }
     }
 }

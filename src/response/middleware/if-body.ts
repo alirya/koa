@@ -1,5 +1,5 @@
 import {Middleware} from "@koa/router";
-import {Next, Request, Response} from "koa";
+import {Next, Response} from "koa";
 import Body from "@dikac/t-http/body/body";
 import {Object} from "ts-toolbelt";
 import Context from "../../middleware/context/context";
