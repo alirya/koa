@@ -9,7 +9,7 @@
 })(function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    function StatusCode(middleware, status) {
+    function IfStatusCode(middleware, status) {
         return function (context, next) {
             if (status(context.response.status)) {
                 return middleware(context, next);
@@ -19,6 +19,6 @@
             }
         };
     }
-    exports.default = StatusCode;
+    exports.default = IfStatusCode;
 });
-//# sourceMappingURL=status-code.js.map
+//# sourceMappingURL=if-status-code.js.map

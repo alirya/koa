@@ -1,1 +1,1 @@
-{"version":3,"file":"client-error.js","sourceRoot":"","sources":["../../../src/response/middleware/client-error.ts"],"names":[],"mappings":";;;;;;;;;;;IAEA,yFAAqF;IAErF,+CAAuC;IAEvC,SAAwB,WAAW,CAC/B,UAAkD;QAGlD,OAAO,qBAAU,CAAC,UAAU,EAAE,sBAAe,CAAC,CAAC;IACnD,CAAC;IALD,8BAKC"}
+{"version":3,"file":"client-error.js","sourceRoot":"","sources":["../../../src/response/middleware/client-error.ts"],"names":[],"mappings":";;;;;;;;;;;IAEA,yFAAqF;IAErF,qDAA4C;IAE5C,SAAwB,WAAW,CAC/B,UAAkD;QAGlD,OAAO,wBAAY,CAAC,UAAU,EAAE,sBAAe,CAAC,CAAC;IACrD,CAAC;IALD,8BAKC"}

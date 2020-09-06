@@ -11,9 +11,17 @@
     Object.defineProperty(exports, "__esModule", { value: true });
     const internal_server_error_1 = require("@dikac/t-http/response/internal-server-error");
     const from_response_1 = require("../from-response");
-    function Response(subject) {
+    /**
+     * use resolved {@param response} value for response data
+     *
+     * on error set status code to 500, and set value from {@see Promise.catch} to response body, and should be
+     * handled by next middleware
+     *
+     * @param response
+     */
+    function Response(response) {
         return function (context, next) {
-            return subject(context).then(function (subject) {
+            return response(context).then(function (subject) {
                 from_response_1.default(context, subject);
                 return next();
             }).catch(function (error) {

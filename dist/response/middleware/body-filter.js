@@ -10,6 +10,11 @@
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     const property_filter_1 = require("./property-filter");
+    /**
+     * filter response body data
+     *
+     * @param filter
+     */
     function BodyFilter(filter) {
         return property_filter_1.default(filter, 'body');
     }

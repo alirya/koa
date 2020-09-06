@@ -12,6 +12,15 @@
     const code_1 = require("@dikac/t-code/boolean/code");
     const number_1 = require("@dikac/t-number/boolean/number");
     const value_1 = require("@dikac/t-value/boolean/value");
+    /**
+     * if body in instanceof {@see Error}, and {@see Code<number>} use code value for status code
+     * and status message from {@see Error.message}
+     *
+     * optionally if body also is {@see Value}, value will be used as response body
+     *
+     * @param context
+     * @param next
+     */
     function ErrorCode(context, next) {
         const body = context.response.body;
         if (!(body instanceof globalThis.Error)) {

@@ -10,6 +10,12 @@
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     const property_filter_1 = require("../../middleware/property-filter");
+    /**
+     * filter response property
+     *
+     * @param filter
+     * @param property
+     */
     function PropertyFilter(filter, property) {
         return property_filter_1.default('response', filter, property);
     }

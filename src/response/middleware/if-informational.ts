@@ -2,11 +2,16 @@ import Context from "../../middleware/context/context";
 import {Next} from "koa";
 import InformationalType from "@dikac/t-http/response/code/class/boolean/informational";
 import {Middleware} from "@koa/router";
-import StatusCode from "./status-code";
+import IfStatusCode from "./if-status-code";
 
-export default function Informational(
+/**
+ * use {@param middleware} if response status code is 1xx
+ *
+ * @param middleware
+ */
+export default function IfInformational(
     middleware : (body : Context, next : Next) => void,
 ) : Middleware {
 
-    return StatusCode(middleware, InformationalType);
+    return IfStatusCode(middleware, InformationalType);
 }

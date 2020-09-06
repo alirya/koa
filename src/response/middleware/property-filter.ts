@@ -2,6 +2,12 @@ import {Middleware} from "@koa/router";
 import GenericBodyFilter from "../../middleware/property-filter";
 import {Response} from "koa";
 
+/**
+ * filter response property
+ *
+ * @param filter
+ * @param property
+ */
 export default function PropertyFilter<
     RequestType extends Response,
     Body = unknown,

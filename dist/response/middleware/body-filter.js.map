@@ -1,1 +1,1 @@
-{"version":3,"file":"body-filter.js","sourceRoot":"","sources":["../../../src/response/middleware/body-filter.ts"],"names":[],"mappings":";;;;;;;;;;;IAIA,uDAA+C;IAE/C,SAAwB,UAAU,CAK9B,MAAsD;QAGtD,OAAO,yBAAc,CAA0B,MAAM,EAAE,MAAM,CAAC,CAAC;IACnE,CAAC;IATD,6BASC"}
+{"version":3,"file":"body-filter.js","sourceRoot":"","sources":["../../../src/response/middleware/body-filter.ts"],"names":[],"mappings":";;;;;;;;;;;IAIA,uDAA+C;IAE/C;;;;OAIG;IACH,SAAwB,UAAU,CAK9B,MAAsD;QAGtD,OAAO,yBAAc,CAA0B,MAAM,EAAE,MAAM,CAAC,CAAC;IACnE,CAAC;IATD,6BASC"}

@@ -9,7 +9,13 @@
 })(function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    function BodyIf(validation, middleware) {
+    /**
+     * use {@param middleware} if response body is valid against {@param validation}
+     *
+     * @param validation
+     * @param middleware
+     */
+    function IfBody(validation, middleware) {
         return function (context, next) {
             if (validation(context.response.body)) {
                 return middleware(context, next);
@@ -19,6 +25,6 @@
             }
         };
     }
-    exports.default = BodyIf;
+    exports.default = IfBody;
 });
-//# sourceMappingURL=body-If.js.map
+//# sourceMappingURL=If-body.js.map

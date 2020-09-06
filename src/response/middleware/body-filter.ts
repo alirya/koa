@@ -4,6 +4,11 @@ import {Object} from "ts-toolbelt";
 import Body from "@dikac/t-http/body/body";
 import PropertyFilter from "./property-filter";
 
+/**
+ * filter response body data
+ *
+ * @param filter
+ */
 export default function BodyFilter<
     BodyType = unknown,
     ResponseType extends Response & Body<BodyType> = Response & Body<BodyType>,

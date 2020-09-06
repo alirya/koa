@@ -1,11 +1,13 @@
 {
   "name": "@dikac/tn-koa-router",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Typescript koa router",
   "dependencies": {
     "@dikac/deployer": "^0.1.5",
     "@dikac/t-function": "^0.12.4",
     "@dikac/t-http": "^0.13.7",
+    "@dikac/t-number": "^0.15.11",
+    "@dikac/t-code": "^0.1.2",
     "@dikac/t-message": "^0.10.2",
     "@dikac/t-array": "^0.23.5",
     "@dikac/t-object": "^0.33.1",

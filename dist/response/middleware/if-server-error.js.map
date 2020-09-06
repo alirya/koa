@@ -1,0 +1,1 @@
+{"version":3,"file":"if-server-error.js","sourceRoot":"","sources":["../../../src/response/middleware/if-server-error.ts"],"names":[],"mappings":";;;;;;;;;;;IAEA,yFAAqF;IAErF,qDAA4C;IAE5C,SAAwB,aAAa,CACjC,UAAkD;QAGlD,OAAO,wBAAY,CAAC,UAAU,EAAE,sBAAe,CAAC,CAAC;IACrD,CAAC;IALD,gCAKC"}

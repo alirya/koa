@@ -5,6 +5,17 @@ import {Middleware} from "@koa/router";
 import FromResponse from "../from-response";
 import Ok from "@dikac/t-http/response/ok";
 
+/**
+ * use resolved {@param subject} value for response body data,
+ *
+ * on success set status code to 200
+ *
+ * on error set status code to 500, and set value from {@see Promise.catch} to response body, and should be
+ * handled by next middleware
+ *
+ * @param subject
+ * @param argument
+ */
 export default function Body<
     Subject extends unknown,
     Arguments extends unknown[]

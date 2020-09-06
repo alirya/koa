@@ -9,6 +9,15 @@
 })(function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
+    /**
+     * if body in instanceof {@see Error}, set status code to 500, and
+     * replace body with error message
+     *
+     * @WARNING this will leak error message to public
+     *
+     * @param context
+     * @param next
+     */
     function Error(context, next) {
         if (context.response.body instanceof globalThis.Error) {
             context.response.status = 500;

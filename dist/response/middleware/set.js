@@ -4,26 +4,23 @@
         if (v !== undefined) module.exports = v;
     }
     else if (typeof define === "function" && define.amd) {
-        define(["require", "exports"], factory);
+        define(["require", "exports", "../from-response"], factory);
     }
 })(function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
+    const from_response_1 = require("../from-response");
     /**
-     * call log
+     * set {@param response} to response data
      *
-     * @param log
-     *
-     * @param severity
-     * default : 'debug'
+     * @param response
      */
-    function Log(log, severity = 'debug') {
+    function Set(response) {
         return function (context, next) {
-            return next().then(function () {
-                log[severity](`${context.response.status} ${context.response.message}`, context.response.headers, context.response.body);
-            });
+            from_response_1.default(context, response);
+            return next();
         };
     }
-    exports.default = Log;
+    exports.default = Set;
 });
-//# sourceMappingURL=log.js.map
+//# sourceMappingURL=set.js.map

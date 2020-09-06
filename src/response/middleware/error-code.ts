@@ -1,9 +1,18 @@
 import Context from "../../middleware/context/context";
 import {Next} from "koa";
-import Code from "@dikac/t-code/boolean/code";
+import IsCode from "@dikac/t-code/boolean/code";
 import Number from "@dikac/t-number/boolean/number";
-import Value from "@dikac/t-value/boolean/value";
+import IsValue from "@dikac/t-value/boolean/value";
 
+/**
+ * if body in instanceof {@see Error}, and {@see Code<number>} use code value for status code
+ * and status message from {@see Error.message}
+ *
+ * optionally if body also is {@see Value}, value will be used as response body
+ *
+ * @param context
+ * @param next
+ */
 export default function ErrorCode(context : Context, next : Next) {
 
     const body = context.response.body;
@@ -13,7 +22,7 @@ export default function ErrorCode(context : Context, next : Next) {
         return next();
     }
 
-    if(!Code(body) || !Number(body.code)) {
+    if(!IsCode(body) || !Number(body.code)) {
 
         return next();
     }
@@ -21,7 +30,7 @@ export default function ErrorCode(context : Context, next : Next) {
     context.response.status = body.code;
     context.response.message = body.message;
 
-    if(Value(body)) {
+    if(IsValue(body)) {
 
         context.response.body = body.value;
     }

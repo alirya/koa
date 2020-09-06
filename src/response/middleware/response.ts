@@ -5,16 +5,24 @@ import {Next} from "koa";
 import {Middleware} from "@koa/router";
 import FromResponse from "../from-response";
 
+/**
+ * use resolved {@param response} value for response data
+ *
+ * on error set status code to 500, and set value from {@see Promise.catch} to response body, and should be
+ * handled by next middleware
+ *
+ * @param response
+ */
 export default function Response<
     Subject extends Response,
     Arguments extends unknown[]
 >(
-    subject : (context : Context) => Promise<Subject>
+    response : (context : Context) => Promise<Subject>
 ) : Middleware {
 
     return function (context : Context, next : Next) {
 
-        return subject(context).then(function (subject) {
+        return response(context).then(function (subject) {
 
             FromResponse(context, subject);
 

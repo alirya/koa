@@ -4,16 +4,16 @@
         if (v !== undefined) module.exports = v;
     }
     else if (typeof define === "function" && define.amd) {
-        define(["require", "exports", "@dikac/t-http/response/code/class/boolean/redirection", "./status-code"], factory);
+        define(["require", "exports", "@dikac/t-http/response/code/class/boolean/redirection", "./if-status-code"], factory);
     }
 })(function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     const redirection_1 = require("@dikac/t-http/response/code/class/boolean/redirection");
-    const status_code_1 = require("./status-code");
-    function Redirection(middleware) {
-        return status_code_1.default(middleware, redirection_1.default);
+    const if_status_code_1 = require("./if-status-code");
+    function IfRedirection(middleware) {
+        return if_status_code_1.default(middleware, redirection_1.default);
     }
-    exports.default = Redirection;
+    exports.default = IfRedirection;
 });
-//# sourceMappingURL=redirection.js.map
+//# sourceMappingURL=if-redirection.js.map
