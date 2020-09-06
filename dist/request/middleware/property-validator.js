@@ -9,7 +9,7 @@
 })(function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    function PropertyValidator(validator, failCode = 400, key) {
+    function PropertyValidator(validator, key, failCode = 400) {
         return function (context, next) {
             let validatable = validator.validate(context.request[key]);
             if (validatable.valid) {
