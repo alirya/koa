@@ -8,7 +8,7 @@ export default function PropertyValidator<
     BodyType = unknown,
     RequestType extends Request = Request,
 >(
-    validator : ValidatorInterface<Body, Body, Instance<Body>>,
+    validator : ValidatorInterface<BodyType, BodyType, Instance<BodyType>>,
     key : keyof RequestType,
     failCode : number = 400,
 ) : Middleware {

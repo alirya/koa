@@ -9,7 +9,7 @@ export default function BodyValidator<
     BodyType = unknown,
     RequestType extends Request & Body<BodyType> = Request & Body<BodyType>,
 >(
-    validator : ValidatorInterface<Body, Body, Instance<Body>>,
+    validator : ValidatorInterface<BodyType, BodyType, Instance<BodyType>>,
     failCode : number = 400,
 ) : Middleware {
 
