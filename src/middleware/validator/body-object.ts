@@ -1,5 +1,5 @@
 import Context from "../context/context";
-import Value from "@dikac/t-array/validator/value";
+import Value from "@dikac/t-array/validator/value-all";
 import Object_ from "@dikac/t-object/validator/object";
 import NotEmpty from "@dikac/t-object/validator/not-empty";
 import ObjectMessage from "@dikac/t-object/validatable/string/object";
