@@ -1,23 +1,10 @@
-(function (factory) {
-    if (typeof module === "object" && typeof module.exports === "object") {
-        var v = factory(require, exports);
-        if (v !== undefined) module.exports = v;
-    }
-    else if (typeof define === "function" && define.amd) {
-        define(["require", "exports", "./property-filter"], factory);
-    }
-})(function (require, exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    const property_filter_1 = require("./property-filter");
-    /**
-     * filter response body data
-     *
-     * @param filter
-     */
-    function BodyFilter(filter) {
-        return property_filter_1.default(filter, 'body');
-    }
-    exports.default = BodyFilter;
-});
+import PropertyFilter from "./property-filter";
+/**
+ * filter response body data
+ *
+ * @param filter
+ */
+export default function BodyFilter(filter) {
+    return PropertyFilter(filter, 'body');
+}
 //# sourceMappingURL=body-filter.js.map
