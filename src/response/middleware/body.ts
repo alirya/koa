@@ -14,20 +14,16 @@ import Ok from "@dikac/t-http/response/ok";
  * handled by next middleware
  *
  * @param subject
- * @param argument
  */
 export default function Body<
-    Subject extends unknown,
-    Arguments extends unknown[]
+    Subject extends unknown
 >(
-    subject : (context : Context, ...argument : Arguments) => Promise<Subject>,
-    ...argument : Arguments
-
+    subject : (context : Context) => Promise<Subject>,
 ) : Middleware {
 
     return function (context : Context, next : Next) {
 
-        return subject(context, ...argument).then(function (subject) {
+        return subject(context).then(function (subject) {
 
             FromResponse(context, Ok(subject));
 

@@ -10,6 +10,5 @@ import { Middleware } from "@koa/router";
  * handled by next middleware
  *
  * @param subject
- * @param argument
  */
-export default function Body<Subject extends unknown, Arguments extends unknown[]>(subject: (context: Context, ...argument: Arguments) => Promise<Subject>, ...argument: Arguments): Middleware;
+export default function Body<Subject extends unknown>(subject: (context: Context) => Promise<Subject>): Middleware;

@@ -1,6 +1,6 @@
-export default function BodyIf(validation, middleware) {
+export default function IfBody(validation, middleware) {
     return function (context, next) {
-        if (validation(context.response.body)) {
+        if (validation(context.request.body)) {
             return middleware(context, next);
         }
         else {
@@ -8,4 +8,4 @@ export default function BodyIf(validation, middleware) {
         }
     };
 }
-//# sourceMappingURL=body-If.js.map
+//# sourceMappingURL=if-body.js.map

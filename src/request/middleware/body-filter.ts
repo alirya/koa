@@ -12,5 +12,5 @@ export default function BodyFilter<
     filter : (body : Object.At<Request,'body'>) => Return,
 ) : Middleware {
 
-    return PropertyFilter<RequestType, BodyType>( filter, 'body');
+    return PropertyFilter<RequestType, BodyType>(filter, 'body');
 }

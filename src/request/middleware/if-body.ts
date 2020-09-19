@@ -4,7 +4,7 @@ import Body from "@dikac/t-http/body/body";
 import {Object} from "ts-toolbelt";
 import Context from "../../middleware/context/context";
 
-export default function BodyIf<
+export default function IfBody<
     BodyType = unknown,
     RequestType extends Request & Body<BodyType> = Request & Body<BodyType>,
 >(
@@ -14,7 +14,7 @@ export default function BodyIf<
 
     return function (context : Context, next : Next) {
 
-        if(validation(context.response.body)) {
+        if(validation((context.request as RequestType).body)) {
 
             return middleware(context, next);
 

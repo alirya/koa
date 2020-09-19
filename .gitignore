@@ -1,6 +1,7 @@
 .idea/
 dist-spec/
 dist/compiler-cache
+config.json
 
 # Logs
 logs
