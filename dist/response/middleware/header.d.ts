@@ -1,6 +1,6 @@
-import Context from "../../middleware/context/context";
-import { Next } from "koa";
+/// <reference types="koa__router" />
+import { Middleware } from "@koa/router";
 /**
  * set response header
  */
-export default function Header(headers: Record<string, string>): (context: Context, next: Next) => Promise<any>;
+export default function Header(headers: Record<string, string>): Middleware;

@@ -15,7 +15,7 @@ export default function IfBody<
 >(
     validation : (body : Object.At<RequestType,'body'>) => boolean,
     middleware : Middleware
-) {
+) : Middleware {
 
     return function (context : Context, next : Next) {
 

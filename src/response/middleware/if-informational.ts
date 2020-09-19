@@ -10,7 +10,7 @@ import IfStatusCode from "./if-status-code";
  * @param middleware
  */
 export default function IfInformational(
-    middleware : (body : Context, next : Next) => void,
+    middleware : (body : Context, next : Next) => any,
 ) : Middleware {
 
     return IfStatusCode(middleware, InformationalType);

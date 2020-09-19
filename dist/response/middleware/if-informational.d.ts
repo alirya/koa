@@ -7,4 +7,4 @@ import { Middleware } from "@koa/router";
  *
  * @param middleware
  */
-export default function IfInformational(middleware: (body: Context, next: Next) => void): Middleware;
+export default function IfInformational(middleware: (body: Context, next: Next) => any): Middleware;
