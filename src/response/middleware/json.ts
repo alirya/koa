@@ -5,7 +5,7 @@ import String from "@dikac/t-string/boolean/string";
 /**
  * set appropriate header for JSON if body is already JSON string
  */
-export default function JsonString(context : Context, next : Next) {
+export default function Json(context : Context, next : Next) {
 
     if(String(context.response.body)) {
 
