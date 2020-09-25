@@ -9,7 +9,7 @@ export default function FromResponse<Subject extends Value & Validatable & Messa
     response : Response,
 ) {
 
-    context.response.set(response.header);
+    context.response.set(response.headers);
     context.response.body = response.body;
     context.response.status = response.code;
     context.response.message = response.message;
