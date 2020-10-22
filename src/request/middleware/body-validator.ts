@@ -1,5 +1,5 @@
 import ValidatorInterface from "@dikac/t-validator/simple";
-import {Middleware} from "@koa/router";
+import {Middleware} from "koa";
 import Instance from "@dikac/t-validator/validatable/validatable";
 import {Request} from "koa";
 import PropertyValidator from "./property-validator";

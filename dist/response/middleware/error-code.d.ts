@@ -1,5 +1,4 @@
-/// <reference types="koa__router" />
-import { Middleware } from "@koa/router";
+import { Middleware } from "koa";
 /**
  * if body in instanceof {@see Error}, and {@see Code<number>} use code value for status code
  * and status message from {@see Error.message}

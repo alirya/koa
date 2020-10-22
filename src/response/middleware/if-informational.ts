@@ -1,7 +1,7 @@
 import Context from "../../middleware/context/context";
 import {Next} from "koa";
 import InformationalType from "@dikac/t-http/response/code/class/boolean/informational";
-import {Middleware} from "@koa/router";
+import {Middleware} from "koa";
 import IfStatusCode from "./if-status-code";
 
 /**

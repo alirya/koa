@@ -1,4 +1,4 @@
-import {Middleware} from "@koa/router";
+import {Middleware} from "koa";
 import {Request} from "koa";
 import {Object} from "ts-toolbelt";
 import Body from "@dikac/t-http/body/body";

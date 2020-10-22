@@ -1,5 +1,4 @@
-/// <reference types="koa__router" />
-import { Middleware } from "@koa/router";
+import { Middleware } from "koa";
 /**
  * if body in instanceof {@see Error}, set status code to 500, and
  * replace body with error message

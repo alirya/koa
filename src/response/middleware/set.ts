@@ -1,7 +1,7 @@
 import Response from "@dikac/t-http/response/response";
 import Context from "../../middleware/context/context";
 import {Next} from "koa";
-import {Middleware} from "@koa/router";
+import {Middleware} from "koa";
 import FromResponse from "../from-response";
 
 /**

@@ -3,7 +3,7 @@ import {Next} from "koa";
 import IsCode from "@dikac/t-code/boolean/code";
 import Number from "@dikac/t-number/boolean/number";
 import IsValue from "@dikac/t-value/boolean/value";
-import {Middleware} from "@koa/router";
+import {Middleware} from "koa";
 
 /**
  * if body in instanceof {@see Error}, and {@see Code<number>} use code value for status code

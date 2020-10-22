@@ -1,6 +1,6 @@
 import Context from "../../middleware/context/context";
 import {Next} from "koa";
-import {Middleware} from "@koa/router";
+import {Middleware} from "koa";
 
 /**
  * if body in instanceof {@see Error}, set status code to 500, and

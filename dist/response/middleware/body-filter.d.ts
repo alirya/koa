@@ -1,5 +1,4 @@
-/// <reference types="koa__router" />
-import { Middleware } from "@koa/router";
+import { Middleware } from "koa";
 import { Response } from "koa";
 import { Object } from "ts-toolbelt";
 import Body from "@dikac/t-http/body/body";

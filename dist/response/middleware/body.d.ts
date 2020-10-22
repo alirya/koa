@@ -1,6 +1,5 @@
-/// <reference types="koa__router" />
 import Context from "../../middleware/context/context";
-import { Middleware } from "@koa/router";
+import { Middleware } from "koa";
 /**
  * use resolved {@param subject} value for response body data,
  *

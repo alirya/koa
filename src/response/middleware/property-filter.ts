@@ -1,4 +1,4 @@
-import {Middleware} from "@koa/router";
+import {Middleware} from "koa";
 import GenericBodyFilter from "../../middleware/property-filter";
 import {Response} from "koa";
 

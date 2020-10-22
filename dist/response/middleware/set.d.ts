@@ -1,6 +1,5 @@
-/// <reference types="koa__router" />
 import Response from "@dikac/t-http/response/response";
-import { Middleware } from "@koa/router";
+import { Middleware } from "koa";
 /**
  * set {@param response} to response data
  *
