@@ -1,6 +1,6 @@
 {
   "name": "@dikac/tn-koa-router",
-  "version": "0.6.1",
+  "version": "0.6.2",
   "description": "Typescript koa router",
   "dependencies": {
     "@dikac/deployer": "^0.1.5",

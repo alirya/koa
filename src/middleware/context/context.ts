@@ -1,5 +1,5 @@
 import {RouterParamContext} from "@koa/router";
-import {ExtendableContext} from "koa";
+import {DefaultContext, DefaultState, ParameterizedContext} from "koa";
 
-type Context<StateT = any, CustomT = {}> = {state : any} & RouterParamContext<StateT, CustomT> & ExtendableContext;
+type Context<StateT = DefaultState, CustomT = DefaultContext> = ParameterizedContext<StateT, CustomT> & RouterParamContext<StateT, CustomT>;
 export default Context;

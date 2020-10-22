@@ -1,7 +1,5 @@
 /// <reference types="koa__router" />
 import { RouterParamContext } from "@koa/router";
-import { ExtendableContext } from "koa";
-declare type Context<StateT = any, CustomT = {}> = {
-    state: any;
-} & RouterParamContext<StateT, CustomT> & ExtendableContext;
+import { DefaultContext, DefaultState, ParameterizedContext } from "koa";
+declare type Context<StateT = DefaultState, CustomT = DefaultContext> = ParameterizedContext<StateT, CustomT> & RouterParamContext<StateT, CustomT>;
 export default Context;
