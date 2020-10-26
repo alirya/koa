@@ -4,25 +4,30 @@ import {Middleware} from "koa";
 
 /**
  * if body in instanceof {@see Error}, set status code to 500, and
- * replace body with error message
+ * replace body with {@param body}
  *
- * @WARNING this will leak error message to public
+ * @param body
  *
- * @param message {@default false}
- * set {@see Error.message} to response body or not
- * @WARNING enable this might leak sensitive error info to public
+ * @param callback
+ * to be called on error
  */
-export default function Error(message : boolean = false) : Middleware {
+export default function Error(
+    body : any,
+    callback ?: (error : globalThis.Error, context : Context)=>void
+) : Middleware {
 
     return function (context : Context, next : Next) {
 
-        if(context.response.body instanceof globalThis.Error) {
+        const current = context.response.body;
+
+        if(current instanceof globalThis.Error) {
 
             context.response.status = 500;
+            context.response.body = body;
 
-            if(message) {
+            if(callback) {
 
-                context.response.body = context.response.body.message;
+                callback(current, context);
             }
 
         } else {
