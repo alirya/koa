@@ -1,17 +1,17 @@
-import ValidatorInterface from "@dikac/t-validator/simple";
+import Validator from "@dikac/t-validator/validator";
 import {Middleware} from "koa";
-import Instance from "@dikac/t-validator/validatable/validatable";
 import {Request} from "koa";
 import PropertyValidator from "./property-validator";
 import Body from "@dikac/t-http/body/body";
+import Match from "@dikac/t-validator/match/infer";
 
 export default function BodyValidator<
-    BodyType = unknown,
-    RequestType extends Request & Body<BodyType> = Request & Body<BodyType>,
+    ValidatorType extends Validator,
+    RequestType extends Request & Body<Match<ValidatorType>> = Request & Body<Match<ValidatorType>>,
 >(
-    validator : ValidatorInterface<BodyType, BodyType, Instance<BodyType>>,
+    validator : ValidatorType,
     failCode : number = 400,
 ) : Middleware {
 
-    return PropertyValidator<BodyType, RequestType>(validator, 'body', failCode)
+    return PropertyValidator<ValidatorType, RequestType>(validator, 'body', failCode)
 }

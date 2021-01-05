@@ -1,5 +1,4 @@
 import Router from "../../router";
-import Config from "../../config";
 import Axios from "axios";
 import KoaBody from "koa-body";
 import BodyIf from "../../../dist/request/middleware/if-body";

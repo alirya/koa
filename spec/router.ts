@@ -1,6 +1,5 @@
 import Router from "@koa/router";
 import Koa from "./server";
-import Config from "./config";
 
 const router : Router = new Router();
 
