@@ -12,7 +12,7 @@ export default function PropertyFilter<
     Return extends Context[Type][Property] = Context[Type][Property],
 >(
     type : Type,
-    filter : (body : Context[Type][Property]) => Return,
+    filter : (property : Context[Type][Property]) => Return,
     property : Property
 ) : Middleware {
 

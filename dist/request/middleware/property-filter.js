@@ -1,5 +1,5 @@
-import GenericBodyFilter from "../../middleware/property-filter";
+import GenericPropertyFilter from "../../middleware/property-filter";
 export default function PropertyFilter(filter, property) {
-    return GenericBodyFilter('request', filter, property);
+    return GenericPropertyFilter('request', filter, property);
 }
 //# sourceMappingURL=property-filter.js.map

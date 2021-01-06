@@ -1,5 +1,5 @@
 import {Middleware} from "koa";
-import GenericBodyFilter from "../../middleware/property-filter";
+import GenericPropertyFilter from "../../middleware/property-filter";
 import {Request} from "koa";
 
 export default function PropertyFilter<
@@ -12,5 +12,5 @@ export default function PropertyFilter<
     property : Property
 ) : Middleware {
 
-    return GenericBodyFilter('request', filter, <keyof Request>property);
+    return GenericPropertyFilter('request', filter, <keyof Request>property);
 }
