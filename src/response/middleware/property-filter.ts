@@ -1,6 +1,7 @@
 import {Middleware} from "koa";
 import GenericBodyFilter from "../../middleware/property-filter";
 import {Response} from "koa";
+import Context from "../../middleware/context/context";
 
 /**
  * filter response property
@@ -14,7 +15,7 @@ export default function PropertyFilter<
     Property extends keyof RequestType = keyof RequestType,
     Return extends RequestType[Property] = RequestType[Property],
 >(
-    filter : (body : RequestType[Property]) => Return,
+    filter : (body : RequestType[Property], context: Context) => Return,
     property : Property
 ) : Middleware {
 

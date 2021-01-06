@@ -3,7 +3,7 @@ import FromResponse from "../response/from-response";
 export default function PropertyFilter(type, filter, property) {
     return function (context, next) {
         try {
-            context[type][property] = filter(context[type][property]);
+            context[type][property] = filter(context[type][property], context);
         }
         catch (e) {
             FromResponse(context, InternalServerError(e));
