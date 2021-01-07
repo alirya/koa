@@ -23,6 +23,7 @@ export default function Error(
         if(current instanceof globalThis.Error) {
 
             context.response.status = 500;
+            context.response.message = current.message;
             context.response.body = body;
 
             if(callback) {

@@ -12,6 +12,7 @@ export default function Error(body, callback) {
         const current = context.response.body;
         if (current instanceof globalThis.Error) {
             context.response.status = 500;
+            context.response.message = current.message;
             context.response.body = body;
             if (callback) {
                 callback(current, context);

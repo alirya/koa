@@ -4,8 +4,7 @@ import { Middleware } from "koa";
  *
  * and also according to following
  * - if also instanceof {@see Code<number>} use code value for status code
- *
- * {@see Error.message} used as http message
- * {@see Error.stack} used as http body
+ * - if also instanceof {@see Value}, value will be used as response body
+ * - if also instanceof {@see Body}, body will be used as response body, {@see Value}, takes priority
  */
-export default function ErrorResponse(filter?: (error: globalThis.Error) => globalThis.Error): Middleware;
+export default function ErrorResponse(): Middleware;
