@@ -62,7 +62,7 @@
     "prerelease": "cpy     package.json package-lock.json LICENSE Readme.md .npmignore dist",
     "postpublish": "rimraf package.json package-lock.json LICENSE Readme.md .npmignore",
     "postinstall": "npm run deploy",
-    "deploy": "deployer /.git /dist /"
+    "deploy": "deployer /.git /dist / /src /spec"
   },
   "private": true,
   "author": "",
