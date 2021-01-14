@@ -17,7 +17,7 @@ export default function Body(subject) {
             FromResponse(context, Ok({ body: subject }));
             return next();
         }).catch(function (error) {
-            let response = InternalServerError(error);
+            let response = InternalServerError({ body: error });
             FromResponse(context, response);
             return next();
         });

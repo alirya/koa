@@ -14,7 +14,7 @@ export default function Response(response) {
             FromResponse(context, subject);
             return next();
         }).catch(function (error) {
-            let response = InternalServerError(error);
+            let response = InternalServerError({ body: error });
             FromResponse(context, response);
             return next();
         });

@@ -30,7 +30,7 @@ export default function Response<
 
         }).catch(function (error) {
 
-            let response = InternalServerError(error);
+            let response = InternalServerError({body:error});
 
             FromResponse(context, response);
 
