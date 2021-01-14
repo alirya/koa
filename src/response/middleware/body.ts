@@ -25,7 +25,7 @@ export default function Body<
 
         return subject(context).then(function (subject) {
 
-            FromResponse(context, Ok(subject));
+            FromResponse(context, Ok({body:subject}));
 
             return next();
 

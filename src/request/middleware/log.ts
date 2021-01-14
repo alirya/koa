@@ -12,7 +12,6 @@ export default function Log(
 
         log[severity](`${context.request.method} ${context.request.path}`, context.request.headers, (<any>context.request).body);
 
-
         return next();
     }
 }

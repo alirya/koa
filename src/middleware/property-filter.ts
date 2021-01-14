@@ -1,5 +1,4 @@
 import {Middleware} from "koa";
-
 import InternalServerError from "@dikac/t-http/response/internal-server-error";
 import FromResponse from "../response/from-response";
 import Context from "./context/context";

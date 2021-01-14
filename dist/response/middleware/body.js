@@ -14,7 +14,7 @@ import Ok from "@dikac/t-http/response/ok";
 export default function Body(subject) {
     return function (context, next) {
         return subject(context).then(function (subject) {
-            FromResponse(context, Ok(subject));
+            FromResponse(context, Ok({ body: subject }));
             return next();
         }).catch(function (error) {
             let response = InternalServerError(error);

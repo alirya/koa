@@ -6,17 +6,19 @@ export default function Validatable(subject, ...argument) {
         return subject(context, ...argument).then(function (subject) {
             let response;
             if (subject.valid) {
-                response = Ok(subject.value);
+                response = Ok({
+                    body: subject.value
+                });
             }
             else {
-                response = InternalServerError(subject.message);
+                response = InternalServerError({
+                    body: subject.message
+                });
             }
-            //console.log(response);
             FromResponse(context, response);
             return next();
         }).catch(function (error) {
             let response = InternalServerError(error);
-            //console.log(response);
             FromResponse(context, response);
             return next();
         });

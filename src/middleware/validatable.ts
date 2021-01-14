@@ -29,14 +29,17 @@ export default function Validatable<
 
             if(subject.valid) {
 
-                response = Ok<ValueValue<Subject>>(<ValueValue<Subject>>subject.value);
+                response = Ok({
+                    body: <ValueValue<Subject>>subject.value
+                });
 
             } else {
 
-                response = InternalServerError(<MessageMessage<Subject>>subject.message);
+                response = InternalServerError({
+                    body: <MessageMessage<Subject>>subject.message
+                });
             }
 
-            //console.log(response);
             FromResponse(context, response);
 
             return next();
@@ -44,7 +47,6 @@ export default function Validatable<
         }).catch(function (error) {
 
             let response = InternalServerError(error);
-            //console.log(response);
             FromResponse(context, response);
 
             return next();

@@ -1,13 +1,13 @@
 {
   "name": "@dikac/tn-koa-router",
-  "version": "0.8.5",
+  "version": "0.8.6",
   "description": "Typescript koa router",
   "dependencies": {
     "@dikac/deployer": "^0.1.8",
     "@dikac/t-array": "^0.25.9",
     "@dikac/t-code": "^0.2.2",
     "@dikac/t-function": "^0.14.1",
-    "@dikac/t-http": "^0.15.2",
+    "@dikac/t-http": "^0.16.1",
     "@dikac/t-message": "^0.11.2",
     "@dikac/t-number": "^0.16.4",
     "@dikac/t-object": "^0.36.6",
@@ -25,7 +25,7 @@
   "devDependencies": {
     "@dikac/tn-filesystem": "^0.4.2",
     "@types/jasmine": "^3.6.2",
-    "@types/node": "^12.19.12",
+    "@types/node": "^12.19.13",
     "axios": "=0.19.0",
     "cpy-cli": "^3.1.1",
     "esm": "^3.2.25",
