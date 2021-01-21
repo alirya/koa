@@ -23,7 +23,7 @@ export default function PropertyFilter<
 
         } catch (e) {
 
-            FromResponse(context, InternalServerError(e));
+            FromResponse(context, InternalServerError({body:e}));
         }
 
          return next();

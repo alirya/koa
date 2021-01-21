@@ -46,7 +46,7 @@ export default function Validatable<
 
         }).catch(function (error) {
 
-            let response = InternalServerError(error);
+            let response = InternalServerError({body:error});
             FromResponse(context, response);
 
             return next();

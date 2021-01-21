@@ -6,7 +6,7 @@ export default function PropertyFilter(type, filter, property) {
             context[type][property] = filter(context[type][property], context);
         }
         catch (e) {
-            FromResponse(context, InternalServerError(e));
+            FromResponse(context, InternalServerError({ body: e }));
         }
         return next();
     };

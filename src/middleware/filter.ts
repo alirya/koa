@@ -16,7 +16,7 @@ export default function Filter<Return = unknown, Arguments extends unknown[] = u
 
         } catch (e) {
 
-            FromResponse(context, InternalServerError(e));
+            FromResponse(context, InternalServerError({body:e}));
         }
 
 

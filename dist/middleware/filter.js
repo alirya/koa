@@ -6,7 +6,7 @@ export default function Filter(filter, ...argument) {
             filter(context, ...argument);
         }
         catch (e) {
-            FromResponse(context, InternalServerError(e));
+            FromResponse(context, InternalServerError({ body: e }));
         }
         return next();
     };
