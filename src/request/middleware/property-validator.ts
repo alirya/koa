@@ -1,6 +1,9 @@
 import Validator from "@dikac/t-validator/validator";
 import {Middleware} from "koa";
 import {Request} from "koa";
+import InternalServerError from "@dikac/t-http/response/internal-server-error";
+import FromResponse from "../../response/from-response";
+import Context from "../../middleware/context/context";
 
 export default function PropertyValidator<
     ValidatorType extends Validator,
@@ -11,18 +14,26 @@ export default function PropertyValidator<
     failCode : number = 400,
 ) : Middleware {
 
-    return function (context, next) {
+    return function (context: Context, next) {
 
-         let validatable = validator.validate(context.request[key as keyof Request]);
+        try {
 
-        if(validatable.valid) {
+            const validatable = validator.validate(context.request[key as keyof Request]);
 
-            return next();
+            if(validatable.valid) {
 
-        } else {
+                return next();
 
-            context.response.status = failCode;
-            context.response.body = validatable.message;
+            } else {
+
+                context.response.status = failCode;
+                context.response.body = validatable.message;
+            }
+
+        } catch (error) {
+
+            FromResponse(context, InternalServerError({body:error}));
         }
+
     }
 }
