@@ -3,7 +3,6 @@
   "version": "0.8.9",
   "description": "Typescript koa router",
   "dependencies": {
-    "@dikac/deployer": "^0.1.8",
     "@dikac/t-array": "^0.25.13",
     "@dikac/t-code": "^0.2.2",
     "@dikac/t-function": "^0.14.1",
@@ -60,9 +59,7 @@
     "release": "remove-json-properties dist/package.json private scripts.postinstall scripts.deploy dependencies.@dikac/deployer",
     "postrelease": "npm publish dist",
     "prerelease": "cpy     package.json package-lock.json LICENSE Readme.md .npmignore dist",
-    "postpublish": "rimraf package.json package-lock.json LICENSE Readme.md .npmignore",
-    "postinstall": "npm run deploy",
-    "deploy": "deployer /.git /dist / /src /spec"
+    "postpublish": "rimraf package.json package-lock.json LICENSE Readme.md .npmignore"
   },
   "private": true,
   "author": "",
