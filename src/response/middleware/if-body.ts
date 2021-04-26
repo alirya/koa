@@ -11,15 +11,15 @@ import Context from "../../middleware/context/context";
  */
 export default function IfBody<
     BodyType = unknown,
-    RequestType extends Response & Body<BodyType> = Response & Body<BodyType>,
+    ResponseType extends Response & Body<BodyType> = Response & Body<BodyType>,
 >(
-    validation : (body : Object.At<RequestType,'body'>) => boolean,
+    validation : (body : ResponseType['body']) => boolean,
     middleware : Middleware
 ) : Middleware {
 
     return function (context : Context, next : Next) {
 
-        if(validation(context.response.body)) {
+        if(validation(context.response.body as ResponseType['body'])) {
 
             return middleware(context, next);
 

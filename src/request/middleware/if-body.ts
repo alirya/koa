@@ -8,7 +8,7 @@ export default function IfBody<
     BodyType = unknown,
     RequestType extends Request & Body<BodyType> = Request & Body<BodyType>,
 >(
-    validation : (body : Object.At<RequestType,'body'>) => boolean,
+    validation : (body : RequestType['body']) => boolean,
     middleware : Middleware
 ) {
 

@@ -13,5 +13,7 @@ export default function PropertyFilter<
     property : Property
 ) : Middleware {
 
-    return GenericPropertyFilter('request', filter, <keyof Request>property);
+    // TODO FIX any casting
+    return GenericPropertyFilter('request', filter as any, <keyof Request>property);
 }
+

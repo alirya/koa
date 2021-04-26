@@ -13,9 +13,9 @@ import Context from "../../middleware/context/context";
 export default function BodyFilter<
     BodyType = unknown,
     ResponseType extends Response & Body<BodyType> = Response & Body<BodyType>,
-    Return extends Object.At<ResponseType,'body'> = Object.At<ResponseType,'body'>,
+    Return extends ResponseType['body'] = ResponseType['body'],
 >(
-    filter : (body : Object.At<Response,'body'>, context: Context) => Return,
+    filter : (body : Response['body'], context: Context) => Return,
 ) : Middleware {
 
     return PropertyFilter<ResponseType, BodyType>( filter, 'body');
