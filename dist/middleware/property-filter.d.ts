@@ -1,3 +1,3 @@
 import { Middleware } from "koa";
 import Context from "./context/context";
-export default function PropertyFilter<Body = unknown, Type extends 'response' | 'request' = 'response' | 'request', Property extends keyof Context[Type] = keyof Context[Type], Return extends Context[Type][Property] = Context[Type][Property]>(type: Type, filter: (property: Context[Type][Property], context: Context) => Return, property: Property): Middleware;
+export default function PropertyFilter<Body = unknown, ContextType extends Context = Context, Type extends keyof ContextType = keyof ContextType, Property extends keyof ContextType[Type] = keyof ContextType[Type], Return extends ContextType[Type][Property] = ContextType[Type][Property]>(type: Type, filter: (property: ContextType[Type][Property], context: ContextType) => Return, property: Property): Middleware;

@@ -1,13 +1,15 @@
 import Context from "../../middleware/context/context";
+import { DefaultContext, DefaultState } from "koa";
 import { Middleware } from "koa";
 /**
  * use resolved {@param subject} value for response body data,
  *
  * on success set status code to 200
  *
- * on error set status code to 500, and set value from {@see Promise.catch} to response body, and should be
- * handled by next middleware
- *
  * @param subject
  */
-export default function Body<Subject extends unknown>(subject: (context: Context) => Promise<Subject>): Middleware;
+export default function Body<ResponseBody = unknown, State extends DefaultState = DefaultState, ContextType extends DefaultContext = DefaultContext>(subject: (context: Context<State, ContextType>) => Promise<ResponseBody>): Middleware<State, ContextType & {
+    response: {
+        body: ResponseBody;
+    };
+}>;

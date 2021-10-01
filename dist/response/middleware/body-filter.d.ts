@@ -1,10 +1,8 @@
-import { Middleware } from "koa";
-import { Response } from "koa";
-import Body from "@dikac/t-http/body/body";
+import { DefaultContext, DefaultState, Middleware } from "koa";
 import Context from "../../middleware/context/context";
 /**
  * filter response body data
  *
  * @param filter
  */
-export default function BodyFilter<BodyType = unknown, ResponseType extends Response & Body<BodyType> = Response & Body<BodyType>, Return extends ResponseType['body'] = ResponseType['body']>(filter: (body: Response['body'], context: Context) => Return): Middleware;
+export default function BodyFilter<ResponseBody = unknown, ReplaceBody = unknown, State extends DefaultState = DefaultState, ContextType extends DefaultContext = DefaultContext>(filter: (body: ResponseBody, context: Context<State, ContextType, ResponseBody>) => ReplaceBody): Middleware<ContextType, ResponseBody, ReplaceBody>;

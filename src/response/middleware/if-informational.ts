@@ -1,5 +1,5 @@
 import InformationalType from "@dikac/t-http/response/code/class/boolean/informational";
-import {Middleware} from "koa";
+import {DefaultContext, DefaultState, Middleware} from "koa";
 import IfStatusCode from "./if-status-code";
 
 /**
@@ -7,7 +7,13 @@ import IfStatusCode from "./if-status-code";
  *
  * @param middleware
  */
-export default function IfInformational(middleware : Middleware) : Middleware {
+export default function IfInformational<
+    State extends DefaultState,
+    ContextType extends DefaultContext,
+    ResponseBody = any
+>(
+    middleware : Middleware<State, ContextType, ResponseBody>
+) : Middleware<State, ContextType, ResponseBody> {
 
     return IfStatusCode(middleware, InformationalType);
 }

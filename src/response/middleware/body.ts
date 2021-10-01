@@ -1,27 +1,28 @@
 import InternalServerError from "@dikac/t-http/response/internal-server-error";
 import Context from "../../middleware/context/context";
-import {Next} from "koa";
+import {DefaultContext, DefaultState, Next} from "koa";
 import {Middleware} from "koa";
 import FromResponse from "../from-response";
 import Ok from "@dikac/t-http/response/ok";
+import * as Koa from "koa";
 
 /**
  * use resolved {@param subject} value for response body data,
  *
  * on success set status code to 200
  *
- * on error set status code to 500, and set value from {@see Promise.catch} to response body, and should be
- * handled by next middleware
- *
  * @param subject
  */
 export default function Body<
-    Subject extends unknown
+    ResponseBody = unknown,
+    State extends DefaultState = DefaultState,
+    ContextType extends DefaultContext = DefaultContext,
 >(
-    subject : (context : Context) => Promise<Subject>,
-) : Middleware {
+    subject : (context : Context<State, ContextType>) => Promise<ResponseBody>,
 
-    return function (context : Context, next : Next) {
+) : Middleware<State, ContextType & {response:{body:ResponseBody}}> {
+
+    return function (context : Context<State, ContextType>, next : Next) {
 
         return subject(context).then(function (subject) {
 
@@ -29,15 +30,8 @@ export default function Body<
 
             return next();
 
-        }).catch(function (error) {
+        });
 
-            let response = InternalServerError({body:error});
-
-            FromResponse(context, response);
-
-            return next();
-        })
-     }
-
+     } as Middleware<Koa.DefaultState, Koa.DefaultContext & {response:{body:ResponseBody}}>
 
 }

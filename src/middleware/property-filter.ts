@@ -6,25 +6,19 @@ import Context from "./context/context";
 
 export default function PropertyFilter<
     Body = unknown,
-    Type extends 'response'|'request' = 'response'|'request',
-    Property extends keyof Context[Type] = keyof Context[Type],
-    Return extends Context[Type][Property] = Context[Type][Property],
+    ContextType extends Context = Context,
+    Type extends keyof ContextType = keyof ContextType,
+    Property extends keyof ContextType[Type] = keyof ContextType[Type],
+    Return extends ContextType[Type][Property] = ContextType[Type][Property],
 >(
     type : Type,
-    filter : (property : Context[Type][Property], context: Context) => Return,
+    filter : (property : ContextType[Type][Property], context: ContextType) => Return,
     property : Property
 ) : Middleware {
 
-    return function (context: Context, next) {
+    return function (context: ContextType, next) {
 
-        try {
-
-            context[type][property] = filter(context[type][property], context);
-
-        } catch (e) {
-
-            FromResponse(context, InternalServerError({body:e}));
-        }
+        context[type][property] = filter(context[type][property], context);
 
          return next();
     }

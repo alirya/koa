@@ -1,5 +1,9 @@
-import { Middleware } from "koa";
-import { Request } from "koa";
-import Body from "@dikac/t-http/body/body";
+import { DefaultContext, DefaultState, Middleware } from "koa";
 import Context from "../../middleware/context/context";
-export default function BodyFilter<BodyType = unknown, RequestType extends Request & Body<BodyType> = Request & Body<BodyType>, Return extends RequestType['body'] = RequestType['body']>(filter: (body: RequestType['body'], context: Context) => Return): Middleware;
+import Infer from "../../middleware/context/infer";
+export declare type ContextBody<ContextType, RequestBody = unknown> = DefaultContext & {
+    request: {
+        body: RequestBody;
+    };
+};
+export default function BodyFilter<ReplaceBody = unknown, State extends DefaultState = DefaultState, ContextType extends ContextBody<DefaultContext> = ContextBody<DefaultContext>, ResponseBody = unknown>(filter: (body: ContextType['request']['body'], context: Context<State, ContextType, ResponseBody>) => ReplaceBody): Middleware<State, ContextBody<Infer<ContextType>, ReplaceBody>, ResponseBody>;

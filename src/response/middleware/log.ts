@@ -10,18 +10,39 @@ import {Middleware} from "koa";
  *
  * @param severity
  * default : 'debug'
+ *
+ * @param after
  */
 export default function Log(
     log : Log<[string, any, any]>,
-    severity : keyof Log = 'debug'
+    severity : keyof Log = 'debug',
+    after: boolean = true
 ) : Middleware {
 
-    return function (context : Context, next : Next) {
+    const call = function (context : Context) {
 
-        return next().then(function () {
-
-            log[severity](`${context.response.status} ${context.response.message}`, context.response.headers, context.response.body);
-
-        });
+        log[severity](
+            `${context.response.status} ${context.response.message}`,
+            context.response.headers,
+            context.response.body
+        );
     }
+
+    if(!after) {
+
+        return function (context : Context, next : Next) {
+
+            call(context);
+            return next();
+        }
+
+    } else {
+
+        return function (context : Context, next : Next) {
+
+            return next().then(()=>call(context));
+        }
+    }
+
+
 }

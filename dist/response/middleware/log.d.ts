@@ -7,5 +7,7 @@ import { Middleware } from "koa";
  *
  * @param severity
  * default : 'debug'
+ *
+ * @param after
  */
-export default function Log(log: Log<[string, any, any]>, severity?: keyof Log): Middleware;
+export default function Log(log: Log<[string, any, any]>, severity?: keyof Log, after?: boolean): Middleware;
