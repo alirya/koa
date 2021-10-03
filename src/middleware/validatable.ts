@@ -11,7 +11,13 @@ import {Next} from "koa";
 import {Middleware} from "koa";
 import FromResponse from "../response/from-response";
 
-
+/**
+ * @deprecated
+ *
+ * @param subject
+ * @param argument
+ * @constructor
+ */
 export default function Validatable<
     Subject extends Value & Validatable & Message<string>,
     Arguments extends unknown[]

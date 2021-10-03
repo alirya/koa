@@ -1,6 +1,15 @@
 import Context from "../../middleware/context/context";
 import {Next} from "koa";
+import ErrorMiddleware from "./error";
 import {Middleware} from "koa";
+import * as Koa from "koa";
+import {RouterParamContext} from "@koa/router";
+import Response from "@dikac/t-http/response/response";
+import DefaultMessage from "@dikac/t-http/response/default-message";
+import Codes from "@dikac/t-http/response/message/message/codes";
+import FromResponse from "../from-response";
+import ErrorCallback from "./error-callback";
+import Name from "@dikac/t-object/string/name";
 
 /**
  * if body in instanceof {@see Error}, set status code to 500,
@@ -9,19 +18,42 @@ import {Middleware} from "koa";
  * @WARNING this will leak error message to public, use for
  * development only
  */
-export default function ErrorMessage() : Middleware {
+export default function ErrorMessage<
+    Error extends globalThis.Error & {status: number},
+    State extends Koa.DefaultState,
+    ContextType extends Koa.DefaultContext & RouterParamContext<State>,
+    ResponseBody,
+    >(
+    instance: new() => Error,
+    callNext ?: boolean
+) : Middleware;
+export default function ErrorMessage<
+    Error extends globalThis.Error & {code: number},
+    State extends Koa.DefaultState,
+    ContextType extends Koa.DefaultContext & RouterParamContext<State>,
+    ResponseBody,
+    >(
+    instance: new() => Error,
+    callNext ?: boolean
+) : Middleware;
+export default function ErrorMessage<
+    Error extends globalThis.Error & {code: number, status: number},
+    State extends Koa.DefaultState,
+    ContextType extends Koa.DefaultContext & RouterParamContext<State>,
+    ResponseBody,
+>(
+    instance: new() => Error,
+    callNext : boolean = true
+) : Middleware {
 
-    return function (context : Context, next : Next) {
+    return ErrorCallback(instance, function (error, context)  {
 
-        if(context.response.body instanceof globalThis.Error) {
+        const response = DefaultMessage({
+            code : (error.code || error.status) as keyof Codes,
+            body : [Name(error), error.message, error.stack].join('\n')
+        })
 
-            context.response.status = 500;
-            context.response.message = context.response.body.message;
-            context.response.body = context.response.body.stack;
+        FromResponse(context, response);
 
-        } else {
-
-            return next();
-        }
-    }
+    }, callNext)
 }

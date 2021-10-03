@@ -4,28 +4,22 @@ import FromResponse from "../response/from-response";
 import Context from "./context/context";
 
 
-export default function PropertyFilter<
-    Body = unknown,
-    Type extends 'response'|'request' = 'response'|'request',
-    Property extends keyof Context[Type] = keyof Context[Type],
-    Return extends Context[Type][Property] = Context[Type][Property],
->(
-    type : Type,
-    filter : (property : Context[Type][Property], context: Context) => Return,
-    property : Property
-) : Middleware {
-
-    return function (context: Context, next) {
-
-        try {
-
-            context[type][property] = filter(context[type][property], context);
-
-        } catch (e) {
-
-            FromResponse(context, InternalServerError({body:e}));
-        }
-
-         return next();
-    }
-}
+// export default function PropertyFilter<
+//     Body = unknown,
+//     ContextType extends Context = Context,
+//     Type extends keyof ContextType = keyof ContextType,
+//     Property extends keyof ContextType[Type] = keyof ContextType[Type],
+//     Return extends ContextType[Type][Property] = ContextType[Type][Property],
+// >(
+//     type : Type,
+//     filter : (property : ContextType[Type][Property], context: ContextType) => Return,
+//     property : Property
+// ) : Middleware {
+//
+//     return function (context: ContextType, next) {
+//
+//         context[type][property] = filter(context[type][property], context);
+//
+//          return next();
+//     }
+// }

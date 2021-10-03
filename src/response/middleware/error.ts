@@ -1,39 +1,95 @@
 import Context from "../../middleware/context/context";
 import {Next} from "koa";
-import {Middleware} from "koa";
+import * as Koa from "koa";
+import {RouterParamContext} from "@koa/router";
+import Middleware from "../../middleware/middleware";
+import ErrorHandler from "../../middleware/error-handler/error-handler";
+
+
 
 /**
- * if body in instanceof {@see Error}, set status code to 500, and
- * replace body with {@param body}
+ * catch error then execute {@param middleware}
  *
- * @param body
- *
- * @param callback
- * to be called on error
  */
-export default function Error(
-    body : any,
-    callback ?: (error : globalThis.Error, context : Context)=>void
-) : Middleware {
+export default function Error<
+    State extends Koa.DefaultState,
+    ContextType extends Koa.DefaultContext & RouterParamContext<State>,
+    ResponseBody
+>(
+    middleware :  ErrorHandler<State, ContextType, ResponseBody>,
+) : Middleware<State, ContextType, ResponseBody, State, ContextType, ResponseBody>
 
-    return function (context : Context, next : Next) {
+/**
+ * @param instance
+ * instance of error
+ *
+ * @param middleware
+ */
+export default function Error<
+    State extends Koa.DefaultState,
+    ContextType extends Koa.DefaultContext & RouterParamContext<State>,
+    ResponseBody
+>(
+    instance : new()=>globalThis.Error,
+    middleware :  ErrorHandler<State, ContextType, ResponseBody>,
+) : Middleware<State, ContextType, ResponseBody, State, ContextType, ResponseBody>
 
-        const current = context.response.body;
+/**
+ * @param instance
+ * @default {@see globalThis.Error}
+ * instance of error
+ *
+ * @param middleware
+ * executed {@param middleware} if error thrown
+ *
+ * @param rethrow
+ * @default false
+ * rethrow exception or not
+ */
+export default function Error<
+    Error extends globalThis.Error,
+    State extends Koa.DefaultState,
+    ContextType extends Koa.DefaultContext & RouterParamContext<State>,
+    ResponseBody
+>(
+    instance : new()=>Error,
+    middleware :  ErrorHandler<State, ContextType, ResponseBody>,
+    rethrow ?: boolean
+) : Middleware<State, ContextType, ResponseBody, State, ContextType, ResponseBody>
 
-        if(current instanceof globalThis.Error) {
+export default function Error<
+    State extends Koa.DefaultState,
+    ContextType extends Koa.DefaultContext & RouterParamContext<State>,
+    ResponseBody
+>(
+    instance : (new()=>Error) | ErrorHandler<State, ContextType, ResponseBody>,
+    middleware ? : ErrorHandler<State, ContextType, ResponseBody>,
+    rethrow : boolean = false
+) : Middleware<State, ContextType, ResponseBody, State, ContextType, ResponseBody>
+{
 
-            context.response.status = 500;
-            context.response.message = current.message;
-            context.response.body = body;
+    if(!middleware) {
 
-            if(callback) {
+        return Error(globalThis.Error, instance as ErrorHandler<State, ContextType, ResponseBody>, rethrow);
+    }
 
-                callback(current, context);
+    return async function (context, next : Next) {
+
+        try {
+
+            return await next();
+
+        } catch (error) {
+
+            if(error instanceof instance) {
+
+                middleware(error, context as Context<State, ContextType, ResponseBody>)
             }
 
-        } else {
+            if(rethrow) {
 
-            return next();
+                throw error;
+            }
         }
     }
 }

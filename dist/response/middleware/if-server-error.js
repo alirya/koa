@@ -6,6 +6,6 @@ import IfStatusCode from "./if-status-code";
  * @param middleware
  */
 export default function IfServerError(middleware) {
-    return IfStatusCode(middleware, ServerErrorType);
+    return IfStatusCode(ServerErrorType, middleware);
 }
 //# sourceMappingURL=if-server-error.js.map

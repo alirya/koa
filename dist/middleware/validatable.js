@@ -1,6 +1,13 @@
 import Ok from "@dikac/t-http/response/ok";
 import InternalServerError from "@dikac/t-http/response/internal-server-error";
 import FromResponse from "../response/from-response";
+/**
+ * @deprecated
+ *
+ * @param subject
+ * @param argument
+ * @constructor
+ */
 export default function Validatable(subject, ...argument) {
     return function (context, next) {
         return subject(context, ...argument).then(function (subject) {

@@ -1,13 +1,17 @@
+/// <reference types="koa__router" />
 import Context from "../../middleware/context/context";
-import { Middleware } from "koa";
+import * as Koa from "koa";
+import Response from "@dikac/t-http/response/response";
+import Middleware from "../../middleware/middleware";
+import { RouterParamContext } from "@koa/router";
+import Body from "@dikac/t-http/body/body";
 /**
- * use resolved {@param subject} value for response body data,
+ * use resolved {@param subject} value for response body data, upon
+ * successful applied {@param response} value
  *
- * on success set status code to 200
- *
- * on error set status code to 500, and set value from {@see Promise.catch} to response body, and should be
- * handled by next middleware
  *
  * @param subject
+ * @param response
+ * default status 200
  */
-export default function Body<Subject extends unknown>(subject: (context: Context) => Promise<Subject>): Middleware;
+export default function Body<ResponseBody, State extends Koa.DefaultState, ContextType extends Koa.DefaultContext & RouterParamContext<State>>(subject: (context: Context<State, ContextType, any>) => Promise<ResponseBody>, response?: (body: Body<ResponseBody>) => Response<number, string, Record<string, string>, ResponseBody>): Middleware<State, ContextType, any, State, ContextType, ResponseBody>;

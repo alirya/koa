@@ -1,9 +1,11 @@
-import {Middleware} from "koa";
+import {DefaultContext, DefaultState,} from "koa";
 import {Response} from "koa";
 import {Object} from "ts-toolbelt";
 import Body from "@dikac/t-http/body/body";
-import PropertyFilter from "./property-filter";
 import Context from "../../middleware/context/context";
+import * as Koa from "koa";
+import {RouterParamContext} from "@koa/router";
+import Middleware from "../../middleware/middleware";
 
 /**
  * filter response body data
@@ -11,12 +13,20 @@ import Context from "../../middleware/context/context";
  * @param filter
  */
 export default function BodyFilter<
-    BodyType = unknown,
-    ResponseType extends Response & Body<BodyType> = Response & Body<BodyType>,
-    Return extends ResponseType['body'] = ResponseType['body'],
+    BodyFrom,
+    BodyTo,
+    State extends Koa.DefaultState,
+    ContextType extends Koa.DefaultContext & RouterParamContext<State>,
 >(
-    filter : (body : Response['body'], context: Context) => Return,
-) : Middleware {
+    filter : (body : BodyFrom, context: Context<State, ContextType, BodyFrom>) => BodyTo,
+) : Middleware<State, ContextType, BodyFrom, State, ContextType, BodyTo> {
 
-    return PropertyFilter<ResponseType, BodyType>( filter, 'body');
+    return function (context, next)  {
+
+        // @ts-ignore
+        context.response.body = filter(context.response.body, context);
+
+        return next();
+
+    } as Middleware<State, ContextType, BodyFrom, State, ContextType, BodyTo>
 }

@@ -6,6 +6,6 @@ import IfStatusCode from "./if-status-code";
  * @param middleware
  */
 export default function IfRedirection(middleware) {
-    return IfStatusCode(middleware, RedirectionType);
+    return IfStatusCode(RedirectionType, middleware);
 }
 //# sourceMappingURL=if-redirection.js.map
