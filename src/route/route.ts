@@ -1,11 +1,12 @@
-import Router from "@koa/router";
+import Router, {RouterParamContext} from "@koa/router";
 import Path from "@dikac/t-http/request/path/path";
 import Method from "@dikac/t-http/request/method/method";
-import {DefaultContext, DefaultState, Middleware} from "koa";
+import Koa, {DefaultContext, DefaultState} from "koa";
+import Middleware from "../middleware/middleware";
 
 export default class Route<
     StateMain extends DefaultState,
-    CustomMain extends DefaultContext,
+    CustomMain extends DefaultContext & RouterParamContext<StateMain>,
     ResponseBodyMain = any
 > {
 
@@ -18,10 +19,13 @@ export default class Route<
 
     use<
         StateType extends DefaultState,
-        CustomType extends DefaultContext,
+        CustomType extends DefaultContext & RouterParamContext<StateType>,
         ResponseBodyType = unknown
     >(
-        middleware : Middleware<StateType, CustomType, ResponseBodyType>
+        middleware : Middleware<
+            StateMain, CustomMain, ResponseBodyMain,
+            StateType, CustomType, ResponseBodyType
+            >
     ) : Route<StateType, CustomType, ResponseBodyType> {
         // @ts-ignore
         this.router.register(this.route.path, [this.route.method], middleware);

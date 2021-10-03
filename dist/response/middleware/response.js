@@ -1,4 +1,3 @@
-import InternalServerError from "@dikac/t-http/response/internal-server-error";
 import FromResponse from "../from-response";
 /**
  * use resolved {@param response} value for response data
@@ -12,10 +11,6 @@ export default function Response(response) {
     return function (context, next) {
         return response(context).then(function (subject) {
             FromResponse(context, subject);
-            return next();
-        }).catch(function (error) {
-            let response = InternalServerError({ body: error });
-            FromResponse(context, response);
             return next();
         });
     };

@@ -6,6 +6,6 @@ import IfStatusCode from "./if-status-code";
  * @param middleware
  */
 export default function IfInformational(middleware) {
-    return IfStatusCode(middleware, InformationalType);
+    return IfStatusCode(InformationalType, middleware);
 }
 //# sourceMappingURL=if-informational.js.map

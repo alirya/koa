@@ -1,6 +1,9 @@
+/// <reference types="koa__router" />
 import Response from "@dikac/t-http/response/response";
 import Context from "../../middleware/context/context";
 import { Middleware } from "koa";
+import * as Koa from "koa";
+import { RouterParamContext } from "@koa/router";
 /**
  * use resolved {@param response} value for response data
  *
@@ -9,4 +12,4 @@ import { Middleware } from "koa";
  *
  * @param response
  */
-export default function Response<Subject extends Response, Arguments extends unknown[]>(response: (context: Context) => Promise<Subject>): Middleware;
+export default function Response<State extends Koa.DefaultState, ContextType extends Koa.DefaultContext & RouterParamContext<State>, ResponseBody, Subject extends Response>(response: (context: Context<State, ContextType, ResponseBody>) => Promise<Subject>): Middleware;

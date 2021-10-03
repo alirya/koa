@@ -1,0 +1,1 @@
+{"version":3,"file":"finish-status.js","sourceRoot":"","sources":["../../../src/response/middleware/finish-status.ts"],"names":[],"mappings":"AAEA,OAAO,UAAU,MAAM,sDAAsD,CAAC;AAE9E;;;;;;;;;;;;GAYG;AACH,MAAM,CAAC,OAAO,UAAU,YAAY,CAKhC,OAAmD,EACnD,IAAW,EACX,cAAgD,UAAU;IAG1D,IAAG,CAAC,WAAW,CAAC,OAAO,CAAC,QAAQ,CAAC,MAAM,CAAC,EAAE;QAEtC,OAAO,IAAI,EAAE,CAAC;KACjB;AACL,CAAC"}

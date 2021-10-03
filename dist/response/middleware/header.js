@@ -3,9 +3,7 @@
  */
 export default function Header(headers) {
     return function (context, next) {
-        // if(String(context.response.body)) {
         context.response.set(headers);
-        //  }
         return next();
     };
 }

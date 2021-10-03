@@ -1,12 +1,19 @@
 import Context from "../../middleware/context/context";
 import {Next} from "koa";
 import Log from "@dikac/t-syslog/syslog";
-import {Middleware} from "koa";
+import * as Koa from "koa";
+import {RouterParamContext} from "@koa/router";
+import Body from "@dikac/t-http/body/body";
+import Middleware from "../../middleware/middleware";
 
-export default function Log(
+export default function Log<
+    State extends Koa.DefaultState,
+    ContextType extends Koa.DefaultContext & RouterParamContext<State>,
+    ResponseBody = unknown,
+>(
     log : Log<[string, any, any]>,
     severity : keyof Log = 'debug'
-) : Middleware {
+) : Middleware<State, ContextType, ResponseBody, State, ContextType, ResponseBody> {
 
     return function (context : Context, next : Next) {
 

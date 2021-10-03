@@ -13,5 +13,5 @@ export default function IfSuccessful<
 
 ) : Middleware<State, ContextType, ResponseBody> {
 
-    return IfStatusCode(middleware, SuccessfulType);
+    return IfStatusCode(SuccessfulType, middleware);
 }

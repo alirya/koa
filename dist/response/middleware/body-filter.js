@@ -1,4 +1,3 @@
-import PropertyFilter from "./property-filter";
 /**
  * filter response body data
  *
@@ -15,6 +14,10 @@ import PropertyFilter from "./property-filter";
 //     return PropertyFilter<ResponseType, BodyType>( filter, 'body');
 // }
 export default function BodyFilter(filter) {
-    return PropertyFilter(filter, 'body');
+    return function (context, next) {
+        // @ts-ignore
+        context.response.body = filter(context.response.body, context);
+        return next();
+    };
 }
 //# sourceMappingURL=body-filter.js.map

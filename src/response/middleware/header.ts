@@ -20,10 +20,7 @@ export default function Header<
 
     return function (context : Context<State, ContextType, ResponseBody>, next : Next) {
 
-       // if(String(context.response.body)) {
-
-            context.response.set(headers)
-      //  }
+        context.response.set(headers)
 
         return next();
 

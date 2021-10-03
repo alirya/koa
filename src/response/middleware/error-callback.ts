@@ -1,6 +1,9 @@
 import Context from "../../middleware/context/context";
 import {Next} from "koa";
+import ErrorMidlleware from "./error";
 import {Middleware} from "koa";
+import * as Koa from "koa";
+import {RouterParamContext} from "@koa/router";
 
 /**
  * if body in instanceof {@see Error}, set status code to 500, and
@@ -10,30 +13,29 @@ import {Middleware} from "koa";
  *
  * @param callback
  * to be called on error
+ *
+ * @param callNext
  */
-export default function ErrorCallback<Error extends globalThis.Error>(
+export default function ErrorCallback<
+    Error extends globalThis.Error,
+    State extends Koa.DefaultState,
+    ContextType extends Koa.DefaultContext & RouterParamContext<State>,
+    ResponseBody,
+>(
     error : new()=>Error,
-    callback : (error : Error, context : Context)=>void,
+    callback : (error : Error, context : Context<State, ContextType & {error:Error}, ResponseBody>)=>void,
     callNext : boolean = false
 ) : Middleware {
 
-    return function (context : Context, next : Next) {
+    return ErrorMidlleware(error, function (context, next : Next) {
 
-        try {
+        callback(context.error, context as Context<State, ContextType & {error:Error}, ResponseBody>);
+
+        if(callNext) {
 
             return next();
-
-        } catch (err) {
-
-            if(err instanceof error) {
-
-                callback(err, context);
-
-                if(callNext) {
-
-                    return next();
-                }
-            }
         }
-    }
+    })
+
+
 }

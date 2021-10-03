@@ -1,0 +1,1 @@
+{"version":3,"file":"passthroughs.js","sourceRoot":"","sources":["../../src/middleware/passthroughs.ts"],"names":[],"mappings":"AAEA,MAAM,CAAC,OAAO,UAAU,YAAY,CAAC,QAAkB;IAEnD,OAAO,UAAU,OAAO,EAAE,IAAI;QAE1B,QAAQ,EAAE,CAAC;QACX,OAAO,IAAI,EAAE,CAAC;IAClB,CAAC,CAAA;AACL,CAAC"}

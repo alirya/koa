@@ -1,13 +1,17 @@
 import Koa, {DefaultContext, DefaultState} from "koa";
 import {Request} from "koa";
-import {Object} from "ts-toolbelt";
 import Body from "@dikac/t-http/body/body";
-import PropertyFilter from "./property-filter";
+// import PropertyFilter from "./property-filter";
 import Context from "../../middleware/context/context";
 import Infer from "../../middleware/context/infer";
 import InferState from "../../middleware/state/infer";
 import InferContext from "../../middleware/context/infer";
 import InferResponse from "../../middleware/response/infer";
+import InferContextState from "../../context/state/infer";
+import InferContextContext from "../../context/context/infer";
+import InferContextResponse from "../../context/response/infer";
+import Middleware from "../../middleware/middleware";
+import {RouterParamContext} from "@koa/router";
 
 // export default function BodyFilter<
 //     BodyType = unknown,
@@ -44,23 +48,55 @@ import InferResponse from "../../middleware/response/infer";
 // }
 
 
-export type ContextBody<RequestBody = unknown, Context extends DefaultContext = DefaultContext> = Context & {request: { body: RequestBody }};
+export type ContextBody<
+    RequestBody = unknown,
+    State extends DefaultState = DefaultState,
+    Context extends DefaultContext & RouterParamContext<State> = DefaultContext & RouterParamContext<State>
+> = Context & {request: { body: RequestBody }};
 
 export default function BodyFilter<
     RequestBody,
-    Argument extends Koa.Middleware,
-    Next extends Koa.Middleware<InferState<Argument>, ContextBody<RequestBody, InferContext<Argument>>, InferResponse<Argument>>,
+    ReplaceBody,
+    State extends DefaultState,
+    ContextType extends ContextBody<RequestBody, State>,
+    Response = unknown
+    // Argument extends Koa.Middleware<DefaultState, DefaultContext & {request: { body: RequestBody }}>,
+    // Next extends Koa.Middleware = Argument,
     >(
-    filter : (body : Argument['request']['body'], context: Context<State, ContextType, ResponseBody>) => ReplaceBody,
-) : Middleware<Argument, Next> {
+    filter : (body : RequestBody, context: Context<State, ContextType, Response>) => ReplaceBody,
+) : Middleware<
+     //   Koa.Middleware<
+            State,
+            ContextType,
+            Response,
+       // >,
+      //  Koa.Middleware<
+            State,
+            ContextBody<ReplaceBody, State>,
+            Response
+    //    >
+    > {
 
 
     return function (context, next)  {
 
-        context.request.body = filter(context.request.body, context as Context<State, ContextType, ResponseBody>);
+        // @ts-ignore
+        context.request.body = filter(context.request.body, context);
 
         return next();
-    }
+
+    } as  Middleware<
+      //  Koa.Middleware<
+            State,
+            ContextType,
+            Response,
+   //         >,
+      //  Koa.Middleware<
+            State,
+            ContextType,
+            Response
+    //        >
+        >
 
 
     //  return PropertyFilter<RequestType, BodyType>(filter, 'body');
