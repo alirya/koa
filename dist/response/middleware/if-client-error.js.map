@@ -1,1 +1,0 @@
-{"version":3,"file":"if-client-error.js","sourceRoot":"","sources":["../../../src/response/middleware/if-client-error.ts"],"names":[],"mappings":"AAAA,OAAO,eAAe,MAAM,wDAAwD,CAAC;AACrF,OAAO,YAAY,MAAM,kBAAkB,CAAC;AAK5C,MAAM,CAAC,OAAO,UAAU,eAAe,CAQnC,UAA0D;IAG1D,OAAO,YAAY,CAAC,eAAe,EAAE,UAAU,CAAC,CAAC;AACrD,CAAC"}

@@ -1,1 +1,0 @@
-{"version":3,"file":"if-successful.js","sourceRoot":"","sources":["../../../src/response/middleware/if-successful.ts"],"names":[],"mappings":"AAEA,OAAO,cAAc,MAAM,sDAAsD,CAAC;AAElF,OAAO,YAAY,MAAM,kBAAkB,CAAC;AAE5C,MAAM,CAAC,OAAO,UAAU,YAAY,CAKhC,UAAiF;IAIjF,OAAO,YAAY,CAAC,cAAc,EAAE,UAAU,CAAC,CAAC;AACpD,CAAC"}
