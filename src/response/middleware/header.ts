@@ -1,6 +1,5 @@
 import Context from "../../middleware/context/context";
 import {DefaultContext, DefaultState, Next} from "koa";
-import String from "@dikac/t-string/boolean/string";
 import {Middleware} from "koa";
 
 /**
@@ -27,13 +26,3 @@ export default function Header<
     } as Middleware<State, ContextType, ResponseBody>
 
 }
-
-// // test
-//
-// type s = (value:any) => any;
-// type a = (value:any, value2: any) => any;
-//
-// const data : s & a = (value:any, value2: any) => {
-//
-//     return 1;
-// }

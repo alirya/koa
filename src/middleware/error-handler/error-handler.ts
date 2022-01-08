@@ -1,14 +1,16 @@
-import * as Koa from "koa";
-import {RouterParamContext} from "@koa/router";
+import Koa from "koa";
 import Context from "../context/context";
 
-
+/**
+ * type which compatible with {@see Koa.on('error')}
+ */
 type ErrorHandler<
+    Error extends globalThis.Error,
     State extends Koa.DefaultState,
     ContextType extends Koa.DefaultContext,
     ResponseBodyT = unknown
 > = (
-    error,
+    error : Error,
     context: Context<State, ContextType, ResponseBodyT>
 ) => any
 

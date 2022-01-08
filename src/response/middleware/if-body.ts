@@ -1,7 +1,6 @@
-import {DefaultContext, DefaultState, Middleware} from "koa";
+import {Middleware} from "koa";
 import {Next, Response} from "koa";
 import Body from "@dikac/t-http/body/body";
-import {Object} from "ts-toolbelt";
 import Context from "../../middleware/context/context";
 /**
  * use {@param middleware} if response body is valid against {@param validation}
@@ -28,8 +27,6 @@ export default function IfBody<
             return next();
         }
     }
-
-
 }
 //
 // export default function IfBody<

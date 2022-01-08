@@ -1,35 +1,35 @@
 import Koa from "koa";
 import Config from "./config";
+import Standard from "../dist/server/standard";
 
+process.setMaxListeners(99);
 
-const koa : Koa = new Koa();
-const config = Config;
+export default function Server () {
 
-const server = koa.listen(config.port);
+    const server = new Standard([], {
+        port : Config.port
+    });
 
-function disconnect() {
+    function disconnect() {
 
-    server.close();
+        server.close();
+    }
+
+    //do something when app is closing
+    process.on('exit', disconnect);
+
+    //catches ctrl+c event
+    process.on('SIGINT', disconnect);
+
+    // catches "kill pid" (for example: nodemon restart)
+    process.on('SIGUSR1', disconnect);
+    process.on('SIGUSR2', disconnect);
+
+    // catch kill
+    process.on('SIGTERM', disconnect);
+
+    //catches uncaught exceptions
+    process.on('uncaughtException', disconnect);
+
+    return server;
 }
-
-export default {
-    server : server,
-    koa : koa,
-    config : Config
-};
-
-//do something when app is closing
-process.on('exit', disconnect);
-
-//catches ctrl+c event
-process.on('SIGINT', disconnect);
-
-// catches "kill pid" (for example: nodemon restart)
-process.on('SIGUSR1', disconnect);
-process.on('SIGUSR2', disconnect);
-
-// catch kill
-process.on('SIGTERM', disconnect);
-
-//catches uncaught exceptions
-process.on('uncaughtException', disconnect);

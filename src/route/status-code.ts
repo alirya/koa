@@ -1,9 +1,8 @@
 import Router, {RouterParamContext} from "@koa/router";
-import Path from "@dikac/t-http/request/path/path";
-import Method from "@dikac/t-http/request/method/method";
-import Koa, {DefaultContext, DefaultState} from "koa";
+import {DefaultContext, DefaultState} from "koa";
 import Middleware from "../middleware/middleware";
-import IfStatusCode from "../response/middleware/if-status-code";
+import StatusCodeMiddleware from "../response/middleware/status-code";
+/*
 
 
 export default class StatusCode<
@@ -30,12 +29,59 @@ export default class StatusCode<
             >
     ) : StatusCode<StateType, CustomType, ResponseBodyType> {
 
-        this.router.use(IfStatusCode(this.statusCode, middleware));
+        this.router.use(StatusCodeMiddleware(this.statusCode, middleware));
 
         return this as any;
     }
 
 }
+*/
+
+export interface Type<
+    StateMain extends DefaultState,
+    CustomMain extends DefaultContext & RouterParamContext<StateMain>,
+    ResponseBodyMain = any
+> {
+
+    <
+        StateType extends DefaultState,
+        CustomType extends DefaultContext & RouterParamContext<StateType>,
+        ResponseBodyType = unknown
+    >(
+        middleware : Middleware<
+            StateMain, CustomMain, ResponseBodyMain,
+            StateType, CustomType, ResponseBodyType
+            >
+    ) : Type<StateType, CustomType, ResponseBodyType>;
+}
+
+export default function StatusCode<
+    StateMain extends DefaultState,
+    CustomMain extends DefaultContext & RouterParamContext<StateMain>,
+    ResponseBodyMain = any
+>(
+    router : Router<StateMain, CustomMain>,
+    statusCode : (code:number) => boolean
+) : Type<StateMain, CustomMain, ResponseBodyMain> {
+
+    return function <
+        StateType extends DefaultState,
+        CustomType extends DefaultContext & RouterParamContext<StateType>,
+        ResponseBodyType = unknown
+        >(
+            middleware : Middleware<
+            StateMain, CustomMain, ResponseBodyMain,
+            StateType, CustomType, ResponseBodyType
+        >
+    ) {
+
+        router.use(StatusCodeMiddleware(statusCode, middleware));
+
+        return StatusCode(router, statusCode)
+
+    } as Type<StateMain, CustomMain, ResponseBodyMain>
+}
+
 
 //
 // export type Executor <

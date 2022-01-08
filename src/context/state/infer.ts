@@ -1,9 +1,5 @@
-import Message from "@dikac/t-message/message";
-import {Middleware as KoaMiddleware} from "koa";
-import {Middleware} from "@koa/router";
-import * as Koa from "koa";
-import Context from "../../middleware/context/context";
+import Context from "../context";
 
 
-type Infer<Type> = Type extends Context<infer As> ? As : never;
+type Infer<Type> = Type extends Context<infer As, any> ? As : never;
 export default Infer;

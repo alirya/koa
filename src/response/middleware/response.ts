@@ -1,9 +1,8 @@
 import Response from "@dikac/t-http/response/response";
-import InternalServerError from "@dikac/t-http/response/internal-server-error";
 import Context from "../../middleware/context/context";
 import {Next} from "koa";
 import {Middleware} from "koa";
-import FromResponse from "../from-response";
+import FromResponseParameters from "../from-response-parameters";
 import * as Koa from "koa";
 import {RouterParamContext} from "@koa/router";
 
@@ -28,7 +27,7 @@ export default function Response<
 
         return response(context).then(function (subject) {
 
-            FromResponse(context, subject);
+            FromResponseParameters(context, subject);
 
             return next();
 

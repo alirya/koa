@@ -1,8 +1,7 @@
-import Response from "@dikac/t-http/response/response";
 import Context from "../../middleware/context/context";
 import {DefaultContext, DefaultState, Next} from "koa";
 import {Middleware} from "koa";
-import FromResponse from "../from-response";
+import FromResponseParameters from "../from-response-parameters";
 
 /**
  * set {@param response} to response data
@@ -34,7 +33,7 @@ export default function Set<
 
     return function (context : Context<State, ContextType, ResponseBody>, next : Next) {
 
-        FromResponse(context, response);
+        FromResponseParameters(context, response);
 
         return next();
     }

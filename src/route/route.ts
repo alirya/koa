@@ -1,36 +1,54 @@
-import Router, {RouterParamContext} from "@koa/router";
 import Path from "@dikac/t-http/request/path/path";
 import Method from "@dikac/t-http/request/method/method";
 import Koa, {DefaultContext, DefaultState} from "koa";
 import Middleware from "../middleware/middleware";
+import KoaRouter, {RouterOptions, RouterParamContext} from "@koa/router";
+import Server from "../server/server";
+import {Server as HttpServer} from "http";
+import {ListenOptions} from "net";
+import Request from "@dikac/t-http/request/request";
+import Route from "@dikac/t-http/request/route/route";
+import Router from "./router";
 
-export default class Route<
-    StateMain extends DefaultState,
-    CustomMain extends DefaultContext & RouterParamContext<StateMain>,
-    ResponseBodyMain = any
-> {
+export interface Type<
+    StateT extends DefaultState,
+    CustomT extends DefaultContext,
+    >  {
 
-    constructor(
-        public router : Router<StateMain, CustomMain>,
-        public route : Method & Path
-    ) {
+    <StateR extends StateT, CustomR extends CustomT>(options : Route): KoaRouter<StateR, CustomR & RouterParamContext<StateT>>;
+}
 
+
+export default function Route<
+    StateT extends DefaultState,
+    CustomT extends DefaultContext
+>(
+    koa : Koa<StateT, CustomT>,
+) : Type<StateT, CustomT> {
+
+    return function<StateR extends StateT, CustomR extends CustomT>(route : Route) {
+
+        return Router(koa)({
+            prefix : route.path,
+            methods : [route.method]
+        })
     }
 
-    use<
-        StateType extends DefaultState,
-        CustomType extends DefaultContext & RouterParamContext<StateType>,
-        ResponseBodyType = unknown
-    >(
-        middleware : Middleware<
-            StateMain, CustomMain, ResponseBodyMain,
-            StateType, CustomType, ResponseBodyType
-            >
-    ) : Route<StateType, CustomType, ResponseBodyType> {
-        // @ts-ignore
-        this.router.register(this.route.path, [this.route.method], middleware);
-        // @ts-ignore
-        return this as Route<StateType, CustomType, ResponseBodyType>;
-    }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
