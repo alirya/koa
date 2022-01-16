@@ -1,6 +1,6 @@
 import Context from "../../middleware/context/context";
 import {Next} from "koa";
-import Log from "@dikac/t-syslog/syslog";
+import Log from "@alirya/syslog/syslog";
 import * as Koa from "koa";
 import {RouterParamContext} from "@koa/router";
 import Middleware from "../../middleware/middleware";
@@ -12,7 +12,7 @@ export default function LogParameters<
 >(
     log : Log<[string, any, any]>,
     severity : keyof Log = 'debug'
-) : Middleware<State, ContextType, ResponseBody, State, ContextType, ResponseBody> {
+) : Middleware<State, ContextType, ResponseBody/*, State, ContextType, ResponseBody*/> {
 
     return function (context : Context, next : Next) {
 

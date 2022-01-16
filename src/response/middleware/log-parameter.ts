@@ -1,7 +1,7 @@
 import Context from "../../middleware/context/context";
 import AppContext from "../../context/context";
 import {Next} from "koa";
-import Log from "@dikac/t-syslog/syslog";
+import Log from "@alirya/syslog/syslog";
 import {DefaultState} from "koa";
 import Middleware from "../../middleware/middleware";
 import LogParameters from "./log-parameters";
@@ -33,7 +33,7 @@ export default function LogParameter<
         severity ?: keyof Log,
         after ?: boolean,
     }
-) : Middleware<State, ContextType, ResponseBody, State, ContextType, ResponseBody> {
+) : Middleware<State, ContextType, ResponseBody/*, State, ContextType, ResponseBody*/> {
 
     return LogParameters(log, severity, after);
 }

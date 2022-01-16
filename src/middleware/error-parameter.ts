@@ -42,7 +42,7 @@ export default function ErrorParameter<
         instance,
         rethrow,
     } : ErrorParameterArgument<Error, State, ContextType, ResponseBody>
-) : Middleware<State, ContextType, ResponseBody, State, ContextType, ResponseBody>
+) : Middleware<State, ContextType, ResponseBody/*, State, ContextType, ResponseBody*/>
 {
     return ErrorParameters(handler, instance, rethrow);
 }

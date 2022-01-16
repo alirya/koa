@@ -5,7 +5,7 @@ import {RouterParamContext} from "@koa/router";
  * context of application/routing argument
  */
 type Context<
-    State extends DefaultState,
+    State extends DefaultState = DefaultState,
     Context extends DefaultContext = DefaultContext
 > = Context & RouterParamContext<State, Context>
 

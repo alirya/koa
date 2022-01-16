@@ -1,12 +1,12 @@
-// import StringStandard from "@dikac/t-string/validator/string-parameters";
-// import MapAll from "@dikac/t-object/validator/map-all-parameters";
-// import AndRecord from "@dikac/t-object/validatable/and";
-// import InvalidMessageRecord from "@dikac/t-object/message/message/record/invalid";
+// import StringStandard from "@alirya/string/validator/string-parameters";
+// import MapAll from "@alirya/object/validator/map-all-parameters";
+// import AndRecord from "@alirya/object/validatable/and";
+// import InvalidMessageRecord from "@alirya/object/message/message/record/invalid";
 // import Router from "../../../router";
 // import KoaBody from "koa-body";
 // import BodyValidator from "../../../../dist/request/middleware/auto-body-validator-parameters";
 // import Axios from "axios";
-// import RequestPath from "../../../request-path";
+// import RequestPath from "../../../requespath";
 //
 // it("force console log", () => { spyOn(console, 'log').and.callThrough();});
 //

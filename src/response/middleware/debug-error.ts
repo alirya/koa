@@ -1,8 +1,8 @@
 // import Context from "../../middleware/context/context";
 // import {Middleware} from "koa";
 // import FromResponse from "../from-response";
-// import InternalServerError from "@dikac/t-http/response/internal-server-error";
-// import Name from "@dikac/t-object/string/name";
+// import InternalServerError from "@alirya/http/response/internal-server-error";
+// import Name from "@alirya/object/string/name";
 // import ErrorCallback from "../../middleware/error-callback";
 //
 // /**

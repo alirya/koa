@@ -1,14 +1,14 @@
-import Validator from "@dikac/t-validator/validator";
-import ValidatorContainer from "@dikac/t-validator/validator/validator";
+import Validator from "@alirya/validator/validator";
+import ValidatorContainer from "@alirya/validator/validator/validator";
 import {Middleware} from "koa";
 import Context from "../../middleware/context/context";
 import FromResponseParameters from "../../response/from-response-parameters";
 import * as Koa from "koa";
 import {RouterParamContext} from "@koa/router";
-import DefaultMessage from "@dikac/t-http/response/response-function-parameter";
-import Codes from "@dikac/t-http/response/code/number/strict";
+import DefaultMessage from "@alirya/http/response/response-function-parameter";
+import Codes from "@alirya/http/response/code/number/strict";
 import ContentTypeJson from "../../object/content-type-json";
-import Code from "@dikac/t-code/code";
+import Code from "@alirya/code/code";
 import AutoBodyValidatorParameters from "./auto-body-validator-parameters";
 
 export default function AutoBodyValidatorParameter<

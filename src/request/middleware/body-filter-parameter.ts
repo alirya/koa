@@ -23,7 +23,7 @@ export default function BodyFilterParameter<
     Response = unknown
     >(
     filter : ({body, context} : BodyFilterParameterArgumentCallback<RequestBody, State, ContextType, Response>) => ReplaceBody,
-) : Middleware<State, ContextType, Response, State, ContextBody<ReplaceBody, State>, Response> {
+) : Middleware<State, ContextType, Response/*, State, ContextBody<ReplaceBody, State>, Response*/> {
 
     return BodyFilterParameters<RequestBody, ReplaceBody, State, ContextType, Response>(
         (body, context) => filter({body, context})

@@ -15,13 +15,13 @@ export default function StatusCode<
     State extends Koa.DefaultState,
     ContextType extends Koa.DefaultContext & RouterParamContext<State>,
     ResponseBody,
-    StateNext extends Koa.DefaultState,
+/*    StateNext extends Koa.DefaultState,
     ContextTypeNext extends Koa.DefaultContext & RouterParamContext<StateNext>,
-    ResponseBodyNext
+    ResponseBodyNext*/
 >(
     status : (status:number)=>boolean,
     middleware : Middleware<State, ContextType, ResponseBody>,
-) : Middleware<State, ContextType, ResponseBody, StateNext|State, ContextTypeNext|ContextType, ResponseBodyNext|ResponseBody> {
+) : Middleware<State, ContextType, ResponseBody/*, StateNext|Stat, ContextTypeNext|ContextType, ResponseBodyNext|ResponseBody*/> {
 
     return function (context : Context<State, ContextType, ResponseBody> , next) {
 

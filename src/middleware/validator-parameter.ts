@@ -1,6 +1,6 @@
-import Validator from "@dikac/t-validator/simple";
-import ValidatableContainer from "@dikac/t-validatable/validatable/validatable";
-import InferValidatable from "@dikac/t-validator/validatable/infer-validatable";
+import Validator from "@alirya/validator/simple";
+import ValidatableContainer from "@alirya/validatable/validatable/validatable";
+import InferValidatable from "@alirya/validator/validatable/infer-validatable";
 import Context from "./context/context";
 import ApplicationContext from "../context/context";
 import Middleware from "./middleware";
@@ -15,9 +15,9 @@ export default function ValidatorParameter<
     ContextType extends ValidatableContextType<ValidatorType, State>,
     ResponseBody,
     ValidatorType extends Validator<Context<State, ContextType, ResponseBody>>,
-    StateNext extends DefaultState,
+/*    StateNext extends DefaultState,
     ContextTypeNext extends ApplicationContext<StateNext>,
-    ResponseBodyNext,
+    ResponseBodyNext,*/
 >(
     {
         validator,
@@ -26,7 +26,7 @@ export default function ValidatorParameter<
         validator : ValidatorType,
         invalid : Middleware<State, Required<ContextType>, ResponseBody>,
     }
-) : Middleware<State, ContextType, ResponseBody, StateNext, ContextTypeNext, ResponseBodyNext> {
+) : Middleware<State, ContextType, ResponseBody/*, StateNext, ContextTypeNext, ResponseBodyNext*/> {
 
     return ValidatorParameters(validator, invalid);
 }

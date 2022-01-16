@@ -1,7 +1,7 @@
 // import Context from "../../middleware/context/context";
 // import {DefaultContext, DefaultState, Next} from "koa";
 // import FromResponseParameters from "../from-response-parameters";
-// import NotFound from "@dikac/t-http/response/not-found-parameter";
+// import NotFound from "@alirya/http/response/nofound-parameter";
 //
 // /**
 //  * change response code to 404 if response body is undefined

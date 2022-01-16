@@ -3,7 +3,7 @@
 // import MiddlewareError from "../../../dist/middleware/error-parameters";
 // import Axios, {AxiosResponse} from "axios";
 // import ErrorHandler from "../../../dist/route/error";
-// import RequestPath from "../../request-path";
+// import RequestPath from "../../requespath";
 //
 // it("force console log", () => { spyOn(console, 'log').and.callThrough();});
 //

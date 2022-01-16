@@ -1,20 +1,20 @@
 {
-  "name": "@dikac/tn-koa-router",
+  "name": "@alirya/koa",
   "version": "0.8.10",
   "description": "Typescript koa router",
   "dependencies": {
-    "@dikac/t-array": "^0.26.0-alpha.4",
-    "@dikac/t-code": "^0.3.0-alpha.1",
-    "@dikac/t-function": "^0.15.0-beta.9",
-    "@dikac/t-http": "^0.18.0-alpha.3",
-    "@dikac/t-message": "^0.12.0-alpha.2",
-    "@dikac/t-number": "^0.17.0-alpha.4",
-    "@dikac/t-object": "^0.37.0-alpha.5",
-    "@dikac/t-string": "^0.16.0-alpha.4",
-    "@dikac/t-syslog": "^0.2.3",
-    "@dikac/t-validatable": "^0.20.0-beta.7",
-    "@dikac/t-validator": "^0.19.0-beta.20",
-    "@dikac/t-value": "^0.15.0-beta.2",
+    "@alirya/array": "^0.26.0-alpha.4",
+    "@alirya/code": "^0.3.0-alpha.1",
+    "@alirya/function": "^0.15.0-beta.9",
+    "@alirya/http": "^0.18.0-alpha.3",
+    "@alirya/message": "^0.12.0-alpha.2",
+    "@alirya/number": "^0.17.0-alpha.4",
+    "@alirya/object": "^0.37.0-alpha.5",
+    "@alirya/string": "^0.16.0-alpha.4",
+    "@alirya/syslog": "^0.2.3",
+    "@alirya/validatable": "^0.20.0-beta.7",
+    "@alirya/validator": "^0.19.0-beta.20",
+    "@alirya/value": "^0.15.0-beta.2",
     "@koa/router": "^10.1.1",
     "@types/koa": "^2.13.4",
     "@types/koa__router": "^8.0.11",
@@ -24,21 +24,19 @@
     "utility-types": "^3.10.0"
   },
   "devDependencies": {
-    "@dikac/tn-filesystem": "^0.4.2",
-    "@types/jasmine": "^3.6.9",
-    "@types/node": "^12.20.10",
-    "axios": "=0.19.0",
+    "@types/jasmine": "^3.10.2",
     "cpy-cli": "^3.1.1",
     "esm": "^3.2.25",
-    "jasmine": "^3.7.0",
+    "jasmine": "^3.10.0",
     "jasmine-ts-console-reporter": "^3.1.1",
     "json-properties-remover": "^0.1.2",
-    "koa-body": "^4.2.0",
     "mkdirp": "^1.0.4",
     "npm-run-all": "^4.1.5",
     "rimraf": "^3.0.2",
     "ts-cleaner": "^1.0.5",
-    "typescript": "^4.2.4"
+    "typescript": "^4.5.2",
+    "tslint": "^5.13.0",
+    "typedoc": "^0.22.10"
   },
   "scripts": {
     "spec-run-js": "node -r esm node_modules/jasmine/bin/jasmine.js --config=./jasmine.json",
@@ -56,6 +54,9 @@
     "postrelease": "npm publish ./dist",
     "prerelease": "npm-run-all _release-remove-compile-cache compile _release_copy-meta-files",
     "postpublish": "rimraf package.json package-lock.json LICENSE Readme.md .npmignore",
+    "lint": "tslint --project ./tslint.json",
+    "lint-fix": "tslint --project ./tslint.json --fix",
+    "doc-generate": "npm-run-all _doc-clean _doc-generate",
     "_compile-script": "tsc",
     "_spec-ensure-directory": "mkdirp dist-spec",
     "_compile-script-watch": "tsc -w",
@@ -63,9 +64,21 @@
     "_spec-compile-watch-script": "tsc -w -p tsconfig-spec.json",
     "_compile-ensure-directory": "mkdirp dist",
     "_release_copy-meta-files": "cpy package.json package-lock.json LICENSE Readme.md .npmignore dist",
-    "_release-remove-compile-cache": "rimraf ./dist/compiler-cache"
+    "_release-remove-compile-cache": "rimraf ./dist/compiler-cache",
+    "_doc-generate": "typedoc --entryPointStrategy expand ./src --out docs",
+    "_doc-clean": "rimraf docs"
+  },
+  "publishConfig": {
+    "directory": "dist"
+  },
+  "author": {
+    "name": "Andika Candra"
   },
   "private": true,
-  "author": "",
-  "license": "MIT"
+  "license": "Apache-2.0",
+  "homepage": "https://github.com/alirya/koa",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alirya/koa"
+  }
 }

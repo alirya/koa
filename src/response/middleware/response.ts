@@ -1,4 +1,4 @@
-import Response from "@dikac/t-http/response/response";
+import Response from "@alirya/http/response/response";
 import Context from "../../middleware/context/context";
 import {Next} from "koa";
 import {Middleware} from "koa";

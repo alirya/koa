@@ -1,9 +1,13 @@
-// import RequestPath from "../../../request-path";
+// import RequestPath from "../../../requespath";
 // import Axios, {AxiosResponse} from "axios";
-// import Router from "../../../router";
 // import KoaBody from "koa-body";
-// import ErrorHandler from "../../../../dist/route/error";
+// // import ErrorHandler from "../../../../dist/route/error";
 // import Error from "../../../../dist/middleware/error-handler/error-parameters";
+// import Server from "../../../server";
+// import Register from "../../../../dist/route/register";
+// import Router, {RouterParamContext} from "@koa/router";
+// import {DefaultContext, DefaultState} from "koa";
+// import MiddlewareError from "../../../../dist/middleware/error-parameters";
 //
 // it("force console log", () => { spyOn(console, 'log').and.callThrough();});
 //
@@ -13,9 +17,11 @@
 //
 // describe('uncaught handler', () => {
 //
-//     const router = Router();
-//     beforeAll(()=>router.open());
-//     afterAll(()=>router.close());
+//     const server = Server();
+//     const router =  Register(server.koa, new Router());
+//
+//     beforeAll(()=>server.open());
+//     afterAll(()=>server.close());
 //
 //     const path : string = RequestPath(__filename) + 2;
 //
@@ -29,32 +35,30 @@
 //
 //     it('add request', ()=>{
 //
-//         const chain = ErrorHandler(router.koa, globalThis.Error);
-//
-//         chain(Error(function () {
-//
-//             error = true;
-//
-//         }, globalThis.Error));
-//
-//         chain(Error(function () {
-//
-//             testError = true;
-//
-//         }, TestError));
-//
-//         router.router.post(path,
+//         router.post(path,
 //             KoaBody(),
 //             function (context, next) {
 //
 //                 throw new globalThis.Error('error occurred "uncaught by the router" (cannot be caught)');
 //             },
 //         );
+//
+//         server.koa.on('error',/*MiddlewareError(*/Error(function () {
+//
+//             testError = true;
+//
+//         }, globalThis.Error))/*)*/;
+//
+//         router.use(MiddlewareError(/*Error(*/function () {
+//
+//             error = true;
+//
+//         }, globalThis.Error))/*)*/;
 //     });
 //
 //     it('send request', function (done) {
 //
-//         Axios.post(`http://localhost:${router.config.port}${path}`, dataValue).then((data)=>{
+//         Axios.post(`http://localhost:${server.config.port}${path}`, dataValue).then((data)=>{
 //
 //             fail('response 500 should fail');
 //
@@ -64,8 +68,8 @@
 //     it('assert value', function () {
 //
 //         // expect(response).toEqual(undefined);
-//         expect(error).toBe(true);
-//         expect(testError).toBe(false);
+//         expect(error).toBe(false);
+//         expect(testError).toBe(true);
 //         expect(response.status).toEqual(500);
 //         expect(response.statusText).toEqual('Internal Server Error');
 //

@@ -24,7 +24,7 @@ export default function BodyFilterParameter<
     ContextType extends Koa.DefaultContext & RouterParamContext<State>,
 >(
     filter : (argument : BodyFilterParameterArgumentCallback<BodyFrom, State, ContextType>) => BodyTo,
-) : Middleware<State, ContextType, BodyFrom, State, ContextType, BodyTo> {
+) : Middleware<State, ContextType, BodyFrom/*, State, ContextType, BodyTo*/> {
 
     return BodyFilterParameters(
         (body, context) => filter({body, context})

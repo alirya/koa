@@ -2,7 +2,7 @@
 // import KoaBody from "koa-body";
 // import BodyFilter from "../../../../dist/response/middleware/body-filter-parameters";
 // import Axios from "axios";
-// import RequestPath from "../../../request-path";
+// import RequestPath from "../../../requespath";
 //
 // it("force console log", () => { spyOn(console, 'log').and.callThrough();});
 //

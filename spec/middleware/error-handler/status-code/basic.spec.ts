@@ -1,20 +1,25 @@
-// import RequestPath from "../../../request-path";
+// import RequestPath from "../../../requespath";
 // import Axios, {AxiosResponse} from "axios";
-// import Router from "../../../router";
+// // import Router from "../../../router";
 // import KoaBody from "koa-body";
 // import MiddlewareError from "../../../../dist/middleware/error-parameters";
-// import ErrorHandler from "../../../../dist/route/error";
-// import StatusCode from "../../../../dist/middleware/error-handler/status-code-parameters";
-// import Code from "@dikac/t-code/code";
+// // import ErrorHandler from "../../../../dist/route/error";
+// import StatusCode from "../../../../dist/middleware/error-handler/status-code";
+// import Code from "@alirya/code/code";
+// import Server from "../../../server";
+// import Register from "../../../../dist/route/register";
+// import Router from "@koa/router";
+// import Error from "../../../../dist/middleware/error-handler/error-parameters";
 //
 // it("force console log", () => { spyOn(console, 'log').and.callThrough();});
 //
 // describe('test', () => {
 //
-//     const router = Router();
+//     const server = Server();
+//     const router =  Register(server.koa, new Router());
 //
-//     beforeAll(()=>router.open());
-//     afterAll(()=>router.close());
+//     beforeAll(()=>server.open());
+//     afterAll(()=>server.close());
 //
 //     describe('code', () => {
 //
@@ -39,25 +44,31 @@
 //
 //         it('add request', ()=>{
 //
-//             router.router.post(path,
+//             router.post(path,
 //                 KoaBody(),
-//                 MiddlewareError(StatusCode, Error),
+//                 MiddlewareError(StatusCode, globalThis.Error),
 //                 function (context, next) {
 //
 //                     throw new ErrorCode('error code occurred', 422);
 //                 },
 //             );
 //
-//             ErrorHandler(router.koa, Error)((error, context) => {
+//             server.koa.on('error',/*MiddlewareError(*/Error(function () {
 //
 //                 rethrown = true;
-//             });
+//
+//             }, globalThis.Error))/*)*/;
+//             //
+//             // ErrorHandler(router.koa, Error)((error, context) => {
+//             //
+//             //     rethrown = true;
+//             // });
 //
 //         });
 //
 //         it('send request', function (done) {
 //
-//             Axios.post(`http://localhost:${router.config.port}${path}`, dataValue).then((data)=>{
+//             Axios.post(`http://localhost:${server.config.port}${path}`, dataValue).then((data)=>{
 //
 //                 fail('response 500 should fail');
 //
@@ -100,25 +111,31 @@
 //
 //         it('add request', ()=>{
 //
-//             router.router.post(path,
+//             router.post(path,
 //                 KoaBody(),
-//                 MiddlewareError(StatusCode, Error),
+//                 MiddlewareError(StatusCode, globalThis.Error),
 //                 function (context, next) {
 //
 //                     throw new ErrorStatus('error status occurred', 405);
 //                 },
 //             );
 //
-//             ErrorHandler(router.koa, Error)((error, context) => {
+//             server.koa.on('error',/*MiddlewareError(*/Error(function () {
 //
 //                 rethrown = true;
-//             });
+//
+//             }, globalThis.Error))/*)*/;
+//
+//             // ErrorHandler(server.koa, Error)((error, context) => {
+//             //
+//             //     rethrown = true;
+//             // });
 //
 //         });
 //
 //         it('send request', function (done) {
 //
-//             Axios.post(`http://localhost:${router.config.port}${path}`, dataValue).then((data)=>{
+//             Axios.post(`http://localhost:${server.config.port}${path}`, dataValue).then((data)=>{
 //
 //                 fail('response 500 should fail');
 //
@@ -150,25 +167,31 @@
 //
 //         it('add request', ()=>{
 //
-//             router.router.post(path,
+//             router.post(path,
 //                 KoaBody(),
-//                 MiddlewareError(StatusCode, Error),
+//                 MiddlewareError(StatusCode, globalThis.Error),
 //                 function (context, next) {
 //
-//                     throw new Error('error occurred');
+//                     throw new globalThis.Error('error occurred');
 //                 },
 //             );
 //
-//             ErrorHandler(router.koa, Error)((error, context) => {
+//             server.koa.on('error',/*MiddlewareError(*/Error(function () {
 //
 //                 rethrown = true;
-//             });
+//
+//             }, globalThis.Error))/*)*/;
+//             //
+//             // ErrorHandler(router.koa, Error)((error, context) => {
+//             //
+//             //     rethrown = true;
+//             // });
 //
 //         });
 //
 //         it('send request', function (done) {
 //
-//             Axios.post(`http://localhost:${router.config.port}${path}`, dataValue).then((data)=>{
+//             Axios.post(`http://localhost:${server.config.port}${path}`, dataValue).then((data)=>{
 //
 //                 fail('response 500 should fail');
 //

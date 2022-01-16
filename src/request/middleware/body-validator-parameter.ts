@@ -1,4 +1,4 @@
-import Validator from "@dikac/t-validator/validator";
+import Validator from "@alirya/validator/validator";
 import {Middleware} from "koa";
 import Context from "../../middleware/context/context";
 import * as Koa from "koa";

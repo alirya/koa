@@ -17,7 +17,7 @@ export default function BodyFilterParameters<
     Response = unknown
     >(
     filter : (body : RequestBody, context: Context<State, ContextType, Response>) => ReplaceBody,
-) : Middleware<State, ContextType, Response, State, ContextBody<ReplaceBody, State>, Response> {
+) : Middleware<State, ContextType, Response/*, State, ContextBody<ReplaceBody, State>, Response*/> {
 
     return function (context, next)  {
 
@@ -28,6 +28,6 @@ export default function BodyFilterParameters<
 
         return next();
 
-    } as  Middleware<State, ContextType, Response, State, ContextType, Response>
+    } as  Middleware<State, ContextType, Response/*, State, ContextType, Response*/>
 
 }

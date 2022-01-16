@@ -1,6 +1,6 @@
 // import Route from "../../../../dist/route/route";
 // import KoaRouter from "../../../router";
-// import Method from "@dikac/t-http/request/method/string/enum/method";
+// import Method from "@alirya/http/request/method/string/enum/method";
 // import Router, {RouterParamContext} from "@koa/router";
 // import {DefaultContext, DefaultState} from "koa";
 // import Body from "../../../../dist/response/middleware/body-parameters";
@@ -27,7 +27,7 @@
 //
 //             const string : string = context.response.body;
 //
-//             // @ts-expect-error
+//             // @ts-expecerror
 //             const number : number = context.response.body;
 //         });
 //

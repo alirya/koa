@@ -10,9 +10,9 @@ type Middleware<
     StateT extends DefaultState = DefaultState,
     ContextT extends ApplicationContext<StateT> = ApplicationContext<StateT>,
     ResponseBodyT = unknown,
-    StateTNext extends DefaultState = StateT,
-    ContextTNext extends ApplicationContext<StateTNext> = ApplicationContext<StateTNext>,
-    ResponseBodyTNext = ResponseBodyT,
+    // StateTNext extends DefaultState = StateT,
+    // ContextTNext extends ApplicationContext<StateTNext> = ApplicationContext<StateTNext>,
+    // ResponseBodyTNext = ResponseBodyT,
 > =
 Koa.Middleware<
     StateT,

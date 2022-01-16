@@ -1,7 +1,7 @@
 import Context from "../../middleware/context/context";
 import AppContext from "../../context/context";
 import {Next} from "koa";
-import Log from "@dikac/t-syslog/syslog";
+import Log from "@alirya/syslog/syslog";
 import {DefaultState} from "koa";
 import Middleware from "../../middleware/middleware";
 
@@ -26,7 +26,7 @@ export default function LogParameters<
     log : Log<[string, any, any]>,
     severity : keyof Log = 'debug',
     after: boolean = true
-) : Middleware<State, ContextType, ResponseBody, State, ContextType, ResponseBody> {
+) : Middleware<State, ContextType, ResponseBody/*, State, ContextType, ResponseBody*/> {
 
     const call = function (context : Context) {
 

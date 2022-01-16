@@ -1,9 +1,10 @@
-// import DebugParameters from "../../../../dist/middleware/error-handler/debug-parameters";
-// import DebugParameter from "../../../../dist/middleware/error-handler/debug-parameter";
-// import Router from "../../../router";
+// import DebugParameters from "../../../../dist/middleware/error-handler/debug";
 // import ErrorParameters from "../../../../dist/middleware/error-parameters";
 // import ErrorParameter from "../../../../dist/middleware/error-parameter";
 // import Axios from "axios";
+// import Register from "../../../../dist/route/register";
+// import Server from "../../../server";
+// import Router from "@koa/router";
 //
 // it("force console log", () => { spyOn(console, 'log').and.callThrough();});
 //
@@ -16,24 +17,25 @@
 //
 //     const error =  new ErrorInstance('error message test');
 //
-//     const router = Router();
-//     beforeAll(()=>router.open());
-//     afterAll(()=>router.close());
+//     const server = Server();
+//     const router = Register(server.koa, new Router());
+//     beforeAll(()=>server.open());
+//     afterAll(()=>server.close());
 //
 //     describe('parameters', () => {
 //
 //         const path = '/parameters';
 //
-//         router.router.use(ErrorParameters(DebugParameters, Error));
+//         router.use(ErrorParameters(DebugParameters, Error));
 //
-//         router.router.post(path, ()=>{
+//         router.post(path, ()=>{
 //
 //             throw error;
 //         });
 //
 //         it('send request', function (done) {
 //
-//             Axios.post(`http://localhost:${router.config.port}${path}`, {}).then((data)=>{
+//             Axios.post(`http://localhost:${server.config.port}${path}`, {}).then((data)=>{
 //
 //                 fail('response 500 should fail');
 //
@@ -50,16 +52,16 @@
 //
 //         const path = '/parameter';
 //
-//         router.router.use(ErrorParameter({handler:DebugParameter, instance:Error}));
+//         router.use(ErrorParameter({handler:DebugParameters, instance:Error}));
 //
-//         router.router.post(path, ()=>{
+//         router.post(path, ()=>{
 //
 //             throw error;
 //         });
 //
 //         it('send request', function (done) {
 //
-//             Axios.post(`http://localhost:${router.config.port}${path}`, {}).then((data)=>{
+//             Axios.post(`http://localhost:${server.config.port}${path}`, {}).then((data)=>{
 //
 //                 fail('response 500 should fail');
 //

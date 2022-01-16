@@ -1,12 +1,12 @@
 import Context from "../../middleware/context/context";
 import {Next} from "koa";
 import FromResponseParameters from "../from-response-parameters";
-import Ok from "@dikac/t-http/response/ok-parameter";
+import Ok from "@alirya/http/response/ok-parameter";
 import * as Koa from "koa";
-import Response from "@dikac/t-http/response/response";
+import Response from "@alirya/http/response/response";
 import Middleware from "../../middleware/middleware";
 import {RouterParamContext} from "@koa/router";
-import Body from "@dikac/t-http/body/body";
+import Body from "@alirya/http/body/body";
 import BodyParameters from "./body-parameters";
 
 export type BodyParameterArgument<
@@ -36,7 +36,7 @@ export default function BodyParameter<
         subject,
         response = Ok,
     } : BodyParameterArgument<ResponseBody, State, ContextType>
-) : Middleware<State, ContextType, any, State, ContextType, ResponseBody> {
+) : Middleware<State, ContextType, any/*, State, ContextType, ResponseBody*/> {
 
     return BodyParameters(subject, response);
 }

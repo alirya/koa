@@ -1,6 +1,6 @@
 import {Middleware} from "koa";
 import {Next, Response} from "koa";
-import Body from "@dikac/t-http/body/body";
+import Body from "@alirya/http/body/body";
 import Context from "../../middleware/context/context";
 /**
  * use {@param middleware} if response body is valid against {@param validation}

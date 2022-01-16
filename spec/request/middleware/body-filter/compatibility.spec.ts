@@ -1,6 +1,6 @@
 // import Route from "../../../../dist/route/route";
 // import KoaRouter from "../../../router";
-// import Method from "@dikac/t-http/request/method/string/enum/method";
+// import Method from "@alirya/http/request/method/string/enum/method";
 // import {RouterParamContext} from "@koa/router";
 // import * as Koa from "koa";
 // import {Next} from "koa";
@@ -75,13 +75,13 @@
 //
 //             let valid : string = context.request.data;
 //
-//             // @ts-expect-error
+//             // @ts-expecerror
 //             const invalid : number  = context.request.data;
 //
-//             // @ts-expect-error
+//             // @ts-expecerror
 //             const invalid1 : object  = context.request.data;
 //
-//             // @ts-expect-error
+//             // @ts-expecerror
 //             const invalid2 : string[]  = context.request.data;
 //
 //         });

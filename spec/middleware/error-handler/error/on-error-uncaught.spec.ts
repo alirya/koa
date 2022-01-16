@@ -1,8 +1,11 @@
-// import RequestPath from "../../../request-path";
+// import RequestPath from "../../../requespath";
 // import Axios, {AxiosResponse} from "axios";
-// import Router from "../../../router";
+//
 // import KoaBody from "koa-body";
 // import Error from "../../../../dist/middleware/error-handler/error-parameters";
+// import Register from "../../../../dist/route/register";
+// import Router from "@koa/router";
+// import Server from "../../../server";
 //
 // it("force console log", () => { spyOn(console, 'log').and.callThrough();});
 //
@@ -14,9 +17,10 @@
 //
 //     const path : string = RequestPath(__filename);
 //
-//     const router = Router();
-//     beforeAll(()=>router.open());
-//     afterAll(()=>router.close());
+//     const server = Server();
+//     const router =  Register(server.koa, new Router());
+//     beforeAll(()=>server.open());
+//     afterAll(()=>server.close());
 //
 //     let error : boolean = false;
 //     let testError : boolean = false;
@@ -30,19 +34,19 @@
 //
 //     it('add request', ()=>{
 //
-//         router.koa.on('error', Error(function () {
+//         server.koa.on('error', Error(function () {
 //
 //             error = true;
 //
 //         }, globalThis.Error));
 //
-//         router.koa.on('error', Error(function () {
+//         server.koa.on('error', Error(function () {
 //
 //             testError = true;
 //
 //         }, TestError));
 //
-//         router.router.post(path,
+//         router.post(path,
 //             KoaBody(),
 //             function (context, next) {
 //
@@ -54,7 +58,7 @@
 //
 //     it('send request', function (done) {
 //
-//         Axios.post(`http://localhost:${router.config.port}${path}`, dataValue).then((data)=>{
+//         Axios.post(`http://localhost:${server.config.port}${path}`, dataValue).then((data)=>{
 //
 //             fail('response 500 should fail');
 //

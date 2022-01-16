@@ -49,8 +49,8 @@ export interface Type<
         ResponseBodyType = unknown
     >(
         middleware : Middleware<
-            StateMain, CustomMain, ResponseBodyMain,
-            StateType, CustomType, ResponseBodyType
+            StateMain, CustomMain, ResponseBodyMain/*,
+            StateType, CustomType, ResponseBodyType*/
             >
     ) : Type<StateType, CustomType, ResponseBodyType>;
 }
@@ -70,8 +70,8 @@ export default function StatusCode<
         ResponseBodyType = unknown
         >(
             middleware : Middleware<
-            StateMain, CustomMain, ResponseBodyMain,
-            StateType, CustomType, ResponseBodyType
+            StateMain, CustomMain, ResponseBodyMain/*,
+            StateType, CustomType, ResponseBodyType*/
         >
     ) {
 

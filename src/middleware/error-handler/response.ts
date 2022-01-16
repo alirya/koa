@@ -1,4 +1,4 @@
-import Response from "@dikac/t-http/response/response";
+import Response from "@alirya/http/response/response";
 import FromResponseParameters from "../../response/from-response-parameters";
 import ErrorHandler from "./error-handler";
 import * as Koa from "koa";

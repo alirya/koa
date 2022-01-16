@@ -1,4 +1,4 @@
-import ServerErrorType from "@dikac/t-http/response/code/class/boolean/server-error";
+import ServerErrorType from "@alirya/http/response/code/class/boolean/server-error";
 import StatusCode from "./status-code";
 import * as Koa from "koa";
 import {RouterParamContext} from "@koa/router";
@@ -12,12 +12,12 @@ export default function StatusServerError<
     State extends Koa.DefaultState,
     ContextType extends Koa.DefaultContext & RouterParamContext<State>,
     ResponseBody,
-    StateNext extends Koa.DefaultState,
+/*    StateNext extends Koa.DefaultState,
     ContextTypeNext extends Koa.DefaultContext & RouterParamContext<StateNext>,
-    ResponseBodyNext
+    ResponseBodyNext*/
 >(
     middleware :  Middleware<State, ContextType, ResponseBody>
-) :  Middleware<State|StateNext, ContextType|ContextTypeNext, ResponseBody|ResponseBodyNext> {
+) :  Middleware<State/*|StateNext*/, ContextType/*|ContextTypeNext*/, ResponseBody/*|ResponseBodyNext*/> {
 
     return StatusCode(ServerErrorType, middleware);
 }

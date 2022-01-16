@@ -1,6 +1,6 @@
 import Router, {RouterParamContext} from "@koa/router";
-import Path from "@dikac/t-http/request/path/path";
-import Method from "@dikac/t-http/request/method/method";
+import Path from "@alirya/http/request/path/path";
+import Method from "@alirya/http/request/method/method";
 import {DefaultContext, DefaultState} from "koa";
 import Middleware from "../middleware/middleware";
 //
@@ -47,8 +47,8 @@ export interface Type<
         ResponseBodyType = unknown
         >(
         middleware : Middleware<
-            StateMain, CustomMain, ResponseBodyMain,
-            StateType, CustomType, ResponseBodyType
+            StateMain, CustomMain, ResponseBodyMain/*,
+            StateType, CustomType, ResponseBodyType*/
             >
     ) : Type<StateType, CustomType, ResponseBodyType>
 }
@@ -68,8 +68,8 @@ export default function RouteOri<
         ResponseBodyType = unknown
     > (
         middleware : Middleware<
-            StateMain, CustomMain, ResponseBodyMain,
-            StateType, CustomType, ResponseBodyType
+            StateMain, CustomMain, ResponseBodyMain/*,
+            StateType, CustomType, ResponseBodyType*/
             >
     ) {
 
