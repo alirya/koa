@@ -9,7 +9,7 @@ import Register from '../../../../dist/route/register';
 import Router, {RouterParamContext} from '@koa/router';
 import {DefaultContext, DefaultState} from 'koa';
 import MiddlewareError from '../../../../dist/middleware/error-parameters';
-import BadRequestParameters from '@alirya/http/response/bad-requesparameters';
+import BadRequestParameters from '@alirya/http/response/bad-request-parameters';
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 

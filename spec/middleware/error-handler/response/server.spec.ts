@@ -9,7 +9,7 @@ import Router, {RouterParamContext} from '@koa/router';
 import {DefaultContext, DefaultState} from 'koa';
 import MiddlewareError from '../../../../dist/middleware/error-parameters';
 import ResponseHandler from '../../../../dist/middleware/error-handler/response';
-import BadRequestParameters from '@alirya/http/response/bad-requesparameters';
+import BadRequestParameters from '@alirya/http/response/bad-request-parameters';
 import Context from '../../../../dist/middleware/context/context';
 import Pick from '@alirya/object/pick';
 import {Server as HttpServer} from 'http';
