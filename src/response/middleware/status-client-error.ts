@@ -1,4 +1,4 @@
-import ClientErrorType from '@alirya/http/response/code/class/boolean/clienerror';
+import ClientErrorType from '@alirya/http/response/code/class/boolean/client-error';
 import StatusCode from './status-code';
 import * as Koa from 'koa';
 import {RouterParamContext} from '@koa/router';
