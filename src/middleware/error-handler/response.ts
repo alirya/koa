@@ -1,7 +1,7 @@
-import Response from "@alirya/http/response/response";
-import FromResponseParameters from "../../response/from-response-parameters";
-import ErrorHandler from "./error-handler";
-import * as Koa from "koa";
+import Response from '@alirya/http/response/response';
+import FromResponseParameters from '../../response/from-response-parameters';
+import ErrorHandler from './error-handler';
+import * as Koa from 'koa';
 
 /**
  * replace response with {@see Response}
@@ -22,5 +22,5 @@ export default function Response<
 
         FromResponseParameters(context, response);
 
-    }
+    };
 }

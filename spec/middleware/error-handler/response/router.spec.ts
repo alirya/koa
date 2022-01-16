@@ -1,17 +1,17 @@
-import RequestPath from "../../../requespath";
-import Axios, {AxiosResponse} from "axios";
-import KoaBody from "koa-body";
+import RequestPath from '../../../requespath';
+import Axios, {AxiosResponse} from 'axios';
+import KoaBody from 'koa-body';
 // import ErrorHandler from "../../../../dist/route/error";
-import Error from "../../../../dist/middleware/error-handler/error-parameters";
-import ResponseHandler from "../../../../dist/middleware/error-handler/response";
-import Server from "../../../server";
-import Register from "../../../../dist/route/register";
-import Router, {RouterParamContext} from "@koa/router";
-import {DefaultContext, DefaultState} from "koa";
-import MiddlewareError from "../../../../dist/middleware/error-parameters";
-import BadRequestParameters from "@alirya/http/response/bad-requesparameters";
+import Error from '../../../../dist/middleware/error-handler/error-parameters';
+import ResponseHandler from '../../../../dist/middleware/error-handler/response';
+import Server from '../../../server';
+import Register from '../../../../dist/route/register';
+import Router, {RouterParamContext} from '@koa/router';
+import {DefaultContext, DefaultState} from 'koa';
+import MiddlewareError from '../../../../dist/middleware/error-parameters';
+import BadRequestParameters from '@alirya/http/response/bad-requesparameters';
 
-it("force console log", () => { spyOn(console, 'log').and.callThrough();});
+it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 
 class TestError extends globalThis.Error {
 
@@ -53,7 +53,7 @@ describe('uncaught handler', () => {
         }).catch(
             e=>response = e.response
         ).finally(done);
-    })
+    });
 
     it('assert value', function () {
 
@@ -61,6 +61,6 @@ describe('uncaught handler', () => {
         expect(response.data as string).toEqual('Bad Request');
         expect(response.statusText).toEqual('Bad Request');
 
-    })
+    });
 });
 

@@ -1,12 +1,12 @@
-import KoaBody from "koa-body";
-import BodyFilter from "../../../../dist/request/middleware/body-filter-parameters";
-import Axios from "axios";
-import RequestPath from "../../../requespath";
-import Server from "../../../server";
-import Register from "../../../../dist/route/register";
-import Router from "@koa/router";
+import KoaBody from 'koa-body';
+import BodyFilter from '../../../../dist/request/middleware/body-filter-parameters';
+import Axios from 'axios';
+import RequestPath from '../../../requespath';
+import Server from '../../../server';
+import Register from '../../../../dist/route/register';
+import Router from '@koa/router';
 
-it("force console log", () => { spyOn(console, 'log').and.callThrough();});
+it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 
 const path : string = RequestPath(__filename);
 
@@ -22,19 +22,19 @@ describe('test', () => {
     const data = {
         name : 'john',
         age : 24
-    }
+    };
 
     const address = 'address';
 
     let argument = {
         name: '',
         age: 0
-    }
+    };
 
     let filtered = {
         name: '',
         address: ''
-    }
+    };
 
 
     it('add filter', ()=>{
@@ -49,7 +49,7 @@ describe('test', () => {
                 return {
                     name : body.name,
                     address
-                }
+                };
 
             }),
 
@@ -57,7 +57,7 @@ describe('test', () => {
             (context, next) => {
 
                 context.response.body = context.request.body;
-            })
+            });
 
     });
 
@@ -68,13 +68,13 @@ describe('test', () => {
             filtered = data.data;
 
         }).catch(fail).finally(done);
-    })
+    });
 
     it('assert value', function () {
 
         expect(argument).toEqual(data);
         expect(filtered).toEqual({name:data.name, address});
 
-    })
+    });
 
-})
+});

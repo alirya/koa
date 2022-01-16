@@ -1,6 +1,6 @@
-import Router from "@koa/router";
-import Koa, {DefaultContext, DefaultState} from "koa";
-import {Server as HttpServer} from "http";
+import Router from '@koa/router';
+import Koa, {DefaultContext, DefaultState} from 'koa';
+import {Server as HttpServer} from 'http';
 
 export default interface Server<StateT = DefaultState, CustomT = DefaultContext> {
 

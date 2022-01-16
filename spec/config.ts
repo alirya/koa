@@ -1,4 +1,4 @@
-import ConfigSuffixJson from "@alirya/tn-filesystem/object/config-suffix-json";
+import ConfigSuffixJson from '@alirya/tn-filesystem/object/config-suffix-json';
 
 
 const Config = ConfigSuffixJson(__dirname + '/../config.json', '-dist');

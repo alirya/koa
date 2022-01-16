@@ -1,8 +1,8 @@
-import Router, {RouterParamContext} from "@koa/router";
-import Path from "@alirya/http/request/path/path";
-import Method from "@alirya/http/request/method/method";
-import {DefaultContext, DefaultState} from "koa";
-import Middleware from "../middleware/middleware";
+import Router, {RouterParamContext} from '@koa/router';
+import Path from '@alirya/http/request/path/path';
+import Method from '@alirya/http/request/method/method';
+import {DefaultContext, DefaultState} from 'koa';
+import Middleware from '../middleware/middleware';
 //
 // export default class Route<
 //     StateMain extends DefaultState,
@@ -50,7 +50,7 @@ export interface Type<
             StateMain, CustomMain, ResponseBodyMain/*,
             StateType, CustomType, ResponseBodyType*/
             >
-    ) : Type<StateType, CustomType, ResponseBodyType>
+    ) : Type<StateType, CustomType, ResponseBodyType>;
 }
 
 export default function RouteOri<
@@ -77,7 +77,7 @@ export default function RouteOri<
 
         return RouteOri(router, route);
 
-    } as Type<StateMain, CustomMain, ResponseBodyMain>
+    } as Type<StateMain, CustomMain, ResponseBodyMain>;
 
 }
 

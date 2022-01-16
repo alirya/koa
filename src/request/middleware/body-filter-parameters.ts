@@ -1,7 +1,7 @@
-import {DefaultContext, DefaultState} from "koa";
-import Context from "../../middleware/context/context";
-import Middleware from "../../middleware/middleware";
-import {RouterParamContext} from "@koa/router";
+import {DefaultContext, DefaultState} from 'koa';
+import Context from '../../middleware/context/context';
+import Middleware from '../../middleware/middleware';
+import {RouterParamContext} from '@koa/router';
 
 export type ContextBody<
     RequestBody = unknown,
@@ -28,6 +28,6 @@ export default function BodyFilterParameters<
 
         return next();
 
-    } as  Middleware<State, ContextType, Response/*, State, ContextType, Response*/>
+    } as  Middleware<State, ContextType, Response/*, State, ContextType, Response*/>;
 
 }

@@ -1,7 +1,7 @@
-import Router, {RouterParamContext} from "@koa/router";
-import {DefaultContext, DefaultState} from "koa";
-import Middleware from "../middleware/middleware";
-import StatusCodeMiddleware from "../response/middleware/status-code";
+import Router, {RouterParamContext} from '@koa/router';
+import {DefaultContext, DefaultState} from 'koa';
+import Middleware from '../middleware/middleware';
+import StatusCodeMiddleware from '../response/middleware/status-code';
 /*
 
 
@@ -77,9 +77,9 @@ export default function StatusCode<
 
         router.use(StatusCodeMiddleware(statusCode, middleware));
 
-        return StatusCode(router, statusCode)
+        return StatusCode(router, statusCode);
 
-    } as Type<StateMain, CustomMain, ResponseBodyMain>
+    } as Type<StateMain, CustomMain, ResponseBodyMain>;
 }
 
 

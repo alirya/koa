@@ -1,16 +1,16 @@
-import RequestPath from "../../../requespath";
-import Axios, {AxiosResponse} from "axios";
-import KoaBody from "koa-body";
-import MiddlewareError from "../../../../dist/middleware/error-parameters";
+import RequestPath from '../../../requespath';
+import Axios, {AxiosResponse} from 'axios';
+import KoaBody from 'koa-body';
+import MiddlewareError from '../../../../dist/middleware/error-parameters';
 // import ErrorHandler from "../../../../dist/route/error";
-import Debug from "../../../../dist/middleware/error-handler/debug";
-import Server from "../../../server";
-import Route from "../../../../dist/route/route";
-import Router from "@koa/router";
-import Register from "../../../../dist/route/register";
-import DefaultRoute from "../../../../dist/route/defaulroute";
+import Debug from '../../../../dist/middleware/error-handler/debug';
+import Server from '../../../server';
+import Route from '../../../../dist/route/route';
+import Router from '@koa/router';
+import Register from '../../../../dist/route/register';
+import DefaultRoute from '../../../../dist/route/defaulroute';
 
-it("force console log", () => { spyOn(console, 'log').and.callThrough();});
+it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 
 const path : string = RequestPath(__filename);
 
@@ -59,7 +59,7 @@ describe('test', () => {
             fail('response 500 should fail');
 
         }).catch((e)=>response = e.response).finally(done);
-    })
+    });
 
     it('assert value', function () {
 
@@ -67,6 +67,6 @@ describe('test', () => {
         expect(response.status).toEqual(500);
         expect(response.data).toMatch(/^Error[\n\r]error occurred/);
         expect(response.statusText).toEqual('Internal Server Error');
-    })
+    });
 
 });

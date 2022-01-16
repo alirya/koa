@@ -1,9 +1,9 @@
-import Context from "./context/context";
-import {Next} from "koa";
-import * as Koa from "koa";
-import {RouterParamContext} from "@koa/router";
-import Middleware from "./middleware";
-import ErrorHandlerParameters from "./error-handler/error-handler";
+import Context from './context/context';
+import {Next} from 'koa';
+import * as Koa from 'koa';
+import {RouterParamContext} from '@koa/router';
+import Middleware from './middleware';
+import ErrorHandlerParameters from './error-handler/error-handler';
 
 /**
  * catch error, if error is instanceof {@param instance} then execute {@param handler} else rethrow {@param instance}
@@ -28,7 +28,7 @@ export default function ErrorParameters<
     handler :  ErrorHandlerParameters<globalThis.Error, State, ContextType, ResponseBody>,
     instance ?: new()=>Error,
     rethrow ?: boolean
-) : Middleware<State, ContextType, ResponseBody/*, State, ContextType, ResponseBody*/>
+) : Middleware<State, ContextType, ResponseBody/*, State, ContextType, ResponseBody*/>;
 
 export default function ErrorParameters<
     Error extends globalThis.Error,
@@ -38,7 +38,7 @@ export default function ErrorParameters<
 >(
     handler :  ErrorHandlerParameters<Error, State, ContextType, ResponseBody>,
     instance ?: new()=>Error,
-) : Middleware<State, ContextType, ResponseBody/*, State, ContextType, ResponseBody*/>
+) : Middleware<State, ContextType, ResponseBody/*, State, ContextType, ResponseBody*/>;
 
 export default function ErrorParameters<
     State extends Koa.DefaultState,
@@ -46,7 +46,7 @@ export default function ErrorParameters<
     ResponseBody
 >(
     handler :  ErrorHandlerParameters<globalThis.Error, State, ContextType, ResponseBody>,
-) : Middleware<State, ContextType, ResponseBody/*, State, ContextType, ResponseBody*/>
+) : Middleware<State, ContextType, ResponseBody/*, State, ContextType, ResponseBody*/>;
 
 /**
  * @param instance
@@ -83,7 +83,7 @@ export default function ErrorParameters<
 
             if(isInstance) {
 
-                handler(error as Error, context as Context<State, ContextType, ResponseBody>)
+                handler(error as Error, context as Context<State, ContextType, ResponseBody>);
             }
 
             if(!isInstance || rethrow) {
@@ -91,5 +91,5 @@ export default function ErrorParameters<
                 throw error;
             }
         }
-    }
+    };
 }

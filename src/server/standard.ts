@@ -1,8 +1,8 @@
-import Koa, {DefaultContext, DefaultState, Middleware} from "koa";
-import Router, {RouterOptions} from "@koa/router";
-import {Server as HttpServer} from "http";
-import Server from "./server";
-import {ListenOptions} from "net";
+import Koa, {DefaultContext, DefaultState, Middleware} from 'koa';
+import Router, {RouterOptions} from '@koa/router';
+import {Server as HttpServer} from 'http';
+import Server from './server';
+import {ListenOptions} from 'net';
 
 export default class Standard<
     StateT = DefaultState,
@@ -41,7 +41,7 @@ export default class Standard<
 
                 this.#server = this.koa.listen(this.config, resolve);
 
-            }).then(()=>this.server as HttpServer)
+            }).then(()=>this.server as HttpServer);
         }
 
         return Promise.resolve(this.#server);
@@ -71,6 +71,6 @@ export default class Standard<
 
                 resolve();
             }
-        })
+        });
     }
 }

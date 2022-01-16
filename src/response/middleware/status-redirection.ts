@@ -1,8 +1,8 @@
-import RedirectionType from "@alirya/http/response/code/class/boolean/redirection";
-import StatusCode from "./status-code";
-import * as Koa from "koa";
-import {RouterParamContext} from "@koa/router";
-import Middleware from "../../middleware/middleware";
+import RedirectionType from '@alirya/http/response/code/class/boolean/redirection';
+import StatusCode from './status-code';
+import * as Koa from 'koa';
+import {RouterParamContext} from '@koa/router';
+import Middleware from '../../middleware/middleware';
 /**
  * use {@param middleware} if response status code is 3xx
  *

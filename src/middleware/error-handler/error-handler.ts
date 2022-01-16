@@ -1,5 +1,5 @@
-import Koa from "koa";
-import Context from "../context/context";
+import Koa from 'koa';
+import Context from '../context/context';
 
 /**
  * type which compatible with {@see Koa.on('error')}
@@ -12,6 +12,6 @@ type ErrorHandler<
 > = (
     error : Error,
     context: Context<State, ContextType, ResponseBodyT>
-) => any
+) => any;
 
 export default ErrorHandler;

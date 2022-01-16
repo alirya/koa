@@ -1,9 +1,9 @@
 
-import String from "@alirya/string/boolean/string";
-import Validatable from "@alirya/validator/validatable/simple";
-import {DefaultState} from "koa";
-import ApplicationContext from "../../../dist/context/context";
-import Context from "../../../dist/middleware/context/context";
+import String from '@alirya/string/boolean/string';
+import Validatable from '@alirya/validator/validatable/simple';
+import {DefaultState} from 'koa';
+import ApplicationContext from '../../../dist/context/context';
+import Context from '../../../dist/middleware/context/context';
 
 
 export default function ContextValidator<
@@ -28,5 +28,5 @@ Response>) : Validatable<Context<State,
         valid,
         message : valid ? 'valid' : 'invalid',
         value
-    }
+    };
 }

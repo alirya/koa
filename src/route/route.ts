@@ -1,14 +1,14 @@
-import Path from "@alirya/http/request/path/path";
-import Method from "@alirya/http/request/method/method";
-import Koa, {DefaultContext, DefaultState} from "koa";
-import Middleware from "../middleware/middleware";
-import KoaRouter, {RouterOptions, RouterParamContext} from "@koa/router";
-import Server from "../server/server";
-import {Server as HttpServer} from "http";
-import {ListenOptions} from "net";
-import Request from "@alirya/http/request/request";
-import Route from "@alirya/http/request/route/route";
-import Router from "./router";
+import Path from '@alirya/http/request/path/path';
+import Method from '@alirya/http/request/method/method';
+import Koa, {DefaultContext, DefaultState} from 'koa';
+import Middleware from '../middleware/middleware';
+import KoaRouter, {RouterOptions, RouterParamContext} from '@koa/router';
+import Server from '../server/server';
+import {Server as HttpServer} from 'http';
+import {ListenOptions} from 'net';
+import Request from '@alirya/http/request/request';
+import Route from '@alirya/http/request/route/route';
+import Router from './router';
 
 export interface Type<
     StateT extends DefaultState,
@@ -31,8 +31,8 @@ export default function Route<
         return Router(koa)({
             prefix : route.path,
             methods : [route.method]
-        })
-    }
+        });
+    };
 
 
 }

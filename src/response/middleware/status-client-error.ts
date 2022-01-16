@@ -1,8 +1,8 @@
-import ClientErrorType from "@alirya/http/response/code/class/boolean/clienerror";
-import StatusCode from "./status-code";
-import * as Koa from "koa";
-import {RouterParamContext} from "@koa/router";
-import Middleware from "../../middleware/middleware";
+import ClientErrorType from '@alirya/http/response/code/class/boolean/clienerror';
+import StatusCode from './status-code';
+import * as Koa from 'koa';
+import {RouterParamContext} from '@koa/router';
+import Middleware from '../../middleware/middleware';
 /**
  * use {@param middleware} if response status code is 4xx
  *

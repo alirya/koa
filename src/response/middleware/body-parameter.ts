@@ -1,13 +1,13 @@
-import Context from "../../middleware/context/context";
-import {Next} from "koa";
-import FromResponseParameters from "../from-response-parameters";
-import Ok from "@alirya/http/response/ok-parameter";
-import * as Koa from "koa";
-import Response from "@alirya/http/response/response";
-import Middleware from "../../middleware/middleware";
-import {RouterParamContext} from "@koa/router";
-import Body from "@alirya/http/body/body";
-import BodyParameters from "./body-parameters";
+import Context from '../../middleware/context/context';
+import {Next} from 'koa';
+import FromResponseParameters from '../from-response-parameters';
+import Ok from '@alirya/http/response/ok-parameter';
+import * as Koa from 'koa';
+import Response from '@alirya/http/response/response';
+import Middleware from '../../middleware/middleware';
+import {RouterParamContext} from '@koa/router';
+import Body from '@alirya/http/body/body';
+import BodyParameters from './body-parameters';
 
 export type BodyParameterArgument<
     ResponseBody,
@@ -16,7 +16,7 @@ export type BodyParameterArgument<
 > = {
     subject : (context : Context<State, ContextType, any>) => Promise<ResponseBody>,
     response ?: (body : Body<ResponseBody>) => Response<number, string, Record<string, string>, ResponseBody>
-}
+};
 /**
  * use resolved {@param subject} value for response body data, upon
  * successful applied {@param response} value

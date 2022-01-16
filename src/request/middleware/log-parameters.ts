@@ -1,9 +1,9 @@
-import Context from "../../middleware/context/context";
-import {Next} from "koa";
-import Log from "@alirya/syslog/syslog";
-import * as Koa from "koa";
-import {RouterParamContext} from "@koa/router";
-import Middleware from "../../middleware/middleware";
+import Context from '../../middleware/context/context';
+import {Next} from 'koa';
+import Log from '@alirya/syslog/syslog';
+import * as Koa from 'koa';
+import {RouterParamContext} from '@koa/router';
+import Middleware from '../../middleware/middleware';
 
 export default function LogParameters<
     State extends Koa.DefaultState,
@@ -19,5 +19,5 @@ export default function LogParameters<
         log[severity](`${context.request.method} ${context.request.path}`, context.request.headers, (<any>context.request).body);
 
         return next();
-    }
+    };
 }

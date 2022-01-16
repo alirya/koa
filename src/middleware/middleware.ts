@@ -1,6 +1,6 @@
-import * as Koa from "koa";
-import {DefaultState} from "koa";
-import ApplicationContext from "../context/context";
+import * as Koa from 'koa';
+import {DefaultState} from 'koa';
+import ApplicationContext from '../context/context';
 
 /**
  * alternative to koa router {@see Middleware} with

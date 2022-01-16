@@ -1,7 +1,7 @@
-import * as Koa from "koa";
-import ErrorHandlerParameter from "./error-handler";
-import ErrorParameters from "./error-parameters";
-import Context from "../context/context";
+import * as Koa from 'koa';
+import ErrorHandlerParameter from './error-handler';
+import ErrorParameters from './error-parameters';
+import Context from '../context/context';
 
 export type ErrorParameterArgument<
     Error extends globalThis.Error,
@@ -11,7 +11,7 @@ export type ErrorParameterArgument<
 > = {
     handler : ErrorHandlerParameter<Error, State, ContextType, ResponseBody>,
     instance ?: (new()=>Error),
-}
+};
 
 export default function ErrorParameter<
     State extends Koa.DefaultState,
@@ -20,7 +20,7 @@ export default function ErrorParameter<
 >(  {
         handler,
     } : ErrorParameterArgument<globalThis.Error, State, ContextType, ResponseBody>
-) : ErrorHandlerParameter<globalThis.Error, State, ContextType, ResponseBody>
+) : ErrorHandlerParameter<globalThis.Error, State, ContextType, ResponseBody>;
 
 export default function ErrorParameter<
     Error extends globalThis.Error,
@@ -31,7 +31,7 @@ export default function ErrorParameter<
         handler,
         instance
     } : ErrorParameterArgument<Error, State, ContextType, ResponseBody>
-) : ErrorHandlerParameter<Error, State, ContextType, ResponseBody>
+) : ErrorHandlerParameter<Error, State, ContextType, ResponseBody>;
 
 export default function ErrorParameter<
     Error extends globalThis.Error,
@@ -47,5 +47,5 @@ export default function ErrorParameter<
     return function (error, context)  {
 
         return ErrorParameters(handler, instance)(error, context);
-    }
+    };
 }

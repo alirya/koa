@@ -1,7 +1,7 @@
-import Middleware from "./middleware";
-import {DefaultState} from "koa";
-import ApplicationContext from "../context/context";
-import Context from "./context/context";
+import Middleware from './middleware';
+import {DefaultState} from 'koa';
+import ApplicationContext from '../context/context';
+import Context from './context/context';
 
 
 export default function Passthroughs<
@@ -18,5 +18,5 @@ export default function Passthroughs<
 
         return next();
 
-    } as Middleware<State, ContextT, Response>
+    } as Middleware<State, ContextT, Response>;
 }

@@ -1,7 +1,7 @@
-import Context from "../../middleware/context/context";
-import * as Koa from "koa";
-import {RouterParamContext} from "@koa/router";
-import Middleware from "../../middleware/middleware";
+import Context from '../../middleware/context/context';
+import * as Koa from 'koa';
+import {RouterParamContext} from '@koa/router';
+import Middleware from '../../middleware/middleware';
 
 /**
  * execute middleware if {@param status} match
@@ -33,5 +33,5 @@ export default function StatusCode<
 
             return next();
         }
-    }
+    };
 }

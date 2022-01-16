@@ -1,6 +1,6 @@
-import Koa from "koa";
-import Config from "./config";
-import Standard from "../dist/server/standard";
+import Koa from 'koa';
+import Config from './config';
+import Standard from '../dist/server/standard';
 
 process.setMaxListeners(99);
 

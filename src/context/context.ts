@@ -1,5 +1,5 @@
-import {DefaultContext, DefaultState} from "koa";
-import {RouterParamContext} from "@koa/router";
+import {DefaultContext, DefaultState} from 'koa';
+import {RouterParamContext} from '@koa/router';
 
 /**
  * context of application/routing argument
@@ -7,6 +7,6 @@ import {RouterParamContext} from "@koa/router";
 type Context<
     State extends DefaultState = DefaultState,
     Context extends DefaultContext = DefaultContext
-> = Context & RouterParamContext<State, Context>
+> = Context & RouterParamContext<State, Context>;
 
 export default Context;

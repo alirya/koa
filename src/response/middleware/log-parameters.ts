@@ -1,9 +1,9 @@
-import Context from "../../middleware/context/context";
-import AppContext from "../../context/context";
-import {Next} from "koa";
-import Log from "@alirya/syslog/syslog";
-import {DefaultState} from "koa";
-import Middleware from "../../middleware/middleware";
+import Context from '../../middleware/context/context';
+import AppContext from '../../context/context';
+import {Next} from 'koa';
+import Log from '@alirya/syslog/syslog';
+import {DefaultState} from 'koa';
+import Middleware from '../../middleware/middleware';
 
 /**
  * pipe response data to log
@@ -35,14 +35,14 @@ export default function LogParameters<
             context.response.headers,
             context.response.body
         );
-    }
+    };
 
     if(after) {
 
         return function (context : Context, next : Next) {
 
             return next().then(()=>call(context));
-        }
+        };
 
     } else {
 
@@ -50,7 +50,7 @@ export default function LogParameters<
 
             call(context);
             return next();
-        }
+        };
 
     }
 

@@ -1,12 +1,12 @@
-import Validator from "@alirya/validator/validator";
-import {Middleware} from "koa";
-import Context from "../../middleware/context/context";
-import FromResponseParameters from "../../response/from-response-parameters";
-import * as Koa from "koa";
-import {RouterParamContext} from "@koa/router";
-import DefaultMessage from "@alirya/http/response/response-function-parameter";
-import Codes from "@alirya/http/response/code/number/strict";
-import ContentTypeJson from "../../object/content-type-json";
+import Validator from '@alirya/validator/validator';
+import {Middleware} from 'koa';
+import Context from '../../middleware/context/context';
+import FromResponseParameters from '../../response/from-response-parameters';
+import * as Koa from 'koa';
+import {RouterParamContext} from '@koa/router';
+import DefaultMessage from '@alirya/http/response/response-function-parameter';
+import Codes from '@alirya/http/response/code/number/strict';
+import ContentTypeJson from '../../object/content-type-json';
 
 export default function AutoBodyValidatorParameters<
     Body,
@@ -26,7 +26,7 @@ export default function AutoBodyValidatorParameters<
 
         if(validatable.valid) {
 
-            context.request.body = validatable.value
+            context.request.body = validatable.value;
 
             return next();
 
@@ -36,10 +36,10 @@ export default function AutoBodyValidatorParameters<
                 code,
                 body : JSON.stringify(validatable.message),
                 headers : ContentTypeJson
-            })
+            });
 
             FromResponseParameters(context, response);
         }
-    }
+    };
 
 }

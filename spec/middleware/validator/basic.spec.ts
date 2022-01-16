@@ -1,14 +1,14 @@
-import RequestPath from "../../requespath";
-import Server from "../../server";
-import Register from "../../../dist/route/register";
-import Router from "@koa/router";
-import {AxiosResponse} from "axios";
-import KoaBody from "koa-body";
-import Passthroughs from "../../../dist/middleware/passthroughs";
-import ValidatorParameters from "../../../dist/middleware/validator-parameters";
-import ContextValidator from "./contexvalidator";
+import RequestPath from '../../requespath';
+import Server from '../../server';
+import Register from '../../../dist/route/register';
+import Router from '@koa/router';
+import {AxiosResponse} from 'axios';
+import KoaBody from 'koa-body';
+import Passthroughs from '../../../dist/middleware/passthroughs';
+import ValidatorParameters from '../../../dist/middleware/validator-parameters';
+import ContextValidator from './contexvalidator';
 
-it("force console log", () => { spyOn(console, 'log').and.callThrough();});
+it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 
 const path : string = RequestPath(__filename);
 
@@ -32,7 +32,7 @@ describe('test', () => {
             KoaBody(),
             ValidatorParameters(ContextValidator, (context, next) => {
 
-                context.request.body = 'invalid'
+                context.request.body = 'invalid';
                 return next();
             }),
 

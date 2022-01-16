@@ -1,9 +1,9 @@
-import Router, {RouterParamContext, RouterAllowedMethodsOptions} from "@koa/router";
-import Path from "@alirya/http/request/path/path";
-import Method from "@alirya/http/request/method/method";
-import {DefaultContext, DefaultState} from "koa";
-import Middleware from "../middleware/middleware";
-import Route from "@alirya/http/request/route/route";
+import Router, {RouterParamContext, RouterAllowedMethodsOptions} from '@koa/router';
+import Path from '@alirya/http/request/path/path';
+import Method from '@alirya/http/request/method/method';
+import {DefaultContext, DefaultState} from 'koa';
+import Middleware from '../middleware/middleware';
+import Route from '@alirya/http/request/route/route';
 //
 // export default class DefaultRoute<
 //     StateMain extends DefaultState,
@@ -68,7 +68,7 @@ export default class DefaultRoute<
         // readonly router : Router<StateMain, CustomMain> = new Router<StateMain, CustomMain>()
     ) {
 
-        super(options)
+        super(options);
     }
 
 

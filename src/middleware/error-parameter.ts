@@ -1,10 +1,10 @@
-import Context from "./context/context";
-import {Next} from "koa";
-import * as Koa from "koa";
-import {RouterParamContext} from "@koa/router";
-import Middleware from "./middleware";
-import ErrorHandlerParameter from "./error-handler/error-handler";
-import ErrorParameters from "./error-parameters";
+import Context from './context/context';
+import {Next} from 'koa';
+import * as Koa from 'koa';
+import {RouterParamContext} from '@koa/router';
+import Middleware from './middleware';
+import ErrorHandlerParameter from './error-handler/error-handler';
+import ErrorParameters from './error-parameters';
 
 
 export type ErrorParameterArgument<
@@ -17,7 +17,7 @@ export type ErrorParameterArgument<
     handler :  ErrorHandlerParameter<Error, State, ContextType, ResponseBody>,
     instance ?: new()=>Error,
     rethrow ?: boolean
-}
+};
 
 /**
  * @param instance

@@ -1,8 +1,8 @@
-import Context from "../../middleware/context/context";
-import * as Koa from "koa";
-import {RouterParamContext} from "@koa/router";
-import Middleware from "../../middleware/middleware";
-import BodyFilterParameters from "./body-filter-parameters";
+import Context from '../../middleware/context/context';
+import * as Koa from 'koa';
+import {RouterParamContext} from '@koa/router';
+import Middleware from '../../middleware/middleware';
+import BodyFilterParameters from './body-filter-parameters';
 
 export type BodyFilterParameterArgumentCallback<
     BodyFrom,
@@ -11,7 +11,7 @@ export type BodyFilterParameterArgumentCallback<
     > = {
     body : BodyFrom;
     context: Context<State, ContextType, BodyFrom>;
-}
+};
 /**
  * filter response body data
  *

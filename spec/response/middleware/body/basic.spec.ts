@@ -1,13 +1,13 @@
-import KoaBody from "koa-body";
-import Body from "../../../../dist/response/middleware/body-parameters";
-import Axios from "axios";
-import RequestPath from "../../../requespath";
-import RandomIntegerParameters from "@alirya/number/random-integer-parameters";
-import Server from "../../../server";
-import Register from "../../../../dist/route/register";
-import Router from "@koa/router";
+import KoaBody from 'koa-body';
+import Body from '../../../../dist/response/middleware/body-parameters';
+import Axios from 'axios';
+import RequestPath from '../../../requespath';
+import RandomIntegerParameters from '@alirya/number/random-integer-parameters';
+import Server from '../../../server';
+import Register from '../../../../dist/route/register';
+import Router from '@koa/router';
 
-it("force console log", () => { spyOn(console, 'log').and.callThrough();});
+it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 jasmine.DEFAULT_TIMEOUT_INTERVAL = 20 * 1000;
 const path : string = RequestPath(__filename);
 
@@ -54,13 +54,13 @@ describe('test', () => {
             response = data.data;
 
         }).catch(fail).finally(done);
-    })
+    });
 
     it('assert value', function () {
 
         const merged = Object.assign(dataValue, payload);
         expect(merged).toEqual(response);
 
-    })
+    });
 
 });

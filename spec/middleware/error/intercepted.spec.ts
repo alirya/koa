@@ -1,12 +1,12 @@
-import KoaBody from "koa-body";
-import MiddlewareError from "../../../dist/middleware/error-parameters";
-import Axios, {AxiosResponse} from "axios";
-import RequestPath from "../../requespath";
-import Server from "../../server";
-import Register from "../../../dist/route/register";
-import Router from "@koa/router";
+import KoaBody from 'koa-body';
+import MiddlewareError from '../../../dist/middleware/error-parameters';
+import Axios, {AxiosResponse} from 'axios';
+import RequestPath from '../../requespath';
+import Server from '../../server';
+import Register from '../../../dist/route/register';
+import Router from '@koa/router';
 
-it("force console log", () => { spyOn(console, 'log').and.callThrough();});
+it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 
 const path : string = RequestPath(__filename);
 
@@ -66,7 +66,7 @@ describe('test', () => {
             response = data;
 
         }).catch(fail).finally(done);
-    })
+    });
 
     it('assert value', function () {
 
@@ -75,6 +75,6 @@ describe('test', () => {
         expect(dataValue).toEqual(response.data);
         expect('error occurred').toEqual(response.statusText);
 
-    })
+    });
 
 });

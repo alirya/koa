@@ -1,8 +1,8 @@
-import {DefaultContext, DefaultState} from "koa";
-import Context from "../../middleware/context/context";
-import Middleware from "../../middleware/middleware";
-import {RouterParamContext} from "@koa/router";
-import BodyFilterParameters, {ContextBody} from "./body-filter-parameters";
+import {DefaultContext, DefaultState} from 'koa';
+import Context from '../../middleware/context/context';
+import Middleware from '../../middleware/middleware';
+import {RouterParamContext} from '@koa/router';
+import BodyFilterParameters, {ContextBody} from './body-filter-parameters';
 
 export interface BodyFilterParameterArgumentCallback<
     RequestBody,

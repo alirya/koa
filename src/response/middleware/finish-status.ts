@@ -1,6 +1,6 @@
-import Context from "../../middleware/context/context";
-import {DefaultContext, DefaultState, Middleware, Next} from "koa";
-import Successful from "@alirya/http/response/code/class/boolean/successful";
+import Context from '../../middleware/context/context';
+import {DefaultContext, DefaultState, Middleware, Next} from 'koa';
+import Successful from '@alirya/http/response/code/class/boolean/successful';
 
 /**
  * finish middleware if response code is valid
@@ -28,6 +28,6 @@ export default function FinishStatus<
 
             return next();
         }
-    }
+    };
 
 }

@@ -1,8 +1,8 @@
-import Context from "../../middleware/context/context";
-import {DefaultContext, DefaultState, Next} from "koa";
-import SuccessfulType from "@alirya/http/response/code/class/boolean/successful";
-import {Middleware} from "koa";
-import StatusCode from "./status-code";
+import Context from '../../middleware/context/context';
+import {DefaultContext, DefaultState, Next} from 'koa';
+import SuccessfulType from '@alirya/http/response/code/class/boolean/successful';
+import {Middleware} from 'koa';
+import StatusCode from './status-code';
 
 export default function StatusSuccessful<
     State extends DefaultState,

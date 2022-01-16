@@ -1,5 +1,5 @@
-import Koa from "koa";
-import ErrorHandlerParameters from "./error-handler";
+import Koa from 'koa';
+import ErrorHandlerParameters from './error-handler';
 
 /**
  * executes {@param handler} if the error is
@@ -17,7 +17,7 @@ export default function ErrorParameters<
 >(
     handler :  ErrorHandlerParameters<State, ContextType, ResponseBody>,
     instance : new()=>Error,
-) : ErrorHandlerParameters<State, ContextType, ResponseBody>
+) : ErrorHandlerParameters<State, ContextType, ResponseBody>;
 /**
  * executes {@param handler} for any error inherited
  * from {@see globalThis.Error}
@@ -30,7 +30,7 @@ export default function ErrorParameters<
     ResponseBody
 >(
     handler :  ErrorHandlerParameters<State, ContextType, ResponseBody>,
-) : ErrorHandlerParameters<State, ContextType, ResponseBody>
+) : ErrorHandlerParameters<State, ContextType, ResponseBody>;
 
 export default function ErrorParameters<
     Error extends globalThis.Error,
@@ -46,7 +46,7 @@ export default function ErrorParameters<
 
         if(error instanceof instance) {
 
-            return handler(error, context)
+            return handler(error, context);
         }
-    }
+    };
 }

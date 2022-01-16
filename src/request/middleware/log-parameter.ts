@@ -1,10 +1,10 @@
-import Context from "../../middleware/context/context";
-import {Next} from "koa";
-import Log from "@alirya/syslog/syslog";
-import * as Koa from "koa";
-import {RouterParamContext} from "@koa/router";
-import Middleware from "../../middleware/middleware";
-import LogParameters from "./log-parameters";
+import Context from '../../middleware/context/context';
+import {Next} from 'koa';
+import Log from '@alirya/syslog/syslog';
+import * as Koa from 'koa';
+import {RouterParamContext} from '@koa/router';
+import Middleware from '../../middleware/middleware';
+import LogParameters from './log-parameters';
 
 export default function LogParameter<
     State extends Koa.DefaultState,

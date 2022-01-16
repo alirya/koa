@@ -1,10 +1,10 @@
-import Response from "@alirya/http/response/response";
-import Context from "../../middleware/context/context";
-import {Next} from "koa";
-import {Middleware} from "koa";
-import FromResponseParameters from "../from-response-parameters";
-import * as Koa from "koa";
-import {RouterParamContext} from "@koa/router";
+import Response from '@alirya/http/response/response';
+import Context from '../../middleware/context/context';
+import {Next} from 'koa';
+import {Middleware} from 'koa';
+import FromResponseParameters from '../from-response-parameters';
+import * as Koa from 'koa';
+import {RouterParamContext} from '@koa/router';
 
 /**
  * use resolved {@param response} value for response data
@@ -31,6 +31,6 @@ export default function Response<
 
             return next();
 
-        })
-    }
+        });
+    };
 }

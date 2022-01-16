@@ -1,12 +1,12 @@
-import Context from "../../middleware/context/context";
-import {Next} from "koa";
-import FromResponseParameters from "../from-response-parameters";
-import Ok from "@alirya/http/response/ok-parameter";
-import * as Koa from "koa";
-import Response from "@alirya/http/response/response";
-import Middleware from "../../middleware/middleware";
-import {RouterParamContext} from "@koa/router";
-import Body from "@alirya/http/body/body";
+import Context from '../../middleware/context/context';
+import {Next} from 'koa';
+import FromResponseParameters from '../from-response-parameters';
+import Ok from '@alirya/http/response/ok-parameter';
+import * as Koa from 'koa';
+import Response from '@alirya/http/response/response';
+import Middleware from '../../middleware/middleware';
+import {RouterParamContext} from '@koa/router';
+import Body from '@alirya/http/body/body';
 
 /**
  * use resolved {@param subject} value for response body data, upon
@@ -37,5 +37,5 @@ export default function BodyParameters<
 
         });
 
-    }
+    };
 }

@@ -1,6 +1,6 @@
-import Context from "../../middleware/context/context";
-import {DefaultState, Next} from "koa";
-import String from "@alirya/string/boolean/string";
+import Context from '../../middleware/context/context';
+import {DefaultState, Next} from 'koa';
+import String from '@alirya/string/boolean/string';
 
 /**
  * set appropriate header for JSON if body is already JSON string
@@ -20,7 +20,7 @@ export default function Json<
 
     if(String(context.response.body)) {
 
-        context.response.set({'ContenType' : 'application/json'})
+        context.response.set({'ContenType' : 'application/json'});
     }
 
     return next();

@@ -1,7 +1,7 @@
-import Context from "../../middleware/context/context";
-import {DefaultContext, DefaultState, Next} from "koa";
-import {Middleware} from "koa";
-import FromResponseParameters from "../from-response-parameters";
+import Context from '../../middleware/context/context';
+import {DefaultContext, DefaultState, Next} from 'koa';
+import {Middleware} from 'koa';
+import FromResponseParameters from '../from-response-parameters';
 
 /**
  * set {@param response} to response data
@@ -36,6 +36,6 @@ export default function Set<
         FromResponseParameters(context, response);
 
         return next();
-    }
+    };
 
 }

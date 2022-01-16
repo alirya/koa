@@ -1,5 +1,5 @@
-import {RouterParamContext} from "@koa/router";
-import {DefaultContext, DefaultState, ParameterizedContext} from "koa";
+import {RouterParamContext} from '@koa/router';
+import {DefaultContext, DefaultState, ParameterizedContext} from 'koa';
 
 
 /**

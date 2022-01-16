@@ -1,7 +1,7 @@
-import {Middleware} from "koa";
-import {Next, Response} from "koa";
-import Body from "@alirya/http/body/body";
-import Context from "../../middleware/context/context";
+import {Middleware} from 'koa';
+import {Next, Response} from 'koa';
+import Body from '@alirya/http/body/body';
+import Context from '../../middleware/context/context';
 /**
  * use {@param middleware} if response body is valid against {@param validation}
  *
@@ -26,7 +26,7 @@ export default function IfBody<
 
             return next();
         }
-    }
+    };
 }
 //
 // export default function IfBody<
