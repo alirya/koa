@@ -23,6 +23,10 @@
     "type-fest": "^2.3.3",
     "utility-types": "^3.10.0"
   },
+  "devDependencies": {
+    "koa-body": "^4.2.0",
+    "axios": "=0.19.0"
+  },
   "homepage": "https://github.com/alirya/koa",
   "repository": {
     "type": "git",
