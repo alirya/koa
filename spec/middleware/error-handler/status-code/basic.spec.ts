@@ -1,4 +1,4 @@
-// import RequestPath from "../../../requespath";
+// import RequestPath from "../../../request-path";
 // import Axios, {AxiosResponse} from "axios";
 // // import Router from "../../../router";
 // import KoaBody from "koa-body";

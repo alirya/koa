@@ -75,13 +75,13 @@
 //
 //             let valid : string = context.request.data;
 //
-//             // @ts-expecerror
+//             // @ts-expect-error
 //             const invalid : number  = context.request.data;
 //
-//             // @ts-expecerror
+//             // @ts-expect-error
 //             const invalid1 : object  = context.request.data;
 //
-//             // @ts-expecerror
+//             // @ts-expect-error
 //             const invalid2 : string[]  = context.request.data;
 //
 //         });

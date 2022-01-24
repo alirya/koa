@@ -27,7 +27,7 @@
 //
 //             const string : string = context.response.body;
 //
-//             // @ts-expecerror
+//             // @ts-expect-error
 //             const number : number = context.response.body;
 //         });
 //

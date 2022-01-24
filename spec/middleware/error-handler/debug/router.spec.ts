@@ -1,4 +1,4 @@
-import RequestPath from '../../../requespath';
+import RequestPath from '../../../request-path';
 import Axios, {AxiosResponse} from 'axios';
 import KoaBody from 'koa-body';
 import MiddlewareError from '../../../../dist/middleware/error-parameters';
@@ -8,7 +8,7 @@ import Server from '../../../server';
 import Route from '../../../../dist/route/route';
 import Router from '@koa/router';
 import Register from '../../../../dist/route/register';
-import DefaultRoute from '../../../../dist/route/defaulroute';
+import DefaultRoute from '../../../../dist/route/default-route';
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 

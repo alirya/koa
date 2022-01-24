@@ -1,4 +1,4 @@
-import RequestPath from '../../../requespath';
+import RequestPath from '../../../request-path';
 import Axios, {AxiosResponse} from 'axios';
 import {DefaultState, DefaultContext} from 'koa';
 import KoaBody from 'koa-body';
@@ -9,7 +9,7 @@ import Server from '../../../server';
 import Route from '../../../../dist/route/route';
 import Router from '@koa/router';
 import Register from '../../../../dist/route/register';
-import DefaultRoute from '../../../../dist/route/defaulroute';
+import DefaultRoute from '../../../../dist/route/default-route';
 import Context from '../../../../dist/middleware/context/context';
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});

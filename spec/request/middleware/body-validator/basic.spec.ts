@@ -6,7 +6,7 @@
 // import KoaBody from "koa-body";
 // import BodyValidator from "../../../../dist/request/middleware/auto-body-validator-parameters";
 // import Axios from "axios";
-// import RequestPath from "../../../requespath";
+// import RequestPath from "../../../request-path";
 //
 // it("force console log", () => { spyOn(console, 'log').and.callThrough();});
 //

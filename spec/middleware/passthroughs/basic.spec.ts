@@ -1,7 +1,7 @@
 import KoaBody from 'koa-body';
 import MiddlewareError from '../../../dist/middleware/error-parameters';
 import Axios, {AxiosResponse} from 'axios';
-import RequestPath from '../../requespath';
+import RequestPath from '../../request-path';
 import Server from '../../server';
 import Register from '../../../dist/route/register';
 import Router from '@koa/router';
