@@ -1,5 +1,4 @@
 import Koa, {DefaultContext, DefaultState, Middleware} from 'koa';
-import Router, {RouterOptions} from '@koa/router';
 import {Server as HttpServer} from 'http';
 import Server from './server';
 import {ListenOptions} from 'net';

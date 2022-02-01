@@ -5,10 +5,8 @@ import MiddlewareError from '../../../../dist/middleware/error-parameters';
 // import ErrorHandler from "../../../../dist/route/error";
 import Debug from '../../../../dist/middleware/error-handler/debug';
 import Server from '../../../server';
-import Route from '../../../../dist/route/route';
 import Router from '@koa/router';
 import Register from '../../../../dist/route/register';
-import DefaultRoute from '../../../../dist/route/default-route';
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 

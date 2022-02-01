@@ -1,4 +1,3 @@
-import Koa from 'koa';
 import Config from './config';
 import Standard from '../dist/server/standard';
 

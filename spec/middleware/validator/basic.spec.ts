@@ -4,7 +4,6 @@ import Register from '../../../dist/route/register';
 import Router from '@koa/router';
 import {AxiosResponse} from 'axios';
 import KoaBody from 'koa-body';
-import Passthroughs from '../../../dist/middleware/passthroughs';
 import ValidatorParameters from '../../../dist/middleware/validator-parameters';
 import ContextValidator from './context-validator';
 

@@ -1,5 +1,4 @@
 import KoaBody from 'koa-body';
-import MiddlewareError from '../../../dist/middleware/error-parameters';
 import Axios, {AxiosResponse} from 'axios';
 import RequestPath from '../../request-path';
 import Server from '../../server';

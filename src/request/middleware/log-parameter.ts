@@ -1,5 +1,3 @@
-import Context from '../../middleware/context/context';
-import {Next} from 'koa';
 import Log from '@alirya/syslog/syslog';
 import * as Koa from 'koa';
 import {RouterParamContext} from '@koa/router';

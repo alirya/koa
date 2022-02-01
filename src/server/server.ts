@@ -1,4 +1,3 @@
-import Router from '@koa/router';
 import Koa, {DefaultContext, DefaultState} from 'koa';
 import {Server as HttpServer} from 'http';
 

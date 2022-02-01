@@ -1,7 +1,6 @@
 import * as Koa from 'koa';
 import ErrorHandlerParameter from './error-handler';
 import ErrorParameters from './error-parameters';
-import Context from '../context/context';
 
 export type ErrorParameterArgument<
     Error extends globalThis.Error,

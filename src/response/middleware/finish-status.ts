@@ -1,5 +1,4 @@
-import Context from '../../middleware/context/context';
-import {DefaultContext, DefaultState, Middleware, Next} from 'koa';
+import {DefaultContext, DefaultState, Middleware} from 'koa';
 import Successful from '@alirya/http/response/code/class/boolean/successful';
 
 /**

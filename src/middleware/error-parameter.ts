@@ -1,5 +1,3 @@
-import Context from './context/context';
-import {Next} from 'koa';
 import * as Koa from 'koa';
 import {RouterParamContext} from '@koa/router';
 import Middleware from './middleware';

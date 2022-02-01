@@ -1,6 +1,4 @@
-import Context from '../../middleware/context/context';
 import AppContext from '../../context/context';
-import {Next} from 'koa';
 import Log from '@alirya/syslog/syslog';
 import {DefaultState} from 'koa';
 import Middleware from '../../middleware/middleware';

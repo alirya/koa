@@ -1,12 +1,5 @@
-
-import Path from '@alirya/http/request/path/path';
-import Method from '@alirya/http/request/method/method';
-import Koa, {DefaultContext, DefaultState} from 'koa';
-import Middleware from '../middleware/middleware';
-import Router, {RouterOptions} from '@koa/router';
-import Server from '../server/server';
-import {Server as HttpServer} from 'http';
-import {ListenOptions} from 'net';
+import {DefaultContext, DefaultState} from 'koa';
+import Router from '@koa/router';
 
 // export interface Type<StateT = DefaultState, CustomT = DefaultContext>  {
 //

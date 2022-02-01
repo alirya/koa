@@ -5,8 +5,7 @@ import KoaBody from 'koa-body';
 import Error from '../../../../dist/middleware/error-handler/error-parameters';
 import Server from '../../../server';
 import Register from '../../../../dist/route/register';
-import Router, {RouterParamContext} from '@koa/router';
-import {DefaultContext, DefaultState} from 'koa';
+import Router from '@koa/router';
 import MiddlewareError from '../../../../dist/middleware/error-parameters';
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
