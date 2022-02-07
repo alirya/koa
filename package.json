@@ -3,6 +3,7 @@
   "version": "0.9.0",
   "description": "Typescript koa router",
   "dependencies": {
+    "tslib": "^2.3.1",
     "@alirya/array": "0.26.0",
     "@alirya/code": "0.3.1",
     "@alirya/function": "0.15.0",
