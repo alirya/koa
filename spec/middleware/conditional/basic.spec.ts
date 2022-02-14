@@ -8,6 +8,7 @@ import KoaBody from "@dikac/koa-body";
 import ConditionalParameters from "../../../dist/middleware/conditional-parameters";
 import ConditionalParameter from "../../../dist/middleware/conditional-parameter";
 import {DefaultContext, DefaultState} from "koa";
+import Body from "@alirya/http/body/body";
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 
@@ -16,7 +17,12 @@ const path : string = RequestPath(__filename);
 describe('parameters', () => {
 
     const server = Server();
-    const router =  Register<ApplicationContext<DefaultState, DefaultContext, {valid:boolean}, {valid:boolean, callback:string}>>(server.koa, new Router());
+    const router =  Register<ApplicationContext<
+        DefaultState,
+        DefaultContext,
+        Body<{valid:boolean}>,
+        Body<{valid:boolean, callback:string}>
+    >>(server.koa, new Router());
 
     let response : AxiosResponse<string>;
 
@@ -75,7 +81,12 @@ describe('parameters', () => {
 describe('parameter', () => {
 
     const server = Server();
-    const router =  Register<ApplicationContext<DefaultState, DefaultContext, {valid:boolean}, {valid:boolean, callback:string}>>(server.koa, new Router());
+    const router =  Register<ApplicationContext<
+        DefaultState,
+        DefaultContext,
+        Body<{valid:boolean}>,
+        Body<{valid:boolean, callback:string}>
+    >>(server.koa, new Router());
 
     let response : AxiosResponse<string>;
 

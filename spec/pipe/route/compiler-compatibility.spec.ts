@@ -7,6 +7,7 @@ import Register from "../../../dist/router/register";
 import Context from "../../../dist/context/context";
 import Route from "../../../dist/pipe/route";
 import Pipe from "../../../dist/pipe/pipe";
+import Body from "../../../../http/dist/body/body";
 
 it("force console log", () => { spyOn(console, 'log').and.callThrough();});
 
@@ -30,8 +31,8 @@ describe('required for open and closed', ()=>{
 
         const parser :
             Middleware<
-                Context<Koa.DefaultState, Koa.DefaultContext, string, string>,
-                Context<Koa.DefaultState, Koa.DefaultContext, string, string>
+                Context<Koa.DefaultState, Koa.DefaultContext, Body<string>>,
+                Context<Koa.DefaultState, Koa.DefaultContext, Body<string>>
                 >
             =
             function (context , next: Next) {

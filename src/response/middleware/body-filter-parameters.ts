@@ -1,7 +1,7 @@
 import Context from '../../context/context';
 import Middleware from '../../middleware/middleware';
-import ResponseBody from "../../context/response-body/infer";
-import ReplaceResponseBody from "../../context/response-body/replace";
+import ResponseBody from "../../context/response/infer";
+import ReplaceResponseBody from "../../context/response/replace";
 
 /**
  * filter response body data
@@ -13,7 +13,7 @@ export default function BodyFilterParameters<
     ContextType extends Context,
 >(
     filter : (body : ResponseBody<ContextType>, context: ContextType) => BodyTo,
-) : Middleware<ContextType, ReplaceResponseBody<ContextType, BodyTo>> {
+) : Middleware<ContextType, ReplaceResponseBody<ContextType, ['body'], BodyTo>> {
 
     return function (context, next)  {
 
@@ -21,5 +21,5 @@ export default function BodyFilterParameters<
 
         return next();
 
-    } as Middleware<ContextType, ReplaceResponseBody<ContextType, BodyTo>>;
+    } as Middleware<ContextType, ReplaceResponseBody<ContextType, ['body'], BodyTo>>;
 }

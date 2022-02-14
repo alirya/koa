@@ -4,7 +4,7 @@ import Ok from '@alirya/http/response/ok-parameter';
 import Response from '@alirya/http/response/response';
 import Middleware from '../../middleware/middleware';
 import Body from '@alirya/http/body/body';
-import Replace from "../../context/response-body/replace";
+import Replace from "../../context/response/replace";
 
 /**
  * use resolved {@param subject} value for response body data, upon
@@ -22,7 +22,7 @@ export default function BodyParameters<
 >(
     subject : (context : ContextType) => Promise<ResponseBody>,
     response : (body : Body<ResponseBody>) => Response<number, string, Record<string, string>, ResponseBody> = Ok
-) : Middleware<ContextType, Replace<ContextType, ResponseBody>> {
+) : Middleware<ContextType, Replace<ContextType, ['body'], ResponseBody>> {
 
     return function (context, next) {
 

@@ -6,8 +6,12 @@ import {DefaultContext, DefaultState, ParameterizedContext} from 'koa';
 type Context<
     State extends DefaultState = DefaultState,
     Context extends DefaultContext = DefaultContext,
-    RequestBody = unknown,
-    ResponseBody = unknown,
-    > = ParameterizedContext<State, Context , ResponseBody> & {request:{body:RequestBody}};
+    Request = unknown,
+    Response = unknown,
+> = ParameterizedContext<State, Context , unknown> & {
+    response : Response,
+    request : Request,
+};
+
 export default Context;
 

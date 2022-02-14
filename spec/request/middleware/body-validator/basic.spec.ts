@@ -12,6 +12,7 @@ import Router from "@koa/router";
 import Middleware from "../../../../dist/middleware/middleware";
 import * as Koa from "koa";
 import Context from "../../../../dist/context/context";
+import Body from "../../../../../http/dist/body/body";
 
 it("force console log", () => { spyOn(console, 'log').and.callThrough();});
 
@@ -22,7 +23,7 @@ const path : string = RequestPath(__filename);
 describe('test', () => {
 
     const server = Server();
-    const router =  Register<Context<Koa.DefaultState, Koa.DefaultContext, unknown, string|undefined>>(server.koa /*as Koa<DefaultState, Context>*/, new Router());
+    const router =  Register<Context<Koa.DefaultState, Koa.DefaultContext, Body<unknown>, Body<string|undefined>>>(server.koa /*as Koa<DefaultState, Context>*/, new Router());
 
     beforeAll(()=>server.open());
     afterAll(()=>server.close());

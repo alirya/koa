@@ -4,7 +4,7 @@ import Response from '@alirya/http/response/response';
 import Middleware from '../../middleware/middleware';
 import Body from '@alirya/http/body/body';
 import BodyParameters from './body-parameters';
-import Replace from "../../context/response-body/replace";
+import Replace from "../../context/response/replace";
 
 export type BodyParameterArgument<
     ResponseBody,
@@ -31,7 +31,7 @@ export default function BodyParameter<
         subject,
         response = Ok,
     } : BodyParameterArgument<ResponseBody, ContextType>
-) : Middleware<ContextType, Replace<ContextType, ResponseBody>> {
+) : Middleware<ContextType, Replace<ContextType, ['body'], ResponseBody>> {
 
     return BodyParameters(subject, response);
 }

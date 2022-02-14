@@ -6,11 +6,12 @@ import DefaultMessage from '@alirya/http/response/response-function-parameter';
 import Codes from '@alirya/http/response/code/number/strict';
 import ContentTypeJson from '../../object/content-type-json';
 import Middleware from "../../middleware/middleware";
+import Body from "@alirya/http/body/body";
 
 export default function AutoBodyValidatorParameters<
-    Body,
-    ValidatorType extends Validator<Body>,
-    ContextType extends Context<Koa.DefaultState, Koa.DefaultContext, Body>,
+    RequestBody,
+    ValidatorType extends Validator<RequestBody>,
+    ContextType extends Context<Koa.DefaultState, Koa.DefaultContext, Body<RequestBody>>,
 
 >(
     validator : ValidatorType,

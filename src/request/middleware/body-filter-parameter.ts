@@ -1,8 +1,10 @@
 import Context from '../../context/context';
 import Middleware from '../../middleware/middleware';
 import BodyFilterParameters from './body-filter-parameters';
-import Replace from "../../context/request-body/replace";
-import RequestBody from "../../context/request-body/infer";
+import Replace from "../../context/request/replace";
+import RequestBody from "../../context/request/infer";
+import {DefaultContext, DefaultState} from "koa";
+import Body from "../../../../http/dist/body/body";
 
 export interface BodyFilterParameterArgumentCallback<
     ContextType extends Context,
@@ -13,13 +15,13 @@ export interface BodyFilterParameterArgumentCallback<
 }
 
 export default function BodyFilterParameter<
-    ReplaceBody,
-    ContextType extends Context,
+    RequestBody,
+    ContextType extends Context<DefaultState, DefaultContext, Body<unknown>> = Context<DefaultState, DefaultContext, Body<unknown>>,
 >(
-    filter : ({body, context} : BodyFilterParameterArgumentCallback<ContextType>) => ReplaceBody,
-) : Middleware<ContextType, Replace<ContextType, ReplaceBody>> {
+    filter : ({body, context} : BodyFilterParameterArgumentCallback<ContextType>) => RequestBody,
+) : Middleware<ContextType, Replace<ContextType, ['body'], RequestBody>> {
 
-    return BodyFilterParameters<ReplaceBody, ContextType>(
+    return BodyFilterParameters<RequestBody, ContextType>(
         (body, context) => filter({body, context})
     );
 

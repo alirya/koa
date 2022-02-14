@@ -7,7 +7,7 @@ import Middleware from "../../middleware/middleware";
 export default function BodyValidatorParameters<
     Body,
     ValidatorType extends Validator<Body>,
-    ContextType extends Context<DefaultState, Koa.DefaultContext, Body>,
+    ContextType extends Context<DefaultState, Koa.DefaultContext, { body : Body }>,
 
 >(
     validator : ValidatorType,
