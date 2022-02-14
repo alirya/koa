@@ -10,7 +10,6 @@ export default class Standard<
 
     readonly koa : Koa<StateT, CustomT> = new Koa<StateT, CustomT>();
     #server : HttpServer|undefined;
-    // readonly route : Router<StateT, CustomT> = new Router<StateT, CustomT>();
 
     constructor(
         private middlewares : Middleware[],
@@ -21,11 +20,6 @@ export default class Standard<
 
     }
 
-    // route<StateR extends StateT, CustomR extends CustomT>(options ?: RouterOptions) : Router<StateR, CustomR> {
-    //
-    //     return new Router<StateR, CustomR>(options);
-    // }
-
     get server() : HttpServer|undefined {
 
         return this.#server;
@@ -34,7 +28,6 @@ export default class Standard<
     open () : Promise<HttpServer> {
 
         if(!this.#server) {
-
 
             return new Promise<void>((resolve, reject) => {
 

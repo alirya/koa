@@ -1,4 +1,4 @@
-import Context from '../../middleware/context/context';
+import Context from '../../context/context';
 import {DefaultContext, DefaultState, Next} from 'koa';
 import {Middleware} from 'koa';
 

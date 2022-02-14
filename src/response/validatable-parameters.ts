@@ -1,6 +1,6 @@
 import Validatable from '@alirya/validator/validatable/validatable';
 import Code from '@alirya/code/code';
-import Context from '../middleware/context/context';
+import Context from '../context/context';
 
 export default function ValidatableParameters(
     context: Context,

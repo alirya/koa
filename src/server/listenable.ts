@@ -16,10 +16,6 @@ export default class Listenable<StateT = DefaultState, CustomT = DefaultContext>
         this.#server = server;
     }
 
-    // get route() : Router<StateT, CustomT> {
-    //
-    //     return this.#server.route;
-    // }
 
     get koa () : Koa<StateT, CustomT> {
 

@@ -1,18 +1,14 @@
-import Context from '../../middleware/context/context';
+import Context from '../../context/context';
 import {Next} from 'koa';
 import Log from '@alirya/syslog/syslog';
-import * as Koa from 'koa';
-import {RouterParamContext} from '@koa/router';
 import Middleware from '../../middleware/middleware';
 
 export default function LogParameters<
-    State extends Koa.DefaultState,
-    ContextType extends Koa.DefaultContext & RouterParamContext<State>,
-    ResponseBody = unknown,
+    ContextType extends Context,
 >(
     log : Log<[string, any, any]>,
     severity : keyof Log = 'debug'
-) : Middleware<State, ContextType, ResponseBody/*, State, ContextType, ResponseBody*/> {
+) : Middleware<ContextType, ContextType> {
 
     return function (context : Context, next : Next) {
 

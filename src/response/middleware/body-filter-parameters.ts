@@ -1,7 +1,7 @@
-import Context from '../../middleware/context/context';
-import * as Koa from 'koa';
-import {RouterParamContext} from '@koa/router';
+import Context from '../../context/context';
 import Middleware from '../../middleware/middleware';
+import ResponseBody from "../../context/response-body/infer";
+import ReplaceResponseBody from "../../context/response-body/replace";
 
 /**
  * filter response body data
@@ -9,20 +9,17 @@ import Middleware from '../../middleware/middleware';
  * @param filter
  */
 export default function BodyFilterParameters<
-    BodyFrom,
     BodyTo,
-    State extends Koa.DefaultState,
-    ContextType extends Koa.DefaultContext & RouterParamContext<State>,
+    ContextType extends Context,
 >(
-    filter : (body : BodyFrom, context: Context<State, ContextType, BodyFrom>) => BodyTo,
-) : Middleware<State, ContextType, BodyFrom/*, State, ContextType, BodyTo*/> {
+    filter : (body : ResponseBody<ContextType>, context: ContextType) => BodyTo,
+) : Middleware<ContextType, ReplaceResponseBody<ContextType, BodyTo>> {
 
     return function (context, next)  {
 
-        // @ts-ignore
-        context.response.body = filter(context.response.body, context);
+        context.response.body = filter(context.response.body as ResponseBody<ContextType>, context);
 
         return next();
 
-    } as Middleware<State, ContextType, BodyFrom/*, State, ContextType, BodyTo*/>;
+    } as Middleware<ContextType, ReplaceResponseBody<ContextType, BodyTo>>;
 }

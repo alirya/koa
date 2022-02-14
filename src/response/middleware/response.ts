@@ -1,5 +1,5 @@
 import Response from '@alirya/http/response/response';
-import Context from '../../middleware/context/context';
+import Context from '../../context/context';
 import {Next} from 'koa';
 import {Middleware} from 'koa';
 import FromResponseParameters from '../from-response-parameters';
@@ -20,10 +20,10 @@ export default function Response<
     ResponseBody,
     Subject extends Response,
 >(
-    response : (context : Context<State, ContextType, ResponseBody>) => Promise<Subject>
+    response : (context : Context<State, ContextType, any, ResponseBody>) => Promise<Subject>
 ) : Middleware {
 
-    return function (context : Context<State, ContextType, ResponseBody>, next : Next) {
+    return function (context : Context<State, ContextType, any, ResponseBody>, next : Next) {
 
         return response(context).then(function (subject) {
 

@@ -1,8 +1,7 @@
-import Context from '../../middleware/context/context';
+import Context from '../../context/context';
 import AppContext from '../../context/context';
 import {Next} from 'koa';
 import Log from '@alirya/syslog/syslog';
-import {DefaultState} from 'koa';
 import Middleware from '../../middleware/middleware';
 
 /**
@@ -19,14 +18,13 @@ import Middleware from '../../middleware/middleware';
  * !after : start
  */
 export default function LogParameters<
-    State extends DefaultState,
-    ContextType extends AppContext<State>,
-    ResponseBody = unknown,
+    ContextType extends AppContext,
+    ContextTypeN extends AppContext,
 >(
     log : Log<[string, any, any]>,
     severity : keyof Log = 'debug',
     after: boolean = true
-) : Middleware<State, ContextType, ResponseBody/*, State, ContextType, ResponseBody*/> {
+) : Middleware<ContextType, ContextTypeN> {
 
     const call = function (context : Context) {
 
@@ -53,6 +51,5 @@ export default function LogParameters<
         };
 
     }
-
 
 }

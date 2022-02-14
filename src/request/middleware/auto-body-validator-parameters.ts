@@ -1,26 +1,23 @@
 import Validator from '@alirya/validator/validator';
-import {Middleware} from 'koa';
-import Context from '../../middleware/context/context';
+import Context from '../../context/context';
 import FromResponseParameters from '../../response/from-response-parameters';
 import * as Koa from 'koa';
-import {RouterParamContext} from '@koa/router';
 import DefaultMessage from '@alirya/http/response/response-function-parameter';
 import Codes from '@alirya/http/response/code/number/strict';
 import ContentTypeJson from '../../object/content-type-json';
+import Middleware from "../../middleware/middleware";
 
 export default function AutoBodyValidatorParameters<
     Body,
     ValidatorType extends Validator<Body>,
-    State extends Koa.DefaultState,
-    ContextType extends Koa.DefaultContext & RouterParamContext<State> & {request:{body:Body}},
-    ResponseBody = unknown,
+    ContextType extends Context<Koa.DefaultState, Koa.DefaultContext, Body>,
 
 >(
     validator : ValidatorType,
     code : Codes = 422
-) : Middleware<State, ContextType, ResponseBody> {
+) : Middleware<ContextType> {
 
-    return function (context: Context<State, ContextType, ResponseBody>, next) {
+    return function (context: ContextType, next) {
 
         const validatable = validator(context.request.body);
 

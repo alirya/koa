@@ -1,5 +1,7 @@
-import {DefaultContext, DefaultState, Middleware} from 'koa';
 import Successful from '@alirya/http/response/code/class/boolean/successful';
+import StatusCode from "./status-code";
+import Context from "../../context/context";
+import Middleware from "../../middleware/middleware";
 
 /**
  * finish middleware if response code is valid
@@ -7,26 +9,19 @@ import Successful from '@alirya/http/response/code/class/boolean/successful';
  *
  *
  *
- * @param statusCheck
+ * @param validation
  * default is 2xx status code
  *
  * @constructor
  */
 export default function FinishStatus<
-    State extends DefaultState = DefaultState,
-    ContextType extends DefaultContext = DefaultContext,
-    ResponseBody = unknown,
+    ContextType extends Context,
+    ContextTypeN extends Context,
 >(
 
-    statusCheck : (statusCode: number) => boolean = Successful
-) : Middleware<State, ContextType, ResponseBody> {
+    validation : (statusCode: number) => boolean = Successful
+) : Middleware<ContextType, ContextTypeN> {
 
-    return function (context, next ) {
-
-        if(!statusCheck(context.response.status)) {
-
-            return next();
-        }
-    };
+    return StatusCode(validation, (context, next) => {})
 
 }

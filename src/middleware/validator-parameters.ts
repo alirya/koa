@@ -1,42 +1,38 @@
 import Validator from '@alirya/validator/simple';
 import ValidatableContainer from '@alirya/validatable/validatable/validatable';
 import InferValidatable from '@alirya/validator/validatable/infer-validatable';
-import Context from './context/context';
 import ApplicationContext from '../context/context';
 import Middleware from './middleware';
 import {Optional} from 'utility-types';
-import {DefaultState} from 'koa';
+import Next from "./next";
+import Infer from "@alirya/validator/validatable/static/infer";
 
-export type ValidatableContextType<ValidatorType, State> =
+export type ValidatableContextType<ValidatorType> =
     Optional<ValidatableContainer<InferValidatable<ValidatorType>>> &
-    ApplicationContext<State>;
+    ApplicationContext;
 
 export default function ValidatorParameters<
-    State extends DefaultState,
-    ContextType extends ValidatableContextType<ValidatorType, State>,
-    ResponseBody,
-    ValidatorType extends Validator<ValidatableContextType<ValidatorType, State>, ValidatableContextType<ValidatorType, State>>,
-/*    StateNext extends DefaultState,
-    ContextTypeNext extends ApplicationContext<StateNext>,
-    ResponseBodyNext,*/
+    ContextType extends ValidatableContextType<ValidatorType>,
+    ValidatorType extends Validator<ValidatableContextType<ValidatorType>, ValidatableContextType<ValidatorType>>,
 >(
     validator : ValidatorType,
-    invalid : Middleware<State, Required<ContextType>, ResponseBody>
-) : Middleware<State, ContextType, ResponseBody/*, StateNext, ContextTypeNext, ResponseBodyNext*/> {
+    valid : Middleware<ContextType> = Next,
+    invalid : Middleware<ContextType> = Next,
+) : Middleware<ContextType, ContextType & { validatable:Infer<ValidatorType> }> {
 
-    return function (context : Context<State, ContextType, ResponseBody>, next) {
+    return function (context, next) {
 
         const validatable = validator(context);
 
+        context.validatable = validatable as InferValidatable<ValidatorType>;
+
         if(validatable.valid) {
 
-            return next();
+            return valid(context, next);
 
         } else {
 
-            context.validatable = validatable as InferValidatable<ValidatorType>;
-
-            return invalid(context as Context<State, Required<ContextType>, ResponseBody>, next);
+            return invalid(context, next);
         }
     };
 }

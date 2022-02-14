@@ -1,12 +1,13 @@
-import {DefaultContext, DefaultState} from 'koa';
-import {RouterParamContext} from '@koa/router';
+import {DefaultContext, DefaultState, ParameterizedContext} from 'koa';
 
 /**
- * context of application/routing argument
+ * context of parameter middleware
  */
 type Context<
     State extends DefaultState = DefaultState,
-    Context extends DefaultContext = DefaultContext
-> = Context & RouterParamContext<State, Context>;
-
+    Context extends DefaultContext = DefaultContext,
+    RequestBody = unknown,
+    ResponseBody = unknown,
+    > = ParameterizedContext<State, Context , ResponseBody> & {request:{body:RequestBody}};
 export default Context;
+

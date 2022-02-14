@@ -1,5 +1,5 @@
-import Context from '../../middleware/context/context';
-import {DefaultState, Next} from 'koa';
+import Context from '../../context/context';
+import {Next} from 'koa';
 import String from '@alirya/string/boolean/string';
 
 /**
@@ -10,11 +10,9 @@ import String from '@alirya/string/boolean/string';
  * string json
  */
 export default function Json<
-    State extends DefaultState,
-    ContextType extends Context<State>,
-    ResponseBody extends string
+    ContextType extends Context,
 >(
-    context : Context<State, ContextType, ResponseBody>,
+    context : ContextType,
     next : Next
 ) {
 

@@ -42,7 +42,7 @@
     "ts-toolbelt": "^9.6.0",
     "utility-types": "^3.10.0",
     "package-version-git-tag": "^3.0.0",
-    "koa-body": "^4.2.0",
+    "@dikac/koa-body": "^4.2.0",
     "axios": "=0.19.0"
   },
   "scripts": {

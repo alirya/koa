@@ -1,11 +1,12 @@
-import KoaBody from 'koa-body';
+import KoaBody from '@dikac/koa-body';
 import Body from '../../../../dist/response/middleware/body-parameters';
 import Axios from 'axios';
 import RequestPath from '../../../request-path';
 import RandomIntegerParameters from '@alirya/number/random-integer-parameters';
 import Server from '../../../server';
-import Register from '../../../../dist/route/register';
+import Register from '../../../../dist/router/register';
 import Router from '@koa/router';
+import Context from "../../../../dist/context/context";
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 jasmine.DEFAULT_TIMEOUT_INTERVAL = 20 * 1000;
@@ -18,7 +19,7 @@ type Id = {id : number};
 describe('test', () => {
 
     const server = Server();
-    const router =  Register(server.koa, new Router());
+    const router =  Register<Context>(server.koa, new Router());
 
     beforeAll(()=>server.open());
     afterAll(()=>server.close());

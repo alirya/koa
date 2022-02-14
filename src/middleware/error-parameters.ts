@@ -1,9 +1,7 @@
-import Context from './context/context';
+import Context from '../context/context';
 import {Next} from 'koa';
-import * as Koa from 'koa';
-import {RouterParamContext} from '@koa/router';
 import Middleware from './middleware';
-import ErrorHandlerParameters from './error-handler/error-handler';
+import ErrorHandlerParameters from '../throwable/handler/handler';
 
 /**
  * catch error, if error is instanceof {@param instance} then execute {@param handler} else rethrow {@param instance}
@@ -21,32 +19,26 @@ import ErrorHandlerParameters from './error-handler/error-handler';
  */
 export default function ErrorParameters<
     Error extends globalThis.Error,
-    State extends Koa.DefaultState,
-    ContextType extends Koa.DefaultContext & RouterParamContext<State>,
-    ResponseBody
+    ContextType extends Context,
 >(
-    handler :  ErrorHandlerParameters<globalThis.Error, State, ContextType, ResponseBody>,
+    handler :  ErrorHandlerParameters<Error, ContextType>,
     instance ?: new()=>Error,
     rethrow ?: boolean
-) : Middleware<State, ContextType, ResponseBody/*, State, ContextType, ResponseBody*/>;
+) : Middleware<ContextType>;
 
 export default function ErrorParameters<
     Error extends globalThis.Error,
-    State extends Koa.DefaultState,
-    ContextType extends Koa.DefaultContext & RouterParamContext<State>,
-    ResponseBody
+    ContextType extends Context,
 >(
-    handler :  ErrorHandlerParameters<Error, State, ContextType, ResponseBody>,
+    handler :  ErrorHandlerParameters<Error, ContextType>,
     instance ?: new()=>Error,
-) : Middleware<State, ContextType, ResponseBody/*, State, ContextType, ResponseBody*/>;
+) : Middleware<ContextType>;
 
 export default function ErrorParameters<
-    State extends Koa.DefaultState,
-    ContextType extends Koa.DefaultContext & RouterParamContext<State>,
-    ResponseBody
+    ContextType extends Context,
 >(
-    handler :  ErrorHandlerParameters<globalThis.Error, State, ContextType, ResponseBody>,
-) : Middleware<State, ContextType, ResponseBody/*, State, ContextType, ResponseBody*/>;
+    handler :  ErrorHandlerParameters<globalThis.Error, ContextType>,
+) : Middleware<ContextType>;
 
 /**
  * @param instance
@@ -62,14 +54,12 @@ export default function ErrorParameters<
  */
 export default function ErrorParameters<
     Error extends globalThis.Error,
-    State extends Koa.DefaultState,
-    ContextType extends Koa.DefaultContext & RouterParamContext<State>,
-    ResponseBody
+    ContextType extends Context,
 >(
-    handler : ErrorHandlerParameters<Error, State, ContextType, ResponseBody>,
+    handler : ErrorHandlerParameters<Error, ContextType>,
     instance : new()=>(Error|globalThis.Error) = globalThis.Error,
     rethrow : boolean = false
-) : Middleware<State, ContextType, ResponseBody/*, State, ContextType, ResponseBody*/>
+) : Middleware<ContextType>
 {
     return async function (context, next : Next) {
 
@@ -83,7 +73,7 @@ export default function ErrorParameters<
 
             if(isInstance) {
 
-                handler(error as Error, context as Context<State, ContextType, ResponseBody>);
+                handler(error as Error, context);
             }
 
             if(!isInstance || rethrow) {

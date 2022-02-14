@@ -1,18 +1,16 @@
-import Context from '../../middleware/context/context';
+import Context from '../../context/context';
 import Ok from '@alirya/http/response/ok-parameter';
-import * as Koa from 'koa';
 import Response from '@alirya/http/response/response';
 import Middleware from '../../middleware/middleware';
-import {RouterParamContext} from '@koa/router';
 import Body from '@alirya/http/body/body';
 import BodyParameters from './body-parameters';
+import Replace from "../../context/response-body/replace";
 
 export type BodyParameterArgument<
     ResponseBody,
-    State extends Koa.DefaultState,
-    ContextType extends Koa.DefaultContext & RouterParamContext<State>,
+    ContextType extends Context,
 > = {
-    subject : (context : Context<State, ContextType, any>) => Promise<ResponseBody>,
+    subject : (context : ContextType) => Promise<ResponseBody>,
     response ?: (body : Body<ResponseBody>) => Response<number, string, Record<string, string>, ResponseBody>
 };
 /**
@@ -27,14 +25,13 @@ export type BodyParameterArgument<
 
 export default function BodyParameter<
     ResponseBody,
-    State extends Koa.DefaultState,
-    ContextType extends Koa.DefaultContext & RouterParamContext<State>,
+    ContextType extends Context,
 >(
     {
         subject,
         response = Ok,
-    } : BodyParameterArgument<ResponseBody, State, ContextType>
-) : Middleware<State, ContextType, any/*, State, ContextType, ResponseBody*/> {
+    } : BodyParameterArgument<ResponseBody, ContextType>
+) : Middleware<ContextType, Replace<ContextType, ResponseBody>> {
 
     return BodyParameters(subject, response);
 }

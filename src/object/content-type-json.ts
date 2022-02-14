@@ -1,3 +1,3 @@
-const ContentTypeJson = Object.freeze({'ContenType' : 'application/json'});
+const ContentTypeJson = Object.freeze({'ContentType' : 'application/json'});
 
 export default ContentTypeJson;

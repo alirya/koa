@@ -1,21 +1,15 @@
 import String from '@alirya/string/boolean/string';
-import Validator from '@alirya/validator/dist/simple';
+import Validator from '@alirya/validator/simple';
 import Validatable from '@alirya/validator/validatable/simple';
-import {DefaultState} from 'koa';
-import ApplicationContext from '../../../dist/context/context';
-import Context from '../../../dist/middleware/context/context';
+import Context from '../../../dist/context/context';
 
-type Argument = Context<DefaultState, ApplicationContext<DefaultState>, unknown>;
-
-export default <Validator<Argument, Argument>> function ContextValidator<
-    State extends DefaultState,
-    ContextT extends ApplicationContext<State>,
-    Response = unknown
+export default <Validator<Context, Context>> function ContextValidator<
+    Ctx extends Context
 >(
-    context : Argument
+    context : Context
 ) : Validatable<
-        Context<State, ContextT, Response>,
-        Context<State, ContextT, Response>
+        Ctx,
+        Ctx
 > {
 
     const value = context.request.body;
@@ -25,6 +19,6 @@ export default <Validator<Argument, Argument>> function ContextValidator<
 
         valid,
         message : valid ? 'valid' : 'invalid',
-        value
+        value : context as Ctx
     };
 };

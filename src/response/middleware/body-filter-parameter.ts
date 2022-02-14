@@ -1,16 +1,14 @@
-import Context from '../../middleware/context/context';
-import * as Koa from 'koa';
-import {RouterParamContext} from '@koa/router';
+import Context from '../../context/context';
 import Middleware from '../../middleware/middleware';
 import BodyFilterParameters from './body-filter-parameters';
+import ReplaceResponseBody from "../../context/response-body/replace";
+import ResponseBody from "../../context/response-body/infer";
 
 export type BodyFilterParameterArgumentCallback<
-    BodyFrom,
-    State extends Koa.DefaultState,
-    ContextType extends Koa.DefaultContext & RouterParamContext<State>,
-    > = {
-    body : BodyFrom;
-    context: Context<State, ContextType, BodyFrom>;
+    ContextType extends Context,
+> = {
+    body : ResponseBody<ContextType>;
+    context: ContextType;
 };
 /**
  * filter response body data
@@ -18,13 +16,11 @@ export type BodyFilterParameterArgumentCallback<
  * @param filter
  */
 export default function BodyFilterParameter<
-    BodyFrom,
     BodyTo,
-    State extends Koa.DefaultState,
-    ContextType extends Koa.DefaultContext & RouterParamContext<State>,
+    ContextType extends Context,
 >(
-    filter : (argument : BodyFilterParameterArgumentCallback<BodyFrom, State, ContextType>) => BodyTo,
-) : Middleware<State, ContextType, BodyFrom/*, State, ContextType, BodyTo*/> {
+    filter : (argument : BodyFilterParameterArgumentCallback<ContextType>) => BodyTo,
+) : Middleware<ContextType, ReplaceResponseBody<ContextType, BodyTo>> {
 
     return BodyFilterParameters(
         (body, context) => filter({body, context})

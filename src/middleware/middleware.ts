@@ -1,24 +1,16 @@
-import * as Koa from 'koa';
-import {DefaultState} from 'koa';
 import ApplicationContext from '../context/context';
-
+import * as compose from 'koa-compose';
 /**
  * alternative to koa router {@see Middleware} with
  * added Response body template
  */
+
+
 type Middleware<
-    StateT extends DefaultState = DefaultState,
-    ContextT extends ApplicationContext<StateT> = ApplicationContext<StateT>,
-    ResponseBodyT = unknown,
-    // StateTNext extends DefaultState = StateT,
-    // ContextTNext extends ApplicationContext<StateTNext> = ApplicationContext<StateTNext>,
-    // ResponseBodyTNext = ResponseBodyT,
-> =
-Koa.Middleware<
-    StateT,
-    ContextT,
-    ResponseBodyT
->;
+    Context extends ApplicationContext = ApplicationContext,
+    ContextNext extends ApplicationContext = Context,
+
+> =  compose.Middleware<Context>
+
 
 export default Middleware;
-

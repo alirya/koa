@@ -1,4 +1,4 @@
-import Context from '../../middleware/context/context';
+import Context from '../../context/context';
 import {Next} from 'koa';
 import FinishStatus from './finish-status';
 

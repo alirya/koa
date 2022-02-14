@@ -1,10 +1,11 @@
-import KoaBody from 'koa-body';
+import KoaBody from '@dikac/koa-body';
 import MiddlewareError from '../../../dist/middleware/error-parameters';
 import Axios, {AxiosResponse} from 'axios';
 import RequestPath from '../../request-path';
 import Server from '../../server';
-import Register from '../../../dist/route/register';
+import Register from '../../../dist/router/register';
 import Router from '@koa/router';
+import Context from "../../../dist/context/context";
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 
@@ -13,7 +14,7 @@ const path : string = RequestPath(__filename);
 describe('test', () => {
 
     const server = Server();
-    const router =  Register(server.koa, new Router());
+    const router =  Register<Context>(server.koa, new Router());
 
     let rethrown : boolean = false;
     let response : AxiosResponse<{name : string, address : string}>;

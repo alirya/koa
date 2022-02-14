@@ -1,18 +1,14 @@
-import * as Koa from 'koa';
-import {RouterParamContext} from '@koa/router';
 import Middleware from './middleware';
-import ErrorHandlerParameter from './error-handler/error-handler';
+import ErrorHandlerParameter from '../throwable/handler/handler';
 import ErrorParameters from './error-parameters';
+import Context from "../context/context";
 
 
 export type ErrorParameterArgument<
     Error extends globalThis.Error,
-    State extends Koa.DefaultState,
-    ContextType extends Koa.DefaultContext & RouterParamContext<State>,
-    ResponseBody
+    ContextType extends Context,
 > = {
-
-    handler :  ErrorHandlerParameter<Error, State, ContextType, ResponseBody>,
+    handler :  ErrorHandlerParameter<Error, ContextType>,
     instance ?: new()=>Error,
     rethrow ?: boolean
 };
@@ -31,16 +27,14 @@ export type ErrorParameterArgument<
  */
 export default function ErrorParameter<
     Error extends globalThis.Error,
-    State extends Koa.DefaultState,
-    ContextType extends Koa.DefaultContext & RouterParamContext<State>,
-    ResponseBody
+    ContextType extends Context,
 >(
     {
         handler,
         instance,
         rethrow,
-    } : ErrorParameterArgument<Error, State, ContextType, ResponseBody>
-) : Middleware<State, ContextType, ResponseBody/*, State, ContextType, ResponseBody*/>
+    } : ErrorParameterArgument<Error, ContextType>
+) : Middleware<ContextType>
 {
     return ErrorParameters(handler, instance, rethrow);
 }

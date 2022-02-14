@@ -1,11 +1,12 @@
 import RequestPath from '../../request-path';
 import Server from '../../server';
-import Register from '../../../dist/route/register';
+import Register from '../../../dist/router/register';
 import Router from '@koa/router';
 import {AxiosResponse} from 'axios';
-import KoaBody from 'koa-body';
+import KoaBody from '@dikac/koa-body';
 import ValidatorParameters from '../../../dist/middleware/validator-parameters';
 import ContextValidator from './context-validator';
+import Context from "../../../dist/context/context";
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 
@@ -15,7 +16,7 @@ const path : string = RequestPath(__filename);
 describe('test', () => {
 
     const server = Server();
-    const router =  Register(server.koa, new Router());
+    const router =  Register<Context>(server.koa, new Router());
 
     let called1 : boolean = false;
     let called2 : boolean = false;

@@ -1,22 +1,20 @@
 import Validator from '@alirya/validator/validator';
-import {Middleware} from 'koa';
-import Context from '../../middleware/context/context';
+import {DefaultState} from 'koa';
+import Context from '../../context/context';
 import * as Koa from 'koa';
-import {RouterParamContext} from '@koa/router';
+import Middleware from "../../middleware/middleware";
 
 export default function BodyValidatorParameters<
     Body,
     ValidatorType extends Validator<Body>,
-    State extends Koa.DefaultState,
-    ContextType extends Koa.DefaultContext & RouterParamContext<State> & {request:{body:Body}},
-    ResponseBody = unknown,
+    ContextType extends Context<DefaultState, Koa.DefaultContext, Body>,
 
 >(
     validator : ValidatorType,
-    invalid : Middleware<State, ContextType, ResponseBody>
-) : Middleware<State, ContextType, ResponseBody> {
+    invalid : Middleware<ContextType>
+) : Middleware<ContextType> {
 
-    return function (context: Context<State, ContextType, ResponseBody>, next) {
+    return function (context: ContextType, next) {
 
         const validatable = validator(context.request.body);
 

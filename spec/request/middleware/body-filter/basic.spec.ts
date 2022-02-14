@@ -1,10 +1,12 @@
-import KoaBody from 'koa-body';
+import KoaBody from '@dikac/koa-body';
 import BodyFilter from '../../../../dist/request/middleware/body-filter-parameters';
 import Axios from 'axios';
 import RequestPath from '../../../request-path';
 import Server from '../../../server';
-import Register from '../../../../dist/route/register';
+import Register from '../../../../dist/router/register';
 import Router from '@koa/router';
+import Middleware from "../../../../dist/middleware/middleware";
+import Context from "../../../../dist/context/context";
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 
@@ -14,7 +16,7 @@ describe('test', () => {
 
 
     const server = Server();
-    const router =  Register(server.koa, new Router());
+    const router =  Register<Context>(server.koa, new Router());
 
     beforeAll(()=>server.open());
     afterAll(()=>server.close());
@@ -40,7 +42,7 @@ describe('test', () => {
     it('add filter', ()=>{
 
         router.post(path,
-            KoaBody(),
+            KoaBody() as Middleware,
 
             BodyFilter(function (body : { name: string, age: number }) : {name : string, address : string} {
 

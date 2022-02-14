@@ -1,17 +1,15 @@
-import Context from '../../middleware/context/context';
-import {DefaultContext, DefaultState, Next} from 'koa';
 import SuccessfulType from '@alirya/http/response/code/class/boolean/successful';
-import {Middleware} from 'koa';
 import StatusCode from './status-code';
+import Middleware from "../../middleware/middleware";
+import ApplicationContext from "../../context/context";
 
 export default function StatusSuccessful<
-    State extends DefaultState,
-    ContextType extends DefaultContext,
-    ResponseBody = any
+    ContextType extends ApplicationContext,
+    ContextTypeN extends ApplicationContext,
 >(
-    middleware : (context:Context<State, ContextType, ResponseBody>, next:Next)=>void,
+    middleware : Middleware<ContextType, ContextTypeN>,
 
-) : Middleware<State, ContextType, ResponseBody> {
+) : Middleware<ContextType, ContextTypeN> {
 
     return StatusCode(SuccessfulType, middleware);
 }
