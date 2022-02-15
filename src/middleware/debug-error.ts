@@ -4,6 +4,7 @@ import InternalServerError from "@alirya/http/response/internal-server-error-par
 import Name from "@alirya/object/string/name";
 import ErrorCallback from "./error-parameters";
 import FromResponseParameters from "../response/from-response-parameters";
+import Debug from "../throwable/handler/debug";
 
 /**
  * @warning
@@ -21,9 +22,7 @@ export default function DebugError(
 
     return ErrorCallback((error : globalThis.Error, context) => {
 
-        FromResponseParameters(context, InternalServerError({
-            body : [Name(error), error.message, '', error.stack].join('\n')
-        }))
+        Debug(error, context);
 
         if(callback) {
 
