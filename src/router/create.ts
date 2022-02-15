@@ -1,4 +1,3 @@
-import Koa from 'koa';
 import KoaRouter, {RouterOptions} from '@koa/router';
 import ApplicationContext from "../context/context";
 import State from "../context/state/infer";

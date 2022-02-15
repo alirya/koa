@@ -20,10 +20,10 @@ export default function Response<
     ResponseBody,
     Subject extends Response,
 >(
-    response : (context : Context<State, ContextType, any, ResponseBody>) => Promise<Subject>
+    response : (context : Context<any, ResponseBody, State, ContextType>) => Promise<Subject>
 ) : Middleware {
 
-    return function (context : Context<State, ContextType, any, ResponseBody>, next : Next) {
+    return function (context : Context<any, ResponseBody, State, ContextType>, next : Next) {
 
         return response(context).then(function (subject) {
 

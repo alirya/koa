@@ -3,11 +3,12 @@ import Middleware from '../../middleware/middleware';
 import BodyFilterParameters from './body-filter-parameters';
 import ReplaceResponseBody from "../../context/response/replace";
 import ResponseBody from "../../context/response/infer";
+import Body from "../../../../http/dist/body/body";
 
 export type BodyFilterParameterArgumentCallback<
-    ContextType extends Context,
+    ContextType extends Context<unknown, Body<unknown>>,
 > = {
-    body : ResponseBody<ContextType>;
+    body : ResponseBody<ContextType>['body'];
     context: ContextType;
 };
 /**
@@ -17,7 +18,7 @@ export type BodyFilterParameterArgumentCallback<
  */
 export default function BodyFilterParameter<
     BodyTo,
-    ContextType extends Context,
+    ContextType extends Context<Body<unknown>>,
 >(
     filter : (argument : BodyFilterParameterArgumentCallback<ContextType>) => BodyTo,
 ) : Middleware<ContextType, ReplaceResponseBody<ContextType, ['body'], BodyTo>> {

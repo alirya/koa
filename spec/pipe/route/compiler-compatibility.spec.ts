@@ -1,5 +1,4 @@
 import Router from "@koa/router";
-import * as Koa from "koa";
 import {Next} from "koa";
 import Middleware from "../../../dist/middleware/middleware";
 import Server from "../../server";
@@ -31,8 +30,8 @@ describe('required for open and closed', ()=>{
 
         const parser :
             Middleware<
-                Context<Koa.DefaultState, Koa.DefaultContext, Body<string>>,
-                Context<Koa.DefaultState, Koa.DefaultContext, Body<string>>
+                Context<Body<string>>,
+                Context<Body<string>>
                 >
             =
             function (context , next: Next) {

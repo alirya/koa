@@ -1,7 +1,6 @@
 import Validator from '@alirya/validator/validator';
 import Context from '../../context/context';
 import FromResponseParameters from '../../response/from-response-parameters';
-import * as Koa from 'koa';
 import DefaultMessage from '@alirya/http/response/response-function-parameter';
 import Codes from '@alirya/http/response/code/number/strict';
 import ContentTypeJson from '../../object/content-type-json';
@@ -11,7 +10,7 @@ import Body from "@alirya/http/body/body";
 export default function AutoBodyValidatorParameters<
     RequestBody,
     ValidatorType extends Validator<RequestBody>,
-    ContextType extends Context<Koa.DefaultState, Koa.DefaultContext, Body<RequestBody>>,
+    ContextType extends Context<Body<RequestBody>>,
 
 >(
     validator : ValidatorType,

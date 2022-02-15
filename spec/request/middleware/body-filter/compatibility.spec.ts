@@ -1,5 +1,4 @@
 import Router from "@koa/router";
-import * as Koa from "koa";
 import {DefaultState, Next} from "koa";
 import Server from "../../../server";
 import Register from "../../../../dist/router/register";
@@ -12,7 +11,7 @@ describe('required for open and closed', ()=>{
     const server = Server();
     const router =  Register(
         server.koa,
-        new Router<DefaultState, Context<Koa.DefaultState, Koa.DefaultContext, unknown, string|undefined>>()
+        new Router<DefaultState, Context<unknown, string|undefined>>()
     );
 
     beforeAll(()=>server.open());

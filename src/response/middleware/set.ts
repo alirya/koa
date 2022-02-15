@@ -15,10 +15,10 @@ export default function Set<
     ContextType extends DefaultContext,
     ResponseBody = any
 >(
-    response : Context<State, ContextType, any, ResponseBody>['response']
+    response : Context<any, ResponseBody, State, ContextType>['response']
 ) : Middleware<State, ContextType, ResponseBody> {
 
-    return function (context : Context<State, ContextType, any, Body<ResponseBody>>, next : Next) {
+    return function (context : Context<any, Body<ResponseBody>, State, ContextType>, next : Next) {
 
         FromResponseParameters(context, response);
 

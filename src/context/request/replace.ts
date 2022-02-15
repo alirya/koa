@@ -8,6 +8,6 @@ type Replace<
     ContextType extends Context,
     Properties extends List<Key>,
     Value
-> = Object.P.Update<ContextType, ['request', 'body'], Value>;
+> = Object.P.Update<ContextType, ['request', ...Properties], Value>;
 
 export default Replace;

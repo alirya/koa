@@ -2,14 +2,13 @@ import Context from '../../context/context';
 import Middleware from '../../middleware/middleware';
 import RequestBody from "../../context/request/infer";
 import Replace from "../../context/request/replace";
-import {DefaultContext, DefaultState} from "koa";
 import Body from "../../../../http/dist/body/body";
 
 export default function BodyFilterParameters<
     ReplaceBody = unknown,
-    ContextType extends Context<DefaultState, DefaultContext, Body<unknown>> = Context<DefaultState, DefaultContext, Body<unknown>>,
+    ContextType extends Context<Body<unknown>> = Context<Body<unknown>>,
 >(
-    filter : (body : RequestBody<ContextType>, context: ContextType) => ReplaceBody,
+    filter : (body : RequestBody<ContextType>['body'], context: ContextType) => ReplaceBody,
 ) : Middleware<ContextType, Replace<ContextType, ['body'] , ReplaceBody>> {
 
     return function (context, next)  {

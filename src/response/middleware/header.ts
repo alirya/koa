@@ -1,28 +1,24 @@
 import Context from '../../context/context';
-import {DefaultContext, DefaultState, Next} from 'koa';
-import {Middleware} from 'koa';
+import {Next} from 'koa';
+import Middleware from "../../middleware/middleware";
 
 /**
  * set response header
  */
 export default function Header<
-    State extends DefaultState = DefaultState,
-    ContextType extends DefaultContext = DefaultContext,
-    ResponseBody = unknown,
+    //State extends DefaultState = DefaultState,
+    //ContextType extends DefaultContext = DefaultContext,
+    //ResponseBody = unknown,
+    ContextType extends Context
 >(
     headers : Record<string, string>
-) : Middleware<
-    State,
-    ContextType,
-    ResponseBody
-    > {
+) : Middleware<ContextType> {
 
-    return function (context : Context<State, ContextType, ResponseBody>, next : Next) {
+    return function (context : ContextType, next : Next) {
 
         context.response.set(headers);
 
         return next();
-
-    } as Middleware<State, ContextType, ResponseBody>;
+    }
 
 }
