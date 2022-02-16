@@ -13,7 +13,7 @@ export type ValidatableContextType<ValidatorType> =
 
 export default function ValidatorParameters<
     ContextType extends ValidatableContextType<ValidatorType>,
-    ValidatorType extends Validator<ValidatableContextType<ValidatorType>, ValidatableContextType<ValidatorType>>,
+    ValidatorType extends Validator<ContextType, ContextType>,
 >(
     validator : ValidatorType,
     valid : Middleware<ContextType> = Next,
