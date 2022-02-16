@@ -2,7 +2,7 @@ import Context from '../../context/context';
 import {DefaultContext, DefaultState, Next} from 'koa';
 import {Middleware} from 'koa';
 import FromResponseParameters from '../from-response-parameters';
-import Body from "../../../../http/dist/body/body";
+import Body from "@alirya/http/body/body";
 
 /**
  * set {@param response} to response data

@@ -2,7 +2,7 @@ import Context from '../../context/context';
 import Middleware from '../../middleware/middleware';
 import RequestBody from "../../context/request/infer";
 import Replace from "../../context/request/replace";
-import Body from "../../../../http/dist/body/body";
+import Body from "@alirya/http/body/body";
 
 export default function BodyFilterParameters<
     ReplaceBody = unknown,

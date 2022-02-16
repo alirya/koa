@@ -2,7 +2,7 @@ import Context from '../../context/context';
 import Middleware from '../../middleware/middleware';
 import ResponseBody from "../../context/response/infer";
 import ReplaceResponseBody from "../../context/response/replace";
-import Body from "../../../../http/dist/body/body";
+import Body from "@alirya/http/body/body";
 
 /**
  * filter response body data

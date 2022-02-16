@@ -3,7 +3,7 @@ import Middleware from '../../middleware/middleware';
 import BodyFilterParameters from './body-filter-parameters';
 import ReplaceResponseBody from "../../context/response/replace";
 import ResponseBody from "../../context/response/infer";
-import Body from "../../../../http/dist/body/body";
+import Body from "@alirya/http/body/body";
 
 export type BodyFilterParameterArgumentCallback<
     ContextType extends Context<unknown, Body<unknown>>,
