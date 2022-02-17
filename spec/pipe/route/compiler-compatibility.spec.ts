@@ -6,7 +6,7 @@ import Register from "../../../dist/router/register";
 import Context from "../../../dist/context/context";
 import Route from "../../../dist/pipe/route";
 import Pipe from "../../../dist/pipe/pipe";
-import Body from "../../../../http/dist/body/body";
+import Body from "@alirya/http/body/body";
 
 it("force console log", () => { spyOn(console, 'log').and.callThrough();});
 

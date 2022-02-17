@@ -1,6 +1,8 @@
 import Context from "../context/context";
 import Middleware from "./middleware";
 import Next from "./next";
+import ConditionalCallParameters
+    from "../../../../../project/learn-a/packages/function/dist/conditional-call-parameters";
 
 /**
  * execute middleware if {@param validation} match
@@ -21,13 +23,12 @@ export default function ConditionalParameters<
 
     return function (context, next) {
 
-        if(validation(context)) {
+        return ConditionalCallParameters(
+            validation(context),
+            valid,
+            invalid,
+            context, next
+        )
 
-            return valid(context, next);
-
-        } else {
-
-            return invalid(context, next);
-        }
     };
 }

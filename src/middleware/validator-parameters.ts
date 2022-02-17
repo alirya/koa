@@ -6,6 +6,7 @@ import Middleware from './middleware';
 import {Optional} from 'utility-types';
 import Next from "./next";
 import Infer from "@alirya/validator/validatable/static/infer";
+import PropertyValidatorParameters from "./property-validator-parameters";
 
 export type ValidatableContextType<ValidatorType> =
     Optional<ValidatableContainer<InferValidatable<ValidatorType>>> &
@@ -20,19 +21,5 @@ export default function ValidatorParameters<
     invalid : Middleware<ContextType> = Next,
 ) : Middleware<ContextType, ContextType & { validatable:Infer<ValidatorType> }> {
 
-    return function (context, next) {
-
-        const validatable = validator(context);
-
-        context.validatable = validatable as InferValidatable<ValidatorType>;
-
-        if(validatable.valid) {
-
-            return valid(context, next);
-
-        } else {
-
-            return invalid(context, next);
-        }
-    };
+    return PropertyValidatorParameters(validator, [], valid, invalid);
 }

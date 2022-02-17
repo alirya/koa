@@ -12,7 +12,7 @@ import Router from "@koa/router";
 import Middleware from "../../../../dist/middleware/middleware";
 import * as Koa from "koa";
 import Context from "../../../../dist/context/context";
-import Body from "../../../../../http/dist/body/body";
+import Body from "@alirya/http/body/body";
 
 it("force console log", () => { spyOn(console, 'log').and.callThrough();});
 
