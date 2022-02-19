@@ -2,8 +2,8 @@ import {Context} from "koa";
 
 export default function StatusCodeCallback(
     context : Context,
-    code: number
+    validation: (code: number)=> boolean
 ) : boolean {
 
-    return context.response.status === code;
+    return validation(context.response.status)
 }

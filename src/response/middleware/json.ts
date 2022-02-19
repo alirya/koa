@@ -1,6 +1,7 @@
 import Context from '../../context/context';
 import {Next} from 'koa';
 import String from '@alirya/string/boolean/string';
+import ContentTypeJson from "@alirya/http/headers/header/content-type-json";
 
 /**
  * set appropriate header for JSON if body is already JSON string
@@ -18,7 +19,7 @@ export default function Json<
 
     if(String(context.response.body)) {
 
-        context.response.set({'ContenType' : 'application/json'});
+        context.response.set(ContentTypeJson);
     }
 
     return next();

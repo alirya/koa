@@ -1,6 +1,6 @@
 import Context from '../../context/context';
 import Middleware from '../../middleware/middleware';
-import IsStatusCode from '../../context/boolean/status-code';
+import IsStatusCode from '../../context/boolean/status-code-callback';
 import ValidationParameters from "../../middleware/validation-parameters";
 import CurryParameters from "@alirya/function/curry-parameters";
 
