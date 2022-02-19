@@ -1,8 +1,7 @@
 import Context from "../context/context";
 import Middleware from "./middleware";
 import Next from "./next";
-import ConditionalCallParameters
-    from "../../../../../project/learn-a/packages/function/dist/conditional-call-parameters";
+import ConditionalCallParameters from "@alirya/function/conditional-call-parameters";
 
 /**
  * execute middleware if {@param validation} match
@@ -12,7 +11,7 @@ import ConditionalCallParameters
  * @param validation
  * @constructor
  */
-export default function ConditionalParameters<
+export default function ValidationParameters<
     ContextType extends Context,
     ContextTypeN extends Context,
 >(
@@ -27,7 +26,8 @@ export default function ConditionalParameters<
             validation(context),
             valid,
             invalid,
-            context, next
+            context,
+            next
         )
 
     };

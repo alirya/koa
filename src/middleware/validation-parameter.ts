@@ -1,7 +1,7 @@
 import Context from "../context/context";
 import Middleware from "./middleware";
 import Next from "./next";
-import ConditionalParameters from "./conditional-parameters";
+import ValidationParameters from "./validation-parameters";
 
 /**
  * execute middleware if {@param validation} match
@@ -11,7 +11,7 @@ import ConditionalParameters from "./conditional-parameters";
  * @param validation
  * @constructor
  */
-export default function ConditionalParameter<
+export default function ValidationParameter<
     ContextType extends Context,
     ContextTypeN extends Context,
 >(
@@ -26,5 +26,5 @@ export default function ConditionalParameter<
     }
 ) : Middleware<ContextType, ContextTypeN> {
 
-    return ConditionalParameters(validation, valid, invalid);
+    return ValidationParameters(validation, valid, invalid);
 }
