@@ -1,6 +1,6 @@
 import {Context} from "koa";
 
-export default function StatusCodeCallback(
+export default function StatusCode(
     context : Context,
     code: number
 ) : boolean {
