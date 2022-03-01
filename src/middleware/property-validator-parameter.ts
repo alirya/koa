@@ -23,12 +23,14 @@ export default function PropertyValidatorParameter<
         properties,
         valid = Next,
         invalid = Next,
+        replace,
     } : ValidatorContainer<ValidatorType> & {
         properties : Properties,
         valid : Middleware<ContextType>,
         invalid : Middleware<ContextType>,
+        replace ?: boolean
     }
 ) : Middleware<ContextType, ContextType & { validatable : Infer<ValidatorType> }> {
 
-    return PropertyValidatorParameters(validator, properties, valid, invalid);
+    return PropertyValidatorParameters(validator, properties, valid, invalid, replace);
 }

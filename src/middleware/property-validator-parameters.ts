@@ -9,19 +9,21 @@ import Infer from "@alirya/validator/validatable/static/infer";
 import PickDeepParameters from "@alirya/object/value/value/select-path-parameters";
 import ValidatableContainer from "@alirya/validatable/validatable/Validatable";
 import ConditionalCallParameters from "@alirya/function/conditional-call-parameters";
+import SetPathParameters from "../../../object/dist/set-path-parameters";
 
 export type PropertyValidatorParametersContext<Properties extends PropertyKey[]> =
     ApplicationContext & Object.P.Record<Properties, unknown>;
 
 export default function PropertyValidatorParameters<
     Properties extends PropertyKey[],
-    ContextType extends PropertyValidatorParametersContext<Properties>,
-    ValidatorType extends Validator<Object.Path<ContextType, Properties>>,
+    ContextType extends PropertyValidatorParametersContext<Properties> = PropertyValidatorParametersContext<Properties>,
+    ValidatorType extends Validator<Object.Path<ContextType, Properties>> = Validator<Object.Path<ContextType, Properties>>,
 >(
     validator : ValidatorType,
     properties : Properties,
     valid : Middleware<ContextType> = Next,
     invalid : Middleware<ContextType> = Next,
+    replace : boolean = true
 ) : Middleware<ContextType, ContextType & ValidatableContainer<InferValidatable<ValidatorType>>> {
 
     return function (context : ContextType & ValidatableContainer<InferValidatable<ValidatorType>>, next) {
@@ -32,11 +34,17 @@ export default function PropertyValidatorParameters<
 
         context.validatable = validatable as InferValidatable<ValidatorType>;
 
+        if(replace) {
+
+            SetPathParameters(context as any, validatable.value, ...properties);
+        }
+
         return ConditionalCallParameters(
             validatable.valid,
             valid,
             invalid,
-            context, next
+            context,
+            next
         )
     };
 }
