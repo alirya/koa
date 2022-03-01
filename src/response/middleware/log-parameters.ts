@@ -3,8 +3,9 @@ import AppContext from '../../context/context';
 import {Next} from 'koa';
 import Log from '@alirya/syslog/syslog';
 import Middleware from '../../middleware/middleware';
-
 /**
+ * @deprecated
+ *
  * pipe response data to log
  *
  * @param log

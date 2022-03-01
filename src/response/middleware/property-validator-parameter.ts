@@ -15,7 +15,9 @@ import PropertyValidatorParameters, {
 } from "./property-validator-parameters";
 
 export {PropertyValidatorParameterContext, PropertyValidatorParameterValidator};
-
+/**
+ * @deprecated
+ */
 export default function PropertyValidatorParameter<
     Properties extends PropertyKey[],
     ContextType extends PropertyValidatorParameterContext<Properties>,

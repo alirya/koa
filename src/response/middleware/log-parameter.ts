@@ -4,6 +4,8 @@ import Middleware from '../../middleware/middleware';
 import LogParameters from './log-parameters';
 
 /**
+ * @deprecated
+ *
  * pipe response data to log
  *
  * @param log

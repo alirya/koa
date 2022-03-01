@@ -2,7 +2,9 @@ import Log from '@alirya/syslog/syslog';
 import Middleware from '../../middleware/middleware';
 import LogParameters from './log-parameters';
 import Context from "../../context/context";
-
+/**
+ * @deprecated
+ */
 export default function LogParameter<
     ContextType extends Context,
 >(

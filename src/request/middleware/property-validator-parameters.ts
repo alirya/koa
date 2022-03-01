@@ -17,7 +17,9 @@ export type PropertyValidatorParametersValidator<
     ContextType extends PropertyValidatorParametersContext<Properties>,
     Properties extends PropertyKey[]
     > = Validator<Object.P.Pick<ContextType, ['request', ...Properties]>>;
-
+/**
+ * @deprecated
+ */
 export default function PropertyValidatorParameters<
     Properties extends PropertyKey[],
     ContextType extends PropertyValidatorParametersContext<Properties>,

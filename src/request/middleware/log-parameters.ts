@@ -2,7 +2,9 @@ import Context from '../../context/context';
 import {Next} from 'koa';
 import Log from '@alirya/syslog/syslog';
 import Middleware from '../../middleware/middleware';
-
+/**
+ * @deprecated
+ */
 export default function LogParameters<
     ContextType extends Context,
 >(
