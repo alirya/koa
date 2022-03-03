@@ -4,6 +4,11 @@ import RequestBody from "../../context/request/infer";
 import Replace from "../../context/request/replace";
 import Body from "@alirya/http/body/body";
 
+/**
+ * @deprecated
+ * @param filter
+ * @constructor
+ */
 export default function BodyFilterParameters<
     ReplaceBody = unknown,
     ContextType extends Context<Body<unknown>> = Context<Body<unknown>>,

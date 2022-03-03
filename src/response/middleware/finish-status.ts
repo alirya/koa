@@ -1,5 +1,5 @@
 import Successful from '@alirya/http/response/code/class/boolean/successful';
-import StatusCode from "./status-code";
+import StatusCode from "../../middleware/status-code";
 import Context from "../../context/context";
 import Middleware from "../../middleware/middleware";
 

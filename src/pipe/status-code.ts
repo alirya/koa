@@ -1,7 +1,7 @@
 import Router, {RouterParamContext} from '@koa/router';
 import {DefaultContext, DefaultState} from 'koa';
 import Middleware from '../middleware/middleware';
-import StatusCodeMiddleware from '../response/middleware/status-code';
+import StatusCodeMiddleware from '../middleware/status-code';
 import Pipe from "./pipe";
 import Context from "../context/context";
 import Infer from "../context/state/infer";

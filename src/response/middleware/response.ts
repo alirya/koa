@@ -7,6 +7,8 @@ import * as Koa from 'koa';
 import {RouterParamContext} from '@koa/router';
 
 /**
+ * @deprecated
+ *
  * use resolved {@param response} value for response data
  *
  * on error set status code to 500, and set value from {@see Promise.catch} to response body, and should be

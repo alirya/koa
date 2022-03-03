@@ -1,7 +1,7 @@
 import InformationalType from '@alirya/http/response/code/class/boolean/informational';
 import StatusCode from './status-code';
-import Middleware from '../../middleware/middleware';
-import Context from "../../context/context";
+import Middleware from './middleware';
+import Context from "../context/context";
 
 /**
  * use {@param middleware} if response status code is 1xx

@@ -7,6 +7,8 @@ import Body from '@alirya/http/body/body';
 import Replace from "../../context/response/replace";
 
 /**
+ * @deprecated
+ * 
  * use resolved {@param subject} value for response body data, upon
  * successful applied {@param response} value
  *

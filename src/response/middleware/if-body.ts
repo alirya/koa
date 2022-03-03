@@ -3,6 +3,8 @@ import {Next, Response} from 'koa';
 import Body from '@alirya/http/body/body';
 import Context from '../../context/context';
 /**
+ * @deprecated
+ *
  * use {@param middleware} if response body is valid against {@param validation}
  *
  * @param validation

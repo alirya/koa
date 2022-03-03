@@ -7,6 +7,9 @@ import ContentTypeJson from '../../object/content-type-json';
 import Middleware from "../../middleware/middleware";
 import Body from "@alirya/http/body/body";
 
+/**
+ * @deprecated
+ */
 export default function AutoBodyValidatorParameters<
     RequestBody,
     ValidatorType extends Validator<RequestBody>,

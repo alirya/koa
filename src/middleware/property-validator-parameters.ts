@@ -9,7 +9,7 @@ import Infer from "@alirya/validator/validatable/static/infer";
 import PickDeepParameters from "@alirya/object/value/value/select-path-parameters";
 import ValidatableContainer from "@alirya/validatable/validatable/Validatable";
 import ConditionalCallParameters from "@alirya/function/conditional-call-parameters";
-import SetPathParameters from "../../../object/dist/set-path-parameters";
+import SetPathParameters from "@alirya/object/set-path-parameters";
 
 export type PropertyValidatorParametersContext<Properties extends PropertyKey[]> =
     ApplicationContext & Object.P.Record<Properties, unknown>;

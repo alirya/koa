@@ -5,6 +5,7 @@ import ReplaceResponseBody from "../../context/response/replace";
 import Body from "@alirya/http/body/body";
 
 /**
+ * @deprecated
  * filter response body data
  *
  * @param filter

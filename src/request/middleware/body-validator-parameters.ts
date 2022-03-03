@@ -4,6 +4,12 @@ import Context from '../../context/context';
 import * as Koa from 'koa';
 import Middleware from "../../middleware/middleware";
 
+/**
+ * @deprecated
+ * @param validator
+ * @param invalid
+ * @constructor
+ */
 export default function BodyValidatorParameters<
     Body,
     ValidatorType extends Validator<Body>,

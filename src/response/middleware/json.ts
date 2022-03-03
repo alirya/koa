@@ -4,6 +4,7 @@ import String from '@alirya/string/boolean/string';
 import ContentTypeJson from "@alirya/http/headers/header/content-type-json";
 
 /**
+ * @deprecated
  * set appropriate header for JSON if body is already JSON string
  *
  * @warning
