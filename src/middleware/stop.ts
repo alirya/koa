@@ -1,5 +1,5 @@
 import {Middleware} from "koa";
 
-export default <Middleware> function Next (context, next) {
+export default <Middleware> function Stop (context, next) {
 
 }
