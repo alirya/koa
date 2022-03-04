@@ -14,18 +14,9 @@ import IsFunction from "@alirya/function/boolean/function";
  * Value or Value from callback to be applied to response
  *
  * @param middleware
+ * @default {@see Next}
  * to be executed after
  */
-/**
- * direct response value
- */
-export default function ResponseParameters<
-    ContextType extends Context,
-    Subject extends Response,
->(
-    response : Subject,
-    middleware ?: Middleware
-) : Middleware<ContextType>;
 
 /**
  * promise factory
@@ -35,7 +26,7 @@ export default function ResponseParameters<
     Subject extends Response,
 >(
     response : (context : ContextType) => Promise<Subject>,
-    middleware : Middleware
+    middleware ?: Middleware
 ) : Middleware<ContextType>;
 
 /**
@@ -46,7 +37,18 @@ export default function ResponseParameters<
     Subject extends Response,
 >(
     response : (context : ContextType) => Subject,
-    middleware : Middleware
+    middleware ?: Middleware
+) : Middleware<ContextType>;
+
+/**
+ * direct response value
+ */
+export default function ResponseParameters<
+    ContextType extends Context,
+    Subject extends Response,
+    >(
+    response : Subject,
+    middleware ?: Middleware
 ) : Middleware<ContextType>;
 
 export default function ResponseParameters<

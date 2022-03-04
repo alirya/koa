@@ -5,6 +5,7 @@ import Log from '@alirya/syslog/syslog';
 import Callable from '@alirya/function/callable';
 import Middleware from './middleware';
 import Syslog from "@alirya/syslog/syslog";
+import Handler from "../syslog/handler/handler";
 
 /**
  * pipe context data to log
@@ -23,10 +24,10 @@ export default function LogParameters<
 >(
     log : SyslogType,
     after: boolean = true,
-    callback : Callable<[ContextType, SyslogType]>
+    callback : Handler<SyslogType, ContextType>
 ) : Middleware<ContextType> {
 
-    const call = (context : ContextType) => callback(context, log);
+    const call = (context : ContextType) => callback(log, context);
 
     if(after) {
 

@@ -4,6 +4,7 @@ import Middleware from '../middleware/middleware';
 import LogParameters from './log-parameters';
 import Syslog from "@alirya/syslog/syslog";
 import Callable from '@alirya/function/callable';
+import Handler from "../syslog/handler/handler";
 
 
 export default function LogParameter<
@@ -16,7 +17,7 @@ export default function LogParameter<
         after,
     } : {
         log : Log<[string, any, any]>,
-        callback : Callable<[ContextType, SyslogType]>,
+        callback : Handler<SyslogType, ContextType>
         after ?: boolean,
     }
 ) : Middleware<ContextType> {
