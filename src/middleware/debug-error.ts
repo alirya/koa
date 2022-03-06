@@ -7,6 +7,8 @@ import FromResponseParameters from "../response/from-response-parameters";
 import Debug from "../throwable/handler/debug";
 
 /**
+ * @deprecated
+ *
  * @warning
  * use this for development only, since will leak error message
  *
