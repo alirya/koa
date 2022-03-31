@@ -1,6 +1,6 @@
 {
   "name": "@alirya/koa",
-  "version": "0.9.0",
+  "version": "0.9.1",
   "description": "Typescript koa router",
   "dependencies": {
     "@alirya/array": "^0.26.0",
@@ -9,11 +9,11 @@
     "@alirya/http": "^0.18.1",
     "@alirya/message": "^0.12.0",
     "@alirya/number": "^0.17.1",
-    "@alirya/object": "^0.37.1",
-    "@alirya/string": "^0.16.2",
+    "@alirya/object": "^0.37.2",
+    "@alirya/string": "^0.16.3",
     "@alirya/syslog": "^0.3.0",
     "@alirya/validatable": "^0.20.0",
-    "@alirya/validator": "^0.19.1",
+    "@alirya/validator": "^0.19.2",
     "@alirya/value": "^0.15.0",
     "@koa/router": "^10.1.1",
     "@types/koa": "^2.13.4",
