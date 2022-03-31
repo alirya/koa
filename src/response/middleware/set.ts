@@ -5,6 +5,7 @@ import FromResponseParameters from '../from-response-parameters';
 import Body from "@alirya/http/body/body";
 
 /**
+ * @deprecated
  * set {@param response} to response data
  *
  * @param response
