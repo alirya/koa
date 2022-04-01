@@ -1,5 +1,5 @@
 import KoaBody from '@dikac/koa-body';
-import MiddlewareError from '../../../dist/middleware/error-parameters';
+import MiddlewareError from '../../../dist/middleware/error-instance-parameters';
 import Axios, {AxiosResponse} from 'axios';
 import RequestPath from '../../request-path';
 import Server from '../../server';
@@ -35,7 +35,7 @@ describe('test', () => {
                 context.response.status = 201;
                 context.response.message = error.message;
                 context.response.body = context.request.body;
-            }, error=>error instanceof Error),
+            }, Error),
             function (context, next) {
 
                 throw new Error('error occurred');
@@ -43,13 +43,13 @@ describe('test', () => {
             MiddlewareError((error, context) => {
 
                 rethrown = true;
-            }, error=>error instanceof Error),
+            }, Error),
         );
 
         router.use(MiddlewareError((error, context) => {
 
             rethrown = true;
-        }, error=>error instanceof Error));
+        }, Error));
 
         server.koa.on('error', (error, context) => {
 

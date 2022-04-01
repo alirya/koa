@@ -1,7 +1,7 @@
 import RequestPath from '../../../request-path';
 import Axios, {AxiosResponse} from 'axios';
 import KoaBody from '@dikac/koa-body';
-import MiddlewareError from '../../../../dist/middleware/error-parameters';
+import MiddlewareError from '../../../../dist/middleware/error-instance-parameters';
 import Debug from '../../../../dist/throwable/handler/debug';
 import Server from '../../../server';
 import Router from '@koa/router';

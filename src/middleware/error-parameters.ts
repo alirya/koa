@@ -2,12 +2,13 @@ import Context from '../context/context';
 import {Next} from 'koa';
 import Middleware from './middleware';
 import ErrorHandlerParameters from '../throwable/handler/handler';
+import Callable from "@alirya/function/callable";
 
 /**
- * catch error, if error is instanceof {@param instance} then execute {@param handler} else rethrow {@param instance}
+ * catch error, if error is instanceof {@param validation} then execute {@param handler} else rethrow {@param validation}
  * regardless of {@param rethrow} value
  *
- * @param instance
+ * @param validation
  * @default {@see globalThis.Error}
  * class to match
  *
@@ -15,14 +16,14 @@ import ErrorHandlerParameters from '../throwable/handler/handler';
  *
  * @param rethrow
  * @default {@see false}
- * force rethrow exception or not, regardless of {@param instance} match
+ * force rethrow exception or not, regardless of {@param validation} match
  */
 export default function ErrorParameters<
     Error extends globalThis.Error,
     ContextType extends Context,
 >(
     handler :  ErrorHandlerParameters<Error, ContextType>,
-    instance ?: new()=>Error,
+    validation ?: Callable<[globalThis.Error], boolean>,
     rethrow ?: boolean
 ) : Middleware<ContextType>;
 
@@ -31,7 +32,7 @@ export default function ErrorParameters<
     ContextType extends Context,
 >(
     handler :  ErrorHandlerParameters<Error, ContextType>,
-    instance ?: new()=>Error,
+    validation ?: Callable<[globalThis.Error], boolean>,
 ) : Middleware<ContextType>;
 
 export default function ErrorParameters<
@@ -41,7 +42,7 @@ export default function ErrorParameters<
 ) : Middleware<ContextType>;
 
 /**
- * @param instance
+ * @param validation
  * @default {@see globalThis.Error}
  * instance of error
  *
@@ -53,11 +54,10 @@ export default function ErrorParameters<
  * rethrow exception or not
  */
 export default function ErrorParameters<
-    Error extends globalThis.Error,
     ContextType extends Context,
 >(
-    handler : ErrorHandlerParameters<Error, ContextType>,
-    instance : new()=>(Error|globalThis.Error) = globalThis.Error,
+    handler : ErrorHandlerParameters<globalThis.Error, ContextType>,
+    validation ?: Callable<[globalThis.Error], boolean>,
     rethrow : boolean = false
 ) : Middleware<ContextType>
 {
@@ -69,14 +69,14 @@ export default function ErrorParameters<
 
         } catch (error) {
 
-            const isInstance = error instanceof instance;
+            const valid = validation ? validation(error) : true;
 
-            if(isInstance) {
+            if(valid) {
 
                 handler(error as Error, context);
             }
 
-            if(!isInstance || rethrow) {
+            if(!valid || rethrow) {
 
                 throw error;
             }

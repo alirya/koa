@@ -3,16 +3,14 @@ import MiddlewareError from "../middleware/error-parameters";
 import Pipe from "./pipe";
 import RouterPipe from "../pipe/pipe";
 import Context from "../context/context";
+import Callable from "../../../function/dist/callable";
 
-export default function Error<
-    ErrorType extends globalThis.Error,
-    CustomMain extends Context,
->(
+export default function Error<CustomMain extends Context>(
     pipe : RouterPipe,
-    error : new ()=>ErrorType,
-) :  Pipe<ErrorType, CustomMain> {
+    error : Callable<[globalThis.Error], boolean>,
+) :  Pipe<globalThis.Error, CustomMain> {
 
-    return function (middleware : ErrorHandlerInterface<ErrorType, CustomMain>) {
+    return function (middleware : ErrorHandlerInterface<globalThis.Error, CustomMain>) {
 
         pipe(MiddlewareError(middleware, error));
 

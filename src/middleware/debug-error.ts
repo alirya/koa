@@ -2,7 +2,7 @@ import Context from "../context/context";
 import {Middleware} from "koa";
 import InternalServerError from "@alirya/http/response/internal-server-error-parameter";
 import Name from "@alirya/object/string/name";
-import ErrorCallback from "./error-parameters";
+import ErrorCallback from "./error-instance-parameters";
 import FromResponseParameters from "../response/from-response-parameters";
 import Debug from "../throwable/handler/debug";
 

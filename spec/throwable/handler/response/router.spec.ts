@@ -4,7 +4,7 @@ import KoaBody from '@dikac/koa-body';
 import ResponseHandler from '../../../../dist/throwable/handler/response';
 import Server from '../../../server';
 import Register from '../../../../dist/router/register';
-import MiddlewareError from '../../../../dist/middleware/error-parameters';
+import MiddlewareError from '../../../../dist/middleware/error-instance-parameters';
 import BadRequestParameters from '@alirya/http/response/bad-request-parameters';
 import Create from "../../../../dist/router/create";
 

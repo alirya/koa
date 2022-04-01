@@ -1,15 +1,15 @@
 import Middleware from './middleware';
 import ErrorHandlerParameter from '../throwable/handler/handler';
-import ErrorInstanceParameters from './error-parameters';
+import ErrorInstanceParameters from './error-instance-parameters';
 import Context from "../context/context";
-import Callable from "@alirya/function/callable";
 
 
 export type ErrorParameterArgument<
+    Error extends globalThis.Error,
     ContextType extends Context,
 > = {
-    handler :  ErrorHandlerParameter<globalThis.Error, ContextType>,
-    instance ?: Callable<[globalThis.Error], boolean>,
+    handler :  ErrorHandlerParameter<Error, ContextType>,
+    instance ?: new()=>Error,
     rethrow ?: boolean
 };
 
@@ -25,14 +25,15 @@ export type ErrorParameterArgument<
  * @default false
  * rethrow exception or not
  */
-export default function ErrorParameter<
+export default function ErrorInstanceParameter<
+    Error extends globalThis.Error,
     ContextType extends Context,
 >(
     {
         handler,
         instance,
         rethrow,
-    } : ErrorParameterArgument<ContextType>
+    } : ErrorParameterArgument<Error, ContextType>
 ) : Middleware<ContextType>
 {
     return ErrorInstanceParameters(handler, instance, rethrow);
