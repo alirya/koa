@@ -1,13 +1,14 @@
 import * as Koa from 'koa';
 import ErrorHandlerParameter from './handler';
 import InstanceParameters from './instance-parameters';
+import Class from "@alirya/class/class";
 
 export type ErrorParameterArgument<
     Error extends globalThis.Error,
     ContextType extends Koa.DefaultContext,
 > = {
     handler : ErrorHandlerParameter<Error, ContextType>,
-    instance ?: (new()=>Error),
+    instance ?: Class<Error>,
 };
 
 export default function InstanceParameter<

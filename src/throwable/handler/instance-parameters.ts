@@ -1,5 +1,6 @@
 import Koa from 'koa';
 import ErrorHandlerParameters from './handler';
+import Class from "@alirya/class/class";
 
 /**
  * executes {@param handler} if the error is
@@ -14,7 +15,7 @@ export default function InstanceParameters<
     ContextType extends Koa.DefaultContext,
 >(
     handler :  ErrorHandlerParameters<Error, ContextType>,
-    instance : new()=>Error,
+    instance : Class<Error>,
 ) : ErrorHandlerParameters<Error, ContextType>;
 /**
  * executes {@param handler} for any error inherited
@@ -35,7 +36,7 @@ export default function InstanceParameters<
     ResponseBody
 >(
     handler : ErrorHandlerParameters<globalThis.Error, ContextType>,
-    instance : new()=>(Error|globalThis.Error) = globalThis.Error,
+    instance : Class<Error|globalThis.Error> = globalThis.Error,
 ) : ErrorHandlerParameters<globalThis.Error, ContextType> {
 
     return function (error, context) {

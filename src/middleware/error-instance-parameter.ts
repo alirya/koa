@@ -2,6 +2,7 @@ import Middleware from './middleware';
 import ErrorHandlerParameter from '../throwable/handler/handler';
 import ErrorInstanceParameters from './error-instance-parameters';
 import Context from "../context/context";
+import Class from "@alirya/class/class";
 
 
 export type ErrorParameterArgument<
@@ -9,7 +10,7 @@ export type ErrorParameterArgument<
     ContextType extends Context,
 > = {
     handler :  ErrorHandlerParameter<Error, ContextType>,
-    instance ?: new()=>Error,
+    instance ?: Class<Error>,
     rethrow ?: boolean
 };
 

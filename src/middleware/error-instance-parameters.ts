@@ -3,6 +3,7 @@ import {Next} from 'koa';
 import Middleware from './middleware';
 import ErrorHandlerParameters from '../throwable/handler/handler';
 import ErrorParameters from "./error-parameters";
+import Class from "@alirya/class/class";
 
 /**
  * catch error, if error is instanceof {@param instance} then execute {@param handler} else rethrow {@param instance}
@@ -23,7 +24,7 @@ export default function ErrorInstanceParameters<
     ContextType extends Context,
 >(
     handler :  ErrorHandlerParameters<Error, ContextType>,
-    instance ?: new()=>Error,
+    instance ?: Class<Error>,
     rethrow ?: boolean
 ) : Middleware<ContextType>;
 
@@ -32,7 +33,7 @@ export default function ErrorInstanceParameters<
     ContextType extends Context,
 >(
     handler :  ErrorHandlerParameters<Error, ContextType>,
-    instance ?: new()=>Error,
+    instance ?: Class<Error>,
 ) : Middleware<ContextType>;
 
 export default function ErrorInstanceParameters<
@@ -58,7 +59,7 @@ export default function ErrorInstanceParameters<
     ContextType extends Context,
 >(
     handler : ErrorHandlerParameters<Error, ContextType>,
-    instance : new()=>(Error|globalThis.Error) = globalThis.Error,
+    instance : Class<Error|globalThis.Error> = globalThis.Error,
     rethrow : boolean = false
 ) : Middleware<ContextType> {
 
