@@ -3,6 +3,7 @@ import {Next} from 'koa';
 import Middleware from './middleware';
 import ErrorHandlerParameters from '../throwable/handler/handler';
 import Callable from "@alirya/function/callable";
+import Guard from "../../../function/dist/boolean/guard";
 
 /**
  * catch error, if error is instanceof {@param validation} then execute {@param handler} else rethrow {@param validation}
@@ -18,6 +19,24 @@ import Callable from "@alirya/function/callable";
  * @default {@see false}
  * force rethrow exception or not, regardless of {@param validation} match
  */
+
+export default function ErrorParameters<
+    Error extends globalThis.Error,
+    ContextType extends Context
+>(
+    handler: ErrorHandlerParameters<Error, ContextType>,
+    validation?: Guard<globalThis.Error, Error>,
+    rethrow?: boolean
+): Middleware<ContextType>;
+
+export default function ErrorParameters<
+    Error extends globalThis.Error,
+    ContextType extends Context
+>(
+    handler: ErrorHandlerParameters<Error, ContextType>,
+    validation?: Guard<globalThis.Error, Error>
+): Middleware<ContextType>;
+
 export default function ErrorParameters<
     Error extends globalThis.Error,
     ContextType extends Context,
