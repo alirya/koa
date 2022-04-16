@@ -1,6 +1,6 @@
 {
   "name": "@alirya/koa",
-  "version": "0.10.0",
+  "version": "0.10.3",
   "description": "Typescript koa router",
   "dependencies": {
     "@alirya/array": "^0.26.1",
