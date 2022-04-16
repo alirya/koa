@@ -1,11 +1,10 @@
 import Validator from '@alirya/validator/simple';
 import Middleware from './middleware';
-import ValidatorParameters, {ValidatableContextType} from './validator-parameters';
-
-export {ValidatableContextType};
+import ValidatorParameters from './validator-parameters';
+import ApplicationContext from "../context/context";
 
 export default function ValidatorParameter<
-    ContextType extends ValidatableContextType<ValidatorType>,
+    ContextType extends ApplicationContext,
     ValidatorType extends Validator<ContextType>,
 >(
     {
