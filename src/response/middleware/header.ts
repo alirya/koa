@@ -6,9 +6,6 @@ import Middleware from "../../middleware/middleware";
  * set response header
  */
 export default function Header<
-    //State extends DefaultState = DefaultState,
-    //ContextType extends DefaultContext = DefaultContext,
-    //ResponseBody = unknown,
     ContextType extends Context
 >(
     headers : Record<string, string>
