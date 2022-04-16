@@ -1,11 +1,11 @@
 import KoaBody from "@dikac/koa-body";
-import BodyFilter from "../../../../dist/response/middleware/body-filter-parameters";
 import Axios from "axios";
 import RequestPath from "../../../request-path";
 import Server from "../../../server";
 import Register from "../../../../dist/router/register";
 import Router from "@koa/router";
 import Context from "../../../../dist/context/context";
+import PropertyReplaceParameters from "../../../../dist/middleware/property-replace-parameters";
 
 it("force console log", () => { spyOn(console, 'log').and.callThrough();});
 
@@ -47,7 +47,7 @@ describe('test', () => {
                 context.response.body = context.request.body;
                 return next();
             },
-            BodyFilter(function (body : { name: string, age: number }) : {name : string, address : string} {
+            PropertyReplaceParameters<['response', 'body']>(function (body : { name: string, age: number }) : {name : string, address : string} {
 
                 argument = body;
 
@@ -56,7 +56,7 @@ describe('test', () => {
                     address
                 }
 
-            })
+            }, ['response', 'body'])
         )
 
     });

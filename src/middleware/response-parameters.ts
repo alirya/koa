@@ -6,7 +6,7 @@ import * as Koa from 'koa';
 import {RouterParamContext} from '@koa/router';
 import Middleware from "./middleware";
 import IsFunction from "@alirya/function/boolean/function";
-
+import Replace from "../context/response/replace";
 /**
  * use {@param response} value or return for response data
  *

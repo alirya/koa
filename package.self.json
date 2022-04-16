@@ -5,6 +5,7 @@
   "dependencies": {
     "@alirya/array": "^0.26.1",
     "@alirya/code": "^0.3.2",
+    "@alirya/class": "^0.3.2",
     "@alirya/function": "^0.16.0",
     "@alirya/http": "^0.18.2",
     "@alirya/message": "^0.12.1",

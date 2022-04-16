@@ -7,6 +7,7 @@ import {Optional} from 'utility-types';
 import Next from "./next";
 import Infer from "@alirya/validator/validatable/static/infer";
 import PropertyValidatorParameters from "./property-validator-parameters";
+import {Object} from "ts-toolbelt";
 
 export type ValidatableContextType<ValidatorType> =
     Optional<ValidatableContainer<InferValidatable<ValidatorType>>> &
@@ -21,5 +22,5 @@ export default function ValidatorParameters<
     invalid : Middleware<ContextType> = Next,
 ) : Middleware<ContextType, ContextType & { validatable:Infer<ValidatorType> }> {
 
-    return PropertyValidatorParameters(validator, [], valid, invalid);
+    return PropertyValidatorParameters(validator as any, [], valid, invalid);
 }

@@ -14,9 +14,9 @@ import PropertyValidatorParameters, {PropertyValidatorParametersContext} from ".
 export type {PropertyValidatorParametersContext};
 
 export default function PropertyValidatorParameter<
-    ContextType extends PropertyValidatorParametersContext<Properties>,
-    ValidatorType extends Validator<Object.P.Pick<ContextType, Properties>>,
     Properties extends PropertyKey[],
+    ContextType extends PropertyValidatorParametersContext<Properties> = PropertyValidatorParametersContext<Properties>,
+    ValidatorType extends Validator<Object.Path<ContextType, Properties>> = Validator<Object.Path<ContextType, Properties>>,
 >(
     {
         validator,

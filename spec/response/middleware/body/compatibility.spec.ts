@@ -1,8 +1,9 @@
-import Body from "../../../../dist/response/middleware/body-parameters";
 import Router from "@koa/router";
 import Context from "../../../../dist/context/context";
 import State from "../../../../dist/context/state/infer";
 import CreatePipe from "../../../../dist/pipe/create";
+import ResponseParameters from "../../../../dist/middleware/response-parameters";
+import OkParameter from "@alirya/http/response/ok-parameter";
 
 it("force console log", () => { spyOn(console, 'log').and.callThrough();});
 
@@ -14,9 +15,9 @@ describe('koa router', ()=>{
 
     it('router chain', () => {
 
-        router.use(Body(function (context) : Promise<string> {
+        router.use(ResponseParameters(function (context)  {
 
-            return Promise.resolve('');
+            return OkParameter({body:Promise.resolve('')});
 
         }), function (context, next) {
 
@@ -27,7 +28,6 @@ describe('koa router', ()=>{
 
     });
 });
-
 
 describe('pipe', ()=>{
 
@@ -40,9 +40,9 @@ describe('pipe', ()=>{
     it('router chain', () => {
 
 
-        pipe(Body(function (context) : Promise<number> {
+        pipe(ResponseParameters(function (context) {
 
-            return Promise.resolve(1);
+            return OkParameter({body:Promise.resolve(1)});
 
         }))
 
@@ -55,9 +55,9 @@ describe('pipe', ()=>{
 
         })
 
-        (Body(function (context) : Promise<string> {
+        (ResponseParameters(function (context) {
 
-            return Promise.resolve('1');
+            return OkParameter({body:Promise.resolve('1')});
 
         }))
 

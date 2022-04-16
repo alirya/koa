@@ -1,14 +1,13 @@
 import KoaBody from "@dikac/koa-body";
-import BodyFilter from "../../../../dist/response/middleware/body-filter-parameters";
 import Axios from "axios";
 import RequestPath from "../../../request-path";
 import Server from "../../../server";
 import Register from "../../../../dist/router/register";
 import Router from "@koa/router";
 import Context from "../../../../dist/context/context";
-import PropertyValidatorParameters from "../../../../dist/response/middleware/property-validator-parameters";
-import String from "@alirya/string/validator/string-parameters";
+import IsString from "@alirya/string/boolean/string";
 import Middleware from "../../../../dist/middleware/middleware";
+import PropertyValidationParameters from "../../../../dist/middleware/property-validation-parameters";
 
 it("force console log", () => { spyOn(console, 'log').and.callThrough();});
 
@@ -32,9 +31,9 @@ describe('test', () => {
                 return next();
             }),
             // set response
-            <Middleware>PropertyValidatorParameters(
-                String(),
-                ['custom'],
+            <Middleware>PropertyValidationParameters(
+                IsString,
+                ['response', 'custom'],
                 (context : Context<{body: { data: any }}, {custom:any}>, next) => {
 
                     context.response.body = {

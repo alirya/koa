@@ -1,5 +1,4 @@
 import KoaBody from '@dikac/koa-body';
-import Body from '../../../../dist/response/middleware/body-parameters';
 import Axios from 'axios';
 import RequestPath from '../../../request-path';
 import RandomIntegerParameters from '@alirya/number/random-integer-parameters';
@@ -7,6 +6,8 @@ import Server from '../../../server';
 import Register from '../../../../dist/router/register';
 import Router from '@koa/router';
 import Context from "../../../../dist/context/context";
+import ResponseParameters from "../../../../dist/middleware/response-parameters";
+import OkParameter from "@alirya/http/response/ok-parameter";
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 jasmine.DEFAULT_TIMEOUT_INTERVAL = 20 * 1000;
@@ -43,7 +44,7 @@ describe('test', () => {
 
         router.post(path,
             KoaBody(),
-            Body(data),
+            ResponseParameters((ctx)=>data(ctx).then(body=>OkParameter({body}))),
         );
 
     });

@@ -7,7 +7,7 @@ import Router from '@koa/router';
 import ResponseHandler from '../../../../dist/throwable/handler/response';
 import BadRequestParameters from '@alirya/http/response/bad-request-parameters';
 import Context from '../../../../dist/context/context';
-import Pick from '@alirya/object/pick';
+import Pick from '@alirya/object/pick-parameters';
 import {Server as HttpServer} from 'http';
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});

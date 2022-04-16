@@ -3,7 +3,6 @@ import MapAll from "@alirya/object/validator/map-all-parameters";
 import AndRecord from "@alirya/object/validatable/and";
 import InvalidMessageRecord from "@alirya/object/message/message/record/invalid";
 import KoaBody from "@dikac/koa-body";
-import BodyValidator from "../../../../dist/request/middleware/auto-body-validator-parameters";
 import Axios from "axios";
 import RequestPath from "../../../request-path";
 import Server from "../../../server";
@@ -13,6 +12,7 @@ import Middleware from "../../../../dist/middleware/middleware";
 import * as Koa from "koa";
 import Context from "../../../../dist/context/context";
 import Body from "@alirya/http/body/body";
+import ResponseMessageValidatorParameters from "../../../../dist/middleware/response-message-validator-parameters";
 
 it("force console log", () => { spyOn(console, 'log').and.callThrough();});
 
@@ -55,7 +55,7 @@ describe('test', () => {
         router.post(path,
             KoaBody() as Middleware,
 
-            BodyValidator(validator),
+            ResponseMessageValidatorParameters<['request', 'body']>(validator, ['request', 'body']),
 
             // set response
             (context, next) => {
