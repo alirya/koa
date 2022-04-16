@@ -42,7 +42,7 @@ describe('pipe', ()=>{
 
         pipe(ResponseParameters(function (context) {
 
-            return OkParameter({body:Promise.resolve(1)});
+            return Promise.resolve(OkParameter({body:1}));
 
         }))
 
@@ -57,7 +57,7 @@ describe('pipe', ()=>{
 
         (ResponseParameters(function (context) {
 
-            return OkParameter({body:Promise.resolve('1')});
+            return Promise.resolve(OkParameter({body:'1'}));
 
         }))
 

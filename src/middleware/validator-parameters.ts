@@ -9,13 +9,9 @@ import Infer from "@alirya/validator/validatable/static/infer";
 import PropertyValidatorParameters from "./property-validator-parameters";
 import {Object} from "ts-toolbelt";
 
-export type ValidatableContextType<ValidatorType> =
-    Optional<ValidatableContainer<InferValidatable<ValidatorType>>> &
-    ApplicationContext;
-
 export default function ValidatorParameters<
-    ContextType extends ValidatableContextType<ValidatorType>,
-    ValidatorType extends Validator<ContextType, ContextType>,
+    ContextType extends ApplicationContext,
+    ValidatorType extends Validator<ContextType, ContextType> = Validator<ContextType, ContextType>,
 >(
     validator : ValidatorType,
     valid : Middleware<ContextType> = Next,

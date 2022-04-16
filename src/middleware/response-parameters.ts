@@ -27,7 +27,7 @@ export default function ResponseParameters<
 >(
     response : (context : ContextType) => Promise<Subject>,
     middleware ?: Middleware
-) : Middleware<ContextType>;
+) : Middleware<ContextType, Replace<ContextType, ['body'], Subject['body']>>;
 
 /**
  * response factory
@@ -38,7 +38,7 @@ export default function ResponseParameters<
 >(
     response : (context : ContextType) => Subject,
     middleware ?: Middleware
-) : Middleware<ContextType>;
+) : Middleware<ContextType, Replace<ContextType, ['body'], Subject['body']>>;
 
 /**
  * direct response value
@@ -49,7 +49,7 @@ export default function ResponseParameters<
     >(
     response : Subject,
     middleware ?: Middleware
-) : Middleware<ContextType>;
+) : Middleware<ContextType, Replace<ContextType, ['body'], Subject['body']>>;
 
 export default function ResponseParameters<
     ContextType extends Context,

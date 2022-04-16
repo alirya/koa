@@ -21,8 +21,6 @@ export default function ResponseMessageValidatorParameters<
 >(
     validator : ValidatorType,
     properties : Properties,
-    // response : (body : Body<Object.Path<ContextType, Properties>>) => Response<number, string, Record<string, string>, Object.Path<ContextType, Properties>>
-    //     = UnprocessableEntityParameter,
     response : (response :  Partial<Response<number, string, {}, InferValidatable<ValidatorType>['message']>>) => Response<number, string, Record<string, string>, any>
         = UnprocessableEntityParameter,
     valid : Middleware<ContextType> = Next,
@@ -32,35 +30,11 @@ export default function ResponseMessageValidatorParameters<
     return PropertyValidatorParameters(validator, properties, valid, (context, next) => {
 
         const res = response({
-            body : /*JSON.stringify*/(context.validatable.message),
-            // headers : ContentTypeJson
+            body : context.validatable.message,
         });
         FromResponseParameters(context, res);
 
         return invalid(context, next)
     });
-
-
-    // return function (context: ContextType, next) {
-    //
-    //     const validatable = validator(context.request.body);
-    //
-    //     if(validatable.valid) {
-    //
-    //         context.request.body = validatable.value;
-    //
-    //         return next();
-    //
-    //     } else {
-    //
-    //         const response = DefaultMessage({
-    //             code,
-    //             body : JSON.stringify(validatable.message),
-    //             headers : ContentTypeJson
-    //         });
-    //
-    //         FromResponseParameters(context, response);
-    //     }
-    // };
 
 }

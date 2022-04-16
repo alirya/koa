@@ -3,7 +3,8 @@ import Validator from '@alirya/validator/simple';
 import Validatable from '@alirya/validator/validatable/simple';
 import Context from '../../../dist/context/context';
 
-export default <Validator<Context, Context>> function ContextValidator<
+
+export default function ContextValidator<
     Ctx extends Context
 >(
     context : Context

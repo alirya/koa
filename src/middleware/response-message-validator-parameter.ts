@@ -41,28 +41,4 @@ export default function ResponseMessageValidatorParameter<
         valid,
         invalid
     );
-
-
-    // return function (context: ContextType, next) {
-    //
-    //     const validatable = validator(context.request.body);
-    //
-    //     if(validatable.valid) {
-    //
-    //         context.request.body = validatable.value;
-    //
-    //         return next();
-    //
-    //     } else {
-    //
-    //         const response = DefaultMessage({
-    //             code,
-    //             body : JSON.stringify(validatable.message),
-    //             headers : ContentTypeJson
-    //         });
-    //
-    //         FromResponseParameters(context, response);
-    //     }
-    // };
-
 }
