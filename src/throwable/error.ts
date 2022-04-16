@@ -3,7 +3,7 @@ import MiddlewareError from "../middleware/error-parameters";
 import Pipe from "./pipe";
 import RouterPipe from "../pipe/pipe";
 import Context from "../context/context";
-import Callable from "../../../function/dist/callable";
+import Callable from "@alirya/function/callable";
 
 export default function Error<CustomMain extends Context>(
     pipe : RouterPipe,
