@@ -6,7 +6,7 @@ import Router from "@koa/router";
 import KoaBody from "@dikac/koa-body";
 import Axios from "axios";
 import Context from "../../../dist/context/context";
-import PropertyReplaceParameters from "../../../dist/middleware/property-replace-parameters";
+import PropertyReplaceParameters from "../../../dist/middleware/replace-parameters";
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 
@@ -43,7 +43,7 @@ describe('test', () => {
 
         Route(router, {path, method:'post'})
         (KoaBody())
-        (PropertyReplaceParameters<['request', 'body']>(function (body : { name: string, age: number }) : {name : string, address : string} {
+        (PropertyReplaceParameters(function (body : { name: string, age: number }) : {name : string, address : string} {
 
             argument = body;
 
@@ -52,7 +52,7 @@ describe('test', () => {
                 address
             };
 
-        }, ['request', 'body']))
+        }, 'request', 'body'))
         ((context, next) => {
 
             context.response.body = context.request.body;

@@ -1,22 +1,86 @@
 import Validator from '@alirya/validator/simple';
-import ValidatableContainer from '@alirya/validatable/validatable/validatable';
-import InferValidatable from '@alirya/validator/validatable/infer-validatable';
+import InferValidatable from '@alirya/validator/validatable/infer-static';
 import ApplicationContext from '../context/context';
 import Middleware from './middleware';
 import {Optional} from 'utility-types';
+import {Object} from 'ts-toolbelt';
 import Next from "./next";
 import Infer from "@alirya/validator/validatable/static/infer";
-import PropertyValidatorParameters from "./property-validator-parameters";
-import {Object} from "ts-toolbelt";
+import PickDeepParameters from "@alirya/object/value/value/select-path-parameters";
+import ValidatableContainer from "@alirya/validatable/validatable/Validatable";
+import ConditionalCallParameters from "@alirya/function/conditional-call-parameters";
+import SetPathParameters from "@alirya/object/set-path-parameters";
+
+export type PropertyValidatorParametersContext<Properties extends PropertyKey[]> =
+    ApplicationContext & Object.P.Record<Properties, unknown>;
 
 export default function ValidatorParameters<
-    ContextType extends ApplicationContext,
-    ValidatorType extends Validator<ContextType, ContextType> = Validator<ContextType, ContextType>,
+    ContextType extends ApplicationContext = ApplicationContext,
+    ValidatorType extends Validator<ContextType> = Validator<ContextType>,
+>(
+    validator : ValidatorType,
+    valid ?: Middleware<ContextType>,
+    invalid ?: Middleware<ContextType>,
+    replace ?: boolean,
+) : Middleware<ContextType, ContextType & ValidatableContainer<InferValidatable<ValidatorType>>>;
+
+export default function ValidatorParameters<
+    ContextType extends ApplicationContext = ApplicationContext,
+    ValidatorType extends Validator<ContextType> = Validator<ContextType>,
+>(
+    validator : ValidatorType,
+    valid ?: Middleware<ContextType>,
+    invalid ?: Middleware<ContextType>,
+    replace ?: boolean,
+    ...properties : []
+) : Middleware<ContextType, ContextType & ValidatableContainer<InferValidatable<ValidatorType>>>;
+
+export default function ValidatorParameters<
+    Properties extends PropertyKey[],
+    ContextType extends PropertyValidatorParametersContext<Properties> = PropertyValidatorParametersContext<Properties>,
+    ValidatorType extends Validator<Object.Path<ContextType, Properties>> = Validator<Object.Path<ContextType, Properties>>,
+>(
+    validator : ValidatorType,
+    valid ?: Middleware<ContextType>,
+    invalid ?: Middleware<ContextType>,
+    replace ?: boolean,
+    ...properties : Properties
+) : Middleware<ContextType, ContextType & ValidatableContainer<InferValidatable<ValidatorType>>>;
+
+
+export default function ValidatorParameters<
+    Properties extends PropertyKey[],
+    ContextType extends PropertyValidatorParametersContext<Properties>|ApplicationContext,
+    ValidatorType extends Validator<Object.Path<ContextType, Properties>>|Validator<ContextType>,
 >(
     validator : ValidatorType,
     valid : Middleware<ContextType> = Next,
     invalid : Middleware<ContextType> = Next,
-) : Middleware<ContextType, ContextType & { validatable:Infer<ValidatorType> }> {
+    replace : boolean = true,
+    ...properties : Properties
+) : Middleware<ContextType, ContextType & ValidatableContainer<InferValidatable<ValidatorType>>> {
 
-    return PropertyValidatorParameters(validator as any, [], valid, invalid);
+    return function (context : ContextType & ValidatableContainer<InferValidatable<ValidatorType>>, next) {
+
+        const value = properties.length !== 0
+            ? PickDeepParameters<Properties, PropertyValidatorParametersContext<Properties>>(context as PropertyValidatorParametersContext<Properties>, ...properties)
+            : context;
+
+        const validatable = (validator as Validator<ContextType>)(value as ContextType);
+
+        context.validatable = validatable as InferValidatable<ValidatorType>;
+
+        if(replace) {
+
+            SetPathParameters(context as any, validatable.value, ...properties);
+        }
+
+        return ConditionalCallParameters(
+            validatable.valid,
+            valid,
+            invalid,
+            context,
+            next
+        )
+    };
 }

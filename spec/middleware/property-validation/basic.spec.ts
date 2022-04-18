@@ -5,8 +5,8 @@ import ApplicationContext from "../../../dist/context/context";
 import Router from "@koa/router";
 import Axios, {AxiosResponse} from "axios";
 import KoaBody from "@dikac/koa-body";
-import ConditionalParameters from "../../../dist/middleware/property-validation-parameters";
-import ConditionalParameter from "../../../dist/middleware/property-validation-parameter";
+import ConditionalParameters from "../../../dist/middleware/validation-parameters";
+import ConditionalParameter from "../../../dist/middleware/validation-parameter";
 import Body from "@alirya/http/body/body";
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
@@ -32,7 +32,6 @@ describe('parameters', () => {
             KoaBody(),
             ConditionalParameters(
                 body => body.valid,
-            ['request', 'body'],
             function (context, next) {
 
                 context.response.body = {
@@ -48,7 +47,7 @@ describe('parameters', () => {
                     callback : 'invalid'
                 }
                 return next();
-            })
+            },'request', 'body')
         );
 
 

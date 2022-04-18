@@ -1,4 +1,4 @@
-import PropertyValidatorParameters, {PropertyValidatorParametersContext} from "./property-validator-parameters";
+import ValidatorParameters, {PropertyValidatorParametersContext} from "./validator-parameters";
 import Validator from "@alirya/validator/simple";
 import {Object} from "ts-toolbelt";
 import Middleware from "./middleware";
@@ -34,11 +34,5 @@ export default function ResponseMessageValidatorParameter<
     }
 ) : Middleware<ContextType, ContextType & ValidatableContainer<InferValidatable<ValidatorType>>> {
 
-    return ResponseMessageValidatorParameters(
-        validator,
-        properties,
-        response,
-        valid,
-        invalid
-    );
+    return ResponseMessageValidatorParameters(validator, response, valid, invalid, ...properties);
 }

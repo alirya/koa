@@ -34,7 +34,7 @@ describe('test', () => {
             KoaBody(),
             <Middleware>ResponseMessageValidatorParameters(
                 MapAll({data:String()}, And, InvalidMessageMap),
-                ['request','body'],
+
                 UnprocessableEntityParameter,
                 (context : Context<{body: { data: any }}, {custom:any}>, next) => {
 
@@ -48,7 +48,7 @@ describe('test', () => {
             },(context : Context<{body: { data: any }}, {custom:any}>, next) => {
 
                     valid = false;
-             }
+             }, 'request','body'
              ),
         )
 

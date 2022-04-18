@@ -13,10 +13,10 @@ import SetPathParameters from "@alirya/object/set-path-parameters";
 import ResponseBody from "../context/response/infer";
 import PickPathParameters from "@alirya/object/value/value/select-path-parameters";
 import ReplacePath from "@alirya/object/replace-path";
-import PropertyReplaceParameters from "./property-replace-parameters";
+import ReplaceParameters from "./replace-parameters";
 
 
-export default function PropertyReplaceParameter<
+export default function ReplaceParameter<
     Properties extends ReadonlyArray<PropertyKey>,
     BodyTo extends unknown = unknown,
     ContextType extends ApplicationContext & Object.P.Record<Properties, unknown> = ApplicationContext & Object.P.Record<Properties, unknown>,
@@ -29,5 +29,5 @@ export default function PropertyReplaceParameter<
     }
 ) : Middleware<ContextType, ReplacePath<ContextType, BodyTo, Properties>> {
 
-    return PropertyReplaceParameters<Properties, BodyTo, ContextType>(filter, properties);
+    return ReplaceParameters<Properties, BodyTo, ContextType>(filter, ...properties);
 }

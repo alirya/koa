@@ -1,6 +1,6 @@
 import KoaBody from "@dikac/koa-body";
-import PropertyReplaceParameters from "../../../dist/middleware/property-replace-parameters";
-import PropertyReplaceParameter from "../../../dist/middleware/property-replace-parameter";
+import PropertyReplaceParameters from "../../../dist/middleware/replace-parameters";
+import PropertyReplaceParameter from "../../../dist/middleware/replace-parameter";
 import Axios from "axios";
 import RequestPath from "../../request-path";
 import Server from "../../server";
@@ -48,7 +48,7 @@ describe('parameters', () => {
                     context.response.body = context.request.body;
                     return next();
                 },
-                PropertyReplaceParameters<['response', 'body']>(function (body : { name: string, age: number }) : {name : string, address : string} {
+                PropertyReplaceParameters(function (body : { name: string, age: number }) : {name : string, address : string} {
 
                     argument = body;
 
@@ -57,7 +57,7 @@ describe('parameters', () => {
                         address
                     }
 
-                }, ['response', 'body'])
+                }, 'response', 'body')
             )
 
         });

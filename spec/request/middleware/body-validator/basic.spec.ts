@@ -55,7 +55,7 @@ describe('test', () => {
         router.post(path,
             KoaBody() as Middleware,
 
-            ResponseMessageValidatorParameters<['request', 'body']>(validator, ['request', 'body']),
+            ResponseMessageValidatorParameters<['request', 'body']>(validator, undefined, undefined, undefined, 'request', 'body'),
 
             // set response
             (context, next) => {

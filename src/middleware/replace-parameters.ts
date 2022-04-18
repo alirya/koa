@@ -14,13 +14,13 @@ import ResponseBody from "../context/response/infer";
 import PickPathParameters from "@alirya/object/value/value/select-path-parameters";
 import ReplacePath from "@alirya/object/replace-path";
 
-export default function PropertyReplaceParameters<
+export default function ReplaceParameters<
     Properties extends ReadonlyArray<PropertyKey>,
     BodyTo extends unknown = unknown,
     ContextType extends ApplicationContext & Object.P.Record<Properties, unknown> = ApplicationContext & Object.P.Record<Properties, unknown>,
 >(
     filter : (data : Object.Path<ContextType, Properties>, context: ContextType) => BodyTo,
-    properties : Properties,
+    ...properties : Properties
 ) : Middleware<ContextType, ReplacePath<ContextType, BodyTo, Properties>> {
 
     return function (context, next) {

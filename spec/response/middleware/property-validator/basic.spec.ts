@@ -7,7 +7,7 @@ import Router from "@koa/router";
 import Context from "../../../../dist/context/context";
 import IsString from "@alirya/string/boolean/string";
 import Middleware from "../../../../dist/middleware/middleware";
-import PropertyValidationParameters from "../../../../dist/middleware/property-validation-parameters";
+import PropertyValidationParameters from "../../../../dist/middleware/validation-parameters";
 
 it("force console log", () => { spyOn(console, 'log').and.callThrough();});
 
@@ -33,21 +33,21 @@ describe('test', () => {
             // set response
             <Middleware>PropertyValidationParameters(
                 IsString,
-                ['response', 'custom'],
-                (context : Context<{body: { data: any }}, {custom:any}>, next) => {
+                <Middleware>((context : Context<{body: { data: any }}, {custom:any}>, next) => {
 
                     context.response.body = {
                         valid : true,
                         data : context.response.custom
-                    };
+                }
 
-            },(context : Context<{body: { data: any }}, {custom:any}>, next) => {
+            }),
+            <Middleware>((context : Context<{body: { data: any }}, {custom:any}>, next) => {
 
                     context.response.body = {
                         valid : false,
                         data : context.response.custom
                     };
-            }),
+            }), 'response', 'custom'),
         )
 
     });

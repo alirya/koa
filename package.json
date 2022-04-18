@@ -9,6 +9,7 @@
     "@alirya/class": "^0.3.2",
     "@alirya/function": "^0.16.0",
     "@alirya/http": "^0.18.2",
+    "@alirya/boolean": "^0.11.1",
     "@alirya/message": "^0.12.1",
     "@alirya/number": "^0.17.2",
     "@alirya/object": "^0.37.3",

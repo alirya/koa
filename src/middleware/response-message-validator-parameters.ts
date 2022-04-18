@@ -1,4 +1,4 @@
-import PropertyValidatorParameters, {PropertyValidatorParametersContext} from "./property-validator-parameters";
+import ValidatorParameters, {PropertyValidatorParametersContext} from "./validator-parameters";
 import Validator from "@alirya/validator/simple";
 import {Object} from "ts-toolbelt";
 import Middleware from "./middleware";
@@ -20,14 +20,14 @@ export default function ResponseMessageValidatorParameters<
     ValidatorType extends Validator<Object.Path<ContextType, Properties>> = Validator<Object.Path<ContextType, Properties>>,
 >(
     validator : ValidatorType,
-    properties : Properties,
     response : (response :  Partial<Response<number, string, {}, InferValidatable<ValidatorType>['message']>>) => Response<number, string, Record<string, string>, any>
         = UnprocessableEntityParameter,
     valid : Middleware<ContextType> = Next,
     invalid : Middleware<ContextType> = Stop,
+    ...properties : Properties
 ) : Middleware<ContextType, ContextType & ValidatableContainer<InferValidatable<ValidatorType>>> {
 
-    return PropertyValidatorParameters(validator, properties, valid, (context, next) => {
+    return ValidatorParameters(validator, valid, (context, next) => {
 
         const res = response({
             body : context.validatable.message,
@@ -35,6 +35,6 @@ export default function ResponseMessageValidatorParameters<
         FromResponseParameters(context, res);
 
         return invalid(context, next)
-    });
+    }, undefined, ...properties);
 
 }
