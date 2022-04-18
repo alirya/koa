@@ -1,5 +1,4 @@
 import Context from '../context/context';
-import {Next} from 'koa';
 import Middleware from './middleware';
 import ErrorHandlerParameters from '../throwable/handler/handler';
 import ErrorParameters from "./error-parameters";

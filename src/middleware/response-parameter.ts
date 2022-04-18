@@ -1,11 +1,7 @@
 import Response from '@alirya/http/response/response';
 import Context from '../context/context';
 import Next from './next';
-import FromResponseParameters from '../response/from-response-parameters';
-import * as Koa from 'koa';
-import {RouterParamContext} from '@koa/router';
 import Middleware from "./middleware";
-import IsFunction from "@alirya/function/boolean/function";
 import ResponseParameters from "./response-parameters";
 
 /**
