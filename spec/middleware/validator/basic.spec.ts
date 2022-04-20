@@ -2,7 +2,7 @@ import RequestPath from '../../request-path';
 import Server from '../../server';
 import Register from '../../../dist/router/register';
 import Router from '@koa/router';
-import {AxiosResponse} from 'axios';
+import Axios, {AxiosResponse} from 'axios';
 import KoaBody from '@dikac/koa-body';
 import ValidatorParameters from '../../../dist/middleware/validator-parameters';
 import ContextValidator from './context-validator';
@@ -32,18 +32,37 @@ describe('test', () => {
 
         router.post(path,
             KoaBody(),
-            ValidatorParameters<Context>((ctx)=>ContextValidator(ctx) as Validatable<Context, string, true>, (context, next) => {
+            ValidatorParameters<Context>((ctx)=>ContextValidator(ctx, (context : Context) => (context.request.body as any).valid === true) as Validatable<Context, string, true>,
+                function (context, next) {
 
-                context.request.body = 'invalid';
-                return next();
-            }),
+                    context.response.body = 'valid';
+                    return next();
+                }, function (context, next) {
 
-            function (context, next) {
-
-                context.response.body = 'valid';
-                return next();
-            },
+                    context.response.body = 'invalid';
+                    return next();
+                }
+            )
         );
+    });
+
+    it('send true request', function (done) {
+
+        Axios.post(`http://localhost:${server.config.port}${path}`, {valid:true}).then((data)=>{
+
+            expect(data.data).toBe('valid');
+
+        }).catch(fail).finally(done);
+    });
+
+    it('send false request', function (done) {
+
+        Axios.post(`http://localhost:${server.config.port}${path}`, {valid:false}).then((data)=>{
+
+            expect(data.data).toBe('invalid');
+
+
+        }).catch(fail).finally(done);
     });
 
 

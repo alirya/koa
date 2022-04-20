@@ -6,7 +6,7 @@ import Register from '../../../../dist/router/register';
 import Router from '@koa/router';
 import Middleware from "../../../../dist/middleware/middleware";
 import Context from "../../../../dist/context/context";
-import PropertyReplaceParameters from "../../../../dist/middleware/property-replace-parameters";
+import PropertyReplaceParameters from "../../../../dist/middleware/replace-parameters";
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 
@@ -44,7 +44,7 @@ describe('test', () => {
         router.post(path,
             KoaBody() as Middleware,
 
-            PropertyReplaceParameters<['request','body']>(function (body : { name: string, age: number }) : {name : string, address : string} {
+            PropertyReplaceParameters(function (body : { name: string, age: number }) : {name : string, address : string} {
 
                 argument = body;
 
@@ -53,7 +53,7 @@ describe('test', () => {
                     address
                 };
 
-            }, ['request','body']),
+            }, 'request','body'),
 
             // set response
             (context, next) => {
