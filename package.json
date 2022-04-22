@@ -23,7 +23,7 @@
     "@alirya/http": "^0.18.3",
     "@alirya/message": "^0.12.2",
     "@alirya/number": "^0.17.3",
-    "@alirya/object": "^0.37.4",
+    "@alirya/object": "^0.37.8",
     "@alirya/string": "^0.16.8",
     "@alirya/syslog": "^0.3.2",
     "@alirya/validatable": "^0.20.2",
@@ -57,7 +57,7 @@
     "package-version-git-tag": "^3.0.0",
     "@dikac/koa-body": "^4.2.0",
     "axios": "=0.19.0",
-    "cpx": "^1.5.0"
+    "cpx2": "^4.2.0"
   },
   "scripts": {
     "spec-run-js": "node -r esm node_modules/jasmine/bin/jasmine.js --config=./jasmine.json",
