@@ -1,13 +1,13 @@
-import RequestPath from "../../request-path";
-import Server from "../../server";
-import Register from "../../../dist/router/register";
-import ApplicationContext from "../../../dist/context/context";
-import Router from "@koa/router";
-import Axios, {AxiosResponse} from "axios";
-import KoaBody from "@dikac/koa-body";
-import ConditionalParameters from "../../../dist/middleware/validation-parameters";
-import ConditionalParameter from "../../../dist/middleware/validation-parameter";
-import Body from "@alirya/http/body/body";
+import RequestPath from '../../request-path';
+import Server from '../../server';
+import Register from '../../../dist/router/register';
+import ApplicationContext from '../../../dist/context/context';
+import Router from '@koa/router';
+import Axios, {AxiosResponse} from 'axios';
+import KoaBody from '@dikac/koa-body';
+import ConditionalParameters from '../../../dist/middleware/validation-parameters';
+import ConditionalParameter from '../../../dist/middleware/validation-parameter';
+import Body from '@alirya/http/body/body';
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 
@@ -37,7 +37,7 @@ describe('parameters', () => {
                 context.response.body = {
                     valid: true,
                     callback : 'valid'
-                }
+                };
                 return next();
             },
             function (context, next) {
@@ -45,7 +45,7 @@ describe('parameters', () => {
                 context.response.body = {
                     valid: false,
                     callback : 'invalid'
-                }
+                };
                 return next();
             })
         );
@@ -99,7 +99,7 @@ describe('parameter', () => {
                     context.response.body = {
                         valid: true,
                         callback: 'valid'
-                    }
+                    };
                     return next();
                 },
                 invalid : function (context, next) {
@@ -107,7 +107,7 @@ describe('parameter', () => {
                     context.response.body = {
                         valid: false,
                         callback: 'invalid'
-                    }
+                    };
                     return next();
                 }
             })

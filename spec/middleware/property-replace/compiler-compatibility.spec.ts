@@ -1,14 +1,14 @@
-import KoaBody from "@dikac/koa-body";
-import PropertyReplaceParameters from "../../../dist/middleware/replace-parameters";
-import PropertyReplaceParameter from "../../../dist/middleware/replace-parameter";
-import Axios from "axios";
-import RequestPath from "../../request-path";
-import Server from "../../server";
-import Register from "../../../dist/router/register";
-import Router from "@koa/router";
-import Context from "../../../dist/context/context";
+import KoaBody from '@dikac/koa-body';
+import PropertyReplaceParameters from '../../../dist/middleware/replace-parameters';
+import PropertyReplaceParameter from '../../../dist/middleware/replace-parameter';
+import Axios from 'axios';
+import RequestPath from '../../request-path';
+import Server from '../../server';
+import Register from '../../../dist/router/register';
+import Router from '@koa/router';
+import Context from '../../../dist/context/context';
 
-it("force console log", () => { spyOn(console, 'log').and.callThrough();});
+it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 
 describe('parameters', () => {
     const server = Server();
@@ -20,7 +20,7 @@ describe('parameters', () => {
     const data = {
         name : 'john',
         age : 24
-    }
+    };
 
     const address = 'address';
 
@@ -31,12 +31,12 @@ describe('parameters', () => {
         let argument = {
             name: '',
             age: 0
-        }
+        };
 
         let filtered = {
             name: '',
             address: ''
-        }
+        };
 
         it('add filter', ()=>{
 
@@ -55,10 +55,10 @@ describe('parameters', () => {
                     return {
                         name : body.name,
                         address
-                    }
+                    };
 
                 }, 'response', 'body')
-            )
+            );
 
         });
 
@@ -69,15 +69,15 @@ describe('parameters', () => {
                 filtered = data.data;
 
             }).catch(fail).finally(done);
-        })
+        });
 
         it('assert value', function () {
 
             expect(argument).toEqual(data);
             expect(filtered).toEqual({name:data.name, address});
 
-        })
-    })
+        });
+    });
 
     describe('parameters', () => {
 
@@ -86,12 +86,12 @@ describe('parameters', () => {
         let argument = {
             name: '',
             age: 0
-        }
+        };
 
         let filtered = {
             name: '',
             address: ''
-        }
+        };
 
         it('add filter', ()=>{
 
@@ -111,12 +111,12 @@ describe('parameters', () => {
                         return {
                             name: body.name,
                             address
-                        }
+                        };
 
                     },
                     properties: ['response', 'body']
                 })
-            )
+            );
         });
 
         it('send request', function (done) {
@@ -126,13 +126,13 @@ describe('parameters', () => {
                 filtered = data.data;
 
             }).catch(fail).finally(done);
-        })
+        });
 
         it('assert value', function () {
 
             expect(argument).toEqual(data);
             expect(filtered).toEqual({name:data.name, address});
 
-        })
-    })
-})
+        });
+    });
+});

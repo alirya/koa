@@ -1,9 +1,9 @@
 import ApplicationContext from '../context/context';
 import Middleware from './middleware';
 import {Object} from 'ts-toolbelt';
-import SetPathParameters from "@alirya/object/set-path-parameters";
-import {SelectPathParameters} from "@alirya/object/value/value/select-path";
-import ReplacePath from "@alirya/object/replace-path";
+import SetPathParameters from '@alirya/object/set-path-parameters';
+import {SelectPathParameters} from '@alirya/object/value/value/select-path';
+import ReplacePath from '@alirya/object/replace-path';
 
 export default function ReplaceParameters<
     Properties extends ReadonlyArray<PropertyKey>,
@@ -16,7 +16,7 @@ export default function ReplaceParameters<
 
     return function (context, next) {
 
-        const value = SelectPathParameters<Properties>(context as any, ...properties)
+        const value = SelectPathParameters<Properties>(context as any, ...properties);
 
         const filtered = filter(value as any, context);
 

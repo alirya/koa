@@ -1,9 +1,9 @@
-import Context from "../context/context";
-import Middleware from "./middleware";
-import Next from "./next";
-import {ConditionalCallParameters} from "@alirya/function/conditional-call";
-import {Object} from "ts-toolbelt";
-import {SelectPathParameters} from "@alirya/object/value/value/select-path";
+import Context from '../context/context';
+import Middleware from './middleware';
+import Next from './next';
+import {ConditionalCallParameters} from '@alirya/function/conditional-call';
+import {Object} from 'ts-toolbelt';
+import {SelectPathParameters} from '@alirya/object/value/value/select-path';
 
 
 /**

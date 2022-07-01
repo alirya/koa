@@ -2,9 +2,9 @@ import Response from '@alirya/http/response/response';
 import Context from '../context/context';
 import Next from './next';
 import FromResponseParameters from '../response/from-response-parameters';
-import Middleware from "./middleware";
-import IsFunction from "@alirya/function/boolean/function";
-import Replace from "../context/response/replace";
+import Middleware from './middleware';
+import IsFunction from '@alirya/function/boolean/function';
+import Replace from '../context/response/replace';
 /**
  * use {@param response} value or return for response data
  *

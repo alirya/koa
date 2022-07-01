@@ -1,6 +1,6 @@
 import Context from '../../context/context';
 import {Next} from 'koa';
-import Middleware from "../../middleware/middleware";
+import Middleware from '../../middleware/middleware';
 
 /**
  * set response header
@@ -16,6 +16,6 @@ export default function Header<
         context.response.set(headers);
 
         return next();
-    }
+    };
 
 }

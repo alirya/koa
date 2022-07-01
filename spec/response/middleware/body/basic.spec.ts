@@ -5,9 +5,9 @@ import {RandomIntegerParameters} from '@alirya/number/random-integer';
 import Server from '../../../server';
 import Register from '../../../../dist/router/register';
 import Router from '@koa/router';
-import Context from "../../../../dist/context/context";
-import ResponseParameters from "../../../../dist/middleware/response-parameters";
-import {OkParameter} from "@alirya/http/response/ok";
+import Context from '../../../../dist/context/context';
+import ResponseParameters from '../../../../dist/middleware/response-parameters';
+import {OkParameter} from '@alirya/http/response/ok';
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 jasmine.DEFAULT_TIMEOUT_INTERVAL = 20 * 1000;

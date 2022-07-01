@@ -1,7 +1,7 @@
 import Context from '../context';
-import {Object} from "ts-toolbelt";
-import {List} from "ts-toolbelt/out/List/List";
-import {Key} from "ts-toolbelt/out/Any/Key";
+import {Object} from 'ts-toolbelt';
+import {List} from 'ts-toolbelt/out/List/List';
+import {Key} from 'ts-toolbelt/out/Any/Key';
 
 
 type Replace<

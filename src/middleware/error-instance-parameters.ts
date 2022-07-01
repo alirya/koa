@@ -1,8 +1,8 @@
 import Context from '../context/context';
 import Middleware from './middleware';
 import ErrorHandlerParameters from '../throwable/handler/handler';
-import ErrorParameters from "./error-parameters";
-import Class from "@alirya/class/class";
+import ErrorParameters from './error-parameters';
+import Class from '@alirya/class/class';
 
 /**
  * catch error, if error is instanceof {@param instance} then execute {@param handler} else rethrow {@param instance}

@@ -1,14 +1,14 @@
-import DebugParameters from "../../../../dist/throwable/handler/debug";
-import DebugParameter from "../../../../dist/throwable/handler/debug";
-import ErrorParameters from "../../../../dist/middleware/error-instance-parameters";
-import ErrorParameter from "../../../../dist/middleware/error-instance-parameter";
-import Axios from "axios";
-import Server from "../../../server";
-import Register from "../../../../dist/router/register";
-import Router from "@koa/router";
-import Context from "../../../../dist/context/context";
+import DebugParameters from '../../../../dist/throwable/handler/debug';
+import DebugParameter from '../../../../dist/throwable/handler/debug';
+import ErrorParameters from '../../../../dist/middleware/error-instance-parameters';
+import ErrorParameter from '../../../../dist/middleware/error-instance-parameter';
+import Axios from 'axios';
+import Server from '../../../server';
+import Register from '../../../../dist/router/register';
+import Router from '@koa/router';
+import Context from '../../../../dist/context/context';
 
-it("force console log", () => { spyOn(console, 'log').and.callThrough();});
+it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 
 class ErrorInstance extends Error {}
 

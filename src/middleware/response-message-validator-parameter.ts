@@ -1,11 +1,11 @@
-import {PropertyValidatorParametersContext} from "./validator-parameters";
-import Validator from "@alirya/validator/simple";
-import {Object} from "ts-toolbelt";
-import Middleware from "./middleware";
-import ValidatableContainer from "@alirya/validatable/validatable/Validatable";
-import InferValidatable from "@alirya/validator/validatable/infer-static";
-import Response from "@alirya/http/response/response";
-import ResponseMessageValidatorParameters from "./response-message-validator-parameters";
+import {PropertyValidatorParametersContext} from './validator-parameters';
+import Validator from '@alirya/validator/simple';
+import {Object} from 'ts-toolbelt';
+import Middleware from './middleware';
+import ValidatableContainer from '@alirya/validatable/validatable/Validatable';
+import InferValidatable from '@alirya/validator/validatable/infer-static';
+import Response from '@alirya/http/response/response';
+import ResponseMessageValidatorParameters from './response-message-validator-parameters';
 
 
 export default function ResponseMessageValidatorParameter<

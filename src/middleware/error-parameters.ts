@@ -2,8 +2,8 @@ import Context from '../context/context';
 import {Next} from 'koa';
 import Middleware from './middleware';
 import ErrorHandlerParameters from '../throwable/handler/handler';
-import Callable from "@alirya/function/callable";
-import Guard from "@alirya/function/boolean/guard";
+import Callable from '@alirya/function/callable';
+import Guard from '@alirya/function/boolean/guard';
 
 /**
  * catch error, if error is instanceof {@param validation} then execute {@param handler} else rethrow {@param validation}

@@ -1,20 +1,20 @@
-import {StringParameters} from "@alirya/string/validator/string";
-import {MapAllParameters} from "@alirya/object/validator/map-all";
-import AndRecord from "@alirya/object/validatable/and";
-import InvalidMessageRecord from "@alirya/object/message/message/record/invalid";
-import KoaBody from "@dikac/koa-body";
-import Axios from "axios";
-import RequestPath from "../../../request-path";
-import Server from "../../../server";
-import Register from "../../../../dist/router/register";
-import Router from "@koa/router";
-import Middleware from "../../../../dist/middleware/middleware";
-import * as Koa from "koa";
-import Context from "../../../../dist/context/context";
-import Body from "@alirya/http/body/body";
-import ResponseMessageValidatorParameters from "../../../../dist/middleware/response-message-validator-parameters";
+import {StringParameters} from '@alirya/string/validator/string';
+import {MapAllParameters} from '@alirya/object/validator/map-all';
+import AndRecord from '@alirya/object/validatable/and';
+import InvalidMessageRecord from '@alirya/object/message/message/record/invalid';
+import KoaBody from '@dikac/koa-body';
+import Axios from 'axios';
+import RequestPath from '../../../request-path';
+import Server from '../../../server';
+import Register from '../../../../dist/router/register';
+import Router from '@koa/router';
+import Middleware from '../../../../dist/middleware/middleware';
+import * as Koa from 'koa';
+import Context from '../../../../dist/context/context';
+import Body from '@alirya/http/body/body';
+import ResponseMessageValidatorParameters from '../../../../dist/middleware/response-message-validator-parameters';
 
-it("force console log", () => { spyOn(console, 'log').and.callThrough();});
+it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 
 const path : string = RequestPath(__filename);
 
@@ -31,22 +31,22 @@ describe('test', () => {
     const data = {
         name : 'jhon',
         address : 'earth'
-    }
+    };
 
     const invalidData = {
         name : 1,
         address : 1
-    }
+    };
 
     let response = {
         name : '',
         address : ''
-    }
+    };
 
     let record  = {
         name : StringParameters(),
         address : StringParameters(),
-    }
+    };
 
     const validator = MapAllParameters(record, AndRecord, InvalidMessageRecord);
 
@@ -74,13 +74,13 @@ describe('test', () => {
             response = data.data;
 
         }).catch(fail).finally(done);
-    })
+    });
 
     it('assert value', function () {
 
         expect(response).toEqual(data);
 
-    })
+    });
 
 
     it('send invalid request', function (done) {
@@ -91,7 +91,7 @@ describe('test', () => {
 
         }).then(()=>{
 
-            fail('request should failed')
+            fail('request should failed');
 
         }).catch(error=>{
 
@@ -103,7 +103,7 @@ describe('test', () => {
             );
 
         }).finally(done);
-    })
+    });
 
 
 });

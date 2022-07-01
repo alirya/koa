@@ -10,7 +10,7 @@ type Middleware<
     Context extends ApplicationContext = ApplicationContext,
     ContextNext extends ApplicationContext = Context,
 
-> =  compose.Middleware<Context>
+> =  compose.Middleware<Context>;
 
 
 export default Middleware;

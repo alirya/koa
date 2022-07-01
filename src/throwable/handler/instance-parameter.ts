@@ -1,7 +1,7 @@
 import * as Koa from 'koa';
 import ErrorHandlerParameter from './handler';
 import InstanceParameters from './instance-parameters';
-import Class from "@alirya/class/class";
+import Class from '@alirya/class/class';
 
 export type ErrorArgument<
     Error extends globalThis.Error,

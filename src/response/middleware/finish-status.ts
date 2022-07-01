@@ -1,7 +1,7 @@
 import Successful from '@alirya/http/response/code/class/boolean/successful';
-import StatusCode from "../../middleware/status-code";
-import Context from "../../context/context";
-import Middleware from "../../middleware/middleware";
+import StatusCode from '../../middleware/status-code';
+import Context from '../../context/context';
+import Middleware from '../../middleware/middleware';
 
 /**
  * finish middleware if response code is valid
@@ -22,6 +22,6 @@ export default function FinishStatus<
     validation : (statusCode: number) => boolean = Successful
 ) : Middleware<ContextType, ContextTypeN> {
 
-    return StatusCode(validation, (context, next) => {})
+    return StatusCode(validation, (context, next) => {});
 
 }

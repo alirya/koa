@@ -1,8 +1,8 @@
 import Koa, {DefaultContext, DefaultState} from 'koa';
 import KoaRouter, {RouterOptions} from '@koa/router';
-import Register from "../router/register";
-import ApplicationContext from "../context/context";
-import State from "../context/state/infer";
+import Register from '../router/register';
+import ApplicationContext from '../context/context';
+import State from '../context/state/infer';
 
 export interface Type<StateT = DefaultState, CustomT = DefaultContext>  {
 

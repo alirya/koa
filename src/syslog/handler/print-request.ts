@@ -1,6 +1,6 @@
-import Log from "@alirya/syslog/syslog";
-import Handler from "./handler";
-import Koa from "koa";
+import Log from '@alirya/syslog/syslog';
+import Handler from './handler';
+import Koa from 'koa';
 
 export default function PrintRequest<ContextType extends Koa.DefaultContext>(
     severity : keyof Log = 'debug',
@@ -16,5 +16,5 @@ export default function PrintRequest<ContextType extends Koa.DefaultContext>(
             context.request.headers,
             (<any>context.request).body
         );
-    }
+    };
 }

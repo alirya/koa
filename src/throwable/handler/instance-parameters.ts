@@ -1,6 +1,6 @@
 import Koa from 'koa';
 import ErrorHandlerParameters from './handler';
-import Class from "@alirya/class/class";
+import Class from '@alirya/class/class';
 
 /**
  * executes {@param handler} if the error is

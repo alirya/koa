@@ -1,12 +1,12 @@
-import Server from "../../server";
-import Register from "../../../dist/router/register";
-import Context from "../../../dist/context/context";
-import Router from "@koa/router";
-import KoaBody from "@dikac/koa-body";
-import Axios from "axios";
-import RequestPath from "../../request-path";
-import FromResponse from "../../../dist/response/from-response-parameters";
-import {CreatedParameter} from "@alirya/http/response/created";
+import Server from '../../server';
+import Register from '../../../dist/router/register';
+import Context from '../../../dist/context/context';
+import Router from '@koa/router';
+import KoaBody from '@dikac/koa-body';
+import Axios from 'axios';
+import RequestPath from '../../request-path';
+import FromResponse from '../../../dist/response/from-response-parameters';
+import {CreatedParameter} from '@alirya/http/response/created';
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 

@@ -1,8 +1,8 @@
 import ApplicationContext from '../context/context';
 import Middleware from './middleware';
 import {Object} from 'ts-toolbelt';
-import ReplacePath from "@alirya/object/replace-path";
-import ReplaceParameters from "./replace-parameters";
+import ReplacePath from '@alirya/object/replace-path';
+import ReplaceParameters from './replace-parameters';
 
 
 export default function ReplaceParameter<

@@ -5,7 +5,7 @@ import Error from '../../../../dist/throwable/handler/instance-parameters';
 import Server from '../../../server';
 import Register from '../../../../dist/router/register';
 import Router from '@koa/router';
-import Context from "../../../../dist/context/context";
+import Context from '../../../../dist/context/context';
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 
