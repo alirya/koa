@@ -3,7 +3,7 @@ import Context from "../../../../dist/context/context";
 import State from "../../../../dist/context/state/infer";
 import CreatePipe from "../../../../dist/pipe/create";
 import ResponseParameters from "../../../../dist/middleware/response-parameters";
-import OkParameter from "@alirya/http/response/ok-parameter";
+import {OkParameter} from "@alirya/http/response/ok";
 
 it("force console log", () => { spyOn(console, 'log').and.callThrough();});
 

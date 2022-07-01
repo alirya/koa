@@ -8,7 +8,7 @@ import ValidatableContainer from "@alirya/validatable/validatable/Validatable";
 import InferValidatable from "@alirya/validator/validatable/infer-static";
 import FromResponseParameters from "../response/from-response-parameters";
 import Response from "@alirya/http/response/response";
-import UnprocessableEntityParameter from "@alirya/http/response/unprocessable-entity-parameter";
+import {UnprocessableEntityParameter} from "@alirya/http/response/unprocessable-entity";
 
 
 export default function ResponseMessageValidatorParameters<

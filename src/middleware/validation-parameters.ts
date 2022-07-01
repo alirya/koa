@@ -1,9 +1,9 @@
 import Context from "../context/context";
 import Middleware from "./middleware";
 import Next from "./next";
-import ConditionalCallParameters from "@alirya/function/conditional-call-parameters";
+import {ConditionalCallParameters} from "@alirya/function/conditional-call";
 import {Object} from "ts-toolbelt";
-import PickDeepParameters from "@alirya/object/value/value/select-path-parameters";
+import {SelectPathParameters} from "@alirya/object/value/value/select-path";
 
 
 /**
@@ -58,7 +58,7 @@ export default function ValidationParameters<
     return function (context, next) {
 
         const value = properties.length !== 0
-            ? PickDeepParameters(context, ...properties)
+            ? SelectPathParameters(context, ...properties)
             : context;
 
         return ConditionalCallParameters(

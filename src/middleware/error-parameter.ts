@@ -6,7 +6,7 @@ import Callable from "@alirya/function/callable";
 import Guard from "@alirya/function/boolean/guard";
 
 
-export type ErrorParameterArgument<
+export type ErrorArgument<
     Error extends globalThis.Error,
     ContextType extends Context,
 > = {
@@ -35,7 +35,7 @@ export default function ErrorParameter<
         handler,
         instance,
         rethrow,
-    } : ErrorParameterArgument<Error, ContextType>
+    } : ErrorArgument<Error, ContextType>
 ) : Middleware<ContextType>
 {
     return ErrorInstanceParameters(handler, instance, rethrow);

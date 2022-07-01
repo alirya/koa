@@ -4,9 +4,9 @@ import ApplicationContext from '../context/context';
 import Middleware from './middleware';
 import {Object} from 'ts-toolbelt';
 import Next from "./next";
-import PickDeepParameters from "@alirya/object/value/value/select-path-parameters";
+import {SelectPathParameters} from "@alirya/object/value/value/select-path";
 import ValidatableContainer from "@alirya/validatable/validatable/Validatable";
-import ConditionalCallParameters from "@alirya/function/conditional-call-parameters";
+import {ConditionalCallParameters} from "@alirya/function/conditional-call";
 import SetPathParameters from "@alirya/object/set-path-parameters";
 
 export type PropertyValidatorParametersContext<Properties extends PropertyKey[]> =
@@ -61,7 +61,7 @@ export default function ValidatorParameters<
     return function (context : ContextType & ValidatableContainer<InferValidatable<ValidatorType>>, next) {
 
         const value = properties.length !== 0
-            ? PickDeepParameters<Properties, PropertyValidatorParametersContext<Properties>>(context as PropertyValidatorParametersContext<Properties>, ...properties)
+            ? SelectPathParameters<Properties, PropertyValidatorParametersContext<Properties>>(context as PropertyValidatorParametersContext<Properties>, ...properties)
             : context;
 
         const validatable = (validator as Validator<ContextType>)(value as ContextType);

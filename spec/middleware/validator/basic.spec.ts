@@ -7,7 +7,6 @@ import KoaBody from '@dikac/koa-body';
 import ValidatorParameters from '../../../dist/middleware/validator-parameters';
 import ContextValidator from './context-validator';
 import Context from "../../../dist/context/context";
-import Validator from "@alirya/validator/simple";
 import Validatable from "@alirya/validator/validatable/validatable";
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});

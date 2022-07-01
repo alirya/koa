@@ -5,7 +5,7 @@ import ResponseHandler from '../../../../dist/throwable/handler/response';
 import Server from '../../../server';
 import Register from '../../../../dist/router/register';
 import MiddlewareError from '../../../../dist/middleware/error-instance-parameters';
-import BadRequestParameters from '@alirya/http/response/bad-request-parameters';
+import {BadRequestParameters} from '@alirya/http/response/bad-request';
 import Create from "../../../../dist/router/create";
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});

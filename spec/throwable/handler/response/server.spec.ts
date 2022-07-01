@@ -5,9 +5,9 @@ import Server from '../../../server';
 import Register from '../../../../dist/router/register';
 import Router from '@koa/router';
 import ResponseHandler from '../../../../dist/throwable/handler/response';
-import BadRequestParameters from '@alirya/http/response/bad-request-parameters';
+import {BadRequestParameters} from '@alirya/http/response/bad-request';
 import Context from '../../../../dist/context/context';
-import Pick from '@alirya/object/pick-parameters';
+import {PickParameters} from '@alirya/object/pick';
 import {Server as HttpServer} from 'http';
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
@@ -45,7 +45,7 @@ describe('uncaught handler', () => {
 
             // clone context
             context = Object.assign({}, ctx, {
-                response : Object.assign({}, Pick(ctx.response, 'status', 'message', 'body'))
+                response : Object.assign({}, PickParameters(ctx.response, 'status', 'message', 'body'))
             });
 
         });

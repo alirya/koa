@@ -1,5 +1,5 @@
-import StringStandard from "@alirya/string/validator/string-parameters";
-import MapAll from "@alirya/object/validator/map-all-parameters";
+import {StringParameters} from "@alirya/string/validator/string";
+import {MapAllParameters} from "@alirya/object/validator/map-all";
 import AndRecord from "@alirya/object/validatable/and";
 import InvalidMessageRecord from "@alirya/object/message/message/record/invalid";
 import KoaBody from "@dikac/koa-body";
@@ -44,11 +44,11 @@ describe('test', () => {
     }
 
     let record  = {
-        name : StringStandard(),
-        address : StringStandard(),
+        name : StringParameters(),
+        address : StringParameters(),
     }
 
-    const validator = MapAll(record, AndRecord, InvalidMessageRecord);
+    const validator = MapAllParameters(record, AndRecord, InvalidMessageRecord);
 
     it('add filter', ()=>{
 
