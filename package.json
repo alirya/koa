@@ -23,7 +23,8 @@
     "@alirya/http": "^0.18.3",
     "@alirya/message": "^0.12.2",
     "@alirya/number": "^0.17.3",
-    "@alirya/object": "^0.37.8",
+    "@alirya/event": "^0.2.1",
+    "@alirya/object": "^0.37.7",
     "@alirya/string": "^0.16.8",
     "@alirya/syslog": "^0.3.2",
     "@alirya/validatable": "^0.20.2",
@@ -35,6 +36,7 @@
     "koa": "^2.13.4",
     "ts-toolbelt": "^9.6.0",
     "type-fest": "^2.3.3",
+    "@koa/cors": "^3.1.0",
     "utility-types": "^3.10.0"
   },
   "devDependencies": {
