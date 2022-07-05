@@ -1,8 +1,8 @@
-import Context from "../context/context";
-import Middleware from "./middleware";
-import Next from "./next";
-import {Object} from "ts-toolbelt";
-import ValidationParameters from "./validation-parameters";
+import Context from '../context/context';
+import Middleware from './middleware';
+import Next from './next';
+import {Object} from 'ts-toolbelt';
+import ValidationParameters from './validation-parameters';
 
 /**
  * execute middleware if {@param validation} match

@@ -1,5 +1,5 @@
 import FromResponseParameters from '../../response/from-response-parameters';
-import InternalServerError from '@alirya/http/response/internal-server-error-parameter';
+import {InternalServerErrorParameter} from '@alirya/http/response/internal-server-error';
 import ContentTypeTextUtf8 from '../../object/content-type-text-utf8';
 import Name from '@alirya/object/string/name';
 import Context from '../../context/context';
@@ -19,7 +19,7 @@ export default function Debug<
     context: ContextType
 ) {
 
-    FromResponseParameters(context, InternalServerError({
+    FromResponseParameters(context, InternalServerErrorParameter({
         headers : ContentTypeTextUtf8,
         body : [Name(error), error.message, error.stack].join('\n')
     }));

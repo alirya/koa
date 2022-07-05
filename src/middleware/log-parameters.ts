@@ -1,8 +1,8 @@
 import AppContext from '../context/context';
 import {Next} from 'koa';
 import Middleware from './middleware';
-import Syslog from "@alirya/syslog/syslog";
-import Handler from "../syslog/handler/handler";
+import Syslog from '@alirya/syslog/syslog';
+import Handler from '../syslog/handler/handler';
 
 /**
  * pipe context data to log

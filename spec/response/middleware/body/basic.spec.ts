@@ -1,13 +1,13 @@
 import KoaBody from '@dikac/koa-body';
 import Axios from 'axios';
 import RequestPath from '../../../request-path';
-import RandomIntegerParameters from '@alirya/number/random-integer-parameters';
+import {RandomIntegerParameters} from '@alirya/number/random-integer';
 import Server from '../../../server';
 import Register from '../../../../dist/router/register';
 import Router from '@koa/router';
-import Context from "../../../../dist/context/context";
-import ResponseParameters from "../../../../dist/middleware/response-parameters";
-import OkParameter from "@alirya/http/response/ok-parameter";
+import Context from '../../../../dist/context/context';
+import ResponseParameters from '../../../../dist/middleware/response-parameters';
+import {OkParameter} from '@alirya/http/response/ok';
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 jasmine.DEFAULT_TIMEOUT_INTERVAL = 20 * 1000;

@@ -1,15 +1,15 @@
-import KoaBody from "@dikac/koa-body";
-import Axios from "axios";
-import RequestPath from "../../../request-path";
-import Server from "../../../server";
-import Register from "../../../../dist/router/register";
-import Router from "@koa/router";
-import Context from "../../../../dist/context/context";
-import IsString from "@alirya/string/boolean/string";
-import Middleware from "../../../../dist/middleware/middleware";
-import PropertyValidationParameters from "../../../../dist/middleware/validation-parameters";
+import KoaBody from '@dikac/koa-body';
+import Axios from 'axios';
+import RequestPath from '../../../request-path';
+import Server from '../../../server';
+import Register from '../../../../dist/router/register';
+import Router from '@koa/router';
+import Context from '../../../../dist/context/context';
+import IsString from '@alirya/string/boolean/string';
+import Middleware from '../../../../dist/middleware/middleware';
+import PropertyValidationParameters from '../../../../dist/middleware/validation-parameters';
 
-it("force console log", () => { spyOn(console, 'log').and.callThrough();});
+it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 
 const path : string = RequestPath(__filename);
 
@@ -38,7 +38,7 @@ describe('test', () => {
                     context.response.body = {
                         valid : true,
                         data : context.response.custom
-                }
+                };
 
             }),
             <Middleware>((context : Context<{body: { data: any }}, {custom:any}>, next) => {
@@ -48,7 +48,7 @@ describe('test', () => {
                         data : context.response.custom
                     };
             }), 'response', 'custom'),
-        )
+        );
 
     });
 
@@ -72,4 +72,4 @@ describe('test', () => {
         }).catch(fail).finally(done);
     });
 
-})
+});

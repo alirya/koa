@@ -1,14 +1,14 @@
-import Router from "@koa/router";
-import {Next} from "koa";
-import Middleware from "../../../dist/middleware/middleware";
-import Server from "../../server";
-import Register from "../../../dist/router/register";
-import Context from "../../../dist/context/context";
-import Route from "../../../dist/pipe/route";
-import Pipe from "../../../dist/pipe/pipe";
-import Body from "@alirya/http/body/body";
+import Router from '@koa/router';
+import {Next} from 'koa';
+import Middleware from '../../../dist/middleware/middleware';
+import Server from '../../server';
+import Register from '../../../dist/router/register';
+import Context from '../../../dist/context/context';
+import Route from '../../../dist/pipe/route';
+import Pipe from '../../../dist/pipe/pipe';
+import Body from '@alirya/http/body/body';
 
-it("force console log", () => { spyOn(console, 'log').and.callThrough();});
+it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 
 describe('required for open and closed', ()=>{
 
@@ -38,7 +38,7 @@ describe('required for open and closed', ()=>{
 
                 context.request.body = 'a';
                 return next();
-            }
+            };
 
         let pipe2 = pipe(parser);
 

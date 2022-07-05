@@ -1,13 +1,13 @@
-import KoaBody from "@dikac/koa-body";
-import MiddlewareError from "../../../dist/middleware/error-instance-parameters";
-import Axios, {AxiosResponse} from "axios";
-import RequestPath from "../../request-path";
-import Server from "../../server";
-import Register from "../../../dist/router/register";
-import Router from "@koa/router";
-import ApplicationContext from "../../../dist/context/context";
+import KoaBody from '@dikac/koa-body';
+import MiddlewareError from '../../../dist/middleware/error-instance-parameters';
+import Axios, {AxiosResponse} from 'axios';
+import RequestPath from '../../request-path';
+import Server from '../../server';
+import Register from '../../../dist/router/register';
+import Router from '@koa/router';
+import ApplicationContext from '../../../dist/context/context';
 
-it("force console log", () => { spyOn(console, 'log').and.callThrough();});
+it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 
 describe('required for open and closed', ()=>{
 
@@ -57,7 +57,7 @@ describe('required for open and closed', ()=>{
                 response = data;
 
             }).catch((err)=>error = err).finally(done);
-        })
+        });
 
         it('assert value', function () {
 
@@ -65,7 +65,7 @@ describe('required for open and closed', ()=>{
             expect(true).toBe(rethrown);
             expect(error).toEqual(undefined);
             expect((response as AxiosResponse).statusText).toEqual('error occurred');
-        })
+        });
 
     });
 
@@ -89,7 +89,7 @@ describe('required for open and closed', ()=>{
                 server.koa.on('error',MiddlewareError((error, context) => {
 
                     rethrown = true;
-                }, Error))
+                }, Error));
 
                 router.post(path,
                     KoaBody(),
@@ -113,7 +113,7 @@ describe('required for open and closed', ()=>{
                     response = data;
 
                 }).catch((err)=>error = err).finally(done);
-            })
+            });
 
             it('assert value', function () {
 
@@ -122,7 +122,7 @@ describe('required for open and closed', ()=>{
                 expect(error.response.status).toEqual(500);
                 expect(error.response.statusText).toEqual('Internal Server Error');
 
-            })
+            });
         });
     });
 });

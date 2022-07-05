@@ -1,10 +1,10 @@
-import Router from "@koa/router";
-import {DefaultState, Next} from "koa";
-import Server from "../../../server";
-import Register from "../../../../dist/router/register";
-import Context from "../../../../dist/context/context";
+import Router from '@koa/router';
+import {DefaultState, Next} from 'koa';
+import Server from '../../../server';
+import Register from '../../../../dist/router/register';
+import Context from '../../../../dist/context/context';
 
-it("force console log", () => { spyOn(console, 'log').and.callThrough();});
+it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 
 describe('required for open and closed', ()=>{
 

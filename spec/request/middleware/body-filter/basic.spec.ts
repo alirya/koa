@@ -4,9 +4,9 @@ import RequestPath from '../../../request-path';
 import Server from '../../../server';
 import Register from '../../../../dist/router/register';
 import Router from '@koa/router';
-import Middleware from "../../../../dist/middleware/middleware";
-import Context from "../../../../dist/context/context";
-import PropertyReplaceParameters from "../../../../dist/middleware/replace-parameters";
+import Middleware from '../../../../dist/middleware/middleware';
+import Context from '../../../../dist/context/context';
+import PropertyReplaceParameters from '../../../../dist/middleware/replace-parameters';
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 

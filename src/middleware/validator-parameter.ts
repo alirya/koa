@@ -3,9 +3,9 @@ import ValidatorContainer from '@alirya/validator/validator/validator';
 import ApplicationContext from '../context/context';
 import Middleware from './middleware';
 import {Object} from 'ts-toolbelt';
-import Next from "./next";
-import Infer from "@alirya/validator/validatable/static/infer";
-import ValidatorParameters, {PropertyValidatorParametersContext} from "./validator-parameters";
+import Next from './next';
+import Infer from '@alirya/validator/validatable/static/infer';
+import ValidatorParameters, {PropertyValidatorParametersContext} from './validator-parameters';
 
 export type {PropertyValidatorParametersContext};
 

@@ -6,7 +6,7 @@ import Debug from '../../../../dist/throwable/handler/debug';
 import Server from '../../../server';
 import Router from '@koa/router';
 import Register from '../../../../dist/router/register';
-import Context from "../../../../dist/context/context";
+import Context from '../../../../dist/context/context';
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 

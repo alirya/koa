@@ -1,9 +1,9 @@
 import * as Koa from 'koa';
 import ErrorHandlerParameter from './handler';
 import InstanceParameters from './instance-parameters';
-import Class from "@alirya/class/class";
+import Class from '@alirya/class/class';
 
-export type ErrorParameterArgument<
+export type ErrorArgument<
     Error extends globalThis.Error,
     ContextType extends Koa.DefaultContext,
 > = {
@@ -15,7 +15,7 @@ export default function InstanceParameter<
     ContextType extends Koa.DefaultContext,
 >(  {
         handler,
-    } : ErrorParameterArgument<globalThis.Error, ContextType>
+    } : ErrorArgument<globalThis.Error, ContextType>
 ) : ErrorHandlerParameter<globalThis.Error, ContextType>;
 
 export default function InstanceParameter<
@@ -24,7 +24,7 @@ export default function InstanceParameter<
 >(  {
         handler,
         instance
-    } : ErrorParameterArgument<Error, ContextType>
+    } : ErrorArgument<Error, ContextType>
 ) : ErrorHandlerParameter<Error, ContextType>;
 
 export default function InstanceParameter<
@@ -33,7 +33,7 @@ export default function InstanceParameter<
 >(  {
         handler,
         instance = globalThis.Error
-    } : ErrorParameterArgument<Error|globalThis.Error, State>
+    } : ErrorArgument<Error|globalThis.Error, State>
 ) : ErrorHandlerParameter<Error|globalThis.Error, State> {
 
     return function (error, context)  {

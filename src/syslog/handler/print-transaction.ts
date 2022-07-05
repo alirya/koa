@@ -1,7 +1,7 @@
-import Log from "@alirya/syslog/syslog";
-import Handler from "./handler";
-import Koa from "koa";
-import PickParameters from '@alirya/object/pick-parameters';
+import Log from '@alirya/syslog/syslog';
+import Handler from './handler';
+import Koa from 'koa';
+import {PickParameters} from '@alirya/object/pick';
 
 export default function PrintTransaction<ContextType extends Koa.DefaultContext>(
     severity : keyof Log = 'debug',
@@ -17,5 +17,5 @@ export default function PrintTransaction<ContextType extends Koa.DefaultContext>
           PickParameters(context.request, 'headers', 'body'),
           PickParameters(context.response, 'headers', 'body'),
         );
-    }
+    };
 }

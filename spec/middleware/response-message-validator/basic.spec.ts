@@ -1,19 +1,19 @@
-import KoaBody from "@dikac/koa-body";
-import Axios from "axios";
-import RequestPath from "../../request-path";
-import Server from "../../server";
-import Register from "../../../dist/router/register";
-import Router from "@koa/router";
-import Context from "../../../dist/context/context";
-import String from "@alirya/string/validator/string-parameters";
-import Middleware from "../../../dist/middleware/middleware";
-import ResponseMessageValidatorParameters from "../../../dist/middleware/response-message-validator-parameters";
-import UnprocessableEntityParameter from "@alirya/http/response/unprocessable-entity-parameter";
-import MapAll from "../../../../object/dist/validator/map-all-parameters";
-import And from "../../../../object/dist/validatable/and";
-import InvalidMessageMap from "../../../../object/dist/message/message/record/invalid";
+import KoaBody from '@dikac/koa-body';
+import Axios from 'axios';
+import RequestPath from '../../request-path';
+import Server from '../../server';
+import Register from '../../../dist/router/register';
+import Router from '@koa/router';
+import Context from '../../../dist/context/context';
+import {StringParameters} from '@alirya/string/validator/string';
+import Middleware from '../../../dist/middleware/middleware';
+import ResponseMessageValidatorParameters from '../../../dist/middleware/response-message-validator-parameters';
+import {UnprocessableEntityParameter} from '@alirya/http/response/unprocessable-entity';
+import {MapAllParameters} from '@alirya/object/validator/map-all';
+import And from '@alirya/object/validatable/and';
+import InvalidMessageMap from '@alirya/object/message/message/record/invalid';
 
-it("force console log", () => { spyOn(console, 'log').and.callThrough();});
+it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 
 const path : string = RequestPath(__filename);
 
@@ -33,7 +33,7 @@ describe('test', () => {
         router.post(path,
             KoaBody(),
             <Middleware>ResponseMessageValidatorParameters(
-                MapAll({data:String()}, And, InvalidMessageMap),
+                MapAllParameters({data:StringParameters()}, And, InvalidMessageMap),
 
                 UnprocessableEntityParameter,
                 (context : Context<{body: { data: any }}, {custom:any}>, next) => {
@@ -50,7 +50,7 @@ describe('test', () => {
                     valid = false;
              }, 'request','body'
              ),
-        )
+        );
 
     });
 
@@ -80,4 +80,4 @@ describe('test', () => {
         }).finally(done);
     });
 
-})
+});

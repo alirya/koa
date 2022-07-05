@@ -5,7 +5,7 @@ import Server from '../../server';
 import Register from '../../../dist/router/register';
 import Router from '@koa/router';
 import Passthroughs from '../../../dist/middleware/passthroughs';
-import ApplicationContext from "../../../dist/context/context";
+import ApplicationContext from '../../../dist/context/context';
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 

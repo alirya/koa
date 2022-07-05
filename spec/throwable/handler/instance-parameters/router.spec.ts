@@ -6,7 +6,7 @@ import Server from '../../../server';
 import Register from '../../../../dist/router/register';
 import Router from '@koa/router';
 import MiddlewareError from '../../../../dist/middleware/error-parameters';
-import Context from "../../../../dist/context/context";
+import Context from '../../../../dist/context/context';
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 

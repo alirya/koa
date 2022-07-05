@@ -1,6 +1,6 @@
-import {DefaultContext, DefaultState} from "koa";
-import {RouterParamContext} from "@koa/router";
-import ErrorHandlerInterface from "./handler/handler";
+import {DefaultContext, DefaultState} from 'koa';
+import {RouterParamContext} from '@koa/router';
+import ErrorHandlerInterface from './handler/handler';
 
 export default interface Pipe<
     ErrorType extends globalThis.Error,
@@ -12,5 +12,5 @@ export default interface Pipe<
         ResponseBodyType = unknown
     >(
         middleware : ErrorHandlerInterface<ErrorType, CustomMain>
-    ) : Pipe<ErrorType, CustomMain>
+    ) : Pipe<ErrorType, CustomMain>;
 }

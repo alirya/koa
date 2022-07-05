@@ -1,8 +1,8 @@
 import Response from '@alirya/http/response/response';
 import Context from '../context/context';
 import Next from './next';
-import Middleware from "./middleware";
-import ResponseParameters from "./response-parameters";
+import Middleware from './middleware';
+import ResponseParameters from './response-parameters';
 
 /**
  * Options version of {@see ResponseParameters}

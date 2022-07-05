@@ -2,9 +2,9 @@ import Router, {RouterParamContext} from '@koa/router';
 import {DefaultContext, DefaultState} from 'koa';
 import Middleware from '../middleware/middleware';
 import StatusCodeMiddleware from '../middleware/status-code';
-import Pipe from "./pipe";
-import Context from "../context/context";
-import Infer from "../context/state/infer";
+import Pipe from './pipe';
+import Context from '../context/context';
+import Infer from '../context/state/infer';
 
 export default function StatusCode<CustomMain extends Context>(
     router : Router<Infer<CustomMain>, CustomMain>,

@@ -1,14 +1,14 @@
-import RequestPath from "../../../request-path";
-import Axios, {AxiosResponse} from "axios";
-import KoaBody from "@dikac/koa-body";
-import Error from "../../../../dist/throwable/handler/instance-parameters";
-import Server from "../../../server";
-import Register from "../../../../dist/router/register";
-import Router from "@koa/router";
-import MiddlewareError from "../../../../dist/middleware/error-instance-parameters";
-import Context from "../../../../dist/context/context";
+import RequestPath from '../../../request-path';
+import Axios, {AxiosResponse} from 'axios';
+import KoaBody from '@dikac/koa-body';
+import Error from '../../../../dist/throwable/handler/instance-parameters';
+import Server from '../../../server';
+import Register from '../../../../dist/router/register';
+import Router from '@koa/router';
+import MiddlewareError from '../../../../dist/middleware/error-instance-parameters';
+import Context from '../../../../dist/context/context';
 
-it("force console log", () => { spyOn(console, 'log').and.callThrough();});
+it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 
 class TestError extends globalThis.Error {
 
@@ -62,7 +62,7 @@ describe('uncaught handler', () => {
             fail('response 500 should fail');
 
         }).catch((err)=>response = err.response).finally(done);
-    })
+    });
 
     it('assert value', function () {
 
@@ -71,6 +71,6 @@ describe('uncaught handler', () => {
         expect(response.status).toEqual(500);
         expect(response.statusText).toEqual('Internal Server Error');
 
-    })
+    });
 });
 

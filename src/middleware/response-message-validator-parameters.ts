@@ -1,14 +1,14 @@
-import ValidatorParameters, {PropertyValidatorParametersContext} from "./validator-parameters";
-import Validator from "@alirya/validator/simple";
-import {Object} from "ts-toolbelt";
-import Middleware from "./middleware";
-import Next from "./next";
-import Stop from "./stop";
-import ValidatableContainer from "@alirya/validatable/validatable/Validatable";
-import InferValidatable from "@alirya/validator/validatable/infer-static";
-import FromResponseParameters from "../response/from-response-parameters";
-import Response from "@alirya/http/response/response";
-import UnprocessableEntityParameter from "@alirya/http/response/unprocessable-entity-parameter";
+import ValidatorParameters, {PropertyValidatorParametersContext} from './validator-parameters';
+import Validator from '@alirya/validator/simple';
+import {Object} from 'ts-toolbelt';
+import Middleware from './middleware';
+import Next from './next';
+import Stop from './stop';
+import ValidatableContainer from '@alirya/validatable/validatable/Validatable';
+import InferValidatable from '@alirya/validator/validatable/infer-static';
+import FromResponseParameters from '../response/from-response-parameters';
+import Response from '@alirya/http/response/response';
+import {UnprocessableEntityParameter} from '@alirya/http/response/unprocessable-entity';
 
 
 export default function ResponseMessageValidatorParameters<
@@ -31,7 +31,7 @@ export default function ResponseMessageValidatorParameters<
         });
         FromResponseParameters(context, res);
 
-        return invalid(context, next)
+        return invalid(context, next);
     }, undefined, ...properties);
 
 }

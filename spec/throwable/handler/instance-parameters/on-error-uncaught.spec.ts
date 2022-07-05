@@ -1,13 +1,13 @@
-import RequestPath from "../../../request-path";
-import Axios, {AxiosResponse} from "axios";
-import KoaBody from "@dikac/koa-body";
-import Error from "../../../../dist/throwable/handler/instance-parameters";
-import Register from "../../../../dist/router/register";
-import Router from "@koa/router";
-import Server from "../../../server";
-import Context from "../../../../dist/context/context";
+import RequestPath from '../../../request-path';
+import Axios, {AxiosResponse} from 'axios';
+import KoaBody from '@dikac/koa-body';
+import Error from '../../../../dist/throwable/handler/instance-parameters';
+import Register from '../../../../dist/router/register';
+import Router from '@koa/router';
+import Server from '../../../server';
+import Context from '../../../../dist/context/context';
 
-it("force console log", () => { spyOn(console, 'log').and.callThrough();});
+it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 
 class TestError extends globalThis.Error {
 
@@ -70,7 +70,7 @@ describe('default use', () => {
         expect(error).toBe(true);
         expect(testError).toBe(false);
         expect((response as AxiosResponse).statusText).toEqual('Internal Server Error');
-    })
+    });
 });
 
 

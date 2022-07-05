@@ -1,11 +1,11 @@
 import Middleware from './middleware';
 import ErrorHandlerParameter from '../throwable/handler/handler';
 import ErrorInstanceParameters from './error-instance-parameters';
-import Context from "../context/context";
-import Class from "@alirya/class/class";
+import Context from '../context/context';
+import Class from '@alirya/class/class';
 
 
-export type ErrorParameterArgument<
+export type ErrorArgument<
     Error extends globalThis.Error,
     ContextType extends Context,
 > = {
@@ -34,7 +34,7 @@ export default function ErrorInstanceParameter<
         handler,
         instance,
         rethrow,
-    } : ErrorParameterArgument<Error, ContextType>
+    } : ErrorArgument<Error, ContextType>
 ) : Middleware<ContextType>
 {
     return ErrorInstanceParameters(handler, instance, rethrow);
