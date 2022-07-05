@@ -1,6 +1,10 @@
 import Koa, {DefaultContext, DefaultState} from 'koa';
 import Server from './server';
 import {Server as HttpServer} from 'http';
+import State from "../context/state/infer";
+import ApplicationContext from "../context/context";
+import Router from "@koa/router";
+import {ListenOptions} from "net";
 
 export default class Listenable<StateT = DefaultState, CustomT = DefaultContext> implements Server<StateT, CustomT> {
 
@@ -8,12 +12,21 @@ export default class Listenable<StateT = DefaultState, CustomT = DefaultContext>
 
     constructor(
         server : Server<StateT, CustomT>,
-        readonly port : number,
-        public openCallback : (port:number) => void,
-        public closeCallback : (port:number) => void,
+        public openCallback : (port:ListenOptions) => void,
+        public closeCallback : (port:ListenOptions) => void,
     ) {
 
         this.#server = server;
+    }
+
+    get config() : ListenOptions {
+
+        return this.#server.config;
+    }
+
+    route() : Router<State<ApplicationContext<{}, {}, {}, DefaultContext>>, ApplicationContext<{}, {}, {}, DefaultContext>> {
+
+        return this.#server.route();
     }
 
 
@@ -35,7 +48,7 @@ export default class Listenable<StateT = DefaultState, CustomT = DefaultContext>
 
         if(!server) {
 
-            this.openCallback(this.port);
+            this.openCallback(this.config);
         }
     }
 
@@ -47,7 +60,7 @@ export default class Listenable<StateT = DefaultState, CustomT = DefaultContext>
 
         if(server) {
 
-            this.closeCallback(this.port);
+            this.closeCallback(this.config);
         }
 
     }
