@@ -1,9 +1,9 @@
-import AppContext from '../context/context';
-import Log from '@alirya/syslog/syslog';
-import Middleware from '../middleware/middleware';
-import LogParameters from './log-parameters';
-import Syslog from '@alirya/syslog/syslog';
-import Handler from '../syslog/handler/handler';
+import AppContext from '../context/context.js';
+import Log from '@alirya/syslog/syslog.js';
+import Middleware from '../middleware/middleware.js';
+import LogParameters from './log-parameters.js';
+import Syslog from '@alirya/syslog/syslog.js';
+import Handler from '../syslog/handler/handler.js';
 
 
 export default function LogParameter<

@@ -1,12 +1,12 @@
 import Router from '@koa/router';
 import {Next} from 'koa';
-import Middleware from '../../../dist/middleware/middleware';
-import Server from '../../server';
-import Register from '../../../dist/router/register';
-import Context from '../../../dist/context/context';
-import Route from '../../../dist/pipe/route';
-import Pipe from '../../../dist/pipe/pipe';
-import Body from '@alirya/http/body/body';
+import Middleware from '../../../dist/middleware/middleware.js';
+import Server from '../../server.js';
+import Register from '../../../dist/router/register.js';
+import Context from '../../../dist/context/context.js';
+import Route from '../../../dist/pipe/route.js';
+import Pipe from '../../../dist/pipe/pipe.js';
+import Body from '@alirya/http/body/body.js';
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 

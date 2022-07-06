@@ -1,13 +1,13 @@
-import RequestPath from '../../../request-path';
+import RequestPath from '../../../request-path.js';
 import Axios, {AxiosResponse} from 'axios';
 import KoaBody from '@dikac/koa-body';
-import Server from '../../../server';
-import Register from '../../../../dist/router/register';
+import Server from '../../../server.js';
+import Register from '../../../../dist/router/register.js';
 import Router from '@koa/router';
-import ResponseHandler from '../../../../dist/throwable/handler/response';
-import {BadRequestParameters} from '@alirya/http/response/bad-request';
-import Context from '../../../../dist/context/context';
-import {PickParameters} from '@alirya/object/pick';
+import ResponseHandler from '../../../../dist/throwable/handler/response.js';
+import {BadRequestParameters} from '@alirya/http/response/bad-request.js';
+import Context from '../../../../dist/context/context.js';
+import {PickParameters} from '@alirya/object/pick.js';
 import {Server as HttpServer} from 'http';
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});

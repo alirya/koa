@@ -1,13 +1,13 @@
-import RequestPath from '../../request-path';
-import Server from '../../server';
-import Register from '../../../dist/router/register';
+import RequestPath from '../../request-path.js';
+import Server from '../../server.js';
+import Register from '../../../dist/router/register.js';
 import Router from '@koa/router';
 import Axios, {AxiosResponse} from 'axios';
 import KoaBody from '@dikac/koa-body';
-import ValidatorParameters from '../../../dist/middleware/validator-parameters';
-import ContextValidator from './context-validator';
-import Context from '../../../dist/context/context';
-import Validatable from '@alirya/validator/validatable/validatable';
+import ValidatorParameters from '../../../dist/middleware/validator-parameters.js';
+import ContextValidator from './context-validator.js';
+import Context from '../../../dist/context/context.js';
+import Validatable from '@alirya/validator/validatable/validatable.js';
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 

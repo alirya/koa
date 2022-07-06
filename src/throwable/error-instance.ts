@@ -1,9 +1,9 @@
-import ErrorHandlerInterface from './handler/handler';
-import MiddlewareError from '../middleware/error-instance-parameters';
-import Pipe from './pipe';
-import RouterPipe from '../pipe/pipe';
-import Context from '../context/context';
-import Class from '@alirya/class/class';
+import ErrorHandlerInterface from './handler/handler.js';
+import MiddlewareError from '../middleware/error-instance-parameters.js';
+import Pipe from './pipe.js';
+import RouterPipe from '../pipe/pipe.js';
+import Context from '../context/context.js';
+import Class from '@alirya/class/class.js';
 
 export default function Error<
     ErrorType extends globalThis.Error,

@@ -1,7 +1,7 @@
-import RedirectionType from '@alirya/http/response/code/class/boolean/redirection';
-import StatusCode from './status-code';
-import Middleware from './middleware';
-import Context from '../context/context';
+import RedirectionType from '@alirya/http/response/code/class/boolean/redirection.js';
+import StatusCode from './status-code.js';
+import Middleware from './middleware.js';
+import Context from '../context/context.js';
 /**
  * use {@param middleware} if response status code is 3xx
  *

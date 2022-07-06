@@ -1,14 +1,14 @@
-import ValidatorParameters, {PropertyValidatorParametersContext} from './validator-parameters';
-import Validator from '@alirya/validator/simple';
+import ValidatorParameters, {PropertyValidatorParametersContext} from './validator-parameters.js';
+import Validator from '@alirya/validator/simple.js';
 import {Object} from 'ts-toolbelt';
-import Middleware from './middleware';
-import Next from './next';
-import Stop from './stop';
-import ValidatableContainer from '@alirya/validatable/validatable/Validatable';
-import InferValidatable from '@alirya/validator/validatable/infer-static';
-import FromResponseParameters from '../response/from-response-parameters';
-import Response from '@alirya/http/response/response';
-import {UnprocessableEntityParameter} from '@alirya/http/response/unprocessable-entity';
+import Middleware from './middleware.js';
+import Next from './next.js';
+import Stop from './stop.js';
+import ValidatableContainer from '@alirya/validatable/validatable/Validatable.js';
+import InferValidatable from '@alirya/validator/validatable/infer-static.js';
+import FromResponseParameters from '../response/from-response-parameters.js';
+import Response from '@alirya/http/response/response.js';
+import {UnprocessableEntityParameter} from '@alirya/http/response/unprocessable-entity.js';
 
 
 export default function ResponseMessageValidatorParameters<

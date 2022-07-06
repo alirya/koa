@@ -1,11 +1,11 @@
-import RequestPath from '../../../request-path';
+import RequestPath from '../../../request-path.js';
 import Axios, {AxiosResponse} from 'axios';
 import KoaBody from '@dikac/koa-body';
-import Error from '../../../../dist/throwable/handler/instance-parameters';
-import Register from '../../../../dist/router/register';
+import Error from '../../../../dist/throwable/handler/instance-parameters.js';
+import Register from '../../../../dist/router/register.js';
 import Router from '@koa/router';
-import Server from '../../../server';
-import Context from '../../../../dist/context/context';
+import Server from '../../../server.js';
+import Context from '../../../../dist/context/context.js';
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 

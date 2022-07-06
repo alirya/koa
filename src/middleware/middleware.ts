@@ -1,4 +1,4 @@
-import ApplicationContext from '../context/context';
+import ApplicationContext from '../context/context.js';
 import * as compose from 'koa-compose';
 /**
  * alternative to koa router {@see Middleware} with

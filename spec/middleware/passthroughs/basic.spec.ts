@@ -1,11 +1,11 @@
 import KoaBody from '@dikac/koa-body';
 import Axios, {AxiosResponse} from 'axios';
-import RequestPath from '../../request-path';
-import Server from '../../server';
-import Register from '../../../dist/router/register';
+import RequestPath from '../../request-path.js';
+import Server from '../../server.js';
+import Register from '../../../dist/router/register.js';
 import Router from '@koa/router';
-import Passthroughs from '../../../dist/middleware/passthroughs';
-import ApplicationContext from '../../../dist/context/context';
+import Passthroughs from '../../../dist/middleware/passthroughs.js';
+import ApplicationContext from '../../../dist/context/context.js';
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 

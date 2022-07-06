@@ -1,8 +1,8 @@
 import Router from '@koa/router';
 import {DefaultState, Next} from 'koa';
-import Server from '../../../server';
-import Register from '../../../../dist/router/register';
-import Context from '../../../../dist/context/context';
+import Server from '../../../server.js';
+import Register from '../../../../dist/router/register.js';
+import Context from '../../../../dist/context/context.js';
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 

@@ -1,7 +1,7 @@
-import Successful from '@alirya/http/response/code/class/boolean/successful';
-import StatusCode from '../../middleware/status-code';
-import Context from '../../context/context';
-import Middleware from '../../middleware/middleware';
+import Successful from '@alirya/http/response/code/class/boolean/successful.js';
+import StatusCode from '../../middleware/status-code.js';
+import Context from '../../context/context.js';
+import Middleware from '../../middleware/middleware.js';
 
 /**
  * finish middleware if response code is valid

@@ -1,6 +1,6 @@
 import Koa, {DefaultContext, DefaultState, Middleware} from 'koa';
 import {Server as HttpServer} from 'http';
-import Server from './server';
+import Server from './server.js';
 import {ListenOptions} from 'net';
 import Router from "@koa/router";
 import ApplicationContext from "../context/context";

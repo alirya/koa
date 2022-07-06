@@ -1,10 +1,10 @@
-import Response from '@alirya/http/response/response';
-import Context from '../context/context';
-import Next from './next';
-import FromResponseParameters from '../response/from-response-parameters';
-import Middleware from './middleware';
-import IsFunction from '@alirya/function/boolean/function';
-import Replace from '../context/response/replace';
+import Response from '@alirya/http/response/response.js';
+import Context from '../context/context.js';
+import Next from './next.js';
+import FromResponseParameters from '../response/from-response-parameters.js';
+import Middleware from './middleware.js';
+import IsFunction from '@alirya/function/boolean/function.js';
+import Replace from '../context/response/replace.js';
 /**
  * use {@param response} value or return for response data
  *

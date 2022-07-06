@@ -1,12 +1,12 @@
 import KoaBody from '@dikac/koa-body';
-import PropertyReplaceParameters from '../../../dist/middleware/replace-parameters';
-import PropertyReplaceParameter from '../../../dist/middleware/replace-parameter';
+import PropertyReplaceParameters from '../../../dist/middleware/replace-parameters.js';
+import PropertyReplaceParameter from '../../../dist/middleware/replace-parameter.js';
 import Axios from 'axios';
-import RequestPath from '../../request-path';
-import Server from '../../server';
-import Register from '../../../dist/router/register';
+import RequestPath from '../../request-path.js';
+import Server from '../../server.js';
+import Register from '../../../dist/router/register.js';
 import Router from '@koa/router';
-import Context from '../../../dist/context/context';
+import Context from '../../../dist/context/context.js';
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 
