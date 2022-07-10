@@ -7,7 +7,7 @@ import Next from './next';
 import {SelectPathParameters} from '@alirya/object/value/value/select-path';
 import ValidatableContainer from '@alirya/validatable/validatable/Validatable';
 import {ConditionalCallParameters} from '@alirya/function/conditional-call';
-import SetPathParameters from '@alirya/object/set-path-parameters';
+import { SetPathParameters } from '@alirya/object/set-path';
 
 export type PropertyValidatorParametersContext<Properties extends PropertyKey[]> =
     ApplicationContext & Object.P.Record<Properties, unknown>;
