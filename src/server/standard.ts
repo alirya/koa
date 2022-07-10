@@ -5,7 +5,6 @@ import {ListenOptions} from 'net';
 import Router from "@koa/router";
 import ApplicationContext from "../context/context";
 import State from "../context/state/infer";
-import {Required} from "utility-types";
 
 export default class Standard<
     StateT = DefaultState,

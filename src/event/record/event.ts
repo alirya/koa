@@ -1,9 +1,5 @@
 import Set from "../../../../event/dist/set/set";
-import Callable from "../../../../function/dist/callable";
-import Priority, {PriorityValue} from "@alirya/set/priority";
-import Once, {OnceValue} from "@alirya/set/once";
 import EventType from "../event";
-import Server from "../../server/server";
 import {List} from "ts-toolbelt";
 
 export default function Event<

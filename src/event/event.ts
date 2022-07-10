@@ -1,6 +1,6 @@
 import Callable from "../../../function/dist/callable";
-import Priority, {PriorityValue} from "@alirya/set/priority";
-import Once, {OnceValue} from "@alirya/set/once";
+import {PriorityValue} from "@alirya/set/priority";
+import {OnceValue} from "@alirya/set/once";
 import Server from "../server/server";
 
 
