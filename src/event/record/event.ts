@@ -1,4 +1,4 @@
-import Set from "../../../../event/dist/set/set";
+import Set from "../../../../event/dist/set/create";
 import EventType from "../event";
 import {List} from "ts-toolbelt";
 
