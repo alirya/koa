@@ -1,4 +1,4 @@
-import Callable from "../../../function/dist/callable";
+import Callable from "@alirya/function/callable";
 import {PriorityValue} from "@alirya/set/priority";
 import {OnceValue} from "@alirya/set/once";
 import Server from "../server/server";

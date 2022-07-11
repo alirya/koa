@@ -3,7 +3,7 @@ import ErrorHandlerParameter from '../throwable/handler/handler';
 import ErrorInstanceParameters from './error-parameters';
 import Context from '../context/context';
 import Callable from '@alirya/function/callable';
-import Guard from '@alirya/function/boolean/guard';
+import Guard from '@alirya/boolean/function/guard';
 
 
 export type ErrorArgument<
