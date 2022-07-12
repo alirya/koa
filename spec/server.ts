@@ -5,7 +5,7 @@ process.setMaxListeners(99);
 
 export default function Server () {
 
-    const server = new Standard([], {
+    const server = new Standard( {
         port : Config.port
     });
 
