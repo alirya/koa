@@ -1,5 +1,5 @@
-import Router from '@koa.js/router.js';
-import {DefaultState, Next} from 'koa';
+import Router from '@koa/router.js';
+import {DefaultState, Next} from "koa";
 import Server from '../../../server.js';
 import Register from '../../../../dist/router/register.js';
 import Context from '../../../../dist/context/context.js';
@@ -24,11 +24,11 @@ describe('required for open and closed', ()=>{
         router.use(
             function (context , next: Next) {
 
-            context.request.body = 'a.js';
+            context.request.body = 'a';
             return next();
         }, function (context , next: Next) {
 
-            context.request.body = 'a.js';
+            context.request.body = 'a';
             return next();
         }
         );

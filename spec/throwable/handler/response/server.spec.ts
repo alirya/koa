@@ -3,12 +3,12 @@ import Axios, {AxiosResponse} from 'axios';
 import KoaBody from '@dikac/koa-body.js';
 import Server from '../../../server.js';
 import Register from '../../../../dist/router/register.js';
-import Router from '@koa/router';
+import Router from '@koa/router.js';
 import ResponseHandler from '../../../../dist/throwable/handler/response.js';
-import {BadRequestParameters} from '@alirya/http.js/response/bad-request.js';
+import {BadRequestParameters} from '@axiona/http/response/bad-request.js';
 import Context from '../../../../dist/context/context.js';
-import {PickParameters} from '@alirya/object/pick.js';
-import {Server as HttpServer} from 'http';
+import {PickParameters} from '@axiona/object/pick.js';
+import {Server as HttpServer} from 'http.js';
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 

@@ -3,7 +3,7 @@ import MiddlewareError from '../middleware/error-instance-parameters.js';
 import Pipe from './pipe.js';
 import RouterPipe from '../pipe/pipe.js';
 import Context from '../context/context.js';
-import Class from '@alirya/class/class.js';
+import Class from '@axiona/class/class.js';
 
 export default function Error<
     ErrorType extends globalThis.Error,

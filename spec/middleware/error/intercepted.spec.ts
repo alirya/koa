@@ -4,7 +4,7 @@ import Axios, {AxiosResponse} from 'axios';
 import RequestPath from '../../request-path.js';
 import Server from '../../server.js';
 import Register from '../../../dist/router/register.js';
-import Router from '@koa/router';
+import Router from '@koa/router.js';
 import Context from '../../../dist/context/context.js';
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
@@ -16,9 +16,9 @@ describe('test', () => {
     const server = Server();
     const router =  Register<Context>(server.koa, new Router());
 
-    let rethrown  = false;
+    let rethrown : boolean = false;
     let response : AxiosResponse<{name : string, address : string}>;
-    const dataValue : {name : string, address : string} = {
+    let dataValue : {name : string, address : string} = {
         name : 'jhon',
         address : 'earth'
     };

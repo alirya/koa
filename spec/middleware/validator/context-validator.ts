@@ -1,6 +1,6 @@
-import Validatable from '@alirya/validator/validatable/simple.js';
+import Validatable from '@axiona/validator/validatable/simple.js';
 import Context from '../../../dist/context/context.js';
-import Validation from '@alirya/boolean/function/validation.js';
+import Validation from '@axiona/boolean/function/validation.js';
 
 
 export default function ContextValidator<

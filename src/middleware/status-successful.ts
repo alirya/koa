@@ -1,4 +1,4 @@
-import SuccessfulType from '@alirya/http/response/code/class/boolean/successful.js';
+import SuccessfulType from '@axiona/http/response/code/class/boolean/successful.js';
 import StatusCode from './status-code.js';
 import Middleware from './middleware.js';
 import ApplicationContext from '../context/context.js';

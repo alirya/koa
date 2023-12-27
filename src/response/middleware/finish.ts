@@ -1,5 +1,5 @@
 import Context from '../../context/context.js';
-import {Next} from 'koa';
+import {Next} from "koa";
 import FinishStatus from './finish-status.js';
 
 /**

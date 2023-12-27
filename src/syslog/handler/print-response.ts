@@ -1,6 +1,6 @@
-import Log from '@alirya/syslog/syslog.js';
+import Log from '@axiona/syslog/syslog.js';
 import Handler from './handler.js';
-import Koa from 'koa';
+import Koa from "koa";
 
 export default function PrintResponse<ContextType extends Koa.DefaultContext>(
     severity : keyof Log = 'debug',

@@ -1,4 +1,4 @@
-import Response from '@alirya/http/response/response.js';
+import Response from '@axiona/http/response/response.js';
 import Context from '../context/context.js';
 import Next from './next.js';
 import Middleware from './middleware.js';

@@ -1,4 +1,4 @@
-import Response from '@alirya/http/response/response.js';
+import Response from '@axiona/http/response/response.js';
 import FromResponseParameters from '../../response/from-response-parameters.js';
 import Handler from './handler.js';
 import Context from '../../context/context.js';

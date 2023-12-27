@@ -1,9 +1,9 @@
 import Context from '../context/context.js';
-import {Next} from 'koa';
+import {Next} from "koa";
 import Middleware from './middleware.js';
 import ErrorHandlerParameters from '../throwable/handler/handler.js';
-import Callable from '@alirya/function/callable.js';
-import Guard from '@alirya/boolean/function/guard.js';
+import Callable from '@axiona/function/callable.js';
+import Guard from '@axiona/boolean/function/guard.js';
 
 /**
  * catch error, if error is instanceof {@param validation} then execute {@param handler} else rethrow {@param validation}
@@ -77,7 +77,7 @@ export default function ErrorParameters<
 >(
     handler : ErrorHandlerParameters<globalThis.Error, ContextType>,
     validation ?: Callable<[globalThis.Error], boolean>,
-    rethrow  = false
+    rethrow : boolean = false
 ) : Middleware<ContextType>
 {
     return async function (context, next : Next) {

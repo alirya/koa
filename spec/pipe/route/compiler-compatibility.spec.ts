@@ -1,12 +1,12 @@
-import Router from '@koa.js/router.js';
-import {Next} from 'koa';
+import Router from '@koa/router.js';
+import {Next} from "koa";
 import Middleware from '../../../dist/middleware/middleware.js';
 import Server from '../../server.js';
 import Register from '../../../dist/router/register.js';
 import Context from '../../../dist/context/context.js';
 import Route from '../../../dist/pipe/route.js';
 import Pipe from '../../../dist/pipe/pipe.js';
-import Body from '@alirya/http/body/body.js';
+import Body from '@axiona/http/body/body.js';
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 
@@ -25,7 +25,7 @@ describe('required for open and closed', ()=>{
      */
     describe('body', () => {
 
-        const pipe : Pipe = Route(router , {path: '/', method:'post'});
+        let pipe : Pipe = Route(router , {path: '/', method:'post'});
 
 
         const parser :
@@ -36,39 +36,39 @@ describe('required for open and closed', ()=>{
             =
             function (context , next: Next) {
 
-                context.request.body = 'a.js';
+                context.request.body = 'a';
                 return next();
             };
 
-        const pipe2 = pipe(parser);
+        let pipe2 = pipe(parser);
 
-        const pipe3 = pipe2(function (context, next) {
+        let pipe3 = pipe2(function (context, next) {
 
-            const string : string = context.request.body;
-
-            // @ts-expect-error
-            const number : number  = context.request.body;
+            let string : string = context.request.body;
 
             // @ts-expect-error
-            const object : object  = context.request.body;
+            let number : number  = context.request.body;
 
             // @ts-expect-error
-            const strings : string[]  = context.request.body;
+            let object : object  = context.request.body;
+
+            // @ts-expect-error
+            let strings : string[]  = context.request.body;
 
         });
 
-        const pipe4 = pipe3(parser)(function (context, next) {
+        let pipe4 = pipe3(parser)(function (context, next) {
 
-            const string : string = context.request.body;
-
-            // @ts-expect-error
-            const number : number  = context.request.body;
+            let string : string = context.request.body;
 
             // @ts-expect-error
-            const object : object  = context.request.body;
+            let number : number  = context.request.body;
 
             // @ts-expect-error
-            const strings : string[]  = context.request.body;
+            let object : object  = context.request.body;
+
+            // @ts-expect-error
+            let strings : string[]  = context.request.body;
 
         });
     });

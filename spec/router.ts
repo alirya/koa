@@ -1,4 +1,4 @@
-import KoaRouter from '@koa/router';
+import KoaRouter from '@koa/router.js';
 import Koa from './server.js';
 
 export default function Router() {

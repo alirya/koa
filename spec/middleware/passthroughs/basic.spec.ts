@@ -3,7 +3,7 @@ import Axios, {AxiosResponse} from 'axios';
 import RequestPath from '../../request-path.js';
 import Server from '../../server.js';
 import Register from '../../../dist/router/register.js';
-import Router from '@koa/router';
+import Router from '@koa/router.js';
 import Passthroughs from '../../../dist/middleware/passthroughs.js';
 import ApplicationContext from '../../../dist/context/context.js';
 
@@ -16,8 +16,8 @@ describe('test', () => {
     const server = Server();
     const router =  Register<ApplicationContext>(server.koa, new Router());
 
-    let called1  = false;
-    let called2  = false;
+    let called1 : boolean = false;
+    let called2 : boolean = false;
 
     let response : AxiosResponse<string>;
 
@@ -33,7 +33,7 @@ describe('test', () => {
             }),
             function (context, next) {
 
-                context.response.body = 'OK.js';
+                context.response.body = 'OK';
                 return next();
             },
             Passthroughs(context => {

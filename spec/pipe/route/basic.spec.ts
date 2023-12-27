@@ -2,7 +2,7 @@ import RequestPath from '../../request-path.js';
 import Server from '../../server.js';
 import Register from '../../../dist/router/register.js';
 import Route from '../../../dist/pipe/route.js';
-import Router from '@koa/router';
+import Router from '@koa/router.js';
 import KoaBody from '@dikac/koa-body.js';
 import Axios from 'axios';
 import Context from '../../../dist/context/context.js';
@@ -26,7 +26,7 @@ describe('test', () => {
         age : 24
     };
 
-    const address.js = 'address.js';
+    const address = 'address';
 
     let argument = {
         name: '',

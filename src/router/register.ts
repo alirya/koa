@@ -1,5 +1,5 @@
-import Koa from 'koa';
-import KoaRouter from '@koa/router';
+import Koa from "koa";
+import KoaRouter from '@koa/router.js';
 import ApplicationContext from '../context/context.js';
 import State from '../context/state/infer.js';
 

@@ -4,7 +4,7 @@ import Axios, {AxiosResponse} from 'axios';
 import RequestPath from '../../request-path.js';
 import Server from '../../server.js';
 import Register from '../../../dist/router/register.js';
-import Router from '@koa/router';
+import Router from '@koa/router.js';
 import ApplicationContext from '../../../dist/context/context.js';
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
@@ -22,9 +22,9 @@ describe('required for open and closed', ()=>{
         const path : string = RequestPath(__filename);
 
         let error : any;
-        let rethrown  = false;
+        let rethrown : boolean = false;
         let response : AxiosResponse<{name : string, address : string}>|undefined;
-        const dataValue : {name : string, address : string} = {
+        let dataValue : {name : string, address : string} = {
             name : 'jhon',
             address : 'earth'
         };
@@ -77,9 +77,9 @@ describe('required for open and closed', ()=>{
             const path : string = RequestPath(__filename) + 2;
 
             let error : any;
-            let rethrown  = false;
+            let rethrown : boolean = false;
             let response : AxiosResponse<{name : string, address : string}>|undefined;
-            const dataValue : {name : string, address : string} = {
+            let dataValue : {name : string, address : string} = {
                 name : 'jhon',
                 address : 'earth'
             };

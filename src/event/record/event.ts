@@ -1,6 +1,6 @@
-import Set from "@alirya/event/set/create.js";
-import EventType from '../event.js';
-import {List} from "ts-toolbelt";
+import Set from "@axiona/event/set/create.js";
+import EventType from "../event.js";
+import {List} from 'ts-toolbelt';
 
 export default function Event<
     Keys extends PropertyKey[],

@@ -1,17 +1,17 @@
-import {StringParameters} from '@alirya/string/validator/string.js';
-import {MapAllParameters} from '@alirya/object/validator/map-all.js';
-import AndRecord from '@alirya/object/validatable/and.js';
-import InvalidMessageRecord from '@alirya/object/message/message/record/invalid.js';
-import KoaBody from '@dikac/koa.js-body.js';
+import {StringParameters} from '@axiona/string/validator/string.js';
+import {MapAllParameters} from '@axiona/object/validator/map-all.js';
+import AndRecord from '@axiona/object/validatable/and.js';
+import InvalidMessageRecord from '@axiona/object/message/message/record/invalid.js';
+import KoaBody from '@dikac/koa-body.js';
 import Axios from 'axios';
 import RequestPath from '../../../request-path.js';
 import Server from '../../../server.js';
 import Register from '../../../../dist/router/register.js';
-import Router from '@koa/router';
+import Router from '@koa/router.js';
 import Middleware from '../../../../dist/middleware/middleware.js';
-import * as Koa from 'koa';
+import * as Koa from "koa";
 import Context from '../../../../dist/context/context.js';
-import Body from '@alirya/http/body/body.js';
+import Body from '@axiona/http/body/body.js';
 import ResponseMessageValidatorParameters from '../../../../dist/middleware/response-message-validator-parameters.js';
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
@@ -43,7 +43,7 @@ describe('test', () => {
         address : ''
     };
 
-    const record  = {
+    let record  = {
         name : StringParameters(),
         address : StringParameters(),
     };

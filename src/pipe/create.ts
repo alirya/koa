@@ -1,4 +1,4 @@
-import Router from '@koa/router';
+import Router from '@koa/router.js';
 import Pipe from './pipe.js';
 import Context from '../context/context.js';
 import State from '../context/state/infer.js';

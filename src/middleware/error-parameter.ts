@@ -2,8 +2,8 @@ import Middleware from './middleware.js';
 import ErrorHandlerParameter from '../throwable/handler/handler.js';
 import ErrorInstanceParameters from './error-parameters.js';
 import Context from '../context/context.js';
-import Callable from '@alirya/function/callable.js';
-import Guard from '@alirya/boolean/function/guard.js';
+import Callable from '@axiona/function/callable.js';
+import Guard from '@axiona/boolean/function/guard.js';
 
 
 export type ErrorArgument<

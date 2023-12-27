@@ -4,7 +4,7 @@ import Axios from 'axios';
 import RequestPath from '../../request-path.js';
 import Server from '../../server.js';
 import Register from '../../../dist/router/register.js';
-import Router from '@koa/router';
+import Router from '@koa/router.js';
 import Context from '../../../dist/context/context.js';
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
@@ -24,7 +24,7 @@ describe('parameters', () => {
         age : 24
     };
 
-    const address.js = 'address.js';
+    const address = 'address';
 
     let argument = {
         name: '',

@@ -1,9 +1,9 @@
 import ApplicationContext from '../context/context.js';
 import Middleware from './middleware.js';
 import {Object} from 'ts-toolbelt';
-import { SetPathParameters } from '@alirya/object/set-path.js';
-import {SelectPathParameters} from '@alirya/object/value/value/select-path.js';
-import ReplacePath from '@alirya/object/replace-path.js';
+import { SetPathParameters } from '@axiona/object/set-path.js';
+import {SelectPathParameters} from '@axiona/object/value/value/select-path.js';
+import ReplacePath from '@axiona/object/replace-path.js';
 
 export default function ReplaceParameters<
     Properties extends ReadonlyArray<PropertyKey>,

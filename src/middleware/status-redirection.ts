@@ -1,4 +1,4 @@
-import RedirectionType from '@alirya/http/response/code/class/boolean/redirection.js';
+import RedirectionType from '@axiona/http/response/code/class/boolean/redirection.js';
 import StatusCode from './status-code.js';
 import Middleware from './middleware.js';
 import Context from '../context/context.js';

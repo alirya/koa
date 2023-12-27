@@ -5,7 +5,7 @@ import ErrorParameter from '../../../../dist/middleware/error-instance-parameter
 import Axios from 'axios';
 import Server from '../../../server.js';
 import Register from '../../../../dist/router/register.js';
-import Router from '@koa/router';
+import Router from '@koa/router.js';
 import Context from '../../../../dist/context/context.js';
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
@@ -14,8 +14,8 @@ class ErrorInstance extends Error {}
 
 describe('check compatibility', () => {
 
-    let responseParameters  = '';
-    let responseParameter  = '';
+    let responseParameters : string = '';
+    let responseParameter : string = '';
 
     const error =  new ErrorInstance('error message test');
 

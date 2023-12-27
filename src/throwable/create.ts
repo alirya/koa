@@ -1,5 +1,5 @@
-import Koa, {DefaultContext, DefaultState} from 'koa';
-import KoaRouter, {RouterOptions} from '@koa/router';
+import Koa, {DefaultContext, DefaultState} from "koa";
+import KoaRouter, {RouterOptions} from '@koa/router.js';
 import Register from '../router/register.js';
 import ApplicationContext from '../context/context.js';
 import State from '../context/state/infer.js';

@@ -1,5 +1,5 @@
-import {DefaultContext, DefaultState} from 'koa';
-import {RouterParamContext} from '@koa/router';
+import {DefaultContext, DefaultState} from "koa";
+import {RouterParamContext} from '@koa/router.js';
 import ErrorHandlerInterface from './handler/handler.js';
 
 export default interface Pipe<

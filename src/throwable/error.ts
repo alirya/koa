@@ -3,7 +3,7 @@ import MiddlewareError from '../middleware/error-parameters.js';
 import Pipe from './pipe.js';
 import RouterPipe from '../pipe/pipe.js';
 import Context from '../context/context.js';
-import Callable from '@alirya/function/callable.js';
+import Callable from '@axiona/function/callable.js';
 
 export default function Error<CustomMain extends Context>(
     pipe : RouterPipe,

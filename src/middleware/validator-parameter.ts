@@ -1,10 +1,10 @@
-import Validator from '@alirya/validator/simple.js';
-import ValidatorContainer from '@alirya/validator/validator/validator.js';
+import Validator from '@axiona/validator/simple.js';
+import ValidatorContainer from '@axiona/validator/validator/validator.js';
 import ApplicationContext from '../context/context.js';
 import Middleware from './middleware.js';
 import {Object} from 'ts-toolbelt';
 import Next from './next.js';
-import Infer from '@alirya/validator/validatable/static/infer.js';
+import Infer from '@axiona/validator/validatable/static/infer.js';
 import ValidatorParameters, {PropertyValidatorParametersContext} from './validator-parameters.js';
 
 export type {PropertyValidatorParametersContext};

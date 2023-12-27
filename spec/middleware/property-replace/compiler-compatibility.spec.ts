@@ -1,11 +1,11 @@
 import KoaBody from '@dikac/koa-body.js';
-import PropertyReplaceParameters from '../../../dist/middleware/replace-parameter.jss.js';
+import PropertyReplaceParameters from '../../../dist/middleware/replace-parameters.js';
 import PropertyReplaceParameter from '../../../dist/middleware/replace-parameter.js';
 import Axios from 'axios';
 import RequestPath from '../../request-path.js';
 import Server from '../../server.js';
 import Register from '../../../dist/router/register.js';
-import Router from '@koa/router';
+import Router from '@koa/router.js';
 import Context from '../../../dist/context/context.js';
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
@@ -22,7 +22,7 @@ describe('parameters', () => {
         age : 24
     };
 
-    const address.js = 'address.js';
+    const address = 'address';
 
     describe('parameters', () => {
 
@@ -81,7 +81,7 @@ describe('parameters', () => {
 
     describe('parameters', () => {
 
-        const path : string = RequestPath(__filename) + 'parameter.js';
+        const path : string = RequestPath(__filename) + 'parameter';
 
         let argument = {
             name: '',

@@ -1,4 +1,4 @@
-import InformationalType from '@alirya/http/response/code/class/boolean/informational.js';
+import InformationalType from '@axiona/http/response/code/class/boolean/informational.js';
 import StatusCode from './status-code.js';
 import Middleware from './middleware.js';
 import Context from '../context/context.js';

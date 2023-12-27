@@ -1,12 +1,12 @@
 import Server from '../../server.js';
 import Register from '../../../dist/router/register.js';
 import Context from '../../../dist/context/context.js';
-import Router from '@koa/router';
+import Router from '@koa/router.js';
 import KoaBody from '@dikac/koa-body.js';
 import Axios from 'axios';
 import RequestPath from '../../request-path.js';
 import FromResponse from '../../../dist/response/from-response-parameters.js';
-import {CreatedParameter} from '@alirya/http/response/created.js';
+import {CreatedParameter} from '@axiona/http/response/created.js';
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 
@@ -20,7 +20,7 @@ describe('test', () => {
     beforeAll(()=>server.open());
     afterAll(()=>server.close());
 
-    const response : any = {};
+    let response : any = {};
 
     it('add filter', ()=>{
 

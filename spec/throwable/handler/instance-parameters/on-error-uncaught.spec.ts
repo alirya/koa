@@ -3,7 +3,7 @@ import Axios, {AxiosResponse} from 'axios';
 import KoaBody from '@dikac/koa-body.js';
 import Error from '../../../../dist/throwable/handler/instance-parameters.js';
 import Register from '../../../../dist/router/register.js';
-import Router from '@koa/router';
+import Router from '@koa/router.js';
 import Server from '../../../server.js';
 import Context from '../../../../dist/context/context.js';
 
@@ -22,11 +22,11 @@ describe('default use', () => {
     beforeAll(()=>server.open());
     afterAll(()=>server.close());
 
-    let error  = false;
-    let testError  = false;
+    let error : boolean = false;
+    let testError : boolean = false;
 
     let response : AxiosResponse<{name : string, address : string}>|undefined;
-    const dataValue : {name : string, address : string} = {
+    let dataValue : {name : string, address : string} = {
         name : 'jhon',
         address : 'earth'
     };

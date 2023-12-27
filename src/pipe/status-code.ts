@@ -1,5 +1,5 @@
-import Router, {RouterParamContext} from '@koa.js/router.js';
-import {DefaultContext, DefaultState} from 'koa';
+import Router, {RouterParamContext} from '@koa/router.js';
+import {DefaultContext, DefaultState} from "koa";
 import Middleware from '../middleware/middleware.js';
 import StatusCodeMiddleware from '../middleware/status-code.js';
 import Pipe from './pipe.js';

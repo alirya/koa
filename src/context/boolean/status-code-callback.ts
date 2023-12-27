@@ -1,4 +1,4 @@
-import {Context} from 'koa';
+import {Context} from "koa";
 
 export default function StatusCodeCallback(
     context : Context,

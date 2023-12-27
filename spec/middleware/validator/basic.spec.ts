@@ -1,13 +1,13 @@
 import RequestPath from '../../request-path.js';
 import Server from '../../server.js';
 import Register from '../../../dist/router/register.js';
-import Router from '@koa/router';
+import Router from '@koa/router.js';
 import Axios, {AxiosResponse} from 'axios';
 import KoaBody from '@dikac/koa-body.js';
-import ValidatorParameters from '../../../dist/middleware/valid.jsator-parameters.js';
+import ValidatorParameters from '../../../dist/middleware/validator-parameters.js';
 import ContextValidator from './context-validator.js';
 import Context from '../../../dist/context/context.js';
-import Validatable from '@alirya/validator/validatable/validatable.js';
+import Validatable from '@axiona/validator/validatable/validatable.js';
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 
@@ -19,8 +19,8 @@ describe('test', () => {
     const server = Server();
     const router =  Register<Context>(server.koa, new Router());
 
-    const called1  = false;
-    const called2  = false;
+    let called1 : boolean = false;
+    let called2 : boolean = false;
 
     let response : AxiosResponse<string>;
 
@@ -34,11 +34,11 @@ describe('test', () => {
             ValidatorParameters<Context>((ctx)=>ContextValidator(ctx, (context : Context) => (context.request.body as any).valid === true) as Validatable<Context, string, true>,
                 function (context, next) {
 
-                    context.response.body = 'valid.js';
+                    context.response.body = 'valid';
                     return next();
                 }, function (context, next) {
 
-                    context.response.body = 'invalid.js';
+                    context.response.body = 'invalid';
                     return next();
                 }
             )

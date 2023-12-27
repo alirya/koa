@@ -3,9 +3,9 @@ import Axios from 'axios';
 import RequestPath from '../../../request-path.js';
 import Server from '../../../server.js';
 import Register from '../../../../dist/router/register.js';
-import Router from '@koa/router';
+import Router from '@koa/router.js';
 import Context from '../../../../dist/context/context.js';
-import IsString from '@alirya/string/boolean/string.js';
+import IsString from '@axiona/string/boolean/string.js';
 import Middleware from '../../../../dist/middleware/middleware.js';
 import PropertyValidationParameters from '../../../../dist/middleware/validation-parameters.js';
 

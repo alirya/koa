@@ -1,5 +1,5 @@
-import Koa from 'koa';
-import Log from '@alirya/syslog/syslog.js';
+import Koa from "koa";
+import Log from '@axiona/syslog/syslog.js';
 
 /**
  * type which compatible with {@see Koa.on('error')}

@@ -4,7 +4,7 @@ import KoaBody from '@dikac/koa-body.js';
 import Error from '../../../../dist/throwable/handler/instance-parameters.js';
 import Server from '../../../server.js';
 import Register from '../../../../dist/router/register.js';
-import Router from '@koa/router';
+import Router from '@koa/router.js';
 import MiddlewareError from '../../../../dist/middleware/error-parameters.js';
 import Context from '../../../../dist/context/context.js';
 
@@ -33,7 +33,7 @@ describe('uncaught handler', () => {
             MiddlewareError(Error(function (error, context) {
 
                 errorInstance = error;
-                context.response.body = 'Caught.js';
+                context.response.body = 'Caught';
 
             }, globalThis.Error)),
 

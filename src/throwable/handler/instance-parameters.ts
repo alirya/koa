@@ -1,6 +1,6 @@
-import Koa from 'koa';
+import Koa from "koa";
 import ErrorHandlerParameters from './handler.js';
-import Class from '@alirya/class/class.js';
+import Class from '@axiona/class/class.js';
 
 /**
  * executes {@param handler} if the error is

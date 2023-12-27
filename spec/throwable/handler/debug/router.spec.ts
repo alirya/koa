@@ -4,7 +4,7 @@ import KoaBody from '@dikac/koa-body.js';
 import MiddlewareError from '../../../../dist/middleware/error-instance-parameters.js';
 import Debug from '../../../../dist/throwable/handler/debug.js';
 import Server from '../../../server.js';
-import Router from '@koa/router';
+import Router from '@koa/router.js';
 import Register from '../../../../dist/router/register.js';
 import Context from '../../../../dist/context/context.js';
 
@@ -15,9 +15,9 @@ const path : string = RequestPath(__filename);
 
 describe('test', () => {
 
-    const rethrown  = false;
+    let rethrown : boolean = false;
     let response : AxiosResponse<{name : string, address : string}>;
-    const dataValue : {name : string, address : string} = {
+    let dataValue : {name : string, address : string} = {
         name : 'jhon',
         address : 'earth'
     };
@@ -29,7 +29,7 @@ describe('test', () => {
     afterAll(()=>server.close());
 
 
-    const router =  Register<Context>(server.koa, new Router());
+    let router =  Register<Context>(server.koa, new Router());
 
 
     it('add request', ()=>{

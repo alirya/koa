@@ -1,4 +1,4 @@
-import ServerErrorType from '@alirya/http/response/code/class/boolean/server-error.js';
+import ServerErrorType from '@axiona/http/response/code/class/boolean/server-error.js';
 import StatusCode from './status-code.js';
 import Middleware from './middleware.js';
 import Context from '../context/context.js';

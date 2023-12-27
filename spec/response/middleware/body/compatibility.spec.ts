@@ -1,9 +1,9 @@
-import Router from '@koa/router';
+import Router from '@koa/router.js';
 import Context from '../../../../dist/context/context.js';
 import State from '../../../../dist/context/state/infer.js';
 import CreatePipe from '../../../../dist/pipe/create.js';
 import ResponseParameters from '../../../../dist/middleware/response-parameters.js';
-import {OkParameter} from '@alirya/http/response/ok.js';
+import {OkParameter} from '@axiona/http/response/ok.js';
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 

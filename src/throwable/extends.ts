@@ -1,5 +1,5 @@
-import {DefaultContext, DefaultState} from 'koa';
-import Router from '@koa/router';
+import {DefaultContext, DefaultState} from "koa";
+import Router from '@koa/router.js';
 
 export default function Extends<
     StateT = DefaultState,
