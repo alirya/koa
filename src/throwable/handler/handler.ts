@@ -1,4 +1,4 @@
-import Koa from 'koa';
+import Koa from "koa";
 
 /**
  * type which compatible with {@see Koa.on('error')}

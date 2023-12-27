@@ -1,4 +1,4 @@
-import {DefaultContext, DefaultState, ParameterizedContext} from 'koa';
+import {DefaultContext, DefaultState, ParameterizedContext} from "koa";
 
 /**
  * context of parameter middleware

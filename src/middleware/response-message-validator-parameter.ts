@@ -1,11 +1,11 @@
-import {PropertyValidatorParametersContext} from './validator-parameters';
-import Validator from '@alirya/validator/simple';
+import {PropertyValidatorParametersContext} from './validator-parameters.js';
+import Validator from '@axiona/validator/simple.js';
 import {Object} from 'ts-toolbelt';
-import Middleware from './middleware';
-import ValidatableContainer from '@alirya/validatable/validatable/Validatable';
-import InferValidatable from '@alirya/validator/validatable/infer-static';
-import Response from '@alirya/http/response/response';
-import ResponseMessageValidatorParameters from './response-message-validator-parameters';
+import Middleware from './middleware.js';
+import ValidatableContainer from '@axiona/validatable/validatable/Validatable.js';
+import InferValidatable from '@axiona/validator/validatable/infer-static.js';
+import Response from '@axiona/http/response/response.js';
+import ResponseMessageValidatorParameters from './response-message-validator-parameters.js';
 
 
 export default function ResponseMessageValidatorParameter<

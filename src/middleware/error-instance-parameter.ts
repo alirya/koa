@@ -1,8 +1,8 @@
-import Middleware from './middleware';
-import ErrorHandlerParameter from '../throwable/handler/handler';
-import ErrorInstanceParameters from './error-instance-parameters';
-import Context from '../context/context';
-import Class from '@alirya/class/class';
+import Middleware from './middleware.js';
+import ErrorHandlerParameter from '../throwable/handler/handler.js';
+import ErrorInstanceParameters from './error-instance-parameters.js';
+import Context from '../context/context.js';
+import Class from '@axiona/class/class.js';
 
 
 export type ErrorArgument<

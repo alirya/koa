@@ -1,5 +1,5 @@
-import Middleware from './middleware';
-import ApplicationContext from '../context/context';
+import Middleware from './middleware.js';
+import ApplicationContext from '../context/context.js';
 
 export default function Passthroughs<
     ContextT extends ApplicationContext,

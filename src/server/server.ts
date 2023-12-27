@@ -1,8 +1,8 @@
-import Koa, {DefaultContext, DefaultState} from 'koa';
-import {Server as HttpServer} from 'http';
-import State from "../context/state/infer";
-import ApplicationContext from "../context/context";
-import Router from "@koa/router";
+import Koa, {DefaultContext, DefaultState} from "koa";
+import {Server as HttpServer} from 'http.js';
+import State from "../context/state/infer.js";
+import ApplicationContext from "../context/context.js";
+import Router from "@koa/router.js";
 import {ListenOptions} from "net";
 
 export default interface Server<StateT = DefaultState, CustomT = DefaultContext> {

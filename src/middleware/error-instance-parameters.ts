@@ -1,8 +1,8 @@
-import Context from '../context/context';
-import Middleware from './middleware';
-import ErrorHandlerParameters from '../throwable/handler/handler';
-import ErrorParameters from './error-parameters';
-import Class from '@alirya/class/class';
+import Context from '../context/context.js';
+import Middleware from './middleware.js';
+import ErrorHandlerParameters from '../throwable/handler/handler.js';
+import ErrorParameters from './error-parameters.js';
+import Class from '@axiona/class/class.js';
 
 /**
  * catch error, if error is instanceof {@param instance} then execute {@param handler} else rethrow {@param instance}

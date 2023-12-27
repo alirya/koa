@@ -1,7 +1,7 @@
-import Context from '../context';
+import Context from '../context.js';
 import {Object} from 'ts-toolbelt';
-import {List} from 'ts-toolbelt/out/List/List';
-import {Key} from 'ts-toolbelt/out/Any/Key';
+import {List} from 'ts-toolbelt/out/List/List.js';
+import {Key} from 'ts-toolbelt/out/Any/Key.js';
 
 
 type Replace<

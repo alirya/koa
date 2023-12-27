@@ -1,8 +1,8 @@
-import Response from '@alirya/http/response/response';
-import Context from '../context/context';
-import Next from './next';
-import Middleware from './middleware';
-import ResponseParameters from './response-parameters';
+import Response from '@axiona/http/response/response.js';
+import Context from '../context/context.js';
+import Next from './next.js';
+import Middleware from './middleware.js';
+import ResponseParameters from './response-parameters.js';
 
 /**
  * Options version of {@see ResponseParameters}

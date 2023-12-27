@@ -1,8 +1,8 @@
-import Context from '../context/context';
-import Middleware from './middleware';
-import IsStatusCode from '../context/boolean/status-code-callback';
-import ValidationParameters from './validation-parameters';
-import {CurryParameters} from '@alirya/function/curry';
+import Context from '../context/context.js';
+import Middleware from './middleware.js';
+import IsStatusCode from '../context/boolean/status-code-callback.js';
+import ValidationParameters from './validation-parameters.js';
+import {CurryParameters} from '@axiona/function/curry.js';
 
 /**
  * execute middleware if {@param validation} match

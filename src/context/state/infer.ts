@@ -1,4 +1,4 @@
-import Context from '../context';
+import Context from '../context.js';
 
 
 type Infer<Type> = Type extends Context<any, any, infer As> ? As : never;

@@ -1,12 +1,12 @@
-import DebugParameters from '../../../../dist/throwable/handler/debug';
-import DebugParameter from '../../../../dist/throwable/handler/debug';
-import ErrorParameters from '../../../../dist/middleware/error-instance-parameters';
-import ErrorParameter from '../../../../dist/middleware/error-instance-parameter';
+import DebugParameters from '../../../../dist/throwable/handler/debug.js';
+import DebugParameter from '../../../../dist/throwable/handler/debug.js';
+import ErrorParameters from '../../../../dist/middleware/error-instance-parameters.js';
+import ErrorParameter from '../../../../dist/middleware/error-instance-parameter.js';
 import Axios from 'axios';
-import Server from '../../../server';
-import Register from '../../../../dist/router/register';
-import Router from '@koa/router';
-import Context from '../../../../dist/context/context';
+import Server from '../../../server.js';
+import Register from '../../../../dist/router/register.js';
+import Router from '@koa/router.js';
+import Context from '../../../../dist/context/context.js';
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 

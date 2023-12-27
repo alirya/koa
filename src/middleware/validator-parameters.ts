@@ -1,13 +1,13 @@
-import Validator from '@alirya/validator/simple';
-import InferValidatable from '@alirya/validator/validatable/infer-static';
-import ApplicationContext from '../context/context';
-import Middleware from './middleware';
+import Validator from '@axiona/validator/simple.js';
+import InferValidatable from '@axiona/validator/validatable/infer-static.js';
+import ApplicationContext from '../context/context.js';
+import Middleware from './middleware.js';
 import {Object} from 'ts-toolbelt';
-import Next from './next';
-import {SelectPathParameters} from '@alirya/object/value/value/select-path';
-import ValidatableContainer from '@alirya/validatable/validatable/Validatable';
-import {ConditionalCallParameters} from '@alirya/function/conditional-call';
-import { SetPathParameters } from '@alirya/object/set-path';
+import Next from './next.js';
+import {SelectPathParameters} from '@axiona/object/value/value/select-path.js';
+import ValidatableContainer from '@axiona/validatable/validatable/Validatable.js';
+import {ConditionalCallParameters} from '@axiona/function/conditional-call.js';
+import { SetPathParameters } from '@axiona/object/set-path.js';
 
 export type PropertyValidatorParametersContext<Properties extends PropertyKey[]> =
     ApplicationContext & Object.P.Record<Properties, unknown>;

@@ -1,17 +1,17 @@
-import KoaBody from '@dikac/koa-body';
+import KoaBody from '@dikac/koa-body.js';
 import Axios from 'axios';
-import RequestPath from '../../request-path';
-import Server from '../../server';
-import Register from '../../../dist/router/register';
-import Router from '@koa/router';
-import Context from '../../../dist/context/context';
-import {StringParameters} from '@alirya/string/validator/string';
-import Middleware from '../../../dist/middleware/middleware';
-import ResponseMessageValidatorParameters from '../../../dist/middleware/response-message-validator-parameters';
-import {UnprocessableEntityParameter} from '@alirya/http/response/unprocessable-entity';
-import {MapAllParameters} from '@alirya/object/validator/map-all';
-import And from '@alirya/object/validatable/and';
-import InvalidMessageMap from '@alirya/object/message/message/record/invalid';
+import RequestPath from '../../request-path.js';
+import Server from '../../server.js';
+import Register from '../../../dist/router/register.js';
+import Router from '@koa/router.js';
+import Context from '../../../dist/context/context.js';
+import {StringParameters} from '@axiona/string/validator/string.js';
+import Middleware from '../../../dist/middleware/middleware.js';
+import ResponseMessageValidatorParameters from '../../../dist/middleware/response-message-validator-parameters.js';
+import {UnprocessableEntityParameter} from '@axiona/http/response/unprocessable-entity.js';
+import {MapAllParameters} from '@axiona/object/validator/map-all.js';
+import And from '@axiona/object/validatable/and.js';
+import InvalidMessageMap from '@axiona/object/message/message/record/invalid.js';
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 

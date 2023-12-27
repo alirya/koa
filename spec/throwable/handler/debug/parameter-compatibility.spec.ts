@@ -1,10 +1,10 @@
-import DebugParameters from '../../../../dist/throwable/handler/debug';
-import ErrorParameters from '../../../../dist/middleware/error-instance-parameters';
-import ErrorParameter from '../../../../dist/middleware/error-instance-parameter';
+import DebugParameters from '../../../../dist/throwable/handler/debug.js';
+import ErrorParameters from '../../../../dist/middleware/error-instance-parameters.js';
+import ErrorParameter from '../../../../dist/middleware/error-instance-parameter.js';
 import Axios from 'axios';
-import Register from '../../../../dist/router/register';
-import Server from '../../../server';
-import Create from '../../../../dist/router/create';
+import Register from '../../../../dist/router/register.js';
+import Server from '../../../server.js';
+import Create from '../../../../dist/router/create.js';
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 

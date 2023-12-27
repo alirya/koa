@@ -1,12 +1,12 @@
-import RequestPath from '../../../request-path';
+import RequestPath from '../../../request-path.js';
 import Axios, {AxiosResponse} from 'axios';
-import {DefaultState, DefaultContext} from 'koa';
-import KoaBody from '@dikac/koa-body';
-import Debug from '../../../../dist/throwable/handler/debug';
-import Server from '../../../server';
-import Router from '@koa/router';
-import Register from '../../../../dist/router/register';
-import Context from '../../../../dist/context/context';
+import {DefaultState, DefaultContext} from "koa";
+import KoaBody from '@dikac/koa-body.js';
+import Debug from '../../../../dist/throwable/handler/debug.js';
+import Server from '../../../server.js';
+import Router from '@koa/router.js';
+import Register from '../../../../dist/router/register.js';
+import Context from '../../../../dist/context/context.js';
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 

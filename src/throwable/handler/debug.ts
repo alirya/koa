@@ -1,8 +1,8 @@
-import FromResponseParameters from '../../response/from-response-parameters';
-import {InternalServerErrorParameter} from '@alirya/http/response/internal-server-error';
-import ContentTypeTextUtf8 from '../../object/content-type-text-utf8';
-import Name from '@alirya/object/string/name';
-import Context from '../../context/context';
+import FromResponseParameters from '../../response/from-response-parameters.js';
+import {InternalServerErrorParameter} from '@axiona/http/response/internal-server-error.js';
+import ContentTypeTextUtf8 from '../../object/content-type-text-utf8.js';
+import Name from '@axiona/object/string/name.js';
+import Context from '../../context/context.js';
 
 /**
  * print out error to response

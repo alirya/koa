@@ -1,13 +1,13 @@
-import KoaBody from '@dikac/koa-body';
+import KoaBody from '@dikac/koa-body.js';
 import Axios from 'axios';
-import RequestPath from '../../../request-path';
-import Server from '../../../server';
-import Register from '../../../../dist/router/register';
-import Router from '@koa/router';
-import Context from '../../../../dist/context/context';
-import IsString from '@alirya/string/boolean/string';
-import Middleware from '../../../../dist/middleware/middleware';
-import PropertyValidationParameters from '../../../../dist/middleware/validation-parameters';
+import RequestPath from '../../../request-path.js';
+import Server from '../../../server.js';
+import Register from '../../../../dist/router/register.js';
+import Router from '@koa/router.js';
+import Context from '../../../../dist/context/context.js';
+import IsString from '@axiona/string/boolean/string.js';
+import Middleware from '../../../../dist/middleware/middleware.js';
+import PropertyValidationParameters from '../../../../dist/middleware/validation-parameters.js';
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 

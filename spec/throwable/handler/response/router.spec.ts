@@ -1,12 +1,12 @@
-import RequestPath from '../../../request-path';
+import RequestPath from '../../../request-path.js';
 import Axios, {AxiosResponse} from 'axios';
-import KoaBody from '@dikac/koa-body';
-import ResponseHandler from '../../../../dist/throwable/handler/response';
-import Server from '../../../server';
-import Register from '../../../../dist/router/register';
-import MiddlewareError from '../../../../dist/middleware/error-instance-parameters';
-import {BadRequestParameters} from '@alirya/http/response/bad-request';
-import Create from '../../../../dist/router/create';
+import KoaBody from '@dikac/koa-body.js';
+import ResponseHandler from '../../../../dist/throwable/handler/response.js';
+import Server from '../../../server.js';
+import Register from '../../../../dist/router/register.js';
+import MiddlewareError from '../../../../dist/middleware/error-instance-parameters.js';
+import {BadRequestParameters} from '@axiona/http/response/bad-request.js';
+import Create from '../../../../dist/router/create.js';
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 

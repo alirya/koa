@@ -1,6 +1,6 @@
-import Context from '../../context/context';
-import {Next} from 'koa';
-import FinishStatus from './finish-status';
+import Context from '../../context/context.js';
+import {Next} from "koa";
+import FinishStatus from './finish-status.js';
 
 /**
  * finish middleware if response code is success (2xx)

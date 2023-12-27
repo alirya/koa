@@ -1,7 +1,7 @@
-import Validatable from '@alirya/validator/validatable/validatable';
-import Code from '@alirya/code/code';
-import Context from '../context/context';
-import ValidatableParameters from './validatable-parameters';
+import Validatable from '@axiona/validator/validatable/validatable.js';
+import Code from '@axiona/code/code.js';
+import Context from '../context/context.js';
+import ValidatableParameters from './validatable-parameters.js';
 
 export default function ValidatableParameter(
     {

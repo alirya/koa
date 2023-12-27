@@ -1,7 +1,7 @@
-import SuccessfulType from '@alirya/http/response/code/class/boolean/successful';
-import StatusCode from './status-code';
-import Middleware from './middleware';
-import ApplicationContext from '../context/context';
+import SuccessfulType from '@axiona/http/response/code/class/boolean/successful.js';
+import StatusCode from './status-code.js';
+import Middleware from './middleware.js';
+import ApplicationContext from '../context/context.js';
 
 export default function StatusSuccessful<
     ContextType extends ApplicationContext,

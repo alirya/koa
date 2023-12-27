@@ -1,7 +1,7 @@
-import Log from '@alirya/syslog/syslog';
-import Handler from './handler';
-import Koa from 'koa';
-import {PickParameters} from '@alirya/object/pick';
+import Log from '@axiona/syslog/syslog.js';
+import Handler from './handler.js';
+import Koa from "koa";
+import {PickParameters} from '@axiona/object/pick.js';
 
 export default function PrintTransaction<ContextType extends Koa.DefaultContext>(
     severity : keyof Log = 'debug',

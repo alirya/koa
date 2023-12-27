@@ -1,8 +1,8 @@
-import ApplicationContext from '../context/context';
-import Middleware from './middleware';
+import ApplicationContext from '../context/context.js';
+import Middleware from './middleware.js';
 import {Object} from 'ts-toolbelt';
-import ReplacePath from '@alirya/object/replace-path';
-import ReplaceParameters from './replace-parameters';
+import ReplacePath from '@axiona/object/replace-path.js';
+import ReplaceParameters from './replace-parameters.js';
 
 
 export default function ReplaceParameter<

@@ -1,9 +1,9 @@
-import Context from '../context/context';
-import {Next} from 'koa';
-import Middleware from './middleware';
-import ErrorHandlerParameters from '../throwable/handler/handler';
-import Callable from '@alirya/function/callable';
-import Guard from '@alirya/boolean/function/guard';
+import Context from '../context/context.js';
+import {Next} from "koa";
+import Middleware from './middleware.js';
+import ErrorHandlerParameters from '../throwable/handler/handler.js';
+import Callable from '@axiona/function/callable.js';
+import Guard from '@axiona/boolean/function/guard.js';
 
 /**
  * catch error, if error is instanceof {@param validation} then execute {@param handler} else rethrow {@param validation}

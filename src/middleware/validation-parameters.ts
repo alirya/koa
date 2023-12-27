@@ -1,9 +1,9 @@
-import Context from '../context/context';
-import Middleware from './middleware';
-import Next from './next';
-import {ConditionalCallParameters} from '@alirya/function/conditional-call';
+import Context from '../context/context.js';
+import Middleware from './middleware.js';
+import Next from './next.js';
+import {ConditionalCallParameters} from '@axiona/function/conditional-call.js';
 import {Object} from 'ts-toolbelt';
-import {SelectPathParameters} from '@alirya/object/value/value/select-path';
+import {SelectPathParameters} from '@axiona/object/value/value/select-path.js';
 
 
 /**

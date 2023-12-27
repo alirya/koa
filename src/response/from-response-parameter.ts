@@ -1,9 +1,9 @@
-import Value from '@alirya/value/value';
-import Validatable from '@alirya/validatable/validatable';
-import Message from '@alirya/message/message';
-import Response from '@alirya/http/response/response';
-import Context from '../context/context';
-import FromResponseParameters from './from-response-parameters';
+import Value from '@axiona/value/value.js';
+import Validatable from '@axiona/validatable/validatable.js';
+import Message from '@axiona/message/message.js';
+import Response from '@axiona/http/response/response.js';
+import Context from '../context/context.js';
+import FromResponseParameters from './from-response-parameters.js';
 
 export default function FromResponseParameter<Subject extends Value & Validatable & Message<string>>(
     {
