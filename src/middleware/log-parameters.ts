@@ -1,8 +1,8 @@
-import AppContext from '../context/context';
+import AppContext from '../context/context.js';
 import {Next} from 'koa';
-import Middleware from './middleware';
-import Syslog from '@alirya/syslog/syslog';
-import Handler from '../syslog/handler/handler';
+import Middleware from './middleware.js';
+import Syslog from '@alirya/syslog/syslog.js';
+import Handler from '../syslog/handler/handler.js';
 
 /**
  * pipe context data to log
@@ -20,7 +20,7 @@ export default function LogParameters<
     SyslogType extends Syslog
 >(
     log : SyslogType,
-    after: boolean = true,
+    after = true,
     callback : Handler<SyslogType, ContextType>
 ) : Middleware<ContextType> {
 

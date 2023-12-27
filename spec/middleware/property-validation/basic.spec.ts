@@ -1,13 +1,13 @@
-import RequestPath from '../../request-path';
-import Server from '../../server';
-import Register from '../../../dist/router/register';
-import ApplicationContext from '../../../dist/context/context';
+import RequestPath from '../../request-path.js';
+import Server from '../../server.js';
+import Register from '../../../dist/router/register.js';
+import ApplicationContext from '../../../dist/context/context.js';
 import Router from '@koa/router';
 import Axios, {AxiosResponse} from 'axios';
-import KoaBody from '@dikac/koa-body';
-import ConditionalParameters from '../../../dist/middleware/validation-parameters';
-import ConditionalParameter from '../../../dist/middleware/validation-parameter';
-import Body from '@alirya/http/body/body';
+import KoaBody from '@dikac/koa-body.js';
+import ConditionalParameters from '../../../dist/middleware/validation-parameters.js';
+import ConditionalParameter from '../../../dist/middleware/validation-parameter.js';
+import Body from '@alirya/http/body/body.js';
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 

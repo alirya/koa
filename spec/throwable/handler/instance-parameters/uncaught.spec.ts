@@ -1,12 +1,12 @@
-import RequestPath from '../../../request-path';
+import RequestPath from '../../../request-path.js';
 import Axios, {AxiosResponse} from 'axios';
-import KoaBody from '@dikac/koa-body';
-import Error from '../../../../dist/throwable/handler/instance-parameters';
-import Server from '../../../server';
-import Register from '../../../../dist/router/register';
+import KoaBody from '@dikac/koa-body.js';
+import Error from '../../../../dist/throwable/handler/instance-parameters.js';
+import Server from '../../../server.js';
+import Register from '../../../../dist/router/register.js';
 import Router from '@koa/router';
-import MiddlewareError from '../../../../dist/middleware/error-instance-parameters';
-import Context from '../../../../dist/context/context';
+import MiddlewareError from '../../../../dist/middleware/error-instance-parameters.js';
+import Context from '../../../../dist/context/context.js';
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 
@@ -24,10 +24,10 @@ describe('uncaught handler', () => {
 
     const path : string = RequestPath(__filename) + 2;
 
-    let error : boolean = false;
-    let testError : boolean = false;
+    let error  = false;
+    let testError  = false;
     let response : AxiosResponse<{name : string, address : string}>;
-    let dataValue : {name : string, address : string} = {
+    const dataValue : {name : string, address : string} = {
         name : 'jhon',
         address : 'earth'
     };

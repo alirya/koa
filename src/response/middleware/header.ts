@@ -1,6 +1,6 @@
-import Context from '../../context/context';
+import Context from '../../context/context.js';
 import {Next} from 'koa';
-import Middleware from '../../middleware/middleware';
+import Middleware from '../../middleware/middleware.js';
 
 /**
  * set response header

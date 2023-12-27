@@ -1,8 +1,8 @@
-import Router from '@koa/router';
+import Router from '@koa.js/router.js';
 import {DefaultState, Next} from 'koa';
-import Server from '../../../server';
-import Register from '../../../../dist/router/register';
-import Context from '../../../../dist/context/context';
+import Server from '../../../server.js';
+import Register from '../../../../dist/router/register.js';
+import Context from '../../../../dist/context/context.js';
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 
@@ -24,11 +24,11 @@ describe('required for open and closed', ()=>{
         router.use(
             function (context , next: Next) {
 
-            context.request.body = 'a';
+            context.request.body = 'a.js';
             return next();
         }, function (context , next: Next) {
 
-            context.request.body = 'a';
+            context.request.body = 'a.js';
             return next();
         }
         );

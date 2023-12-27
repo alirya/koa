@@ -1,7 +1,7 @@
-import Response from '@alirya/http/response/response';
-import FromResponseParameters from '../../response/from-response-parameters';
-import Handler from './handler';
-import Context from '../../context/context';
+import Response from '@alirya/http/response/response.js';
+import FromResponseParameters from '../../response/from-response-parameters.js';
+import Handler from './handler.js';
+import Context from '../../context/context.js';
 
 /**
  * replace response with {@see Response}

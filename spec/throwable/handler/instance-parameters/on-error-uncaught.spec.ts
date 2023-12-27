@@ -1,11 +1,11 @@
-import RequestPath from '../../../request-path';
+import RequestPath from '../../../request-path.js';
 import Axios, {AxiosResponse} from 'axios';
-import KoaBody from '@dikac/koa-body';
-import Error from '../../../../dist/throwable/handler/instance-parameters';
-import Register from '../../../../dist/router/register';
+import KoaBody from '@dikac/koa-body.js';
+import Error from '../../../../dist/throwable/handler/instance-parameters.js';
+import Register from '../../../../dist/router/register.js';
 import Router from '@koa/router';
-import Server from '../../../server';
-import Context from '../../../../dist/context/context';
+import Server from '../../../server.js';
+import Context from '../../../../dist/context/context.js';
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 
@@ -22,11 +22,11 @@ describe('default use', () => {
     beforeAll(()=>server.open());
     afterAll(()=>server.close());
 
-    let error : boolean = false;
-    let testError : boolean = false;
+    let error  = false;
+    let testError  = false;
 
     let response : AxiosResponse<{name : string, address : string}>|undefined;
-    let dataValue : {name : string, address : string} = {
+    const dataValue : {name : string, address : string} = {
         name : 'jhon',
         address : 'earth'
     };

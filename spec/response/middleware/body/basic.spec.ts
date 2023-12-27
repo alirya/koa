@@ -1,13 +1,13 @@
-import KoaBody from '@dikac/koa-body';
+import KoaBody from '@dikac/koa-body.js';
 import Axios from 'axios';
-import RequestPath from '../../../request-path';
-import {RandomIntegerParameters} from '@alirya/number/random-integer';
-import Server from '../../../server';
-import Register from '../../../../dist/router/register';
+import RequestPath from '../../../request-path.js';
+import {RandomIntegerParameters} from '@alirya/number/random-integer.js';
+import Server from '../../../server.js';
+import Register from '../../../../dist/router/register.js';
 import Router from '@koa/router';
-import Context from '../../../../dist/context/context';
-import ResponseParameters from '../../../../dist/middleware/response-parameters';
-import {OkParameter} from '@alirya/http/response/ok';
+import Context from '../../../../dist/context/context.js';
+import ResponseParameters from '../../../../dist/middleware/response-parameters.js';
+import {OkParameter} from '@alirya/http/response/ok.js';
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 jasmine.DEFAULT_TIMEOUT_INTERVAL = 20 * 1000;
@@ -26,7 +26,7 @@ describe('test', () => {
     afterAll(()=>server.close());
 
     let response : any = {};
-    let dataValue : User = {
+    const dataValue : User = {
         name : 'jhon',
         address : 'earth'
     };

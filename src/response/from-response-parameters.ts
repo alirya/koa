@@ -1,8 +1,8 @@
-import Value from '@alirya/value/value';
-import Validatable from '@alirya/validatable/validatable';
-import Message from '@alirya/message/message';
-import Response from '@alirya/http/response/response';
-import Context from '../context/context';
+import Value from '@alirya/value/value.js';
+import Validatable from '@alirya/validatable/validatable.js';
+import Message from '@alirya/message/message.js';
+import Response from '@alirya/http/response/response.js';
+import Context from '../context/context.js';
 
 export default function FromResponseParameters<Subject extends Value & Validatable & Message<string>>(
     context : Context,

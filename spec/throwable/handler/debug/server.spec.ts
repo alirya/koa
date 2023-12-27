@@ -1,12 +1,12 @@
-import RequestPath from '../../../request-path';
+import RequestPath from '../../../request-path.js';
 import Axios, {AxiosResponse} from 'axios';
 import {DefaultState, DefaultContext} from 'koa';
-import KoaBody from '@dikac/koa-body';
-import Debug from '../../../../dist/throwable/handler/debug';
-import Server from '../../../server';
+import KoaBody from '@dikac/koa-body.js';
+import Debug from '../../../../dist/throwable/handler/debug.js';
+import Server from '../../../server.js';
 import Router from '@koa/router';
-import Register from '../../../../dist/router/register';
-import Context from '../../../../dist/context/context';
+import Register from '../../../../dist/router/register.js';
+import Context from '../../../../dist/context/context.js';
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 
@@ -15,7 +15,7 @@ const path : string = RequestPath(__filename);
 
 describe('test', () => {
 
-    let rethrown : boolean = false;
+    const rethrown  = false;
 
     let context: Context<DefaultState, DefaultContext>;
     let response : AxiosResponse<any>;
@@ -26,7 +26,7 @@ describe('test', () => {
     afterAll(()=>server.close());
 
 
-    let router =  Register<Context>(server.koa /*as Koa<DefaultState, Context>*/, new Router());
+    const router =  Register<Context>(server.koa /*as Koa<DefaultState, Context>*/, new Router());
 
 
     it('add request', ()=>{

@@ -1,5 +1,5 @@
-import Log from '@alirya/syslog/syslog';
-import Handler from './handler';
+import Log from '@alirya/syslog/syslog.js';
+import Handler from './handler.js';
 import Koa from 'koa';
 
 export default function PrintRequest<ContextType extends Koa.DefaultContext>(

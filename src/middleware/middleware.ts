@@ -1,5 +1,5 @@
-import ApplicationContext from '../context/context';
-import * as compose from 'koa-compose';
+import ApplicationContext from '../context/context.js';
+import * as compose from 'koa-compose.js';
 /**
  * alternative to koa router {@see Middleware} with
  * added Response body template

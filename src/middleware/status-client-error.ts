@@ -1,7 +1,7 @@
-import ClientErrorType from '@alirya/http/response/code/class/boolean/client-error';
-import StatusCode from './status-code';
-import Middleware from './middleware';
-import Context from '../context/context';
+import ClientErrorType from '@alirya/http/response/code/class/boolean/client-error.js';
+import StatusCode from './status-code.js';
+import Middleware from './middleware.js';
+import Context from '../context/context.js';
 /**
  * use {@param middleware} if response status code is 4xx
  *

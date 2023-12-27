@@ -1,11 +1,11 @@
-import KoaBody from '@dikac/koa-body';
-import MiddlewareError from '../../../dist/middleware/error-instance-parameters';
+import KoaBody from '@dikac/koa-body.js';
+import MiddlewareError from '../../../dist/middleware/error-instance-parameters.js';
 import Axios, {AxiosResponse} from 'axios';
-import RequestPath from '../../request-path';
-import Server from '../../server';
-import Register from '../../../dist/router/register';
+import RequestPath from '../../request-path.js';
+import Server from '../../server.js';
+import Register from '../../../dist/router/register.js';
 import Router from '@koa/router';
-import Context from '../../../dist/context/context';
+import Context from '../../../dist/context/context.js';
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 
@@ -16,9 +16,9 @@ describe('test', () => {
     const server = Server();
     const router =  Register<Context>(server.koa, new Router());
 
-    let rethrown : boolean = false;
+    let rethrown  = false;
     let response : AxiosResponse<{name : string, address : string}>;
-    let dataValue : {name : string, address : string} = {
+    const dataValue : {name : string, address : string} = {
         name : 'jhon',
         address : 'earth'
     };

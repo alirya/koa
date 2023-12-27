@@ -1,9 +1,9 @@
-import Middleware from './middleware';
-import ErrorHandlerParameter from '../throwable/handler/handler';
-import ErrorInstanceParameters from './error-parameters';
-import Context from '../context/context';
-import Callable from '@alirya/function/callable';
-import Guard from '@alirya/boolean/function/guard';
+import Middleware from './middleware.js';
+import ErrorHandlerParameter from '../throwable/handler/handler.js';
+import ErrorInstanceParameters from './error-parameters.js';
+import Context from '../context/context.js';
+import Callable from '@alirya/function/callable.js';
+import Guard from '@alirya/boolean/function/guard.js';
 
 
 export type ErrorArgument<

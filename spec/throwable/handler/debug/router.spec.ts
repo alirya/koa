@@ -1,12 +1,12 @@
-import RequestPath from '../../../request-path';
+import RequestPath from '../../../request-path.js';
 import Axios, {AxiosResponse} from 'axios';
-import KoaBody from '@dikac/koa-body';
-import MiddlewareError from '../../../../dist/middleware/error-instance-parameters';
-import Debug from '../../../../dist/throwable/handler/debug';
-import Server from '../../../server';
+import KoaBody from '@dikac/koa-body.js';
+import MiddlewareError from '../../../../dist/middleware/error-instance-parameters.js';
+import Debug from '../../../../dist/throwable/handler/debug.js';
+import Server from '../../../server.js';
 import Router from '@koa/router';
-import Register from '../../../../dist/router/register';
-import Context from '../../../../dist/context/context';
+import Register from '../../../../dist/router/register.js';
+import Context from '../../../../dist/context/context.js';
 
 it('force console log', () => { spyOn(console, 'log').and.callThrough();});
 
@@ -15,9 +15,9 @@ const path : string = RequestPath(__filename);
 
 describe('test', () => {
 
-    let rethrown : boolean = false;
+    const rethrown  = false;
     let response : AxiosResponse<{name : string, address : string}>;
-    let dataValue : {name : string, address : string} = {
+    const dataValue : {name : string, address : string} = {
         name : 'jhon',
         address : 'earth'
     };
@@ -29,7 +29,7 @@ describe('test', () => {
     afterAll(()=>server.close());
 
 
-    let router =  Register<Context>(server.koa, new Router());
+    const router =  Register<Context>(server.koa, new Router());
 
 
     it('add request', ()=>{

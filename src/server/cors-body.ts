@@ -1,8 +1,8 @@
-import Server from "./server";
-import Standard from "./standard";
+import Server from './server.js';
+import Standard from './standard.js';
 import Cors from "@koa/cors";
-import KoaBody from "@dikac/koa-body";
-import Method from "@alirya/http/request/method/enum/method";
+import KoaBody from "@dikac/koa-body.js";
+import Method from "@alirya/http/request/method/enum/method.js";
 
 export default function CorsBody(server : Server = new Standard()) {
 

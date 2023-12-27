@@ -1,6 +1,6 @@
 import {DefaultContext, DefaultState} from 'koa';
 import {RouterParamContext} from '@koa/router';
-import ErrorHandlerInterface from './handler/handler';
+import ErrorHandlerInterface from './handler/handler.js';
 
 export default interface Pipe<
     ErrorType extends globalThis.Error,

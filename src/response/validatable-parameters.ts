@@ -1,6 +1,6 @@
-import Validatable from '@alirya/validator/validatable/validatable';
-import Code from '@alirya/code/code';
-import Context from '../context/context';
+import Validatable from '@alirya/validator/validatable/validatable.js';
+import Code from '@alirya/code/code.js';
+import Context from '../context/context.js';
 
 export default function ValidatableParameters(
     context: Context,

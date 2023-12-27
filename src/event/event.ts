@@ -1,7 +1,7 @@
-import Callable from "@alirya/function/callable";
-import {PriorityValue} from "@alirya/set/priority";
-import {OnceValue} from "@alirya/set/once";
-import Server from "../server/server";
+import Callable from "@alirya/function/callable.js";
+import {PriorityValue} from "@alirya/set/priority.js";
+import {OnceValue} from "@alirya/set/once.js";
+import Server from '../server/server.js';
 
 
 export default interface Event<

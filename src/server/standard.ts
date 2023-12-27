@@ -1,10 +1,10 @@
 import Koa, {DefaultContext, DefaultState, Middleware} from 'koa';
 import {Server as HttpServer} from 'http';
-import Server from './server';
+import Server from './server.js';
 import {ListenOptions} from 'net';
-import Router from "@koa/router";
-import ApplicationContext from "../context/context";
-import State from "../context/state/infer";
+import Router from "@koa/router.js";
+import ApplicationContext from "../context/context.js";
+import State from '../context/state/infer.js';
 
 export default class Standard<
     StateT = DefaultState,
